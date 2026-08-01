@@ -1,0 +1,17 @@
+venv/
+__pycache__/
+*.pyc
+data/raw/*
+data/processed/*
+data/embeddings/*
+data/logs/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/embeddings/.gitkeep
+!data/logs/.gitkeep
+outputs/figures/*
+outputs/tables/*
+!outputs/figures/.gitkeep
+!outputs/tables/.gitkeep
+.ipynb_checkpoints/
+.DS_Store

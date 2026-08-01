@@ -1,0 +1,13 @@
+sentence-transformers
+faiss-cpu
+scikit-learn
+lightgbm
+rapidfuzz
+ranx
+scipy
+pandas
+numpy
+matplotlib
+seaborn
+requests
+beautifulsoup4
