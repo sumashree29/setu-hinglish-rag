@@ -1,0 +1,22 @@
+# --- Core ---
+numpy
+pandas
+scipy
+scikit-learn
+tqdm
+
+# --- Embeddings / Retrieval (Phase 1, 5) ---
+sentence-transformers
+transformers
+faiss-cpu
+ranx
+
+# --- Operators (Phase 2) ---
+lightgbm
+
+# --- Fusion / Stats (Phase 3, 5) ---
+statsmodels
+
+# --- Visualization ---
+matplotlib
+seaborn
