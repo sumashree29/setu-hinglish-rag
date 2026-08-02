@@ -25,9 +25,9 @@ query_texts = [q["text"] for q in queries]
 query_ids = [q["query_id"] for q in queries]
 
 MODELS = {
-    "indic_sbert": ("l3cube-pune/hindi-sentence-similarity-sbert", False),
+    "indic_sbert": ("l3cube-pune/indic-sentence-similarity-sbert", False),
     "bge_m3": ("BAAI/bge-m3", False),
-    "me5_large": ("intfloat/multilingual-e5-large", True),  # True = needs query/passage prefix
+    "me5_large": ("intfloat/multilingual-e5-large", True),
 }
 
 for model_key, (model_name, needs_prefix) in MODELS.items():

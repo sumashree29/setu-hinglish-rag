@@ -15,7 +15,7 @@ RESULTS_LOGS = ROOT / "results" / "logs"
 # NOTE: these need Hugging Face access, set up in a later task.
 EMBEDDING_MODELS = {
     "bge_m3": "BAAI/bge-m3",
-    "indic_sbert": "l3cube-pune/hindi-sentence-similarity-sbert",  # verified on HF, Hindi-specific SBERT
+    "indic_sbert": "l3cube-pune/indic-sentence-similarity-sbert",  # matches Reference 3 verified link
     "me5_large": "intfloat/multilingual-e5-large",
 }
 # --- CMI / LID ---
