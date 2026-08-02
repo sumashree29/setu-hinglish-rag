@@ -40,13 +40,12 @@ def confidence_proxy(scores: List[float], method: str = "margin") -> float:
         return float(sorted_scores[0] - sorted_scores[1])
         
     elif method == "entropy":
-        # Normalize scores to sum to 1
-        total = sum(sorted_scores)
-        if total <= 0:
+        if min(sorted_scores) < 0 or sum(sorted_scores) <= 0:
             exp_scores = [math.exp(s) for s in sorted_scores]
             total_exp = sum(exp_scores)
             probs = [e / total_exp for e in exp_scores]
         else:
+            total = sum(sorted_scores)
             probs = [s / total for s in sorted_scores]
             
         entropy_val = 0.0
