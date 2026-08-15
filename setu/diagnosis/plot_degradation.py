@@ -12,31 +12,36 @@ import matplotlib.pyplot as plt
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 sys.path.append(str(Path(__file__).resolve().parent))
 import config
-from lid import tag_tokens
-from cmi import compute_cmi, cmi_band
+from cmi import cmi
 
 LOG_DIR = config.ROOT / "results" / "logs"
 FIG_DIR = config.ROOT / "results" / "figures"
 
-queries = json.load(open(config.DATA_PILOT / "queries.json", encoding="utf-8"))
+queries = json.load(open("data/processed/queries_remapped.json", encoding="utf-8"))
 per_query_metrics = json.load(open(LOG_DIR / "per_query_metrics.json"))
+
+
+def cmi_band(score, bands):
+    for lo, hi, name in bands:
+        if lo <= score < hi:
+            return name
+    return bands[-1][2]
+
 
 # Compute CMI + band for every query
 query_cmi = {}
 query_band = {}
 for q in queries:
-    tags = tag_tokens(q["text"])
-    c = compute_cmi(tags)
+    c = cmi(q["text"])
     b = cmi_band(c, config.CMI_BANDS)
     query_cmi[q["query_id"]] = c
     query_band[q["query_id"]] = b
 
 MODEL_KEYS = ["indic_sbert", "bge_m3", "me5_large"]
 METRIC_TO_PLOT = "ndcg@10"
-BAND_ORDER = [b[2] for b in config.CMI_BANDS]  # ["low", "medium", "high", "very_high"]
+BAND_ORDER = [b[2] for b in config.CMI_BANDS]
 
-# For each model, compute average metric per CMI band
-model_band_avg = {}  # {model_key: {band: avg_metric}}
+model_band_avg = {}
 for model_key in MODEL_KEYS:
     band_values = defaultdict(list)
     for qid, metrics in per_query_metrics[model_key].items():
@@ -53,7 +58,6 @@ for model_key in MODEL_KEYS:
         n = len(band_values.get(band, []))
         print(f"  {band:12s} (n={n}): {val}")
 
-# Plot
 plt.figure(figsize=(8, 5))
 for model_key in MODEL_KEYS:
     x = []

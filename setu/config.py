@@ -19,14 +19,14 @@ EMBEDDING_MODELS = {
 }
 
 # --- CMI / LID ---
-# CMI is a balance measure, maxes at 50 for two-language mixing (NOT a 0-1 scale).
+# CMI (Code-Mixing Index) bands, calibrated for the cmi() function's [0,1]
+# range (fraction of non-majority-language tokens, per plan §3.5).
 CMI_BANDS = [
-    (0, 10, "low"),
-    (10, 25, "medium"),
-    (25, 40, "high"),
-    (40, 50, "very_high"),
+    (0, 0.15, "low"),
+    (0.15, 0.35, "medium"),
+    (0.35, 0.55, "high"),
+    (0.55, 1.01, "very_high"),
 ]
-
 # --- Retrieval ---
 FAISS_INDEX_TYPE = "IndexFlatIP"
 TOP_K = 10

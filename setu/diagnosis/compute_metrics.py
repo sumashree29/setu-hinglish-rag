@@ -13,8 +13,7 @@ sys.path.append(str(Path(__file__).resolve().parents[1]))
 import config
 
 LOG_DIR = config.ROOT / "results" / "logs"
-
-queries = json.load(open(config.DATA_PILOT / "queries.json", encoding="utf-8"))
+queries = json.load(open("data/processed/queries_remapped.json", encoding="utf-8"))
 retrieval_results = json.load(open(LOG_DIR / "retrieval_results.json"))
 
 # Build qrels: query_id -> {doc_id: relevance} (1 = relevant, since we only
