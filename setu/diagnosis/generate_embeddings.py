@@ -16,9 +16,13 @@ import config
 OUT_DIR = config.ROOT / "results" / "logs"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-docs = json.load(open(config.DATA_PILOT / "documents.json", encoding="utf-8"))
-queries = json.load(open(config.DATA_PILOT / "queries.json", encoding="utf-8"))
+docs = []
+with open(Path("data/processed/corpus_chunks.jsonl"), encoding="utf-8") as f:
+    for line in f:
+        docs.append(json.loads(line))
+docs = [{"doc_id": d["chunk_id"], "text": d["text"]} for d in docs]  # normalize field name
 
+queries = json.load(open(Path("data/processed/queries_remapped.json"), encoding="utf-8"))
 doc_texts = [d["text"] for d in docs]
 doc_ids = [d["doc_id"] for d in docs]
 query_texts = [q["text"] for q in queries]
