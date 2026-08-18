@@ -8,8 +8,7 @@ token_lid_tags() in lid_entropy.py (shared tagging call, tagged once).
 """
 from typing import List
 
-from lid_entropy import token_lid_tags
-
+from .lid_entropy import token_lid_tags
 
 def cmi(query: str, model=None) -> float:
     """

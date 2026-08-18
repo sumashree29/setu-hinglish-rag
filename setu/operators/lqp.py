@@ -48,9 +48,12 @@ def fit_lqp(X: np.ndarray, Y: np.ndarray, alpha_reg: float = 1.0, use_cv: bool =
     return model
 
 
-def apply_lqp(query_embedding: np.ndarray, cmi_score: float, model: Ridge, cmi_max: float = 50.0) -> np.ndarray:
+def apply_lqp(query_embedding: np.ndarray, cmi_score: float, model: Ridge, cmi_max: float = 1.0) -> np.ndarray:
     """Apply the CMI-conditional projection to one query embedding.
-    cmi_score is on your team's corrected 0-50 scale, not 0-1."""
+    cmi_score comes from setu.diagnosis.cmi.cmi(), which returns [0,1]
+    (fraction of non-majority-language tokens). NOTE: this scale changed
+    twice during Phase 1 (originally 0-100, briefly 0-50, now 0-1) --
+    always check setu/diagnosis/cmi.py's current docstring if unsure."""
     d = query_embedding.shape[0]
     W = model.coef_.T
     alpha = min(1.0, cmi_score / cmi_max)
