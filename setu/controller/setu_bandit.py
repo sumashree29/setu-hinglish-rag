@@ -5,19 +5,12 @@ OWNER: R3 | PHASE: 4 (plan §6)
 SETU v1: fixed order, always all 4 steps (LAG -> CAEP -> LQP -> CARF), tau=1. Baseline.
 SETU v2: learned contextual bandit that picks the operator sequence per query
          and halts adaptively based on a confidence signal.
-"""
-from typing import List, Dict, Tuple
-import numpy as np
 
-ACTIONS = ["LAG", "CAEP", "LQP", "STOP"]
-
-"""
-SETU controller — the paper's central contribution.
-OWNER: R3 | PHASE: 4 (plan §6)
-
-SETU v1: fixed order, always all 4 steps (LAG -> CAEP -> LQP -> CARF), tau=1. Baseline.
-SETU v2: learned contextual bandit that picks the operator sequence per query
-         and halts adaptively based on a confidence signal.
+CONVENTION: any `faiss_search_fn` passed into functions below is expected to
+return a (ranked_doc_ids, scores) tuple -- List[str], List[float] -- matching
+the shape our Phase 1 run_retrieval.py already stores. This matters because
+confidence_proxy() (setu/evaluation/metrics.py) needs raw similarity scores,
+not doc IDs.
 """
 import json
 from pathlib import Path
@@ -52,9 +45,10 @@ def log_trajectory(query: str, state: Dict, action: str, confidence_before: floa
 
     return row
 
+
 def setu_v1_fixed_order(
     query: str,
-    raw_ranking: List[str],
+    raw_ranking: Tuple[List[str], List[float]],
     embed_fn,
     entities: List[str],
     entity_freq: Dict[str, int],
@@ -74,25 +68,28 @@ def setu_v1_fixed_order(
 
     Args:
         query: raw Hinglish query
-        raw_ranking: FAISS top-k doc_ids for the *unmodified* query (baseline ranking)
+        raw_ranking: (ranked_doc_ids, scores) for the *unmodified* query
         embed_fn: function(list[str]) -> embeddings, shared across operators
         entities, entity_freq: from setu.operators.caep.extract_entity_list/entity_frequencies
         caep_gate: fitted LogisticRegression from fit_caep_gate()
         lqp_model: fitted Ridge model from fit_lqp()
-        faiss_search_fn: function(query_embedding) -> List[str] ranked doc_ids
+        faiss_search_fn: function(query_embedding) -> (ranked_doc_ids, scores)
 
     Returns:
         Dict with the trajectory (steps taken) and final fused ranking.
     """
     from setu.diagnosis.cmi import cmi
     from setu.diagnosis.lid_entropy import lid_entropy
-    from setu.operators.lag import predict_strategy, entity_density, fit_lag_v1
+    from setu.operators.lag import entity_density
     from setu.operators.caep import apply_caep
+    from setu.operators.lqp import apply_lqp
     from setu.fusion.carf import carf_v1
 
     cmi_score = cmi(query)
     entropy_score = lid_entropy(query)
     density = entity_density(query, entities)
+
+    raw_doc_ids, raw_scores = raw_ranking
 
     trajectory = []
 
@@ -109,11 +106,11 @@ def setu_v1_fixed_order(
     # Step 3: LQP -- CMI-conditional embedding projection
     corrected_embedding = embed_fn([corrected_query])[0]
     projected_embedding = apply_lqp(np.asarray(corrected_embedding), cmi_score, lqp_model)
-    corrected_ranking = faiss_search_fn(projected_embedding)
-    trajectory.append({"action": "LQP", "corrected_ranking_top3": corrected_ranking[:3]})
+    corrected_doc_ids, corrected_scores = faiss_search_fn(projected_embedding)
+    trajectory.append({"action": "LQP", "corrected_ranking_top3": corrected_doc_ids[:3]})
 
     # Step 4: CARF -- fuse raw vs. corrected rankings
-    fused_ranking = carf_v1(raw_ranking, corrected_ranking, cmi_score=cmi_score, cmi_max=1.0)
+    fused_ranking = carf_v1(raw_doc_ids, corrected_doc_ids, cmi_score=cmi_score, cmi_max=1.0)
     trajectory.append({"action": "CARF", "fused_ranking_top3": fused_ranking[:3]})
 
     return {
@@ -124,6 +121,7 @@ def setu_v1_fixed_order(
         "trajectory": trajectory,
         "final_ranking": fused_ranking,
     }
+
 
 class EpsilonGreedyController:
     """
@@ -156,7 +154,6 @@ class EpsilonGreedyController:
             rewards = self.history[action]["rewards"]
 
             if len(contexts) < 2:
-                # Unexplored/under-explored action -- prioritize trying it
                 predicted_value = float("inf")
             else:
                 model = LinearRegression()
@@ -173,13 +170,14 @@ class EpsilonGreedyController:
         self.history[action]["contexts"].append(context.tolist())
         self.history[action]["rewards"].append(reward)
 
+
 class LinUCBController:
     """
     Contextual bandit: state = (CMI, LID-entropy, confidence, step t),
     actions = ACTIONS. Closed-form ridge-regression updates.
-    TODO (R3): implement per plan §6.2. Simpler starting point (plan alt #3):
-    epsilon-greedy value regression first, then upgrade to LinUCB if there's
-    time. mabwiser is a fallback library if hand-implementing LinUCB is slow.
+    TODO (R3/R1): implement per plan §6.2, once EpsilonGreedyController has
+    validated the full v2 loop end-to-end. mabwiser is a fallback library if
+    hand-implementing LinUCB is slow.
     """
 
     def __init__(self, n_actions: int = len(ACTIONS), context_dim: int = 4, alpha: float = 1.0):
@@ -195,7 +193,7 @@ class LinUCBController:
 def setu_v2_run(
     query: str,
     controller,
-    raw_ranking: List[str],
+    raw_ranking: Tuple[List[str], List[float]],
     embed_fn,
     entities: List[str],
     entity_freq: Dict[str, int],
@@ -210,13 +208,18 @@ def setu_v2_run(
     action, apply the corresponding operator, update confidence, until STOP
     or a max-step cap is hit. Returns (operator sequence used, confidence trace).
 
-    confidence_fn: function(ranking: List[str]) -> float, e.g. margin between
-    rank-1/rank-2 scores (per plan §5.2's confidence proxy).
+    Args:
+        raw_ranking: (ranked_doc_ids, scores) for the *unmodified* query
+        faiss_search_fn: function(query_embedding) -> (ranked_doc_ids, scores)
+        confidence_fn: setu.evaluation.metrics.confidence_proxy or compatible
+            -- takes a List[float] of scores (NOT doc IDs) and a method name,
+            returns a single float confidence value.
     """
     from setu.diagnosis.cmi import cmi
     from setu.diagnosis.lid_entropy import lid_entropy
     from setu.operators.lag import entity_density
     from setu.operators.caep import apply_caep
+    from setu.operators.lqp import apply_lqp
     from setu.fusion.carf import carf_v1
 
     cmi_score = cmi(query)
@@ -224,8 +227,8 @@ def setu_v2_run(
     density = entity_density(query, entities)
 
     current_query = query
-    current_ranking = raw_ranking
-    confidence = confidence_fn(current_ranking)
+    current_ranking, current_scores = raw_ranking
+    confidence = confidence_fn(current_scores, method="margin")
 
     operator_sequence = []
     confidence_trace = [confidence]
@@ -243,19 +246,19 @@ def setu_v2_run(
         if action == "CAEP":
             current_query = apply_caep(current_query, entities, caep_gate, entity_freq, embed_fn=embed_fn)
             current_embedding = embed_fn([current_query])[0]
-            current_ranking = faiss_search_fn(np.asarray(current_embedding))
+            current_ranking, current_scores = faiss_search_fn(np.asarray(current_embedding))
 
         elif action == "LQP":
             current_embedding = embed_fn([current_query])[0]
             projected_embedding = apply_lqp(np.asarray(current_embedding), cmi_score, lqp_model)
-            current_ranking = faiss_search_fn(projected_embedding)
+            current_ranking, current_scores = faiss_search_fn(projected_embedding)
 
         elif action == "LAG":
             # Diagnostic only -- see setu_v1_fixed_order's note on LAG's gap.
-            # No query transformation happens here; ranking is unchanged.
+            # No query transformation happens here; ranking/scores unchanged.
             pass
 
-        confidence = confidence_fn(current_ranking)
+        confidence = confidence_fn(current_scores, method="margin")
         reward = confidence - confidence_before
 
         controller.update(context, action, reward)
@@ -270,6 +273,6 @@ def setu_v2_run(
         operator_sequence.append(action)
         confidence_trace.append(confidence)
 
-    fused_ranking = carf_v1(raw_ranking, current_ranking, cmi_score=cmi_score, cmi_max=1.0)
+    fused_ranking = carf_v1(raw_ranking[0], current_ranking, cmi_score=cmi_score, cmi_max=1.0)
 
     return operator_sequence, confidence_trace
