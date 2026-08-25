@@ -202,7 +202,7 @@ def setu_v2_run(
     faiss_search_fn,
     confidence_fn,
     max_steps: int = 4,
-) -> Tuple[List[str], List[float]]:
+) -> Tuple[List[str], List[float], List[str]]:
     """
     Run the learned controller end to end on one query: repeatedly select an
     action, apply the corresponding operator, update confidence, until STOP
@@ -236,10 +236,11 @@ def setu_v2_run(
     for step in range(max_steps):
         context = np.array([cmi_score, entropy_score, confidence, step], dtype=float)
         action = controller.select_action(context)
-
         if action == "STOP":
+            controller.update(context, "STOP", reward=0.0)
             operator_sequence.append("STOP")
             break
+       
 
         confidence_before = confidence
 
@@ -275,4 +276,4 @@ def setu_v2_run(
 
     fused_ranking = carf_v1(raw_ranking[0], current_ranking, cmi_score=cmi_score, cmi_max=1.0)
 
-    return operator_sequence, confidence_trace
+    return operator_sequence, confidence_trace, fused_ranking
