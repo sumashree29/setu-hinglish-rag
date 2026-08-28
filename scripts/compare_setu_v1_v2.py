@@ -3,8 +3,8 @@ Phase 4 Task 6: SETU v1 (fixed order) vs v2 (LinUCB) vs raw baseline,
 across all 75 pilot queries (60 original + 15 misspelled-entity subset).
 Reports Recall@k/MRR/nDCG, mean steps, latency.
 
-Uses real fitted CAEP gate and LQP model (results/models/*.pkl) -- no more
-placeholders. v2 uses LinUCBController (real contextual bandit); switch to
+Uses real fitted CAEP gate, LQP model, and LAG model (results/models/*.pkl).
+v2 uses LinUCBController (real contextual bandit); switch to
 EpsilonGreedyController below if you want the simpler baseline policy instead.
 """
 import json
@@ -21,8 +21,7 @@ from ranx import Qrels, Run, evaluate
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 
 from setu.operators.caep import extract_entity_list, entity_frequencies
-from setu.operators.lag import fit_lag_v1
-from setu.controller.setu_bandit import setu_v1_fixed_order, setu_v2_run, LinUCBController
+from setu.controller.setu_bandit import setu_v1_fixed_order, setu_v2_run, LinUCBController, EpsilonGreedyController
 from setu.evaluation.metrics import confidence_proxy
 
 # --- Load real pilot corpus + queries ---
@@ -60,21 +59,14 @@ def faiss_search_fn(query_embedding, k=10):
 entities = extract_entity_list(doc_texts)
 entity_freq = entity_frequencies(doc_texts)
 
-print("Loading real fitted CAEP gate and LQP model from results/models/...")
+print("Loading real fitted CAEP gate, LQP model, and LAG model from results/models/...")
 with open("results/models/caep_gate.pkl", "rb") as f:
     caep_gate = pickle.load(f)
 with open("results/models/lqp_model.pkl", "rb") as f:
     lqp_model = pickle.load(f)
-
-# Fit calibrated LAG model (low CMI -> light_normalize, medium -> dual_variant, high -> full_rewrite)
-X_lag = [
-    [0.05, 0.1, 0.1], [0.10, 0.15, 0.2],
-    [0.25, 0.4, 0.5], [0.30, 0.5, 0.4],
-    [0.50, 0.8, 0.3], [0.60, 0.9, 0.2],
-]
-y_lag = [0, 0, 1, 1, 2, 2]
-lag_model = fit_lag_v1(X_lag, y_lag)
-print("Loaded caep_gate.pkl, lqp_model.pkl, and fitted LAG model\n")
+with open("results/models/lag_model.pkl", "rb") as f:
+    lag_model = pickle.load(f)
+print("Loaded caep_gate.pkl, lqp_model.pkl, and lag_model.pkl (trained on real corpus/PHINC/pilot labels)\n")
 
 # --- Run all 3 systems across all queries ---
 qrels_dict = {q["query_id"]: {d: 1 for d in q["relevant_doc_ids"]} for q in queries}

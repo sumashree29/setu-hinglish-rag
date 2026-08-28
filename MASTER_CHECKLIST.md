@@ -27,3 +27,4 @@ Tick boxes as you go. File to fill in is listed so there's no ambiguity about wh
 | 20 | All figures/tables assembled | 6 | All | `outputs/figures/`, `outputs/tables/` | ☐ |
 | 21 | Paper drafted in IEEE format | 6 | All | (Overleaf, outside repo) | ☐ |
 | 22 | (Stretch) Online policy adaptation | 6 | R3 | `setu/controller/setu_bandit.py` | ☐ |
+

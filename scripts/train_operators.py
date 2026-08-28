@@ -1,5 +1,6 @@
 import os
 import sys
+import json
 import pickle
 import numpy as np
 from pathlib import Path
@@ -81,6 +82,28 @@ def main():
     with open(caep_path, "wb") as f:
         pickle.dump(caep_gate, f)
     print(f"Saved CAEP gate to {caep_path}")
+
+    print("\n--- Training LAG ---")
+    lag_labels_path = root / "data" / "processed" / "lag_labels.json"
+    if not lag_labels_path.exists():
+        print("Generating lag_labels.json...")
+        from scripts.label_lag_queries import main as generate_lag_labels
+        generate_lag_labels()
+
+    with open(lag_labels_path, "r", encoding="utf-8") as f:
+        labels_data = json.load(f)
+
+    X_lag = np.array([[d["cmi"], d["lid_entropy"], d["entity_density"]] for d in labels_data])
+    y_lag = np.array([d["label"] for d in labels_data])
+
+    print(f"Fitting LAG LightGBM classifier on {len(labels_data)} labeled queries...")
+    from setu.operators.lag import fit_lag_v2
+    lag_model = fit_lag_v2(X_lag, y_lag)
+
+    lag_path = models_dir / "lag_model.pkl"
+    with open(lag_path, "wb") as f:
+        pickle.dump(lag_model, f)
+    print(f"Saved LAG model to {lag_path}")
 
 if __name__ == "__main__":
     main()
