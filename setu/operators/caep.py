@@ -93,7 +93,7 @@ def build_entity_features(candidate: str, entity: str, entity_freq: Dict[str, in
     fuzzy_score via RapidFuzz, embedding_cosine via the provided embed_fn (falls
     back to a trigram-cosine if embed_fn is None).
     """
-    fuzzy_score = float(fuzz.ratio(candidate, entity))
+    fuzzy_score = float(fuzz.ratio(candidate.lower(), entity.lower()))
     
     if embed_fn is not None:
         try:

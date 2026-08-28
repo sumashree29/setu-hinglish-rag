@@ -20,6 +20,7 @@ from ranx import Qrels, Run, evaluate
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 
 from setu.operators.caep import extract_entity_list, entity_frequencies
+from setu.operators.lag import fit_lag_v1
 from setu.controller.setu_bandit import setu_v1_fixed_order, setu_v2_run, EpsilonGreedyController
 from setu.evaluation.metrics import confidence_proxy
 
@@ -54,7 +55,7 @@ def faiss_search_fn(query_embedding, k=10):
     return [doc_ids[i] for i in indices[0]], [float(s) for s in scores[0]]
 
 
-# --- Entities + placeholder CAEP gate ---
+# --- Entities + fitted models ---
 entities = extract_entity_list(doc_texts)
 entity_freq = entity_frequencies(doc_texts)
 
@@ -63,9 +64,18 @@ with open("results/models/caep_gate.pkl", "rb") as f:
     caep_gate = pickle.load(f)
 with open("results/models/lqp_model.pkl", "rb") as f:
     lqp_model = pickle.load(f)
-print("Loaded caep_gate.pkl and lqp_model.pkl (trained on real corpus/PHINC data)\n")
 
-# --- Run all 3 systems across all 60 queries ---
+# Fit calibrated LAG model (low CMI -> light_normalize, medium -> dual_variant, high -> full_rewrite)
+X_lag = [
+    [0.05, 0.1, 0.1], [0.10, 0.15, 0.2],
+    [0.25, 0.4, 0.5], [0.30, 0.5, 0.4],
+    [0.50, 0.8, 0.3], [0.60, 0.9, 0.2],
+]
+y_lag = [0, 0, 1, 1, 2, 2]
+lag_model = fit_lag_v1(X_lag, y_lag)
+print("Loaded caep_gate.pkl, lqp_model.pkl, and fitted LAG model\n")
+
+# --- Run all 3 systems across all queries ---
 qrels_dict = {q["query_id"]: {d: 1 for d in q["relevant_doc_ids"]} for q in queries}
 
 raw_run, v1_run, v2_run = {}, {}, {}
@@ -86,7 +96,7 @@ for i, q in enumerate(queries):
     v1_result = setu_v1_fixed_order(
         query=query_text, raw_ranking=raw_ranking, embed_fn=embed_fn,
         entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
-        lqp_model=lqp_model, faiss_search_fn=faiss_search_fn,
+        lqp_model=lqp_model, faiss_search_fn=faiss_search_fn, lag_model=lag_model,
     )
     v1_latencies.append(time.perf_counter() - t0)
     v1_ranking = v1_result["final_ranking"]
@@ -97,6 +107,7 @@ for i, q in enumerate(queries):
         query=query_text, controller=controller, raw_ranking=raw_ranking, embed_fn=embed_fn,
         entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
         lqp_model=lqp_model, faiss_search_fn=faiss_search_fn, confidence_fn=confidence_proxy,
+        lag_model=lag_model,
     )
     
     v2_latencies.append(time.perf_counter() - t0)
@@ -108,10 +119,13 @@ for i, q in enumerate(queries):
 
 print("\nAll queries processed.\n")
 
-# --- Metrics ---
+# --- Metrics across all 75 queries ---
 qrels = Qrels(qrels_dict)
 METRICS = ["ndcg@10", "mrr", "recall@5", "recall@10"]
 
+print(f"==================================================")
+print(f"=== FULL DATASET ({len(queries)} Queries) ===")
+print(f"==================================================")
 print("=== RAW baseline ===")
 print(evaluate(qrels, Run(raw_run), METRICS))
 
@@ -123,3 +137,23 @@ print("\n=== SETU v2 (epsilon-greedy) ===")
 print(evaluate(qrels, Run(v2_run), METRICS))
 print(f"Mean steps taken: {np.mean(v2_step_counts):.2f}")
 print(f"Mean latency: {np.mean(v2_latencies)*1000:.2f} ms")
+
+# --- Metrics across Q61-Q75 subset (Misspelled entity queries only) ---
+subset_qids = [q["query_id"] for q in queries if int(q["query_id"].replace("Q", "")) >= 61]
+if subset_qids:
+    qrels_sub = Qrels({qid: qrels_dict[qid] for qid in subset_qids})
+    raw_run_sub = Run({qid: raw_run[qid] for qid in subset_qids})
+    v1_run_sub = Run({qid: v1_run[qid] for qid in subset_qids})
+    v2_run_sub = Run({qid: v2_run[qid] for qid in subset_qids})
+
+    print(f"\n==================================================")
+    print(f"=== MISSPELLED ENTITY SUBSET ({len(subset_qids)} Queries: Q61-Q75) ===")
+    print(f"==================================================")
+    print("=== RAW baseline (misspelled subset) ===")
+    print(evaluate(qrels_sub, raw_run_sub, METRICS))
+
+    print("\n=== SETU v1 (misspelled subset) ===")
+    print(evaluate(qrels_sub, v1_run_sub, METRICS))
+
+    print("\n=== SETU v2 (misspelled subset) ===")
+    print(evaluate(qrels_sub, v2_run_sub, METRICS))
