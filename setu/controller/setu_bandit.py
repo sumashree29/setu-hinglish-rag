@@ -55,16 +55,10 @@ def setu_v1_fixed_order(
     caep_gate,
     lqp_model,
     faiss_search_fn,
+    lag_model=None,
 ) -> Dict:
     """
     Baseline: always LAG -> CAEP -> LQP -> CARF, no adaptivity.
-
-    ASSUMPTION (flagged for team review): LAG has no query-rewriting executor
-    built yet (only predict_strategy() exists, returning a label). Since v1 is
-    explicitly the "run everything, no adaptivity" baseline, LAG's predicted
-    strategy is logged as a diagnostic feature but does not gate/skip CAEP or
-    LQP here -- CAEP (entity substitution) and LQP (embedding projection) are
-    the two operators that actually transform the query in this baseline.
 
     Args:
         query: raw Hinglish query
@@ -74,16 +68,17 @@ def setu_v1_fixed_order(
         caep_gate: fitted LogisticRegression from fit_caep_gate()
         lqp_model: fitted Ridge model from fit_lqp()
         faiss_search_fn: function(query_embedding) -> (ranked_doc_ids, scores)
+        lag_model: optional fitted classifier for LAG predict_strategy()
 
     Returns:
         Dict with the trajectory (steps taken) and final fused ranking.
     """
     from setu.diagnosis.cmi import cmi
     from setu.diagnosis.lid_entropy import lid_entropy
-    from setu.operators.lag import entity_density
+    from setu.operators.lag import entity_density, predict_strategy, apply_lag
     from setu.operators.caep import apply_caep
     from setu.operators.lqp import apply_lqp
-    from setu.fusion.carf import carf_v1
+    from setu.fusion.carf import carf_v1, rrf_baseline
 
     cmi_score = cmi(query)
     entropy_score = lid_entropy(query)
@@ -92,15 +87,30 @@ def setu_v1_fixed_order(
     raw_doc_ids, raw_scores = raw_ranking
 
     trajectory = []
+    current_query = query
 
-    # Step 1: LAG -- diagnostic only (see assumption above)
-    # NOTE: predict_strategy needs a fitted model; caller must have one ready.
-    # Left as metadata-only here since no lag_model param was passed in yet --
-    # this is a known gap to fill once R2 confirms LAG's intended pipeline role.
-    trajectory.append({"action": "LAG", "note": "diagnostic only, no fitted model wired in yet"})
+    # Step 1: LAG -- learned adaptive gating
+    if lag_model is not None:
+        strategy = predict_strategy(cmi_score, entropy_score, density, lag_model)
+        lag_out = apply_lag(current_query, strategy, entities=entities, embed_fn=embed_fn, caep_gate=caep_gate, entity_freq=entity_freq)
+        if isinstance(lag_out, list):
+            q1_emb = embed_fn([lag_out[0]])[0]
+            q2_emb = embed_fn([lag_out[1]])[0]
+            r1_ids, r1_scores = faiss_search_fn(np.asarray(q1_emb))
+            r2_ids, r2_scores = faiss_search_fn(np.asarray(q2_emb))
+            merged_ranking = rrf_baseline([r1_ids, r2_ids])
+            trajectory.append({"action": "LAG", "strategy": strategy, "dual_queries": lag_out, "merged_ranking_top3": merged_ranking[:3]})
+            current_query = lag_out[1]
+        else:
+            current_query = lag_out
+            lag_emb = embed_fn([current_query])[0]
+            lag_doc_ids, lag_scores = faiss_search_fn(np.asarray(lag_emb))
+            trajectory.append({"action": "LAG", "strategy": strategy, "output_query": current_query, "ranking_top3": lag_doc_ids[:3]})
+    else:
+        trajectory.append({"action": "LAG", "note": "diagnostic only, no fitted model wired in yet"})
 
     # Step 2: CAEP -- entity-aware query rewrite
-    corrected_query = apply_caep(query, entities, caep_gate, entity_freq, embed_fn=embed_fn)
+    corrected_query = apply_caep(current_query, entities, caep_gate, entity_freq, embed_fn=embed_fn)
     trajectory.append({"action": "CAEP", "output_query": corrected_query})
 
     # Step 3: LQP -- CMI-conditional embedding projection
@@ -140,35 +150,44 @@ class EpsilonGreedyController:
         self.history = {a: {"contexts": [], "rewards": []} for a in self.actions}
 
     def select_action(self, context: np.ndarray) -> str:
+        """
+        Epsilon-greedy with linear regression on historical (context, reward) pairs.
+        Falls back to uniform random exploration when epsilon triggers OR when
+        an action hasn't been tried enough times to fit a regression line.
+        """
         import random
-        from sklearn.linear_model import LinearRegression
 
         if random.random() < self.epsilon:
             return random.choice(self.actions)
 
+        # Predict reward for each action using a simple Ridge model fit on history
         best_action = None
-        best_value = -float("inf")
+        best_pred = -float("inf")
 
         for action in self.actions:
-            contexts = self.history[action]["contexts"]
-            rewards = self.history[action]["rewards"]
-
-            if len(contexts) < 2:
-                predicted_value = float("inf")
+            h = self.history[action]
+            if len(h["rewards"]) < 3:
+                # Not enough data to fit regression -- treat as unknown/high-value to explore
+                pred = random.random()
             else:
-                model = LinearRegression()
-                model.fit(np.array(contexts), np.array(rewards))
-                predicted_value = float(model.predict(context.reshape(1, -1))[0])
+                try:
+                    from sklearn.linear_model import Ridge
+                    clf = Ridge(alpha=1.0)
+                    clf.fit(np.asarray(h["contexts"]), np.asarray(h["rewards"]))
+                    pred = float(clf.predict(context.reshape(1, -1))[0])
+                except Exception:
+                    pred = float(np.mean(h["rewards"]))
 
-            if predicted_value > best_value:
-                best_value = predicted_value
+            if pred > best_pred:
+                best_pred = pred
                 best_action = action
 
-        return best_action
+        return best_action or random.choice(self.actions)
 
     def update(self, context: np.ndarray, action: str, reward: float):
-        self.history[action]["contexts"].append(context.tolist())
-        self.history[action]["rewards"].append(reward)
+        if action in self.history:
+            self.history[action]["contexts"].append(context.tolist())
+            self.history[action]["rewards"].append(reward)
 
 
 class LinUCBController:
@@ -182,7 +201,6 @@ class LinUCBController:
     theta_a = A_a^-1 @ b_a  -- the learned reward-prediction weights for action a
     UCB score = theta_a . context + alpha * sqrt(context^T @ A_a^-1 @ context)
     """
-
     def __init__(self, n_actions: int = len(ACTIONS), context_dim: int = 7, alpha: float = 1.0):
         self.actions = ACTIONS[:n_actions] if n_actions != len(ACTIONS) else list(ACTIONS)
         self.context_dim = context_dim
@@ -225,6 +243,7 @@ def setu_v2_run(
     faiss_search_fn,
     confidence_fn,
     max_steps: int = 4,
+    lag_model=None,
 ) -> Tuple[List[str], List[float], List[str]]:
     """
     Run the learned controller end to end on one query: repeatedly select an
@@ -237,6 +256,7 @@ def setu_v2_run(
         confidence_fn: setu.evaluation.metrics.confidence_proxy or compatible
             -- takes a List[float] of scores (NOT doc IDs) and a method name,
             returns a single float confidence value.
+        lag_model: optional fitted classifier for LAG predict_strategy()
     """
     from setu.diagnosis.cmi import cmi
     from setu.diagnosis.lid_entropy import lid_entropy
@@ -284,9 +304,27 @@ def setu_v2_run(
             current_ranking, current_scores = faiss_search_fn(projected_embedding)
 
         elif action == "LAG":
-            # Diagnostic only -- see setu_v1_fixed_order's note on LAG's gap.
-            # No query transformation happens here; ranking/scores unchanged.
-            pass
+            if lag_model is not None:
+                from setu.operators.lag import predict_strategy, apply_lag
+                from setu.fusion.carf import rrf_baseline
+                strategy = predict_strategy(cmi_score, entropy_score, density, lag_model)
+                lag_out = apply_lag(current_query, strategy, entities=entities, embed_fn=embed_fn, caep_gate=caep_gate, entity_freq=entity_freq)
+                if isinstance(lag_out, list):
+                    q1_emb = embed_fn([lag_out[0]])[0]
+                    q2_emb = embed_fn([lag_out[1]])[0]
+                    r1_ids, r1_scores = faiss_search_fn(np.asarray(q1_emb))
+                    r2_ids, r2_scores = faiss_search_fn(np.asarray(q2_emb))
+                    current_ranking = rrf_baseline([r1_ids, r2_ids])
+                    current_scores = [1.0 / (idx + 1) for idx in range(len(current_ranking))]
+                    current_query = lag_out[1]
+                else:
+                    current_query = lag_out
+                    current_embedding = embed_fn([current_query])[0]
+                    current_ranking, current_scores = faiss_search_fn(np.asarray(current_embedding))
+            else:
+                # Diagnostic only -- see setu_v1_fixed_order's note on LAG's gap.
+                # No query transformation happens here; ranking/scores unchanged.
+                pass
 
         confidence = confidence_fn(current_scores, method="margin")
         reward = confidence - confidence_before

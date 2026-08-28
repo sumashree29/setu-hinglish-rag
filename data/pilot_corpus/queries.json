@@ -72,5 +72,21 @@
   {"query_id": "Q57", "variant": "en",     "text": "How can a farmer apply for PM-KISAN online or through a Common Service Centre", "relevant_doc_ids": ["D19", "D20"]},
   {"query_id": "Q58", "variant": "low",    "text": "PM-KISAN ke liye online apply kaise karein ya CSC se kaise karein", "relevant_doc_ids": ["D19", "D20"]},
   {"query_id": "Q59", "variant": "medium", "text": "Kisan PM-KISAN ke liye registration online kaise kare ya CSC jaakar kaise kare", "relevant_doc_ids": ["D19", "D20"]},
-  {"query_id": "Q60", "variant": "high",   "text": "PM-KISAN mein naye kisan ka registration khud portal par karein ya CSC centre jaakar karwayein, dono tarike kaise hain", "relevant_doc_ids": ["D19", "D20"]}
+  {"query_id": "Q60", "variant": "high",   "text": "PM-KISAN mein naye kisan ka registration khud portal par karein ya CSC centre jaakar karwayein, dono tarike kaise hain", "relevant_doc_ids": ["D19", "D20"]},
+
+  {"query_id": "Q61", "variant": "low",    "text": "What is a bsbda account, is there any minimum balance requirement", "relevant_doc_ids": ["D01"]},
+  {"query_id": "Q62", "variant": "high",   "text": "kya bsbda khata zero balance account hota hai ya balance rakhna padega", "relevant_doc_ids": ["D01"]},
+  {"query_id": "Q63", "variant": "medium", "text": "Kya ek hi bank mein do bsbdaa account open kar sakte hain", "relevant_doc_ids": ["D02"]},
+  {"query_id": "Q64", "variant": "low",    "text": "How many free cash withdrawals can I make from a bsb-da account each month", "relevant_doc_ids": ["D03"]},
+  {"query_id": "Q65", "variant": "high",   "text": "atm me balance enquiry karne par monthly limit cut hoti hai kya", "relevant_doc_ids": ["D04"]},
+  {"query_id": "Q66", "variant": "medium", "text": "bsbda account holder ko atm debit card free milta hai ya annual charge lagta hai", "relevant_doc_ids": ["D05"]},
+  {"query_id": "Q67", "variant": "high",   "text": "kya bsbda khata khulwane par pasbook free di jaati hai", "relevant_doc_ids": ["D07"]},
+  {"query_id": "Q68", "variant": "low",    "text": "Can I open a small account using simplified kyc documentation", "relevant_doc_ids": ["D08"]},
+  {"query_id": "Q69", "variant": "medium", "text": "simplified kyc wala small acount kitne months tak valid rehta hai", "relevant_doc_ids": ["D09"]},
+  {"query_id": "Q70", "variant": "low",    "text": "How much financial benefit does pmkisan yojana provide to farmers annually", "relevant_doc_ids": ["D11"]},
+  {"query_id": "Q71", "variant": "high",   "text": "pm-kisaan yojana ka labh lene ke liye farmer family ki eligibility sharte kya hain", "relevant_doc_ids": ["D12"]},
+  {"query_id": "Q72", "variant": "medium", "text": "kya institutional landholder ko pmkisan scheme ka fayda milta hai", "relevant_doc_ids": ["D13"]},
+  {"query_id": "Q73", "variant": "high",   "text": "pmkisan payment aane ke liye aadhar link karwana mandatory hai kya", "relevant_doc_ids": ["D15"]},
+  {"query_id": "Q74", "variant": "medium", "text": "Agar adhar details mismatch ho jaye to kya pm-kisan ki kist ruk jayegi", "relevant_doc_ids": ["D15"]},
+  {"query_id": "Q75", "variant": "high",   "text": "kisan pmkisan registration ke liye common service center ya csc par kaise jayein", "relevant_doc_ids": ["D20"]}
 ]

@@ -13,7 +13,7 @@ Tick boxes as you go. File to fill in is listed so there's no ambiguity about wh
 | 6 | Raw-query diagnosis curve produced (H1/H2) | 1 | R1 | `scripts/run_diagnosis_curve.py` | ☐ |
 | 7 | LQP trained | 2 | R1 | `setu/operators/lqp.py` | ☐ |
 | 8 | CAEP trained | 2 | R2 | `setu/operators/caep.py` | ☐ |
-| 9 | LAG trained (300-500 labeled queries) | 2 | R2 | `setu/operators/lag.py` | ☐ |
+| 9 | LAG trained (300-500 labeled queries) | 2 | R2 | `setu/operators/lag.py` | 🟡 rewrite executor done, real 300-500 labeled training data still pending (Phase 5) |
 | 10 | CARF v1 + v2 implemented | 3 | R2 | `setu/fusion/carf.py` | ☐ |
 | 11 | Confidence-correlation study done (H10) | 3 | R3 | `setu/evaluation/metrics.py`, `setu/evaluation/stats.py` | ☐ |
 | 12 | Calibration model fit (if needed) | 3 | R3 | (add to `setu/evaluation/`) | ☐ |
