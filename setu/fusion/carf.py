@@ -14,6 +14,11 @@ def rrf_baseline(rankings: List[List[str]], k: int = 60) -> List[str]:
     Unweighted Reciprocal Rank Fusion across multiple ranked lists.
     Score of a document: sum(1 / (k + rank_in_list_i)) across lists; sort desc.
     """
+    if rankings and isinstance(rankings[0], str) and isinstance(k, list):
+        rankings = [rankings, k]
+        k = 60
+    elif rankings and isinstance(rankings[0], str):
+        rankings = [rankings]
     scores = {}
     for ranking in rankings:
         for rank, doc in enumerate(ranking):
