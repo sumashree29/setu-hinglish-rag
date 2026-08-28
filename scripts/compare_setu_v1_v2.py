@@ -67,7 +67,7 @@ print("WARNING: using placeholder CAEP gate, not R2's real trained gate\n")
 # --- Real LQP model, fit on real PHINC data ---
 print("Fitting LQP on PHINC...")
 phinc = pd.read_csv("data/raw/hinge_phinc/phinc.csv")
-sample = phinc.sample(n=min(200, len(phinc)), random_state=42)
+sample = phinc.sample(n=min(3000, len(phinc)), random_state=42)
 X = embed_fn(sample["Sentence"].tolist())
 Y = embed_fn(sample["English_Translation"].tolist())
 lqp_model = fit_lqp(X, Y, alpha_reg=1.0)

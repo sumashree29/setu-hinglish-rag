@@ -173,22 +173,45 @@ class EpsilonGreedyController:
 
 class LinUCBController:
     """
-    Contextual bandit: state = (CMI, LID-entropy, confidence, step t),
-    actions = ACTIONS. Closed-form ridge-regression updates.
-    TODO (R3/R1): implement per plan §6.2, once EpsilonGreedyController has
-    validated the full v2 loop end-to-end. mabwiser is a fallback library if
-    hand-implementing LinUCB is slow.
+    Contextual bandit (LinUCB, Li et al. 2010): state = (CMI, LID-entropy,
+    confidence, step t, tried_LAG, tried_CAEP, tried_LQP), actions = ACTIONS.
+    Closed-form ridge-regression updates, one (A, b) pair per action.
+
+    A_a = context_dim x context_dim matrix (starts as identity)
+    b_a = context_dim x 1 vector (starts as zero)
+    theta_a = A_a^-1 @ b_a  -- the learned reward-prediction weights for action a
+    UCB score = theta_a . context + alpha * sqrt(context^T @ A_a^-1 @ context)
     """
 
-    def __init__(self, n_actions: int = len(ACTIONS), context_dim: int = 4, alpha: float = 1.0):
-        raise NotImplementedError("R3: init LinUCB matrices (A, b per action)")
+    def __init__(self, n_actions: int = len(ACTIONS), context_dim: int = 7, alpha: float = 1.0):
+        self.actions = ACTIONS[:n_actions] if n_actions != len(ACTIONS) else list(ACTIONS)
+        self.context_dim = context_dim
+        self.alpha = alpha
+        self.A = {a: np.eye(context_dim) for a in self.actions}
+        self.b = {a: np.zeros(context_dim) for a in self.actions}
 
     def select_action(self, context: np.ndarray) -> str:
-        raise NotImplementedError("R3: implement UCB action selection")
+        context = context.reshape(-1)
+        best_action = None
+        best_score = -float("inf")
+
+        for action in self.actions:
+            A_inv = np.linalg.inv(self.A[action])
+            theta = A_inv @ self.b[action]
+            expected_reward = float(theta @ context)
+            uncertainty_bonus = self.alpha * float(np.sqrt(context @ A_inv @ context))
+            ucb_score = expected_reward + uncertainty_bonus
+
+            if ucb_score > best_score:
+                best_score = ucb_score
+                best_action = action
+
+        return best_action
 
     def update(self, context: np.ndarray, action: str, reward: float):
-        raise NotImplementedError("R3: implement ridge-regression update")
-
+        context = context.reshape(-1)
+        self.A[action] += np.outer(context, context)
+        self.b[action] += reward * context
 
 def setu_v2_run(
     query: str,
@@ -232,9 +255,13 @@ def setu_v2_run(
 
     operator_sequence = []
     confidence_trace = [confidence]
+    tried = {"LAG": 0.0, "CAEP": 0.0, "LQP": 0.0}
 
     for step in range(max_steps):
-        context = np.array([cmi_score, entropy_score, confidence, step], dtype=float)
+        context = np.array([
+            cmi_score, entropy_score, confidence, step,
+            tried["LAG"], tried["CAEP"], tried["LQP"],
+        ], dtype=float)
         action = controller.select_action(context)
         if action == "STOP":
             controller.update(context, "STOP", reward=0.0)
@@ -243,6 +270,8 @@ def setu_v2_run(
        
 
         confidence_before = confidence
+        if action in tried:
+            tried[action] = 1.0
 
         if action == "CAEP":
             current_query = apply_caep(current_query, entities, caep_gate, entity_freq, embed_fn=embed_fn)
