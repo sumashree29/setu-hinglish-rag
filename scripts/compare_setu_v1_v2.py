@@ -7,20 +7,19 @@ labeled training data from R2 yet). Treat these as pipeline-validation
 numbers, not final paper results -- rerun once the real gate exists.
 """
 import json
+import pickle
 import sys
 import time
 from pathlib import Path
 
 import numpy as np
-import pandas as pd
 import faiss
 from sentence_transformers import SentenceTransformer
 from ranx import Qrels, Run, evaluate
 
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 
-from setu.operators.caep import extract_entity_list, entity_frequencies, fit_caep_gate
-from setu.operators.lqp import fit_lqp
+from setu.operators.caep import extract_entity_list, entity_frequencies
 from setu.controller.setu_bandit import setu_v1_fixed_order, setu_v2_run, EpsilonGreedyController
 from setu.evaluation.metrics import confidence_proxy
 
@@ -33,9 +32,9 @@ doc_ids = [c["chunk_id"] for c in chunks]
 doc_texts = [c["text"] for c in chunks]
 queries = json.load(open("data/processed/queries_remapped.json", encoding="utf-8"))
 
-# --- Embedding + FAISS setup ---
-print("Loading embedding model...")
-model = SentenceTransformer("l3cube-pune/indic-sentence-similarity-sbert")
+# --- Embedding + FAISS setup (BGE-M3, matches fitted LQP model dim 1024) ---
+print("Loading embedding model (BGE-M3)...")
+model = SentenceTransformer("BAAI/bge-m3")
 
 
 def embed_fn(texts):
@@ -48,7 +47,7 @@ index = faiss.IndexFlatIP(doc_embeddings.shape[1])
 index.add(doc_embeddings)
 
 
-def faiss_search_fn(query_embedding, k=4):
+def faiss_search_fn(query_embedding, k=10):
     q = np.asarray(query_embedding, dtype="float32").reshape(1, -1)
     faiss.normalize_L2(q)
     scores, indices = index.search(q, k)
@@ -58,20 +57,13 @@ def faiss_search_fn(query_embedding, k=4):
 # --- Entities + placeholder CAEP gate ---
 entities = extract_entity_list(doc_texts)
 entity_freq = entity_frequencies(doc_texts)
-placeholder_features = [[100.0, 1.0, 5.0], [95.0, 0.95, 3.0], [90.0, 0.9, 2.0],
-                         [40.0, 0.3, 0.0], [30.0, 0.2, 0.0], [20.0, 0.1, 0.0]]
-placeholder_labels = [1, 1, 1, 0, 0, 0]
-caep_gate = fit_caep_gate(placeholder_features, placeholder_labels)
-print("WARNING: using placeholder CAEP gate, not R2's real trained gate\n")
 
-# --- Real LQP model, fit on real PHINC data ---
-print("Fitting LQP on PHINC...")
-phinc = pd.read_csv("data/raw/hinge_phinc/phinc.csv")
-sample = phinc.sample(n=min(200, len(phinc)), random_state=42)
-X = embed_fn(sample["Sentence"].tolist())
-Y = embed_fn(sample["English_Translation"].tolist())
-lqp_model = fit_lqp(X, Y, alpha_reg=1.0)
-print(f"LQP fit on {len(sample)} PHINC pairs\n")
+print("Loading real fitted CAEP gate and LQP model from results/models/...")
+with open("results/models/caep_gate.pkl", "rb") as f:
+    caep_gate = pickle.load(f)
+with open("results/models/lqp_model.pkl", "rb") as f:
+    lqp_model = pickle.load(f)
+print("Loaded caep_gate.pkl and lqp_model.pkl (trained on real corpus/PHINC data)\n")
 
 # --- Run all 3 systems across all 60 queries ---
 qrels_dict = {q["query_id"]: {d: 1 for d in q["relevant_doc_ids"]} for q in queries}
