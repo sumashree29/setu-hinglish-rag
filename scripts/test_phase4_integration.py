@@ -1,10 +1,7 @@
 """
 Phase 4 Task 5 -- integration test: run setu_v1_fixed_order() and
-setu_v2_run() end-to-end against REAL pilot corpus + real fitted LQP model.
-
-CAEP gate is a PLACEHOLDER, bootstrapped on synthetic labeled examples --
-NOT R2's real trained gate, since no labeled CAEP training data/script exists
-in the repo yet. Swap in the real fitted gate once R2 provides one.
+setu_v2_run() end-to-end against REAL pilot corpus (20 atomic chunks, 75 queries)
++ real fitted CAEP gate (caep_gate.pkl) and real fitted LQP model (lqp_model.pkl).
 """
 import json
 import pickle

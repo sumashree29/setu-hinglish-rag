@@ -3,13 +3,13 @@ Pilot corpus builder -- scrape/chunk RBI + myScheme FAQ text, hand-write Hinglis
 queries against it.
 OWNER: R1 (query-writing split 3 ways per plan) | PHASE: 1 (plan §3.4), scaled in Phase 5 (§7.1)
 
-STATUS: Corpus already built via the manual-paste fallback (plan §3.4 alt #1) --
-RBI BSBDA FAQ + PM-KISAN scheme content, paraphrased into 4 merged ~250-280 word
-chunks at data/processed/corpus_chunks.jsonl, with 60 hand-written Hinglish
-queries at data/processed/queries_remapped.json. scrape_faq_source() and
-chunk_text() below are left as NotImplementedError since the automated scrape
-path was not needed for pilot scale -- build_pilot_corpus() instead just loads
-the already-built files. Real scraping would only be needed for Phase 5 scaling.
+STATUS: Corpus built with 20 atomic chunks at data/processed/corpus_chunks.jsonl
+(RBI BSBDA FAQ + PM-KISAN scheme content), with 75 hand-written Hinglish
+queries at data/processed/queries_remapped.json (60 original + 15 misspelled-entity
+subset). scrape_faq_source() and chunk_text() below are left as NotImplementedError
+since the automated scrape path was not needed for pilot scale -- build_pilot_corpus()
+instead just loads the already-built files. Real scraping would only be needed for
+Phase 5 scaling.
 """
 import json
 from pathlib import Path
@@ -43,7 +43,7 @@ def chunk_text(text: str, chunk_size: int = 400) -> List[str]:
 
 def build_pilot_corpus(n_queries: int = 100) -> Dict:
     """
-    Loads the already-built pilot corpus (4 merged chunks, 60 queries) rather
+    Loads the already-built pilot corpus (20 atomic chunks, 75 queries) rather
     than rebuilding it from scratch. Returns both as a dict for convenience.
     """
     root = Path(__file__).resolve().parents[2]
