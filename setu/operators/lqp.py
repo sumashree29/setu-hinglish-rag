@@ -27,8 +27,8 @@ def load_parallel_pairs_phinc(embed_fn, max_pairs: int = None) -> Tuple[np.ndarr
     if max_pairs:
         ds = ds.select(range(min(max_pairs, len(ds))))
 
-    hinglish_col = "Hinglish Code-Mixed Sentence"
-    english_col = "Human Translated English Sentence"
+    hinglish_col = "Sentence" if "Sentence" in ds.column_names else "Hinglish Code-Mixed Sentence"
+    english_col = "English_Translation" if "English_Translation" in ds.column_names else "Human Translated English Sentence"
 
     hinglish_sents = [row[hinglish_col] for row in ds]
     english_sents = [row[english_col] for row in ds]
