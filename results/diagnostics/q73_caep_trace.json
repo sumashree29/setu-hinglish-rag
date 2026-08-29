@@ -1,0 +1,214 @@
+[
+  {
+    "query_id": "Q73",
+    "raw_query": "pmkisan payment aane ke liye aadhar link karwana mandatory hai kya",
+    "expected_relevant": [
+      "D15"
+    ],
+    "cmi": 0.4545,
+    "alpha": 0.4545,
+    "raw_top5": [
+      "D16",
+      "D15",
+      "D11",
+      "D07",
+      "D05"
+    ],
+    "lqp_top5": [
+      "D15",
+      "D16",
+      "D11",
+      "D07",
+      "D05"
+    ],
+    "caep_corrected_query": "KISAN payment aane ke liye Aadhaar link karwana mandatory hai kya",
+    "caep_top5": [
+      "D15",
+      "D16",
+      "D11",
+      "D12",
+      "D07"
+    ],
+    "lag_strategy": "full_rewrite",
+    "lag_top5": [
+      "D15",
+      "D16",
+      "D11",
+      "D12",
+      "D07"
+    ],
+    "q73_caep_gate_check": {
+      "candidate": "aadhar",
+      "entity": "Aadhaar",
+      "features": [
+        92.3076923076923,
+        0.7543155550956726,
+        2.0
+      ],
+      "predicted_class": 1,
+      "probability_distribution": [
+        0.2817092203326742,
+        0.7182907796673258
+      ],
+      "d15_rank_before": 2,
+      "d15_rank_after": 1
+    }
+  },
+  {
+    "query_id": "Q61",
+    "raw_query": "What is a bsbda account, is there any minimum balance requirement",
+    "expected_relevant": [
+      "D01"
+    ],
+    "cmi": 0.0,
+    "alpha": 0.0,
+    "raw_top5": [
+      "D01",
+      "D08",
+      "D10",
+      "D07",
+      "D02"
+    ],
+    "lqp_top5": [
+      "D01",
+      "D08",
+      "D10",
+      "D07",
+      "D02"
+    ],
+    "caep_corrected_query": "What is a BSBDA Account, is There Any minimum Balance requirement",
+    "caep_top5": [
+      "D01",
+      "D08",
+      "D10",
+      "D07",
+      "D02"
+    ],
+    "lag_strategy": "full_rewrite",
+    "lag_top5": [
+      "D01",
+      "D10",
+      "D08",
+      "D07",
+      "D02"
+    ]
+  },
+  {
+    "query_id": "Q21",
+    "raw_query": "Is there any age or income restriction for opening a BSBDA account",
+    "expected_relevant": [
+      "D06"
+    ],
+    "cmi": 0.0833,
+    "alpha": 0.0833,
+    "raw_top5": [
+      "D01",
+      "D08",
+      "D06",
+      "D02",
+      "D07"
+    ],
+    "lqp_top5": [
+      "D01",
+      "D08",
+      "D02",
+      "D06",
+      "D10"
+    ],
+    "caep_corrected_query": "Is There Any age or income Registration for opening a BSBDA Account",
+    "caep_top5": [
+      "D01",
+      "D08",
+      "D07",
+      "D06",
+      "D10"
+    ],
+    "lag_strategy": "light_normalize",
+    "lag_top5": [
+      "D01",
+      "D08",
+      "D06",
+      "D02",
+      "D07"
+    ]
+  },
+  {
+    "query_id": "Q18",
+    "raw_query": "BSBDA account ke saath ATM card free milta hai kya",
+    "expected_relevant": [
+      "D05"
+    ],
+    "cmi": 0.6,
+    "alpha": 0.6,
+    "raw_top5": [
+      "D05",
+      "D07",
+      "D03",
+      "D01",
+      "D04"
+    ],
+    "lqp_top5": [
+      "D05",
+      "D03",
+      "D07",
+      "D01",
+      "D04"
+    ],
+    "caep_corrected_query": "BSBDA Account ke saath ATM card free milta hai kya",
+    "caep_top5": [
+      "D05",
+      "D07",
+      "D03",
+      "D01",
+      "D04"
+    ],
+    "lag_strategy": "dual_variant",
+    "lag_top5": [
+      "D05",
+      "D07",
+      "D03",
+      "D01",
+      "D04"
+    ]
+  },
+  {
+    "query_id": "Q58",
+    "raw_query": "PM-KISAN ke liye online apply kaise karein ya CSC se kaise karein",
+    "expected_relevant": [
+      "D19",
+      "D20"
+    ],
+    "cmi": 0.5,
+    "alpha": 0.5,
+    "raw_top5": [
+      "D20",
+      "D19",
+      "D11",
+      "D12",
+      "D16"
+    ],
+    "lqp_top5": [
+      "D20",
+      "D19",
+      "D11",
+      "D12",
+      "D16"
+    ],
+    "caep_corrected_query": "PM-KISAN ke liye online apply kaise karein ya CSC se kaise karein",
+    "caep_top5": [
+      "D20",
+      "D19",
+      "D11",
+      "D12",
+      "D16"
+    ],
+    "lag_strategy": "dual_variant",
+    "lag_top5": [
+      "D20",
+      "D19",
+      "D11",
+      "D12",
+      "D16"
+    ]
+  }
+]
