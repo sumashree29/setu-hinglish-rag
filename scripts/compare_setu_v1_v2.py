@@ -116,37 +116,74 @@ print("\nAll queries processed.\n")
 qrels = Qrels(qrels_dict)
 METRICS = ["ndcg@10", "mrr", "recall@5", "recall@10"]
 
+raw_metrics = {k: float(v) for k, v in evaluate(qrels, Run(raw_run), METRICS).items()}
+v1_metrics = {k: float(v) for k, v in evaluate(qrels, Run(v1_run), METRICS).items()}
+v1_metrics["mean_latency_ms"] = float(np.mean(v1_latencies) * 1000)
+v2_metrics = {k: float(v) for k, v in evaluate(qrels, Run(v2_run), METRICS).items()}
+v2_metrics["mean_steps"] = float(np.mean(v2_step_counts))
+v2_metrics["mean_latency_ms"] = float(np.mean(v2_latencies) * 1000)
+
 print(f"==================================================")
 print(f"=== FULL DATASET ({len(queries)} Queries) ===")
 print(f"==================================================")
 print("=== RAW baseline ===")
-print(evaluate(qrels, Run(raw_run), METRICS))
+print(raw_metrics)
 
 print("\n=== SETU v1 (fixed order) ===")
-print(evaluate(qrels, Run(v1_run), METRICS))
-print(f"Mean latency: {np.mean(v1_latencies)*1000:.2f} ms")
+print(v1_metrics)
+print(f"Mean latency: {v1_metrics['mean_latency_ms']:.2f} ms")
 
 print("\n=== SETU v2 (LinUCB) ===")
-print(evaluate(qrels, Run(v2_run), METRICS))
-print(f"Mean steps taken: {np.mean(v2_step_counts):.2f}")
-print(f"Mean latency: {np.mean(v2_latencies)*1000:.2f} ms")
+print(v2_metrics)
+print(f"Mean steps taken: {v2_metrics['mean_steps']:.2f}")
+print(f"Mean latency: {v2_metrics['mean_latency_ms']:.2f} ms")
 
 # --- Metrics across Q61-Q75 subset (Misspelled entity queries only) ---
 subset_qids = [q["query_id"] for q in queries if int(q["query_id"].replace("Q", "")) >= 61]
+subset_results = {}
 if subset_qids:
     qrels_sub = Qrels({qid: qrels_dict[qid] for qid in subset_qids})
     raw_run_sub = Run({qid: raw_run[qid] for qid in subset_qids})
     v1_run_sub = Run({qid: v1_run[qid] for qid in subset_qids})
     v2_run_sub = Run({qid: v2_run[qid] for qid in subset_qids})
 
+    raw_sub_metrics = {k: float(v) for k, v in evaluate(qrels_sub, raw_run_sub, METRICS).items()}
+    v1_sub_metrics = {k: float(v) for k, v in evaluate(qrels_sub, v1_run_sub, METRICS).items()}
+    v2_sub_metrics = {k: float(v) for k, v in evaluate(qrels_sub, v2_run_sub, METRICS).items()}
+
+    subset_results = {
+        "RAW": raw_sub_metrics,
+        "SETU_v1": v1_sub_metrics,
+        "SETU_v2": v2_sub_metrics,
+    }
+
     print(f"\n==================================================")
     print(f"=== MISSPELLED ENTITY SUBSET ({len(subset_qids)} Queries: Q61-Q75) ===")
     print(f"==================================================")
     print("=== RAW baseline (misspelled subset) ===")
-    print(evaluate(qrels_sub, raw_run_sub, METRICS))
+    print(raw_sub_metrics)
 
     print("\n=== SETU v1 (misspelled subset) ===")
-    print(evaluate(qrels_sub, v1_run_sub, METRICS))
+    print(v1_sub_metrics)
 
     print("\n=== SETU v2 (misspelled subset) ===")
-    print(evaluate(qrels_sub, v2_run_sub, METRICS))
+    print(v2_sub_metrics)
+
+# --- Save results to disk ---
+tables_dir = Path(__file__).resolve().parents[1] / "results" / "tables"
+tables_dir.mkdir(parents=True, exist_ok=True)
+comparison_out = {
+    "full_dataset": {
+        "RAW": raw_metrics,
+        "SETU_v1": v1_metrics,
+        "SETU_v2": v2_metrics,
+    },
+    "misspelled_subset": subset_results,
+    "n_total_queries": len(queries),
+    "n_misspelled_queries": len(subset_qids),
+}
+comparison_path = tables_dir / "setu_v1_v2_comparison.json"
+with open(comparison_path, "w", encoding="utf-8") as f:
+    json.dump(comparison_out, f, indent=2)
+print(f"\nSaved comparison table to {comparison_path}")
+
