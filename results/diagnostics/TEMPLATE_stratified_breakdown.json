@@ -1,0 +1,28 @@
+{
+  "breakdown_date": "YYYY-MM-DD",
+  "operator": "string (e.g. LAG)",
+  "total_queries": 0,
+  "substrategies": {
+    "strategy_name": {
+      "n_queries": 0,
+      "query_ids": [],
+      "raw_metrics": {
+        "ndcg@10": 0.0,
+        "mrr": 0.0,
+        "recall@5": 0.0,
+        "recall@10": 0.0
+      },
+      "strategy_metrics": {
+        "ndcg@10": 0.0,
+        "mrr": 0.0,
+        "recall@5": 0.0,
+        "recall@10": 0.0
+      },
+      "deltas_vs_raw": {
+        "ndcg_delta": 0.0,
+        "mrr_delta": 0.0,
+        "recall5_delta": 0.0
+      }
+    }
+  }
+}

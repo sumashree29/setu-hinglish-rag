@@ -1,0 +1,134 @@
+{
+  "investigation_date": "2026-08-29",
+  "model_type": "Ridge LQP (Linear Query-space Projection)",
+  "data_shape": {
+    "X_shape": [
+      500,
+      1024
+    ],
+    "Y_shape": [
+      500,
+      1024
+    ]
+  },
+  "matrix_norms": {
+    "norm_X": 22.36066,
+    "norm_Y": 22.36067,
+    "norm_X_minus_Y": 16.66971
+  },
+  "training_hyperparameters": {
+    "alpha_reg": 1.0,
+    "cmi_max": 1.0
+  },
+  "model_weights": {
+    "coef_norm_before_fix": 6.7504566e-09,
+    "coef_norm_after_fix": 6.371109,
+    "singular_values_top_bottom_after_fix": [
+      1.1342983,
+      2.8379717e-11
+    ]
+  },
+  "root_cause_analysis": "In setu/operators/lqp.py:load_parallel_pairs_phinc(), the column names for HuggingFace dataset 'LingoIITGN/PHINC' were hardcoded as 'Hinglish Code-Mixed Sentence' and 'Human Translated English Sentence' instead of the actual dataset schema columns 'Sentence' and 'English_Translation'. This raised a KeyError: 'Hinglish Code-Mixed Sentence' during train_operators.py. Prior to the hard-failure hardening, train_operators.py caught all exceptions and fell back to dummy synthetic pairs formed by repeating the exact same string 500 times. Fitting Ridge regression on rank-1 constant matrices caused the coefficient matrix W to shrink to ~0 (norm = 6.75e-9). At inference time, W_eff = (1 - alpha)*I + alpha*W collapsed to (1 - alpha)*I, which was normalized away by FAISS's L2 cosine normalization, rendering LQP a mathematical identity operator.",
+  "spot_check_validation": [
+    {
+      "query_id": "Q73",
+      "cmi": 0.4545,
+      "raw_top5": [
+        "D16",
+        "D15",
+        "D11",
+        "D07",
+        "D05"
+      ],
+      "lqp_top5": [
+        "D15",
+        "D16",
+        "D11",
+        "D07",
+        "D05"
+      ],
+      "ranking_changed": true,
+      "notes": "Target chunk D15 promoted from rank #2 to #1"
+    },
+    {
+      "query_id": "Q18",
+      "cmi": 0.6,
+      "raw_top5": [
+        "D05",
+        "D07",
+        "D03",
+        "D01",
+        "D04"
+      ],
+      "lqp_top5": [
+        "D05",
+        "D03",
+        "D07",
+        "D01",
+        "D04"
+      ],
+      "ranking_changed": true,
+      "notes": "Ranks 2 and 3 re-ordered (D03 promoted ahead of D07)"
+    },
+    {
+      "query_id": "Q21",
+      "cmi": 0.0833,
+      "raw_top5": [
+        "D01",
+        "D08",
+        "D06",
+        "D02",
+        "D07"
+      ],
+      "lqp_top5": [
+        "D01",
+        "D08",
+        "D02",
+        "D06",
+        "D10"
+      ],
+      "ranking_changed": true,
+      "notes": "Ranks 3, 4, 5 re-ordered"
+    },
+    {
+      "query_id": "Q58",
+      "cmi": 0.5,
+      "raw_top5": [
+        "D20",
+        "D19",
+        "D11",
+        "D12",
+        "D16"
+      ],
+      "lqp_top5": [
+        "D20",
+        "D19",
+        "D11",
+        "D12",
+        "D16"
+      ],
+      "ranking_changed": false,
+      "notes": "Scores modified, top 5 order unchanged"
+    },
+    {
+      "query_id": "Q61",
+      "cmi": 0.0,
+      "raw_top5": [
+        "D01",
+        "D08",
+        "D10",
+        "D07",
+        "D02"
+      ],
+      "lqp_top5": [
+        "D01",
+        "D08",
+        "D10",
+        "D07",
+        "D02"
+      ],
+      "ranking_changed": false,
+      "notes": "Alpha=0.0 -> exact identity projection (identical scores and ranking)"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "investigation_date": "YYYY-MM-DD",
+  "model_type": "string (e.g. Ridge LQP)",
+  "data_shape": {
+    "X_shape": [0, 0],
+    "Y_shape": [0, 0]
+  },
+  "matrix_norms": {
+    "norm_X": 0.0,
+    "norm_Y": 0.0,
+    "norm_X_minus_Y": 0.0
+  },
+  "training_hyperparameters": {
+    "alpha_reg": 0.0
+  },
+  "model_weights": {
+    "coef_norm_before_fix": 0.0,
+    "coef_norm_after_fix": 0.0
+  },
+  "root_cause_analysis": "string",
+  "spot_check_validation": [
+    {
+      "query_id": "string",
+      "cmi": 0.0,
+      "raw_top5": [],
+      "lqp_top5": [],
+      "ranking_changed": false
+    }
+  ]
+}

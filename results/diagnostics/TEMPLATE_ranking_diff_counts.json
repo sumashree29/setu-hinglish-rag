@@ -1,0 +1,15 @@
+{
+  "evaluation_date": "YYYY-MM-DD",
+  "total_queries": 0,
+  "summary_counts": {
+    "v1_vs_v2_diff_count": 0,
+    "raw_vs_v1_diff_count": 0,
+    "raw_vs_v2_diff_count": 0
+  },
+  "differing_query_ids": {
+    "v1_vs_v2": [],
+    "raw_vs_v1": [],
+    "raw_vs_v2": []
+  },
+  "notes": "string"
+}
