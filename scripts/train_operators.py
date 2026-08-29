@@ -11,6 +11,7 @@ sys.path.append(str(root))
 from setu.diagnosis.corpus import build_pilot_corpus
 from setu.operators.lqp import fit_lqp
 from setu.operators.caep import extract_entity_list, entity_frequencies, build_entity_features, fit_caep_gate
+from rapidfuzz import fuzz
 
 def main():
     models_dir = root / "results" / "models"
@@ -53,19 +54,64 @@ def main():
     
     features = []
     labels = []
-    print("Building weak supervision dataset for CAEP...")
+    print("Building weak supervision dataset for CAEP (label 1=substitute, label 0=preserve/reject)...")
+    common_hard_negatives = [
+        "karna", "kaise", "hota", "milta", "paise", "kistein", "family", "annual",
+        "benefit", "mandatory", "online", "yojana", "status", "hai", "kya", "mein",
+        "wala", "wali", "purana", "naye", "scheme", "document", "apply", "portal",
+        "open", "close", "minimum", "limit", "amount", "yearly", "charge", "valid",
+    ]
     for ent in entities:
-        # Positive example: preserve exact matches
+        # 1. Exact match -> Label 0 (Preserve, no substitution needed)
         features.append(build_entity_features(ent, ent, freqs, embed_fn))
-        labels.append(1)
-        
-        # Negative example: substitute corrupted matches
-        mid = len(ent) // 2
-        corrupted = ent[:mid] + "xyz" + ent[mid:] if len(ent) > 2 else ent + "xyz"
-        features.append(build_entity_features(corrupted, ent, freqs, embed_fn))
         labels.append(0)
-        
-    print("Fitting CAEP logistic regression gate...")
+
+        # 2. Positive substitution candidates -> Label 1 (Substitute with canonical entity)
+        # Lowercase / case variants
+        if ent.lower() != ent:
+            features.append(build_entity_features(ent.lower(), ent, freqs, embed_fn))
+            labels.append(1)
+
+        # Phonetic / typo variants (deletion, duplication, vowel swap)
+        if len(ent) > 3:
+            del_var = ent[:2] + ent[3:]
+            features.append(build_entity_features(del_var.lower(), ent, freqs, embed_fn))
+            labels.append(1)
+
+        vowel_var = ent.lower().replace("aa", "a").replace("ee", "i").replace("oo", "u")
+        if vowel_var != ent.lower():
+            features.append(build_entity_features(vowel_var, ent, freqs, embed_fn))
+            labels.append(1)
+
+        dup_var = ent.lower() + ent[-1].lower()
+        features.append(build_entity_features(dup_var, ent, freqs, embed_fn))
+        labels.append(1)
+
+        # Domain-specific known variants
+        if "Aadhaar" in ent:
+            for v in ["aadhar", "adhar", "aaddhar"]:
+                features.append(build_entity_features(v, ent, freqs, embed_fn))
+                labels.append(1)
+        if "BSBDA" in ent:
+            for v in ["bsb-da", "bsbdaa", "bsbda"]:
+                features.append(build_entity_features(v, ent, freqs, embed_fn))
+                labels.append(1)
+        if "PM-KISAN" in ent or "Kisan" in ent:
+            for v in ["pmkisan", "pm-kisaan", "kisaan"]:
+                features.append(build_entity_features(v, ent, freqs, embed_fn))
+                labels.append(1)
+        if "KYC" in ent:
+            features.append(build_entity_features("kyc", ent, freqs, embed_fn))
+            labels.append(1)
+
+        # 3. Hard negative words -> Label 0 (Do not substitute unrelated words)
+        for hw in common_hard_negatives:
+            score = fuzz.ratio(hw.lower(), ent.lower())
+            if score < 70:
+                features.append(build_entity_features(hw, ent, freqs, embed_fn))
+                labels.append(0)
+
+    print(f"Fitting CAEP logistic regression gate on {len(features)} examples (Pos: {sum(labels)}, Neg: {len(labels)-sum(labels)})...")
     caep_gate = fit_caep_gate(features, labels)
     
     caep_path = models_dir / "caep_gate.pkl"
