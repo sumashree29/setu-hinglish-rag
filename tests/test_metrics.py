@@ -1,16 +1,6 @@
 """Tests for setu/evaluation/metrics.py. OWNER: R1/R3."""
 import math
-from setu.evaluation.metrics import recall_at_k, mrr, confidence_proxy
-
-
-def test_recall_at_k_perfect_match():
-    # TODO: assert recall_at_k(["a","b","c"], ["a"], k=3) == 1.0
-    pass
-
-
-def test_mrr_first_position():
-    # TODO: assert mrr(["a","b"], ["a"]) == 1.0
-    pass
+from setu.evaluation.metrics import confidence_proxy
 
 
 def test_confidence_proxy_margin():
@@ -30,4 +20,3 @@ def test_confidence_proxy_entropy_negatives():
     # negative scores should run successfully through softmax fallback and return positive entropy
     ent = confidence_proxy(scores, method="entropy")
     assert ent > 0.0
-

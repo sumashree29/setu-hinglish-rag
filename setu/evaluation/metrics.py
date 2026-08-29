@@ -1,26 +1,13 @@
 """
-Retrieval quality metrics — Recall@k, MRR, nDCG@k.
+Retrieval quality metrics & confidence signals.
 OWNER: R1 seeds this in Phase 1 (§3.6), R3 extends/owns it from Phase 3 onward.
+
+NOTE: Retrieval evaluation metrics (Recall@k, MRR, nDCG@k) are computed via
+ranx.evaluate() across all evaluation scripts (e.g., compare_setu_v1_v2.py,
+evaluate_operators_standalone.py) for BEIR-convention compatibility.
 """
 import math
 from typing import List
-
-
-def recall_at_k(retrieved: List[str], relevant: List[str], k: int) -> float:
-    """Fraction of `relevant` docs present in retrieved[:k].
-    Alt: use ranx's built-in evaluation harness instead of hand-rolling
-    (plan §3.6 alt #3) if you want BEIR-convention compatibility."""
-    raise NotImplementedError("R1: implement Recall@k")
-
-
-def mrr(retrieved: List[str], relevant: List[str]) -> float:
-    """1 / rank of first relevant doc found in `retrieved` (0 if none)."""
-    raise NotImplementedError("R1: implement MRR")
-
-
-def ndcg_at_k(retrieved: List[str], relevant: List[str], k: int) -> float:
-    """Standard nDCG@k with binary relevance (or graded, if you have it)."""
-    raise NotImplementedError("R1: implement nDCG@k")
 
 
 def confidence_proxy(scores: List[float], method: str = "margin") -> float:
