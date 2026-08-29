@@ -16,29 +16,22 @@ def main():
     models_dir = root / "results" / "models"
     models_dir.mkdir(parents=True, exist_ok=True)
     
-    print("Loading embedding model (BGE-M3) with fallback...")
+    print("Loading embedding model (BGE-M3)...")
     try:
         from sentence_transformers import SentenceTransformer
         st_model = SentenceTransformer("BAAI/bge-m3")
         def embed_fn(texts):
             return st_model.encode(texts)
     except Exception as e:
-        print(f"Network error loading SentenceTransformer: {e}")
-        print("Using dummy embedder for local testing.")
-        # bge-m3 output dimension is 1024
-        def embed_fn(texts):
-            return np.random.randn(len(texts), 1024)
+        raise RuntimeError(f"Failed to load real training data/embeddings: {e}. Refusing to train on dummy data.")
 
     print("--- Training LQP ---")
-    print("Downloading/Loading PHINC dataset with fallback...")
+    print("Downloading/Loading PHINC dataset...")
     try:
         from setu.operators.lqp import load_parallel_pairs_phinc
         X, Y = load_parallel_pairs_phinc(embed_fn, max_pairs=500)
     except Exception as e:
-        print(f"Network error loading PHINC dataset: {e}")
-        print("Using dummy parallel pairs for LQP training.")
-        X = embed_fn(["dummy hinglish"] * 500)
-        Y = embed_fn(["dummy english"] * 500)
+        raise RuntimeError(f"Failed to load real training data/embeddings: {e}. Refusing to train on dummy data.")
 
     print("Fitting LQP Ridge model...")
     lqp_model = fit_lqp(X, Y)
@@ -56,10 +49,7 @@ def main():
         entities = extract_entity_list(chunks)
         freqs = entity_frequencies(chunks)
     except Exception as e:
-        print(f"Error loading corpus: {e}")
-        print("Using dummy entities for CAEP training.")
-        entities = ["RBI", "SBI", "Bank", "Account", "Loan"]
-        freqs = {e: 10 for e in entities}
+        raise RuntimeError(f"Failed to load real training data/embeddings: {e}. Refusing to train on dummy data.")
     
     features = []
     labels = []
