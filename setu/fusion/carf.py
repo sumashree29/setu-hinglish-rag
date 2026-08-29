@@ -31,7 +31,7 @@ def carf_v1(
     raw_ranking: List[str],
     corrected_ranking: List[str],
     cmi_score: float,
-    cmi_max: float = 50.0
+    cmi_max: float = 1.0
 ) -> List[str]:
     """
     Hand-specified CMI-conditioned weighting on top of RRF.
@@ -66,7 +66,7 @@ def fit_carf_v2_weights(pilot_results: List[Dict[str, float]]) -> Dict[str, floa
     import numpy as np
 
     if not pilot_results:
-        return {"w_cmi": 1.0 / 50.0, "w_entropy": 0.0, "intercept": 0.0}
+        return {"w_cmi": 1.0, "w_entropy": 0.0, "intercept": 0.0}
 
     X = []
     y = []
@@ -101,11 +101,11 @@ def carf_v2(
         return rrf_baseline(rankings)
 
     raw_ranking, corrected_ranking = rankings[0], rankings[1]
-    w_cmi = weights.get("w_cmi", 1.0 / 50.0)
+    w_cmi = weights.get("w_cmi", 1.0)
     w_entropy = weights.get("w_entropy", 0.0)
     intercept = weights.get("intercept", 0.0)
 
     alpha = intercept + w_cmi * cmi_score + w_entropy * lid_entropy_score
     alpha = min(1.0, max(0.0, alpha))
 
-    return carf_v1(raw_ranking, corrected_ranking, cmi_score=alpha * 50.0, cmi_max=50.0)
+    return carf_v1(raw_ranking, corrected_ranking, cmi_score=alpha, cmi_max=1.0)

@@ -61,7 +61,7 @@ def apply_lqp(query_embedding: np.ndarray, cmi_score: float, model: Ridge, cmi_m
     return query_embedding @ W_eff
 
 
-def apply_lqp_batch(query_embeddings: np.ndarray, cmi_scores: List[float], model: Ridge, cmi_max: float = 50.0) -> np.ndarray:
+def apply_lqp_batch(query_embeddings: np.ndarray, cmi_scores: List[float], model: Ridge, cmi_max: float = 1.0) -> np.ndarray:
     """Vectorized version for many queries at once."""
     n, d = query_embeddings.shape
     W = model.coef_.T
