@@ -1,18 +1,16 @@
-"""Tests for setu/diagnosis/cmi.py. OWNER: R1.
-Fill these in as you implement cmi() — start with obvious cases."""
+"""Tests for setu/diagnosis/cmi.py. OWNER: R1."""
 from setu.diagnosis.cmi import cmi
 
 
 def test_pure_english_query_has_low_cmi():
-    # TODO: assert cmi("what is my loan status") is close to 0.0
-    pass
+    score = cmi("what is my loan status")
+    assert score == 0.0 or score < 0.1
 
 
 def test_heavily_mixed_query_has_high_cmi():
-    # TODO: assert cmi("mera loan status kaise pata karu") is meaningfully > 0
-    pass
+    score = cmi("mera loan status kaise pata karu")
+    assert score > 0.3
 
 
 def test_empty_query_returns_zero():
-    # TODO: assert cmi("") == 0.0
-    pass
+    assert cmi("") == 0.0
