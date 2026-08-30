@@ -92,3 +92,38 @@ def spearman_correlation(x: List[float], y: List[float]) -> Tuple[float, float]:
     """
     res = stats.spearmanr(x, y)
     return float(res.statistic), float(res.pvalue)
+
+
+def bootstrap_paired_statistic(
+    x: List[float],
+    y: List[float],
+    stat_func,
+    n_resamples: int = 5000,
+    confidence: float = 0.95
+) -> Tuple[float, float, float]:
+    """
+    Compute a bootstrap confidence interval for a paired bivariate statistic (e.g. Spearman rho).
+    Returns (point_estimate, low_ci, high_ci).
+    """
+    x_arr = np.asarray(x)
+    y_arr = np.asarray(y)
+    point_estimate = float(stat_func(x_arr, y_arr))
+
+    def vectorized_stat(a, b, axis=-1):
+        if a.ndim == 1:
+            return stat_func(a, b)
+        out = []
+        for i in range(a.shape[0]):
+            val = stat_func(a[i], b[i])
+            out.append(0.0 if np.isnan(val) else val)
+        return np.array(out)
+
+    res = stats.bootstrap(
+        (x_arr, y_arr),
+        statistic=vectorized_stat,
+        paired=True,
+        confidence_level=confidence,
+        n_resamples=min(n_resamples, 5000),
+        method="percentile"
+    )
+    return point_estimate, float(res.confidence_interval.low), float(res.confidence_interval.high)
