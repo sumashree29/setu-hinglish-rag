@@ -1,0 +1,2982 @@
+{
+  "cmi_bands": [
+    [
+      0,
+      0.15,
+      "low"
+    ],
+    [
+      0.15,
+      0.35,
+      "medium"
+    ],
+    [
+      0.35,
+      0.55,
+      "high"
+    ],
+    [
+      0.55,
+      1.01,
+      "very_high"
+    ]
+  ],
+  "band_counts": {
+    "low": 14,
+    "medium": 28,
+    "high": 237,
+    "very_high": 35
+  },
+  "per_band_summary": {
+    "bge_m3": {
+      "low": {
+        "count": 14,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.875,
+        "ndcg@5": 0.9066097189440221,
+        "ndcg@10": 0.9066097189440221,
+        "hit_rate@1": 0.7857142857142857
+      },
+      "medium": {
+        "count": 28,
+        "recall@5": 0.9285714285714286,
+        "recall@10": 0.9642857142857143,
+        "mrr": 0.7354591836734693,
+        "ndcg@5": 0.7800445849854916,
+        "ndcg@10": 0.7919493468902535,
+        "hit_rate@1": 0.6071428571428571
+      },
+      "high": {
+        "count": 237,
+        "recall@5": 0.9620253164556962,
+        "recall@10": 0.9873417721518988,
+        "mrr": 0.8528347063157189,
+        "ndcg@5": 0.8779452184315774,
+        "ndcg@10": 0.8863653699646256,
+        "hit_rate@1": 0.7637130801687764
+      },
+      "very_high": {
+        "count": 35,
+        "recall@5": 0.9428571428571428,
+        "recall@10": 0.9714285714285714,
+        "mrr": 0.8807142857142857,
+        "ndcg@5": 0.8937040590842547,
+        "ndcg@10": 0.9027173412781327,
+        "hit_rate@1": 0.8285714285714286
+      }
+    },
+    "indic_sbert": {
+      "low": {
+        "count": 14,
+        "recall@5": 0.5714285714285714,
+        "recall@10": 0.7142857142857143,
+        "mrr": 0.42687074829931976,
+        "ndcg@5": 0.44727567908163685,
+        "ndcg@10": 0.49652857339887646,
+        "hit_rate@1": 0.2857142857142857
+      },
+      "medium": {
+        "count": 28,
+        "recall@5": 0.75,
+        "recall@10": 0.7857142857142857,
+        "mrr": 0.5301020408163265,
+        "ndcg@5": 0.582262895794098,
+        "ndcg@10": 0.59416765769886,
+        "hit_rate@1": 0.35714285714285715
+      },
+      "high": {
+        "count": 237,
+        "recall@5": 0.7763713080168776,
+        "recall@10": 0.8734177215189873,
+        "mrr": 0.6332295224700288,
+        "ndcg@5": 0.658591957965477,
+        "ndcg@10": 0.6902092193375248,
+        "hit_rate@1": 0.5274261603375527
+      },
+      "very_high": {
+        "count": 35,
+        "recall@5": 0.7142857142857143,
+        "recall@10": 0.7714285714285715,
+        "mrr": 0.5319387755102041,
+        "ndcg@5": 0.570972121156897,
+        "ndcg@10": 0.5895092128745845,
+        "hit_rate@1": 0.42857142857142855
+      }
+    },
+    "me5_large": {
+      "low": {
+        "count": 14,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr": 0.9285714285714286,
+        "ndcg@5": 0.9472756790816368,
+        "ndcg@10": 0.9472756790816368,
+        "hit_rate@1": 0.8571428571428571
+      },
+      "medium": {
+        "count": 28,
+        "recall@5": 0.9285714285714286,
+        "recall@10": 0.9642857142857143,
+        "mrr": 0.808673469387755,
+        "ndcg@5": 0.8354567593112276,
+        "ndcg@10": 0.8473615212159895,
+        "hit_rate@1": 0.7142857142857143
+      },
+      "high": {
+        "count": 237,
+        "recall@5": 0.9746835443037974,
+        "recall@10": 0.9915611814345991,
+        "mrr": 0.8805304400241107,
+        "ndcg@5": 0.9026841795832597,
+        "ndcg@10": 0.9082197858283761,
+        "hit_rate@1": 0.8059071729957806
+      },
+      "very_high": {
+        "count": 35,
+        "recall@5": 0.9428571428571428,
+        "recall@10": 0.9714285714285714,
+        "mrr": 0.9097959183673469,
+        "ndcg@5": 0.9147937874515999,
+        "ndcg@10": 0.9243175969754095,
+        "hit_rate@1": 0.8857142857142857
+      }
+    }
+  },
+  "per_query_diagnostics": {
+    "Q01": {
+      "text": "What is a Basic Savings Bank Deposit Account and is there a minimum balance requirement",
+      "cmi": 0.1333,
+      "lid_entropy": 0.5665,
+      "cmi_band": "low",
+      "relevant_doc_ids": [
+        "D01"
+      ]
+    },
+    "Q02": {
+      "text": "What is BSBDA account, minimum balance rakhna padta hai kya",
+      "cmi": 0.5,
+      "lid_entropy": 1.361,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D01"
+      ]
+    },
+    "Q03": {
+      "text": "BSBDA account kya hota hai, minimum balance ki zarurat hai kya",
+      "cmi": 0.4545,
+      "lid_entropy": 1.3222,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D01"
+      ]
+    },
+    "Q04": {
+      "text": "BSBDA khaate mein minimum balance rakhna padta hai ya yeh zero balance account hota hai",
+      "cmi": 0.4,
+      "lid_entropy": 1.231,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D01"
+      ]
+    },
+    "Q05": {
+      "text": "Can I open more than one Basic Savings Bank Deposit Account in the same bank",
+      "cmi": 0.2,
+      "lid_entropy": 0.9056,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "D02"
+      ]
+    },
+    "Q06": {
+      "text": "Can I ek se zyada BSBDA account same bank mein khol sakta hoon",
+      "cmi": 0.4615,
+      "lid_entropy": 1.2957,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D02"
+      ]
+    },
+    "Q07": {
+      "text": "Ek bank mein ek se zyada BSBDA account khol sakte hain kya",
+      "cmi": 0.25,
+      "lid_entropy": 1.0409,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "D02"
+      ]
+    },
+    "Q08": {
+      "text": "Kya main ek hi bank mein do BSBDA khaata khol sakta hoon ya sirf ek hi milega",
+      "cmi": 0.2353,
+      "lid_entropy": 0.978,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "D02"
+      ]
+    },
+    "Q09": {
+      "text": "How many free withdrawals are allowed per month on a BSBDA account",
+      "cmi": 0.0833,
+      "lid_entropy": 0.4138,
+      "cmi_band": "low",
+      "relevant_doc_ids": [
+        "D03"
+      ]
+    },
+    "Q10": {
+      "text": "BSBDA account mein monthly kitne free withdrawals milte hain",
+      "cmi": 0.5556,
+      "lid_entropy": 1.3921,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "D03"
+      ]
+    },
+    "Q11": {
+      "text": "Ek mahine mein BSBDA se kitni baar free withdrawal kar sakte hain",
+      "cmi": 0.4167,
+      "lid_entropy": 1.2807,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D03"
+      ]
+    },
+    "Q12": {
+      "text": "BSBDA khaate mein mahine bhar mein kitni baar paisa nikalna free hota hai",
+      "cmi": 0.3846,
+      "lid_entropy": 1.2389,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D03"
+      ]
+    },
+    "Q13": {
+      "text": "Does checking my balance at an ATM count as one of the free withdrawals",
+      "cmi": 0.1429,
+      "lid_entropy": 0.7345,
+      "cmi_band": "low",
+      "relevant_doc_ids": [
+        "D04"
+      ]
+    },
+    "Q14": {
+      "text": "ATM mein balance check karna free withdrawal mein count hota hai kya",
+      "cmi": 0.5,
+      "lid_entropy": 1.325,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D04"
+      ]
+    },
+    "Q15": {
+      "text": "ATM se balance check karne par kya woh withdrawal limit mein aata hai",
+      "cmi": 0.3846,
+      "lid_entropy": 1.2389,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D04"
+      ]
+    },
+    "Q16": {
+      "text": "Agar main ATM mein sirf balance dekhta hoon to kya woh withdrawal ginti mein aata hai",
+      "cmi": 0.3125,
+      "lid_entropy": 1.1995,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "D04"
+      ]
+    },
+    "Q17": {
+      "text": "Is the ATM debit card provided free of cost with a BSBDA account",
+      "cmi": 0.1538,
+      "lid_entropy": 0.6194,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "D05"
+      ]
+    },
+    "Q18": {
+      "text": "BSBDA account ke saath ATM card free milta hai kya",
+      "cmi": 0.6,
+      "lid_entropy": 1.5219,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "D05"
+      ]
+    },
+    "Q19": {
+      "text": "Kya BSBDA khaate mein ATM debit card bina charge ke milta hai",
+      "cmi": 0.4167,
+      "lid_entropy": 1.3844,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D05"
+      ]
+    },
+    "Q20": {
+      "text": "BSBDA khulwane par ATM card free milega ya uske liye alag se paisa dena hoga",
+      "cmi": 0.3333,
+      "lid_entropy": 1.2419,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "D05"
+      ]
+    },
+    "Q21": {
+      "text": "Is there any age or income restriction for opening a BSBDA account",
+      "cmi": 0.0833,
+      "lid_entropy": 0.4138,
+      "cmi_band": "low",
+      "relevant_doc_ids": [
+        "D06"
+      ]
+    },
+    "Q22": {
+      "text": "BSBDA account kholne ke liye koi age ya income limit hai kya",
+      "cmi": 0.5,
+      "lid_entropy": 1.325,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D06"
+      ]
+    },
+    "Q23": {
+      "text": "Kya BSBDA khaata kholne ke liye age ya income ki koi shart hoti hai",
+      "cmi": 0.3571,
+      "lid_entropy": 1.1981,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D06"
+      ]
+    },
+    "Q24": {
+      "text": "BSBDA khulwane ke liye kya koi umar ya kamai ki seema hoti hai",
+      "cmi": 0.3846,
+      "lid_entropy": 1.2389,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D06"
+      ]
+    },
+    "Q25": {
+      "text": "What is a BSBDA small account opened under simplified KYC and how long is it valid",
+      "cmi": 0.125,
+      "lid_entropy": 0.5436,
+      "cmi_band": "low",
+      "relevant_doc_ids": [
+        "D08",
+        "D09"
+      ]
+    },
+    "Q26": {
+      "text": "Simplified KYC wala BSBDA small account kitne time ke liye valid hota hai",
+      "cmi": 0.5385,
+      "lid_entropy": 1.5262,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D08",
+        "D09"
+      ]
+    },
+    "Q27": {
+      "text": "Small account jo simplified KYC se khulta hai woh kitne saal tak valid rehta hai",
+      "cmi": 0.5333,
+      "lid_entropy": 1.4295,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D08",
+        "D09"
+      ]
+    },
+    "Q28": {
+      "text": "Simplified KYC se khula hua small account kitne mahine tak chalta hai aur extend ho sakta hai kya",
+      "cmi": 0.5,
+      "lid_entropy": 1.3821,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D08",
+        "D09"
+      ]
+    },
+    "Q29": {
+      "text": "Can my existing normal savings account be converted into a BSBDA account",
+      "cmi": 0.0833,
+      "lid_entropy": 0.4138,
+      "cmi_band": "low",
+      "relevant_doc_ids": [
+        "D10"
+      ]
+    },
+    "Q30": {
+      "text": "Mera normal savings account BSBDA mein convert ho sakta hai kya",
+      "cmi": 0.5455,
+      "lid_entropy": 1.3486,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D10"
+      ]
+    },
+    "Q31": {
+      "text": "Kya mera purana savings account BSBDA mein badla ja sakta hai",
+      "cmi": 0.4545,
+      "lid_entropy": 1.3222,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D10"
+      ]
+    },
+    "Q32": {
+      "text": "Mera jo pehle se savings khaata hai use BSBDA mein tabdeel karwa sakta hoon kya",
+      "cmi": 0.4667,
+      "lid_entropy": 1.2729,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D10"
+      ]
+    },
+    "Q33": {
+      "text": "How much yearly financial benefit does the PM-KISAN scheme provide to farmers",
+      "cmi": 0.0833,
+      "lid_entropy": 0.4138,
+      "cmi_band": "low",
+      "relevant_doc_ids": [
+        "D11"
+      ]
+    },
+    "Q34": {
+      "text": "PM-KISAN yojana mein farmers ko yearly kitna paisa milta hai",
+      "cmi": 0.3,
+      "lid_entropy": 1.1568,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "D11"
+      ]
+    },
+    "Q35": {
+      "text": "PM-KISAN yojana ke tahat kisano ko saal mein kitna paisa milta hai",
+      "cmi": 0.3333,
+      "lid_entropy": 1.1887,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "D11"
+      ]
+    },
+    "Q36": {
+      "text": "PM-KISAN yojana mein kisan parivar ko ek saal mein kitna paisa milta hai aur kitni kisto mein milta hai",
+      "cmi": 0.3158,
+      "lid_entropy": 1.105,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "D11"
+      ]
+    },
+    "Q37": {
+      "text": "What are the eligibility criteria for a farmer family to receive PM-KISAN benefits",
+      "cmi": 0.0769,
+      "lid_entropy": 0.3912,
+      "cmi_band": "low",
+      "relevant_doc_ids": [
+        "D12"
+      ]
+    },
+    "Q38": {
+      "text": "PM-KISAN ke liye eligibility criteria kya hai farmer family ke liye",
+      "cmi": 0.4545,
+      "lid_entropy": 1.3222,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D12"
+      ]
+    },
+    "Q39": {
+      "text": "PM-KISAN yojana ke liye kisan parivar ko kya sharte poori karni padti hain",
+      "cmi": 0.3846,
+      "lid_entropy": 1.2389,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D12"
+      ]
+    },
+    "Q40": {
+      "text": "PM-KISAN ka labh lene ke liye kisan parivar ko kaunsi sharte poori karni hoti hain",
+      "cmi": 0.4667,
+      "lid_entropy": 1.2729,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D12"
+      ]
+    },
+    "Q41": {
+      "text": "Are institutional landholders eligible for PM-KISAN benefits",
+      "cmi": 0.1429,
+      "lid_entropy": 0.5917,
+      "cmi_band": "low",
+      "relevant_doc_ids": [
+        "D13"
+      ]
+    },
+    "Q42": {
+      "text": "Institutional landholders PM-KISAN ke liye eligible hain kya",
+      "cmi": 0.5,
+      "lid_entropy": 1.5,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D13"
+      ]
+    },
+    "Q43": {
+      "text": "Kya institutional landholders ko PM-KISAN ka fayda milta hai",
+      "cmi": 0.4444,
+      "lid_entropy": 1.3516,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D13"
+      ]
+    },
+    "Q44": {
+      "text": "Agar zameen kisi sanstha ke naam par hai to kya PM-KISAN ka labh milega",
+      "cmi": 0.5714,
+      "lid_entropy": 1.4488,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "D13"
+      ]
+    },
+    "Q45": {
+      "text": "Which categories of people are excluded from PM-KISAN even if they own farmland",
+      "cmi": 0.1538,
+      "lid_entropy": 0.6194,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "D14"
+      ]
+    },
+    "Q46": {
+      "text": "PM-KISAN se kaun kaun exclude hote hain agar unke paas zameen bhi ho",
+      "cmi": 0.4615,
+      "lid_entropy": 1.2957,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D14"
+      ]
+    },
+    "Q47": {
+      "text": "Zameen hone ke bawajood kaunse log PM-KISAN se exclude kiye jaate hain",
+      "cmi": 0.5833,
+      "lid_entropy": 1.4834,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "D14"
+      ]
+    },
+    "Q48": {
+      "text": "Sarkari naukri wale ya pension paane wale kisan PM-KISAN ka labh le sakte hain kya",
+      "cmi": 0.4,
+      "lid_entropy": 1.231,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D14"
+      ]
+    },
+    "Q49": {
+      "text": "Is a linked Aadhaar number mandatory for receiving PM-KISAN payments",
+      "cmi": 0.2,
+      "lid_entropy": 0.7219,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "D15"
+      ]
+    },
+    "Q50": {
+      "text": "PM-KISAN payment ke liye Aadhaar link hona mandatory hai kya",
+      "cmi": 0.5,
+      "lid_entropy": 1.4855,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D15"
+      ]
+    },
+    "Q51": {
+      "text": "Kya PM-KISAN ka paisa lene ke liye Aadhaar link karna zaroori hai",
+      "cmi": 0.3333,
+      "lid_entropy": 1.2516,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "D15"
+      ]
+    },
+    "Q52": {
+      "text": "PM-KISAN ki kisht paane ke liye Aadhaar seeding zaroori hai kya aur mismatch hone par kya hota hai",
+      "cmi": 0.3333,
+      "lid_entropy": 1.2244,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "D15"
+      ]
+    },
+    "Q53": {
+      "text": "Can farmers with agricultural land in urban areas receive PM-KISAN benefits",
+      "cmi": 0.0909,
+      "lid_entropy": 0.4395,
+      "cmi_band": "low",
+      "relevant_doc_ids": [
+        "D17"
+      ]
+    },
+    "Q54": {
+      "text": "Urban area mein agricultural land wale farmers ko PM-KISAN milta hai kya",
+      "cmi": 0.5,
+      "lid_entropy": 1.4591,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D17"
+      ]
+    },
+    "Q55": {
+      "text": "Shehri ilaake mein kheti ki zameen ho to kya PM-KISAN ka labh milta hai",
+      "cmi": 0.5,
+      "lid_entropy": 1.4316,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D17"
+      ]
+    },
+    "Q56": {
+      "text": "Agar meri kheti ki zameen shehar ke andar hai to kya mujhe PM-KISAN ka paisa milega",
+      "cmi": 0.375,
+      "lid_entropy": 1.2988,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D17"
+      ]
+    },
+    "Q57": {
+      "text": "How can a farmer apply for PM-KISAN online or through a Common Service Centre",
+      "cmi": 0.2857,
+      "lid_entropy": 0.8631,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "D19",
+        "D20"
+      ]
+    },
+    "Q58": {
+      "text": "PM-KISAN ke liye online apply kaise karein ya CSC se kaise karein",
+      "cmi": 0.5,
+      "lid_entropy": 1.4591,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D19",
+        "D20"
+      ]
+    },
+    "Q59": {
+      "text": "Kisan PM-KISAN ke liye registration online kaise kare ya CSC jaakar kaise kare",
+      "cmi": 0.4615,
+      "lid_entropy": 1.4573,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D19",
+        "D20"
+      ]
+    },
+    "Q60": {
+      "text": "PM-KISAN mein naye kisan ka registration khud portal par karein ya CSC centre jaakar karwayein, dono tarike kaise hain",
+      "cmi": 0.4211,
+      "lid_entropy": 1.3235,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D19",
+        "D20"
+      ]
+    },
+    "Q61": {
+      "text": "What is a bsbda account, is there any minimum balance requirement",
+      "cmi": 0.0,
+      "lid_entropy": 0.0,
+      "cmi_band": "low",
+      "relevant_doc_ids": [
+        "D01"
+      ]
+    },
+    "Q62": {
+      "text": "kya bsbda khata zero balance account hota hai ya balance rakhna padega",
+      "cmi": 0.4167,
+      "lid_entropy": 0.9799,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D01"
+      ]
+    },
+    "Q63": {
+      "text": "Kya ek hi bank mein do bsbdaa account open kar sakte hain",
+      "cmi": 0.4167,
+      "lid_entropy": 0.9799,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D02"
+      ]
+    },
+    "Q64": {
+      "text": "How many free cash withdrawals can I make from a bsb-da account each month",
+      "cmi": 0.0,
+      "lid_entropy": 0.0,
+      "cmi_band": "low",
+      "relevant_doc_ids": [
+        "D03"
+      ]
+    },
+    "Q65": {
+      "text": "atm me balance enquiry karne par monthly limit cut hoti hai kya",
+      "cmi": 0.5,
+      "lid_entropy": 1.0,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D04"
+      ]
+    },
+    "Q66": {
+      "text": "bsbda account holder ko atm debit card free milta hai ya annual charge lagta hai",
+      "cmi": 0.4,
+      "lid_entropy": 0.971,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D05"
+      ]
+    },
+    "Q67": {
+      "text": "kya bsbda khata khulwane par pasbook free di jaati hai",
+      "cmi": 0.4,
+      "lid_entropy": 0.971,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D07"
+      ]
+    },
+    "Q68": {
+      "text": "Can I open a small account using simplified kyc documentation",
+      "cmi": 0.0,
+      "lid_entropy": 0.0,
+      "cmi_band": "low",
+      "relevant_doc_ids": [
+        "D08"
+      ]
+    },
+    "Q69": {
+      "text": "simplified kyc wala small acount kitne months tak valid rehta hai",
+      "cmi": 0.3636,
+      "lid_entropy": 0.9457,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D09"
+      ]
+    },
+    "Q70": {
+      "text": "How much financial benefit does pmkisan yojana provide to farmers annually",
+      "cmi": 0.0909,
+      "lid_entropy": 0.4395,
+      "cmi_band": "low",
+      "relevant_doc_ids": [
+        "D11"
+      ]
+    },
+    "Q71": {
+      "text": "pm-kisaan yojana ka labh lene ke liye farmer family ki eligibility sharte kya hain",
+      "cmi": 0.3571,
+      "lid_entropy": 0.9403,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D12"
+      ]
+    },
+    "Q72": {
+      "text": "kya institutional landholder ko pmkisan scheme ka fayda milta hai",
+      "cmi": 0.5,
+      "lid_entropy": 1.0,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D13"
+      ]
+    },
+    "Q73": {
+      "text": "pmkisan payment aane ke liye aadhar link karwana mandatory hai kya",
+      "cmi": 0.4545,
+      "lid_entropy": 0.994,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D15"
+      ]
+    },
+    "Q74": {
+      "text": "Agar adhar details mismatch ho jaye to kya pm-kisan ki kist ruk jayegi",
+      "cmi": 0.3077,
+      "lid_entropy": 1.1401,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "D15"
+      ]
+    },
+    "Q75": {
+      "text": "kisan pmkisan registration ke liye common service center ya csc par kaise jayein",
+      "cmi": 0.3846,
+      "lid_entropy": 0.9612,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "D20"
+      ]
+    },
+    "Q076": {
+      "text": "EEFC account features ka matlab aur details kya hain",
+      "cmi": 0.5556,
+      "lid_entropy": 1.3921,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C021"
+      ]
+    },
+    "Q077": {
+      "text": "EEFC account opening ke liye eligibility aur criteria kya hoti hai",
+      "cmi": 0.4545,
+      "lid_entropy": 1.3222,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C022"
+      ]
+    },
+    "Q078": {
+      "text": "EEFC account types ka matlab aur details kya hain",
+      "cmi": 0.5556,
+      "lid_entropy": 1.3921,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C023"
+      ]
+    },
+    "Q079": {
+      "text": "foreign exchange ki maximum limit aur charges kitne hote hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.0,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C024"
+      ]
+    },
+    "Q080": {
+      "text": "kya SEZ units allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.5,
+      "lid_entropy": 1.325,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C025"
+      ]
+    },
+    "Q081": {
+      "text": "kya any cheque facility available allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3571,
+      "lid_entropy": 0.9403,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C026"
+      ]
+    },
+    "Q082": {
+      "text": "permissible credits ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.0,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C027"
+      ]
+    },
+    "Q083": {
+      "text": "kya foreign exchange allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4167,
+      "lid_entropy": 0.9799,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C028"
+      ]
+    },
+    "Q084": {
+      "text": "permissible debits ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.0,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C029"
+      ]
+    },
+    "Q085": {
+      "text": "kya any restriction on withdrawal allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3571,
+      "lid_entropy": 0.9403,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C030"
+      ]
+    },
+    "Q086": {
+      "text": "kya the eefc balances allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3846,
+      "lid_entropy": 0.9612,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C031"
+      ]
+    },
+    "Q087": {
+      "text": "kya eefc account allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4167,
+      "lid_entropy": 0.9799,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C032"
+      ]
+    },
+    "Q088": {
+      "text": "asset remittance ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.0,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C033"
+      ]
+    },
+    "Q089": {
+      "text": "asset remittance ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.0,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C037"
+      ]
+    },
+    "Q090": {
+      "text": "scheme participation ke liye eligibility aur criteria kya hoti hai",
+      "cmi": 0.4,
+      "lid_entropy": 0.971,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C038"
+      ]
+    },
+    "Q091": {
+      "text": "auction participation ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.5,
+      "lid_entropy": 1.0,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C041"
+      ]
+    },
+    "Q092": {
+      "text": "aggregator facilitator ki definition aur role kya hai",
+      "cmi": 0.5,
+      "lid_entropy": 1.0,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C042"
+      ]
+    },
+    "Q093": {
+      "text": "bidding limits ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.0,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C043"
+      ]
+    },
+    "Q094": {
+      "text": "investor bids allowed ki total count aur limit kitni hai",
+      "cmi": 0.3,
+      "lid_entropy": 0.8813,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "C044"
+      ]
+    },
+    "Q095": {
+      "text": "kya an application form allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3846,
+      "lid_entropy": 0.9612,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C045"
+      ]
+    },
+    "Q096": {
+      "text": "security payment ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.5,
+      "lid_entropy": 1.0,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C046"
+      ]
+    },
+    "Q097": {
+      "text": "non-competitive bidder payment mode ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.4167,
+      "lid_entropy": 0.9799,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C048"
+      ]
+    },
+    "Q098": {
+      "text": "non-competitive allotment by RBI ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.5,
+      "lid_entropy": 1.325,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C050"
+      ]
+    },
+    "Q099": {
+      "text": "securities issuance ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.5,
+      "lid_entropy": 1.0,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C051"
+      ]
+    },
+    "Q100": {
+      "text": "aggregator facilitator ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.5,
+      "lid_entropy": 1.0,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C054"
+      ]
+    },
+    "Q101": {
+      "text": "agar aggregator facilitator toh aise case mein kya rule lagta hai",
+      "cmi": 0.4545,
+      "lid_entropy": 0.994,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C055"
+      ]
+    },
+    "Q102": {
+      "text": "nri ki definition aur role kya hai",
+      "cmi": 0.4286,
+      "lid_entropy": 0.9852,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C057"
+      ]
+    },
+    "Q103": {
+      "text": "pio ki definition aur role kya hai",
+      "cmi": 0.4286,
+      "lid_entropy": 0.9852,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C058"
+      ]
+    },
+    "Q104": {
+      "text": "NRI bank accounts ka matlab aur details kya hain",
+      "cmi": 0.5556,
+      "lid_entropy": 1.3921,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C059"
+      ]
+    },
+    "Q105": {
+      "text": "kya a bangladeshi/ pakistani national allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3571,
+      "lid_entropy": 0.9403,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C060"
+      ]
+    },
+    "Q106": {
+      "text": "tourist bank accounts ka matlab aur details kya hain",
+      "cmi": 0.4444,
+      "lid_entropy": 0.9911,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C061"
+      ]
+    },
+    "Q107": {
+      "text": "an snrr account ka matlab aur details kya hain",
+      "cmi": 0.4444,
+      "lid_entropy": 0.9911,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C062"
+      ]
+    },
+    "Q108": {
+      "text": "diplomatic mission deposits ka matlab aur details kya hain",
+      "cmi": 0.4444,
+      "lid_entropy": 0.9911,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C063"
+      ]
+    },
+    "Q109": {
+      "text": "kya persons resident in nepal allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3571,
+      "lid_entropy": 0.9403,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C064"
+      ]
+    },
+    "Q110": {
+      "text": "kya multilateral organisation deposits allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3846,
+      "lid_entropy": 0.9612,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C065"
+      ]
+    },
+    "Q111": {
+      "text": "kya company deposits from non-residents allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3571,
+      "lid_entropy": 0.9403,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C066"
+      ]
+    },
+    "Q112": {
+      "text": "kya FPI foreign currency account allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4286,
+      "lid_entropy": 1.2638,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C067"
+      ]
+    },
+    "Q113": {
+      "text": "Escrow account opening ke liye eligibility aur criteria kya hoti hai",
+      "cmi": 0.4545,
+      "lid_entropy": 1.3222,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C068"
+      ]
+    },
+    "Q114": {
+      "text": "FEMA Authorised Persons ki definition aur role kya hai",
+      "cmi": 0.5556,
+      "lid_entropy": 1.5305,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C069"
+      ]
+    },
+    "Q115": {
+      "text": "FFMC business objective ka matlab aur details kya hain",
+      "cmi": 0.5556,
+      "lid_entropy": 1.3921,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C070"
+      ]
+    },
+    "Q116": {
+      "text": "kya money changing licence mandate allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4286,
+      "lid_entropy": 0.9852,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C071"
+      ]
+    },
+    "Q117": {
+      "text": "FFMC licence application ke liye eligibility aur criteria kya hoti hai",
+      "cmi": 0.4545,
+      "lid_entropy": 1.3222,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C072"
+      ]
+    },
+    "Q118": {
+      "text": "kya ongoing NOF requirement allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4615,
+      "lid_entropy": 1.2957,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C075"
+      ]
+    },
+    "Q119": {
+      "text": "FFMC operations time limit ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.361,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C076"
+      ]
+    },
+    "Q120": {
+      "text": "agar licence renewal application toh aise case mein kya rule lagta hai",
+      "cmi": 0.4167,
+      "lid_entropy": 0.9799,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C077"
+      ]
+    },
+    "Q121": {
+      "text": "money changing facilities ka matlab aur details kya hain",
+      "cmi": 0.4444,
+      "lid_entropy": 0.9911,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C079"
+      ]
+    },
+    "Q122": {
+      "text": "franchisee appointment objective ka matlab aur details kya hain",
+      "cmi": 0.4444,
+      "lid_entropy": 0.9911,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C080"
+      ]
+    },
+    "Q123": {
+      "text": "franchisee agreement features ka matlab aur details kya hain",
+      "cmi": 0.4444,
+      "lid_entropy": 0.9911,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C081"
+      ]
+    },
+    "Q124": {
+      "text": "franchisee application submission ke rules aur procedure kya hain",
+      "cmi": 0.4444,
+      "lid_entropy": 0.9911,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C082"
+      ]
+    },
+    "Q125": {
+      "text": "franchisee due diligence checks ka matlab aur details kya hain",
+      "cmi": 0.4,
+      "lid_entropy": 0.971,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C083"
+      ]
+    },
+    "Q126": {
+      "text": "selection criteria for centres ka matlab aur details kya hain",
+      "cmi": 0.4,
+      "lid_entropy": 0.971,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C084"
+      ]
+    },
+    "Q127": {
+      "text": "franchisee training guidelines ka matlab aur details kya hain",
+      "cmi": 0.4444,
+      "lid_entropy": 0.9911,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C085"
+      ]
+    },
+    "Q128": {
+      "text": "franchisee reporting and audit ka matlab aur details kya hain",
+      "cmi": 0.4,
+      "lid_entropy": 0.971,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C086"
+      ]
+    },
+    "Q129": {
+      "text": "kya AD Category-II forex prepaid cards allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4667,
+      "lid_entropy": 1.3996,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C088"
+      ]
+    },
+    "Q130": {
+      "text": "kya forex prepaid cards at Duty Free allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4375,
+      "lid_entropy": 1.3663,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C089"
+      ]
+    },
+    "Q131": {
+      "text": "Papua New Guinea banknotes rule ka matlab aur details kya hain",
+      "cmi": 0.6364,
+      "lid_entropy": 1.5726,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C090"
+      ]
+    },
+    "Q132": {
+      "text": "Kenya 1000 shillings banknote rule ka matlab aur details kya hain",
+      "cmi": 0.5455,
+      "lid_entropy": 1.4949,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C091"
+      ]
+    },
+    "Q133": {
+      "text": "NEFT system ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.4056,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C092"
+      ]
+    },
+    "Q134": {
+      "text": "NEFT benefits ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.4056,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C093"
+      ]
+    },
+    "Q135": {
+      "text": "NEFT working process ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.5455,
+      "lid_entropy": 1.3486,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C094"
+      ]
+    },
+    "Q136": {
+      "text": "IFSC code ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.4056,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C095"
+      ]
+    },
+    "Q137": {
+      "text": "find bank IFSC ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.5455,
+      "lid_entropy": 1.3486,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C096"
+      ]
+    },
+    "Q138": {
+      "text": "NEFT transfer eligibility ke liye eligibility aur criteria kya hoti hai",
+      "cmi": 0.4545,
+      "lid_entropy": 1.3222,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C097"
+      ]
+    },
+    "Q139": {
+      "text": "kya NEFT transfer limits allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4615,
+      "lid_entropy": 1.2957,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C098"
+      ]
+    },
+    "Q140": {
+      "text": "kya NEFT without bank account allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4286,
+      "lid_entropy": 1.2638,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C099"
+      ]
+    },
+    "Q141": {
+      "text": "kya NEFT transfer abroad allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4615,
+      "lid_entropy": 1.2957,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C100"
+      ]
+    },
+    "Q142": {
+      "text": "NEFT operational timings ka matlab aur details kya hain",
+      "cmi": 0.5556,
+      "lid_entropy": 1.3921,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C101"
+      ]
+    },
+    "Q143": {
+      "text": "NEFT transfer required details ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.361,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C102"
+      ]
+    },
+    "Q144": {
+      "text": "NEFT customer charges ka matlab aur details kya hain",
+      "cmi": 0.5556,
+      "lid_entropy": 1.3921,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C103"
+      ]
+    },
+    "Q145": {
+      "text": "kya NEFT for NRE NRO accounts allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.5333,
+      "lid_entropy": 1.5058,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C104"
+      ]
+    },
+    "Q146": {
+      "text": "kya NEFT inward draw transaction allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4286,
+      "lid_entropy": 1.2638,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C105"
+      ]
+    },
+    "Q147": {
+      "text": "NEFT transaction tracking ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.5455,
+      "lid_entropy": 1.3486,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C106"
+      ]
+    },
+    "Q148": {
+      "text": "RBI helpdesk contact ka matlab aur details kya hain",
+      "cmi": 0.5556,
+      "lid_entropy": 1.3921,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C108"
+      ]
+    },
+    "Q149": {
+      "text": "NEFT settlement time ki maximum limit aur charges kitne hote hain",
+      "cmi": 0.5455,
+      "lid_entropy": 1.3486,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C109"
+      ]
+    },
+    "Q150": {
+      "text": "NEFT delay penalty compensation ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.361,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C111"
+      ]
+    },
+    "Q151": {
+      "text": "RB-IOS complaint filing ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.5455,
+      "lid_entropy": 1.3486,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C114"
+      ]
+    },
+    "Q152": {
+      "text": "safe digital payment practices ka matlab aur details kya hain",
+      "cmi": 0.4,
+      "lid_entropy": 0.971,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C115"
+      ]
+    },
+    "Q153": {
+      "text": "LEI in large NEFT transfers ka matlab aur details kya hain",
+      "cmi": 0.5455,
+      "lid_entropy": 1.4949,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C116"
+      ]
+    },
+    "Q154": {
+      "text": "RBI government banking role ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.361,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C117"
+      ]
+    },
+    "Q155": {
+      "text": "RBI banker to government role ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.4615,
+      "lid_entropy": 1.2957,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C118"
+      ]
+    },
+    "Q156": {
+      "text": "agar government payment receipt challan toh aise case mein kya rule lagta hai",
+      "cmi": 0.3846,
+      "lid_entropy": 0.9612,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C120"
+      ]
+    },
+    "Q157": {
+      "text": "agar lost paper token procedure toh aise case mein kya rule lagta hai",
+      "cmi": 0.3846,
+      "lid_entropy": 0.9612,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C121"
+      ]
+    },
+    "Q158": {
+      "text": "agar lost receipted challan procedure toh aise case mein kya rule lagta hai",
+      "cmi": 0.3846,
+      "lid_entropy": 0.9612,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C122"
+      ]
+    },
+    "Q159": {
+      "text": "kya agency bank government compensation allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3571,
+      "lid_entropy": 0.9403,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C123"
+      ]
+    },
+    "Q160": {
+      "text": "RBI role in GST ka matlab aur details kya hain",
+      "cmi": 0.6,
+      "lid_entropy": 1.5219,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C124"
+      ]
+    },
+    "Q161": {
+      "text": "the dicgc kis cheez ko insure karta hai",
+      "cmi": 0.375,
+      "lid_entropy": 0.9544,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C126"
+      ]
+    },
+    "Q162": {
+      "text": "DICGC insurance maximum limit ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.361,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C127"
+      ]
+    },
+    "Q163": {
+      "text": "check if bank is DICGC insured ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.4286,
+      "lid_entropy": 1.2638,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C128"
+      ]
+    },
+    "Q164": {
+      "text": "DICGC insurance across branches ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.361,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C129"
+      ]
+    },
+    "Q165": {
+      "text": "kya insurance increase via multiple accounts allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3333,
+      "lid_entropy": 0.9183,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "C131"
+      ]
+    },
+    "Q166": {
+      "text": "kya separate insurance for different banks allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4,
+      "lid_entropy": 0.971,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C132"
+      ]
+    },
+    "Q167": {
+      "text": "deposits in same vs different capacity ka matlab aur details kya hain",
+      "cmi": 0.3333,
+      "lid_entropy": 0.9183,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "C134"
+      ]
+    },
+    "Q168": {
+      "text": "kya bank deduction of depositor dues allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3333,
+      "lid_entropy": 0.9183,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "C135"
+      ]
+    },
+    "Q169": {
+      "text": "deposit insurance cost payment kaun hota hai aur rules kya hain",
+      "cmi": 0.4545,
+      "lid_entropy": 0.994,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C136"
+      ]
+    },
+    "Q170": {
+      "text": "agar DICGC payout conditions toh aise case mein kya rule lagta hai",
+      "cmi": 0.5,
+      "lid_entropy": 1.325,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C137"
+      ]
+    },
+    "Q171": {
+      "text": "kya bank withdrawal from DICGC allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4286,
+      "lid_entropy": 1.2638,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C139"
+      ]
+    },
+    "Q172": {
+      "text": "kya DICGC coverage cancellation allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4615,
+      "lid_entropy": 1.2957,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C140"
+      ]
+    },
+    "Q173": {
+      "text": "kya RTGS payment finality allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4615,
+      "lid_entropy": 1.2957,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C143"
+      ]
+    },
+    "Q174": {
+      "text": "RTGS benefits ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.4056,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C144"
+      ]
+    },
+    "Q175": {
+      "text": "RTGS vs NEFT processing ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.5833,
+      "lid_entropy": 1.4834,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C145"
+      ]
+    },
+    "Q176": {
+      "text": "kya RTGS 24x7 availability allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4615,
+      "lid_entropy": 1.2957,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C146"
+      ]
+    },
+    "Q177": {
+      "text": "kya RTGS minimum maximum limits allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4286,
+      "lid_entropy": 1.2638,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C147"
+      ]
+    },
+    "Q178": {
+      "text": "RTGS remittance required details ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.361,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C149"
+      ]
+    },
+    "Q179": {
+      "text": "RTGS transfer duration ka matlab aur details kya hain",
+      "cmi": 0.5556,
+      "lid_entropy": 1.3921,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C154"
+      ]
+    },
+    "Q180": {
+      "text": "kya future date RTGS transfer allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.5,
+      "lid_entropy": 1.2958,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C155"
+      ]
+    },
+    "Q181": {
+      "text": "kya originate transaction to draw funds allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4,
+      "lid_entropy": 0.971,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C156"
+      ]
+    },
+    "Q182": {
+      "text": "kya track RTGS transaction allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4615,
+      "lid_entropy": 1.2957,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C157"
+      ]
+    },
+    "Q183": {
+      "text": "kya RTGS delay return compensation allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4286,
+      "lid_entropy": 1.2638,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C159"
+      ]
+    },
+    "Q184": {
+      "text": "UTR number ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.4056,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C161"
+      ]
+    },
+    "Q185": {
+      "text": "RBI helpdesk contact ka matlab aur details kya hain",
+      "cmi": 0.5556,
+      "lid_entropy": 1.3921,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C162"
+      ]
+    },
+    "Q186": {
+      "text": "RB-IOS complaint filing ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.5455,
+      "lid_entropy": 1.3486,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C164"
+      ]
+    },
+    "Q187": {
+      "text": "LEI in RTGS transactions ka matlab aur details kya hain",
+      "cmi": 0.6,
+      "lid_entropy": 1.5219,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C165"
+      ]
+    },
+    "Q188": {
+      "text": "Authorized Dealer AD ki definition aur role kya hai",
+      "cmi": 0.5556,
+      "lid_entropy": 1.5305,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C166"
+      ]
+    },
+    "Q189": {
+      "text": "entities authorized to sell forex ki definition aur role kya hai",
+      "cmi": 0.3636,
+      "lid_entropy": 0.9457,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C167"
+      ]
+    },
+    "Q190": {
+      "text": "cash forex limits for travel ki maximum limit aur charges kitne hote hain",
+      "cmi": 0.3846,
+      "lid_entropy": 0.9612,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C168"
+      ]
+    },
+    "Q191": {
+      "text": "rupee currency limits entering India ki maximum limit aur charges kitne hote hain",
+      "cmi": 0.4615,
+      "lid_entropy": 1.2957,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C169"
+      ]
+    },
+    "Q192": {
+      "text": "forex import limits into India ki maximum limit aur charges kitne hote hain",
+      "cmi": 0.4615,
+      "lid_entropy": 1.2957,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C170"
+      ]
+    },
+    "Q193": {
+      "text": "kya cash payment for forex purchase allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3333,
+      "lid_entropy": 0.9183,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "C171"
+      ]
+    },
+    "Q194": {
+      "text": "kya forex surrender time limit on return allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3125,
+      "lid_entropy": 0.896,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "C172"
+      ]
+    },
+    "Q195": {
+      "text": "kya surrender of foreign coins allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3571,
+      "lid_entropy": 0.9403,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C173"
+      ]
+    },
+    "Q196": {
+      "text": "kya travel categories requiring RBI approval allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4,
+      "lid_entropy": 1.231,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C174"
+      ]
+    },
+    "Q197": {
+      "text": "kya FCRA grant donation permission allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4286,
+      "lid_entropy": 1.2638,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C175"
+      ]
+    },
+    "Q198": {
+      "text": "eligibility for ICC and IDC cards ki definition aur role kya hai",
+      "cmi": 0.5,
+      "lid_entropy": 1.4591,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C176"
+      ]
+    },
+    "Q199": {
+      "text": "jewellery export allowance abroad ki maximum limit aur charges kitne hote hain",
+      "cmi": 0.4167,
+      "lid_entropy": 0.9799,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C177"
+      ]
+    },
+    "Q200": {
+      "text": "kya local hospitality to non-residents allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3571,
+      "lid_entropy": 0.9403,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C178"
+      ]
+    },
+    "Q201": {
+      "text": "kya air ticket booking for travel outside India allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3529,
+      "lid_entropy": 1.1661,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C179"
+      ]
+    },
+    "Q202": {
+      "text": "kya paying medical expenses of NRI relative allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.375,
+      "lid_entropy": 1.1982,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C180"
+      ]
+    },
+    "Q203": {
+      "text": "kya holding foreign assets by residents allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3333,
+      "lid_entropy": 0.9183,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "C181"
+      ]
+    },
+    "Q204": {
+      "text": "Indo-Nepal remittance scheme ka matlab aur details kya hain",
+      "cmi": 0.5556,
+      "lid_entropy": 1.3921,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C182"
+      ]
+    },
+    "Q205": {
+      "text": "INRF scheme features ka matlab aur details kya hain",
+      "cmi": 0.5556,
+      "lid_entropy": 1.3921,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C183"
+      ]
+    },
+    "Q206": {
+      "text": "kya INRF transaction count limits allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4286,
+      "lid_entropy": 1.2638,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C184"
+      ]
+    },
+    "Q207": {
+      "text": "INRF remitter required documents ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.361,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C186"
+      ]
+    },
+    "Q208": {
+      "text": "India-Nepal transfer workflow and timeline ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.5385,
+      "lid_entropy": 1.3143,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C187"
+      ]
+    },
+    "Q209": {
+      "text": "NSBL and Prabhu Money Transfer outlets ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.6429,
+      "lid_entropy": 1.5774,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C188"
+      ]
+    },
+    "Q210": {
+      "text": "INRF failed transfer refund ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.5,
+      "lid_entropy": 1.325,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C189"
+      ]
+    },
+    "Q211": {
+      "text": "Indo-Nepal remittance charges ka matlab aur details kya hain",
+      "cmi": 0.5556,
+      "lid_entropy": 1.3921,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C190"
+      ]
+    },
+    "Q212": {
+      "text": "INRF grievance redressal contact ke liye eligibility aur criteria kya hoti hai",
+      "cmi": 0.5,
+      "lid_entropy": 1.325,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C191"
+      ]
+    },
+    "Q213": {
+      "text": "kya bilateral arrangements under INRF allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4286,
+      "lid_entropy": 1.2638,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C192"
+      ]
+    },
+    "Q214": {
+      "text": "kya joint account continuation for family pension allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3125,
+      "lid_entropy": 0.896,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "C194"
+      ]
+    },
+    "Q215": {
+      "text": "agar pension credit timing toh aise case mein kya rule lagta hai",
+      "cmi": 0.4167,
+      "lid_entropy": 0.9799,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C195"
+      ]
+    },
+    "Q216": {
+      "text": "kya recovery of excess pension credit allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3333,
+      "lid_entropy": 0.9183,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "C196"
+      ]
+    },
+    "Q217": {
+      "text": "kya life certificate acknowledgement receipt allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4286,
+      "lid_entropy": 0.9852,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C197"
+      ]
+    },
+    "Q218": {
+      "text": "kya digital life certificate submission allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4286,
+      "lid_entropy": 0.9852,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C198"
+      ]
+    },
+    "Q219": {
+      "text": "kya pension withdrawal for incapacitated pensioner allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3333,
+      "lid_entropy": 0.9183,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "C199"
+      ]
+    },
+    "Q220": {
+      "text": "kya delayed pension compensation allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3846,
+      "lid_entropy": 0.9612,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C202"
+      ]
+    },
+    "Q221": {
+      "text": "person resident ki definition aur role kya hai",
+      "cmi": 0.5,
+      "lid_entropy": 1.0,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C203"
+      ]
+    },
+    "Q222": {
+      "text": "foreign currency account ka matlab aur details kya hain",
+      "cmi": 0.4444,
+      "lid_entropy": 0.9911,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C204"
+      ]
+    },
+    "Q223": {
+      "text": "foreign currency account ka matlab aur details kya hain",
+      "cmi": 0.4444,
+      "lid_entropy": 0.9911,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C205"
+      ]
+    },
+    "Q224": {
+      "text": "kya retaining foreign account after returning to India allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3529,
+      "lid_entropy": 1.1661,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C208"
+      ]
+    },
+    "Q225": {
+      "text": "foreign account status after holder demise ka matlab aur details kya hain",
+      "cmi": 0.3333,
+      "lid_entropy": 0.9183,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "C209"
+      ]
+    },
+    "Q226": {
+      "text": "agar PSS Act 2007 effective date toh aise case mein kya rule lagta hai",
+      "cmi": 0.5714,
+      "lid_entropy": 1.5306,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C211"
+      ]
+    },
+    "Q227": {
+      "text": "PSS Act objective ka matlab aur details kya hain",
+      "cmi": 0.5556,
+      "lid_entropy": 1.5305,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C212"
+      ]
+    },
+    "Q228": {
+      "text": "PSS Act regulations and enforcement ka matlab aur details kya hain",
+      "cmi": 0.5455,
+      "lid_entropy": 1.4949,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C213"
+      ]
+    },
+    "Q229": {
+      "text": "PSS regulations objectives ka matlab aur details kya hain",
+      "cmi": 0.5556,
+      "lid_entropy": 1.3921,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C214"
+      ]
+    },
+    "Q230": {
+      "text": "payment obligation definition ka matlab aur details kya hain",
+      "cmi": 0.4444,
+      "lid_entropy": 0.9911,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C216"
+      ]
+    },
+    "Q231": {
+      "text": "payment instruction definition ka matlab aur details kya hain",
+      "cmi": 0.4444,
+      "lid_entropy": 0.9911,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C217"
+      ]
+    },
+    "Q232": {
+      "text": "settlement meaning in PSS ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.361,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C218"
+      ]
+    },
+    "Q233": {
+      "text": "payment system definition under PSS Act ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.4591,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C219"
+      ]
+    },
+    "Q234": {
+      "text": "kya payment system authorization license mandate allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4,
+      "lid_entropy": 0.971,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C220"
+      ]
+    },
+    "Q235": {
+      "text": "kya payment system authorization fee allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3571,
+      "lid_entropy": 0.9403,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C221"
+      ]
+    },
+    "Q236": {
+      "text": "kya foreign entities operating payment systems allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3333,
+      "lid_entropy": 0.9183,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "C222"
+      ]
+    },
+    "Q237": {
+      "text": "kya foreign payment entity RBI license requirement allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.375,
+      "lid_entropy": 1.1982,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C223"
+      ]
+    },
+    "Q238": {
+      "text": "Financial Market Infrastructures FMI ka matlab aur details kya hain",
+      "cmi": 0.6,
+      "lid_entropy": 1.5219,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C224"
+      ]
+    },
+    "Q239": {
+      "text": "kya foreign FMI operations in India allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4667,
+      "lid_entropy": 1.3996,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C225"
+      ]
+    },
+    "Q240": {
+      "text": "services permitted for foreign entities ka matlab aur details kya hain",
+      "cmi": 0.3636,
+      "lid_entropy": 0.9457,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C226"
+      ]
+    },
+    "Q241": {
+      "text": "RBI payment authorization evaluation factors ka matlab aur details kya hain",
+      "cmi": 0.4545,
+      "lid_entropy": 1.3222,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C227"
+      ]
+    },
+    "Q242": {
+      "text": "parameters for payment system authorization ka matlab aur details kya hain",
+      "cmi": 0.3636,
+      "lid_entropy": 0.9457,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C228"
+      ]
+    },
+    "Q243": {
+      "text": "kya RBI refusal of payment authorization allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4,
+      "lid_entropy": 1.231,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C229"
+      ]
+    },
+    "Q244": {
+      "text": "kya RBI revocation of payment authorization allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4,
+      "lid_entropy": 1.231,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C230"
+      ]
+    },
+    "Q245": {
+      "text": "kya appellate authority under PSS Act allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.5333,
+      "lid_entropy": 1.4295,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C231"
+      ]
+    },
+    "Q246": {
+      "text": "kya RBI authorization fee and security deposit allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.375,
+      "lid_entropy": 1.1982,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C232"
+      ]
+    },
+    "Q247": {
+      "text": "kya RBI power to call for payment returns allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3529,
+      "lid_entropy": 1.1661,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C234"
+      ]
+    },
+    "Q248": {
+      "text": "kya RBI sharing payment info with regulators allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.375,
+      "lid_entropy": 1.1982,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C235"
+      ]
+    },
+    "Q249": {
+      "text": "kya RBI inspection of payment provider premises allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.375,
+      "lid_entropy": 1.1982,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C236"
+      ]
+    },
+    "Q250": {
+      "text": "kya RBI inspection of overseas entities allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4,
+      "lid_entropy": 1.231,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C237"
+      ]
+    },
+    "Q251": {
+      "text": "kya RBI directions to payment providers allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4,
+      "lid_entropy": 1.231,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C238"
+      ]
+    },
+    "Q252": {
+      "text": "duties of payment system provider ka matlab aur details kya hain",
+      "cmi": 0.3636,
+      "lid_entropy": 0.9457,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C240"
+      ]
+    },
+    "Q253": {
+      "text": "dispute settlement under PSS Act ka matlab aur details kya hain",
+      "cmi": 0.5455,
+      "lid_entropy": 1.4949,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C241"
+      ]
+    },
+    "Q254": {
+      "text": "electronic fund transfer dishonour consequences ka matlab aur details kya hain",
+      "cmi": 0.3636,
+      "lid_entropy": 0.9457,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C242"
+      ]
+    },
+    "Q255": {
+      "text": "kya penalties under PSS Act allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.5,
+      "lid_entropy": 1.4316,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C243"
+      ]
+    },
+    "Q256": {
+      "text": "Automated Teller Machine ATM ka matlab aur details kya hain",
+      "cmi": 0.6,
+      "lid_entropy": 1.5219,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C244"
+      ]
+    },
+    "Q257": {
+      "text": "White Label ATMs WLA ka matlab aur details kya hain",
+      "cmi": 0.6,
+      "lid_entropy": 1.5219,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C245"
+      ]
+    },
+    "Q258": {
+      "text": "services available at ATMs and WLAs ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.4591,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C248"
+      ]
+    },
+    "Q259": {
+      "text": "ATM transaction pre-requisites ka matlab aur details kya hain",
+      "cmi": 0.5556,
+      "lid_entropy": 1.3921,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C250"
+      ]
+    },
+    "Q260": {
+      "text": "PIN number ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.4056,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C251"
+      ]
+    },
+    "Q261": {
+      "text": "kya using debit card at any ATM allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.375,
+      "lid_entropy": 1.1982,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C252"
+      ]
+    },
+    "Q262": {
+      "text": "On-Us vs Off-Us transactions ka matlab aur details kya hain",
+      "cmi": 0.6,
+      "lid_entropy": 1.5219,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C253"
+      ]
+    },
+    "Q263": {
+      "text": "kya free ATM transactions quota allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.5,
+      "lid_entropy": 1.2958,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C254"
+      ]
+    },
+    "Q264": {
+      "text": "kya extra free ATM transactions by banks allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.375,
+      "lid_entropy": 1.1982,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C255"
+      ]
+    },
+    "Q265": {
+      "text": "kya free ATM transactions for BSBDA accounts allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4375,
+      "lid_entropy": 1.3663,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C256"
+      ]
+    },
+    "Q266": {
+      "text": "kya transactions excluded from free ATM count allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.375,
+      "lid_entropy": 1.1982,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C257"
+      ]
+    },
+    "Q267": {
+      "text": "identify metro vs non-metro ATM ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.4615,
+      "lid_entropy": 1.2957,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C258"
+      ]
+    },
+    "Q268": {
+      "text": "kya ATM transaction charges allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4615,
+      "lid_entropy": 1.2957,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C259"
+      ]
+    },
+    "Q269": {
+      "text": "credit card ATM withdrawal charges ka matlab aur details kya hain",
+      "cmi": 0.4545,
+      "lid_entropy": 1.3222,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C260"
+      ]
+    },
+    "Q270": {
+      "text": "kya failed ATM transaction refund turnaround time allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.375,
+      "lid_entropy": 1.1982,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C263"
+      ]
+    },
+    "Q271": {
+      "text": "kya failed ATM transaction delay compensation allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4,
+      "lid_entropy": 1.231,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C264"
+      ]
+    },
+    "Q272": {
+      "text": "remedy for non-reversal of failed ATM transaction ka matlab aur details kya hain",
+      "cmi": 0.3846,
+      "lid_entropy": 1.2389,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C265"
+      ]
+    },
+    "Q273": {
+      "text": "magnetic stripe vs EMV chip cards ka matlab aur details kya hain",
+      "cmi": 0.4167,
+      "lid_entropy": 1.2807,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C269"
+      ]
+    },
+    "Q274": {
+      "text": "mandate for EMV chip card issuance ke rules aur mandate kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.325,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C270"
+      ]
+    },
+    "Q275": {
+      "text": "a nostro account ka matlab aur details kya hain",
+      "cmi": 0.4444,
+      "lid_entropy": 0.9911,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C274"
+      ]
+    },
+    "Q276": {
+      "text": "USD cheque collection charges ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.361,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C275"
+      ]
+    },
+    "Q277": {
+      "text": "kya US regulations on USD cheques allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4667,
+      "lid_entropy": 1.3996,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C276"
+      ]
+    },
+    "Q278": {
+      "text": "kya choice of USD cheque collection mode allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.375,
+      "lid_entropy": 1.1982,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C277"
+      ]
+    },
+    "Q279": {
+      "text": "kya credit availability on Nostro sight allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.4,
+      "lid_entropy": 1.231,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C280"
+      ]
+    },
+    "Q280": {
+      "text": "customer awareness and complaints rules ka matlab aur details kya hain",
+      "cmi": 0.3636,
+      "lid_entropy": 0.9457,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C283"
+      ]
+    },
+    "Q281": {
+      "text": "kya additional instructions for banks allow kiya jata hai ya koi specific restriction hai",
+      "cmi": 0.3571,
+      "lid_entropy": 0.9403,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C284"
+      ]
+    },
+    "Q282": {
+      "text": "a bond ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.0,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C285"
+      ]
+    },
+    "Q283": {
+      "text": "Government Security G-Sec ka matlab aur details kya hain",
+      "cmi": 0.5556,
+      "lid_entropy": 1.5305,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C286"
+      ]
+    },
+    "Q284": {
+      "text": "G-Sec issuance process ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.5455,
+      "lid_entropy": 1.3486,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C296"
+      ]
+    },
+    "Q285": {
+      "text": "security auction types ka matlab aur details kya hain",
+      "cmi": 0.4444,
+      "lid_entropy": 0.9911,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C298"
+      ]
+    },
+    "Q286": {
+      "text": "Open Market Operations OMO ka matlab aur details kya hain",
+      "cmi": 0.6,
+      "lid_entropy": 1.571,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C303"
+      ]
+    },
+    "Q287": {
+      "text": "LAF facility and re-repo rules ka matlab aur details kya hain",
+      "cmi": 0.4545,
+      "lid_entropy": 1.3222,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C305"
+      ]
+    },
+    "Q288": {
+      "text": "G-Sec trading process and market abuse rules ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.4,
+      "lid_entropy": 1.231,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C307"
+      ]
+    },
+    "Q289": {
+      "text": "key participants in G-Sec market ki definition aur role kya hai",
+      "cmi": 0.4545,
+      "lid_entropy": 1.3222,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C313"
+      ]
+    },
+    "Q290": {
+      "text": "G-Sec guidelines for co-operative banks ka matlab aur details kya hain",
+      "cmi": 0.4545,
+      "lid_entropy": 1.3222,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C314"
+      ]
+    },
+    "Q291": {
+      "text": "recording dealing desk transactions ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.4167,
+      "lid_entropy": 0.9799,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C315"
+      ]
+    },
+    "Q292": {
+      "text": "security transaction considerations ka matlab aur details kya hain",
+      "cmi": 0.4444,
+      "lid_entropy": 0.9911,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C316"
+      ]
+    },
+    "Q293": {
+      "text": "tracking G-Sec market price ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.5,
+      "lid_entropy": 1.325,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C318"
+      ]
+    },
+    "Q294": {
+      "text": "reporting G-Sec trades ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.5455,
+      "lid_entropy": 1.3486,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C320"
+      ]
+    },
+    "Q295": {
+      "text": "shut period ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.0,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C323"
+      ]
+    },
+    "Q296": {
+      "text": "Delivery vs Payment DvP settlement ka matlab aur details kya hain",
+      "cmi": 0.6364,
+      "lid_entropy": 1.5726,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C324"
+      ]
+    },
+    "Q297": {
+      "text": "CCIL role and functions ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.361,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C325"
+      ]
+    },
+    "Q298": {
+      "text": "When Issued market and short selling ka matlab aur details kya hain",
+      "cmi": 0.4167,
+      "lid_entropy": 1.2807,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C326"
+      ]
+    },
+    "Q299": {
+      "text": "math concepts for bond price and yield ka matlab aur details kya hain",
+      "cmi": 0.3077,
+      "lid_entropy": 0.8905,
+      "cmi_band": "medium",
+      "relevant_doc_ids": [
+        "C327"
+      ]
+    },
+    "Q300": {
+      "text": "bond price calculation formula ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.4167,
+      "lid_entropy": 0.9799,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C331"
+      ]
+    },
+    "Q301": {
+      "text": "bond yield vs price relationship ka matlab aur details kya hain",
+      "cmi": 0.3636,
+      "lid_entropy": 0.9457,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C332"
+      ]
+    },
+    "Q302": {
+      "text": "calculating bond yield ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.4545,
+      "lid_entropy": 0.994,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C333"
+      ]
+    },
+    "Q303": {
+      "text": "bond yield day count conventions ka matlab aur details kya hain",
+      "cmi": 0.3636,
+      "lid_entropy": 0.9457,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C342"
+      ]
+    },
+    "Q304": {
+      "text": "T-Bill yield calculation ka process aur step-by-step procedure kya hota hai",
+      "cmi": 0.5455,
+      "lid_entropy": 1.3486,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C343"
+      ]
+    },
+    "Q305": {
+      "text": "duration ka matlab aur details kya hain",
+      "cmi": 0.4286,
+      "lid_entropy": 0.9852,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C344"
+      ]
+    },
+    "Q306": {
+      "text": "modified duration ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.0,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C347"
+      ]
+    },
+    "Q307": {
+      "text": "pv 01 ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.4056,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C349"
+      ]
+    },
+    "Q308": {
+      "text": "convexity ka matlab aur details kya hain",
+      "cmi": 0.4286,
+      "lid_entropy": 0.9852,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C351"
+      ]
+    },
+    "Q309": {
+      "text": "security valuation guidelines ka matlab aur details kya hain",
+      "cmi": 0.4444,
+      "lid_entropy": 0.9911,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C352"
+      ]
+    },
+    "Q310": {
+      "text": "risks in holding G-Secs ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.361,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C353"
+      ]
+    },
+    "Q311": {
+      "text": "money market ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.0,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C355"
+      ]
+    },
+    "Q312": {
+      "text": "money market instruments ka matlab aur details kya hain",
+      "cmi": 0.4444,
+      "lid_entropy": 0.9911,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C356"
+      ]
+    },
+    "Q313": {
+      "text": "FIMMDA and FBIL roles ka matlab aur details kya hain",
+      "cmi": 0.6,
+      "lid_entropy": 1.5219,
+      "cmi_band": "very_high",
+      "relevant_doc_ids": [
+        "C362"
+      ]
+    },
+    "Q314": {
+      "text": "websites for G-Sec info ka matlab aur details kya hain",
+      "cmi": 0.5,
+      "lid_entropy": 1.361,
+      "cmi_band": "high",
+      "relevant_doc_ids": [
+        "C363"
+      ]
+    }
+  }
+}
