@@ -66,7 +66,19 @@ with open("results/models/lqp_model.pkl", "rb") as f:
     lqp_model = pickle.load(f)
 with open("results/models/lag_model.pkl", "rb") as f:
     lag_model = pickle.load(f)
-print("Loaded caep_gate.pkl, lqp_model.pkl, and lag_model.pkl (trained on real corpus/PHINC/pilot labels)\n")
+
+policy_path = Path("results/models/linucb_policy.pkl")
+if policy_path.exists():
+    print("Loading pre-trained frozen LinUCB policy from results/models/linucb_policy.pkl...")
+    controller = LinUCBController.load(policy_path)
+    controller.alpha = 0.0  # Exploitation mode during frozen evaluation
+else:
+    print("Pre-training frozen LinUCB policy from data/logs/trajectories.jsonl...")
+    controller = LinUCBController(context_dim=7, alpha=0.0)
+    controller.fit_from_trajectories("data/logs/trajectories.jsonl")
+    controller.save(policy_path)
+
+print("Loaded all models and frozen LinUCB policy (pre-trained offline on trajectory log, eval alpha=0.0)\n")
 
 # --- Run all 3 systems across all queries ---
 qrels_dict = {q["query_id"]: {d: 1 for d in q["relevant_doc_ids"]} for q in queries}
@@ -75,9 +87,7 @@ raw_run, v1_run, v2_run = {}, {}, {}
 v1_latencies, v2_latencies = [], []
 v2_step_counts = []
 
-controller = LinUCBController(context_dim=7, alpha=1.0)
-
-print(f"Running {len(queries)} queries through raw / v1 / v2...")
+print(f"Running {len(queries)} queries through raw / v1 / v2 (frozen policy evaluation)...")
 for i, q in enumerate(queries):
     qid, query_text = q["query_id"], q["text"]
     query_emb = embed_fn([query_text])[0]
@@ -101,6 +111,7 @@ for i, q in enumerate(queries):
         entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
         lqp_model=lqp_model, faiss_search_fn=faiss_search_fn, confidence_fn=confidence_proxy,
         lag_model=lag_model,
+        train=False,
     )
 
     v2_latencies.append(time.perf_counter() - t0)

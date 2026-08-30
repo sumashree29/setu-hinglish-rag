@@ -141,5 +141,18 @@ def main():
         pickle.dump(lag_model, f)
     print(f"Saved LAG model to {lag_path}")
 
+    print("\n--- Training LinUCB Policy ---")
+    traj_path = root / "data" / "logs" / "trajectories.jsonl"
+    if traj_path.exists():
+        from setu.controller.setu_bandit import LinUCBController
+        print(f"Pre-training LinUCB policy on offline trajectories ({traj_path})...")
+        linucb_controller = LinUCBController(context_dim=7, alpha=1.0)
+        linucb_controller.fit_from_trajectories(traj_path)
+        policy_path = models_dir / "linucb_policy.pkl"
+        linucb_controller.save(policy_path)
+        print(f"Saved LinUCB policy to {policy_path}")
+    else:
+        print("No trajectory log found. Skipping offline LinUCB policy fit.")
+
 if __name__ == "__main__":
     main()

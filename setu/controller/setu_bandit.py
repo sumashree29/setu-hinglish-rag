@@ -231,6 +231,61 @@ class LinUCBController:
         self.A[action] += np.outer(context, context)
         self.b[action] += reward * context
 
+    def fit_from_trajectories(self, trajectory_path):
+        """Pre-train LinUCB from an offline trajectory log (JSONL)."""
+        current_query = None
+        tried = {"LAG": 0.0, "CAEP": 0.0, "LQP": 0.0}
+        with open(trajectory_path, "r", encoding="utf-8") as f:
+            for line in f:
+                if not line.strip():
+                    continue
+                row = json.loads(line)
+                q = row.get("query")
+                step_val = float(row.get("state", {}).get("step", 0))
+                if q != current_query or step_val == 0:
+                    current_query = q
+                    tried = {"LAG": 0.0, "CAEP": 0.0, "LQP": 0.0}
+
+                cmi_val = float(row["state"]["cmi"])
+                entropy_val = float(row["state"]["lid_entropy"])
+                conf_val = float(row["state"]["confidence"])
+
+                context = np.array([
+                    cmi_val, entropy_val, conf_val, step_val,
+                    tried["LAG"], tried["CAEP"], tried["LQP"]
+                ], dtype=float)
+
+                action = row["action"]
+                reward = float(row.get("reward", 0.0))
+                self.update(context, action, reward)
+                if action in tried:
+                    tried[action] = 1.0
+
+    def save(self, path):
+        """Save model parameters to disk."""
+        import pickle
+        with open(path, "wb") as f:
+            pickle.dump({
+                "A": self.A,
+                "b": self.b,
+                "alpha": self.alpha,
+                "context_dim": self.context_dim,
+                "actions": self.actions
+            }, f)
+
+    @classmethod
+    def load(cls, path) -> "LinUCBController":
+        """Load model parameters from disk."""
+        import pickle
+        with open(path, "rb") as f:
+            data = pickle.load(f)
+        obj = cls(n_actions=len(data["actions"]), context_dim=data["context_dim"], alpha=data["alpha"])
+        obj.actions = data["actions"]
+        obj.A = data["A"]
+        obj.b = data["b"]
+        return obj
+
+
 def setu_v2_run(
     query: str,
     controller,
@@ -244,6 +299,7 @@ def setu_v2_run(
     confidence_fn,
     max_steps: int = 4,
     lag_model=None,
+    train: bool = True,
 ) -> Tuple[List[str], List[float], List[str]]:
     """
     Run the learned controller end to end on one query: repeatedly select an
@@ -257,6 +313,8 @@ def setu_v2_run(
             -- takes a List[float] of scores (NOT doc IDs) and a method name,
             returns a single float confidence value.
         lag_model: optional fitted classifier for LAG predict_strategy()
+        train: if True, update the controller weights online and log trajectories.
+               if False, freeze controller weights for evaluation.
     """
     from setu.diagnosis.cmi import cmi
     from setu.diagnosis.lid_entropy import lid_entropy
@@ -284,10 +342,10 @@ def setu_v2_run(
         ], dtype=float)
         action = controller.select_action(context)
         if action == "STOP":
-            controller.update(context, "STOP", reward=0.0)
+            if train:
+                controller.update(context, "STOP", reward=0.0)
             operator_sequence.append("STOP")
             break
-       
 
         confidence_before = confidence
         if action in tried:
@@ -329,14 +387,15 @@ def setu_v2_run(
         confidence = confidence_fn(current_scores, method="margin")
         reward = confidence - confidence_before
 
-        controller.update(context, action, reward)
-        log_trajectory(
-            query=query,
-            state={"cmi": cmi_score, "lid_entropy": entropy_score, "confidence": confidence_before, "step": step},
-            action=action,
-            confidence_before=confidence_before,
-            confidence_after=confidence,
-        )
+        if train:
+            controller.update(context, action, reward)
+            log_trajectory(
+                query=query,
+                state={"cmi": cmi_score, "lid_entropy": entropy_score, "confidence": confidence_before, "step": step},
+                action=action,
+                confidence_before=confidence_before,
+                confidence_after=confidence,
+            )
 
         operator_sequence.append(action)
         confidence_trace.append(confidence)

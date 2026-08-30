@@ -79,3 +79,43 @@ def test_setu_v2_run_terminates_and_returns_ranking():
     assert len(ops) <= 3
     assert len(conf_trace) == len(ops) + 1
     assert len(final_ranking) == len(doc_ids)
+
+
+def test_setu_v2_run_frozen_mode_does_not_mutate_controller():
+    controller = LinUCBController(context_dim=7, alpha=1.0)
+    doc_ids = ["C01", "C02", "C03", "C04", "C05"]
+    raw_ranking = (doc_ids, [1.0, 0.8, 0.6, 0.4, 0.2])
+
+    def dummy_embed_fn(texts):
+        return np.random.randn(len(texts), 16).astype("float32")
+
+    def dummy_faiss_search_fn(query_emb, k=5):
+        return doc_ids, [1.0, 0.8, 0.6, 0.4, 0.2]
+
+    caep_gate = LogisticRegression()
+    caep_gate.fit([[0, 0, 0], [100, 1.0, 10]], [0, 1])
+
+    lqp_model = Ridge()
+    lqp_model.fit(np.eye(16), np.eye(16))
+
+    A_snapshots = {a: controller.A[a].copy() for a in controller.actions}
+    b_snapshots = {a: controller.b[a].copy() for a in controller.actions}
+
+    ops, conf_trace, final_ranking = setu_v2_run(
+        query="mera account balance check karna hai",
+        controller=controller,
+        raw_ranking=raw_ranking,
+        embed_fn=dummy_embed_fn,
+        entities=["account", "balance"],
+        entity_freq={"account": 5, "balance": 5},
+        caep_gate=caep_gate,
+        lqp_model=lqp_model,
+        faiss_search_fn=dummy_faiss_search_fn,
+        confidence_fn=confidence_proxy,
+        max_steps=3,
+        train=False,
+    )
+
+    for a in controller.actions:
+        assert np.allclose(controller.A[a], A_snapshots[a]), f"Action {a} matrix A mutated during frozen run!"
+        assert np.allclose(controller.b[a], b_snapshots[a]), f"Action {a} vector b mutated during frozen run!"
