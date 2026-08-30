@@ -341,8 +341,8 @@ def setu_v2_run(
             tried["LAG"], tried["CAEP"], tried["LQP"],
         ], dtype=float)
         action = controller.select_action(context)
-        if action == "STOP":
-            if train:
+        if action == "STOP" or (action in tried and tried[action] == 1.0):
+            if train and action == "STOP":
                 controller.update(context, "STOP", reward=0.0)
             operator_sequence.append("STOP")
             break
@@ -373,7 +373,12 @@ def setu_v2_run(
                     r1_ids, r1_scores = faiss_search_fn(np.asarray(q1_emb))
                     r2_ids, r2_scores = faiss_search_fn(np.asarray(q2_emb))
                     current_ranking = rrf_baseline([r1_ids, r2_ids])
-                    current_scores = [1.0 / (idx + 1) for idx in range(len(current_ranking))]
+                    doc_score_map = {}
+                    for d, s in zip(r1_ids, r1_scores):
+                        doc_score_map[d] = max(doc_score_map.get(d, -1.0), s)
+                    for d, s in zip(r2_ids, r2_scores):
+                        doc_score_map[d] = max(doc_score_map.get(d, -1.0), s)
+                    current_scores = [doc_score_map.get(d, 0.0) for d in current_ranking]
                     current_query = lag_out[1]
                 else:
                     current_query = lag_out

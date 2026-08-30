@@ -67,27 +67,24 @@ with open("results/models/lqp_model.pkl", "rb") as f:
 with open("results/models/lag_model.pkl", "rb") as f:
     lag_model = pickle.load(f)
 
-policy_path = Path("results/models/linucb_policy.pkl")
-if policy_path.exists():
-    print("Loading pre-trained frozen LinUCB policy from results/models/linucb_policy.pkl...")
-    controller = LinUCBController.load(policy_path)
-    controller.alpha = 0.0  # Exploitation mode during frozen evaluation
-else:
-    print("Pre-training frozen LinUCB policy from data/logs/trajectories.jsonl...")
-    controller = LinUCBController(context_dim=7, alpha=0.0)
-    controller.fit_from_trajectories("data/logs/trajectories.jsonl")
-    controller.save(policy_path)
+print("Loaded caep_gate.pkl, lqp_model.pkl, and lag_model.pkl (trained on real corpus/PHINC/pilot labels)\n")
 
-print("Loaded all models and frozen LinUCB policy (pre-trained offline on trajectory log, eval alpha=0.0)\n")
+# --- Load offline trajectories for cross-validation ---
+trajectories = []
+with open("data/logs/trajectories.jsonl", "r", encoding="utf-8") as f:
+    for line in f:
+        if line.strip():
+            trajectories.append(json.loads(line))
+print(f"Loaded {len(trajectories)} offline exploration trajectory transitions.")
 
-# --- Run all 3 systems across all queries ---
+# --- Run RAW and SETU v1 across all queries ---
 qrels_dict = {q["query_id"]: {d: 1 for d in q["relevant_doc_ids"]} for q in queries}
 
 raw_run, v1_run, v2_run = {}, {}, {}
 v1_latencies, v2_latencies = [], []
 v2_step_counts = []
 
-print(f"Running {len(queries)} queries through raw / v1 / v2 (frozen policy evaluation)...")
+print(f"Running RAW baseline and SETU v1 across all {len(queries)} queries...")
 for i, q in enumerate(queries):
     qid, query_text = q["query_id"], q["text"]
     query_emb = embed_fn([query_text])[0]
@@ -105,23 +102,64 @@ for i, q in enumerate(queries):
     v1_ranking = v1_result["final_ranking"]
     v1_run[qid] = {doc: (len(v1_ranking) - rank) for rank, doc in enumerate(v1_ranking)}
 
-    t0 = time.perf_counter()
-    ops, conf_trace, v2_ranking = setu_v2_run(
-        query=query_text, controller=controller, raw_ranking=raw_ranking, embed_fn=embed_fn,
-        entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
-        lqp_model=lqp_model, faiss_search_fn=faiss_search_fn, confidence_fn=confidence_proxy,
-        lag_model=lag_model,
-        train=False,
-    )
+# --- Run SETU v2 via 5-Fold Out-of-Fold (OOF) Cross-Validation ---
+print(f"\nRunning SETU v2 (LinUCB) via 5-Fold Out-of-Fold (OOF) Cross-Validation...")
+n_splits = 5
+qids = [q["query_id"] for q in queries]
+q_by_id = {q["query_id"]: q for q in queries}
+folds = np.array_split(qids, n_splits)
 
-    v2_latencies.append(time.perf_counter() - t0)
-    v2_step_counts.append(len([o for o in ops if o != "STOP"]))
-    v2_run[qid] = {doc: (len(v2_ranking) - rank) for rank, doc in enumerate(v2_ranking)}
+for fold_idx, test_qids in enumerate(folds):
+    test_query_texts = set(q_by_id[qid]["text"] for qid in test_qids)
+    train_traj = [r for r in trajectories if r.get("query") not in test_query_texts]
 
-    if (i + 1) % 15 == 0:
-        print(f"  {i+1}/{len(queries)} done...")
+    # Pre-train fold controller strictly on out-of-fold training queries
+    fold_controller = LinUCBController(context_dim=7, alpha=0.0)
+    current_query = None
+    tried = {"LAG": 0.0, "CAEP": 0.0, "LQP": 0.0}
+    for row in train_traj:
+        q_txt = row.get("query")
+        step_val = float(row.get("state", {}).get("step", 0))
+        if q_txt != current_query or step_val == 0:
+            current_query = q_txt
+            tried = {"LAG": 0.0, "CAEP": 0.0, "LQP": 0.0}
 
-print("\nAll queries processed.\n")
+        cmi_val = float(row["state"]["cmi"])
+        entropy_val = float(row["state"]["lid_entropy"])
+        conf_val = float(row["state"]["confidence"])
+        context = np.array([
+            cmi_val, entropy_val, conf_val, step_val,
+            tried["LAG"], tried["CAEP"], tried["LQP"]
+        ], dtype=float)
+        action = row["action"]
+        reward = float(row.get("reward", 0.0))
+        fold_controller.update(context, action, reward)
+        if action in tried:
+            tried[action] = 1.0
+
+    # Score held-out fold queries with fold_controller
+    for qid in test_qids:
+        q = q_by_id[qid]
+        query_text = q["text"]
+        query_emb = embed_fn([query_text])[0]
+        raw_ranking = faiss_search_fn(query_emb)
+
+        t0 = time.perf_counter()
+        ops, conf_trace, v2_ranking = setu_v2_run(
+            query=query_text, controller=fold_controller, raw_ranking=raw_ranking, embed_fn=embed_fn,
+            entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
+            lqp_model=lqp_model, faiss_search_fn=faiss_search_fn, confidence_fn=confidence_proxy,
+            lag_model=lag_model,
+            train=False,
+        )
+
+        v2_latencies.append(time.perf_counter() - t0)
+        v2_step_counts.append(len([o for o in ops if o != "STOP"]))
+        v2_run[qid] = {doc: (len(v2_ranking) - rank) for rank, doc in enumerate(v2_ranking)}
+
+    print(f"  Fold {fold_idx + 1}/{n_splits} evaluated ({len(test_qids)} held-out queries).")
+
+print("\nAll 5 folds evaluated.\n")
 
 # --- Metrics across full dataset ---
 qrels = Qrels(qrels_dict)
