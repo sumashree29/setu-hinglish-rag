@@ -1,0 +1,3000 @@
+[
+  {
+    "query_id": "Q01",
+    "variant": "en",
+    "text": "What is a Basic Savings Bank Deposit Account and is there a minimum balance requirement",
+    "relevant_doc_ids": [
+      "D01"
+    ]
+  },
+  {
+    "query_id": "Q02",
+    "variant": "low",
+    "text": "What is BSBDA account, minimum balance rakhna padta hai kya",
+    "relevant_doc_ids": [
+      "D01"
+    ]
+  },
+  {
+    "query_id": "Q03",
+    "variant": "medium",
+    "text": "BSBDA account kya hota hai, minimum balance ki zarurat hai kya",
+    "relevant_doc_ids": [
+      "D01"
+    ]
+  },
+  {
+    "query_id": "Q04",
+    "variant": "high",
+    "text": "BSBDA khaate mein minimum balance rakhna padta hai ya yeh zero balance account hota hai",
+    "relevant_doc_ids": [
+      "D01"
+    ]
+  },
+  {
+    "query_id": "Q05",
+    "variant": "en",
+    "text": "Can I open more than one Basic Savings Bank Deposit Account in the same bank",
+    "relevant_doc_ids": [
+      "D02"
+    ]
+  },
+  {
+    "query_id": "Q06",
+    "variant": "low",
+    "text": "Can I ek se zyada BSBDA account same bank mein khol sakta hoon",
+    "relevant_doc_ids": [
+      "D02"
+    ]
+  },
+  {
+    "query_id": "Q07",
+    "variant": "medium",
+    "text": "Ek bank mein ek se zyada BSBDA account khol sakte hain kya",
+    "relevant_doc_ids": [
+      "D02"
+    ]
+  },
+  {
+    "query_id": "Q08",
+    "variant": "high",
+    "text": "Kya main ek hi bank mein do BSBDA khaata khol sakta hoon ya sirf ek hi milega",
+    "relevant_doc_ids": [
+      "D02"
+    ]
+  },
+  {
+    "query_id": "Q09",
+    "variant": "en",
+    "text": "How many free withdrawals are allowed per month on a BSBDA account",
+    "relevant_doc_ids": [
+      "D03"
+    ]
+  },
+  {
+    "query_id": "Q10",
+    "variant": "low",
+    "text": "BSBDA account mein monthly kitne free withdrawals milte hain",
+    "relevant_doc_ids": [
+      "D03"
+    ]
+  },
+  {
+    "query_id": "Q11",
+    "variant": "medium",
+    "text": "Ek mahine mein BSBDA se kitni baar free withdrawal kar sakte hain",
+    "relevant_doc_ids": [
+      "D03"
+    ]
+  },
+  {
+    "query_id": "Q12",
+    "variant": "high",
+    "text": "BSBDA khaate mein mahine bhar mein kitni baar paisa nikalna free hota hai",
+    "relevant_doc_ids": [
+      "D03"
+    ]
+  },
+  {
+    "query_id": "Q13",
+    "variant": "en",
+    "text": "Does checking my balance at an ATM count as one of the free withdrawals",
+    "relevant_doc_ids": [
+      "D04"
+    ]
+  },
+  {
+    "query_id": "Q14",
+    "variant": "low",
+    "text": "ATM mein balance check karna free withdrawal mein count hota hai kya",
+    "relevant_doc_ids": [
+      "D04"
+    ]
+  },
+  {
+    "query_id": "Q15",
+    "variant": "medium",
+    "text": "ATM se balance check karne par kya woh withdrawal limit mein aata hai",
+    "relevant_doc_ids": [
+      "D04"
+    ]
+  },
+  {
+    "query_id": "Q16",
+    "variant": "high",
+    "text": "Agar main ATM mein sirf balance dekhta hoon to kya woh withdrawal ginti mein aata hai",
+    "relevant_doc_ids": [
+      "D04"
+    ]
+  },
+  {
+    "query_id": "Q17",
+    "variant": "en",
+    "text": "Is the ATM debit card provided free of cost with a BSBDA account",
+    "relevant_doc_ids": [
+      "D05"
+    ]
+  },
+  {
+    "query_id": "Q18",
+    "variant": "low",
+    "text": "BSBDA account ke saath ATM card free milta hai kya",
+    "relevant_doc_ids": [
+      "D05"
+    ]
+  },
+  {
+    "query_id": "Q19",
+    "variant": "medium",
+    "text": "Kya BSBDA khaate mein ATM debit card bina charge ke milta hai",
+    "relevant_doc_ids": [
+      "D05"
+    ]
+  },
+  {
+    "query_id": "Q20",
+    "variant": "high",
+    "text": "BSBDA khulwane par ATM card free milega ya uske liye alag se paisa dena hoga",
+    "relevant_doc_ids": [
+      "D05"
+    ]
+  },
+  {
+    "query_id": "Q21",
+    "variant": "en",
+    "text": "Is there any age or income restriction for opening a BSBDA account",
+    "relevant_doc_ids": [
+      "D06"
+    ]
+  },
+  {
+    "query_id": "Q22",
+    "variant": "low",
+    "text": "BSBDA account kholne ke liye koi age ya income limit hai kya",
+    "relevant_doc_ids": [
+      "D06"
+    ]
+  },
+  {
+    "query_id": "Q23",
+    "variant": "medium",
+    "text": "Kya BSBDA khaata kholne ke liye age ya income ki koi shart hoti hai",
+    "relevant_doc_ids": [
+      "D06"
+    ]
+  },
+  {
+    "query_id": "Q24",
+    "variant": "high",
+    "text": "BSBDA khulwane ke liye kya koi umar ya kamai ki seema hoti hai",
+    "relevant_doc_ids": [
+      "D06"
+    ]
+  },
+  {
+    "query_id": "Q25",
+    "variant": "en",
+    "text": "What is a BSBDA small account opened under simplified KYC and how long is it valid",
+    "relevant_doc_ids": [
+      "D08",
+      "D09"
+    ]
+  },
+  {
+    "query_id": "Q26",
+    "variant": "low",
+    "text": "Simplified KYC wala BSBDA small account kitne time ke liye valid hota hai",
+    "relevant_doc_ids": [
+      "D08",
+      "D09"
+    ]
+  },
+  {
+    "query_id": "Q27",
+    "variant": "medium",
+    "text": "Small account jo simplified KYC se khulta hai woh kitne saal tak valid rehta hai",
+    "relevant_doc_ids": [
+      "D08",
+      "D09"
+    ]
+  },
+  {
+    "query_id": "Q28",
+    "variant": "high",
+    "text": "Simplified KYC se khula hua small account kitne mahine tak chalta hai aur extend ho sakta hai kya",
+    "relevant_doc_ids": [
+      "D08",
+      "D09"
+    ]
+  },
+  {
+    "query_id": "Q29",
+    "variant": "en",
+    "text": "Can my existing normal savings account be converted into a BSBDA account",
+    "relevant_doc_ids": [
+      "D10"
+    ]
+  },
+  {
+    "query_id": "Q30",
+    "variant": "low",
+    "text": "Mera normal savings account BSBDA mein convert ho sakta hai kya",
+    "relevant_doc_ids": [
+      "D10"
+    ]
+  },
+  {
+    "query_id": "Q31",
+    "variant": "medium",
+    "text": "Kya mera purana savings account BSBDA mein badla ja sakta hai",
+    "relevant_doc_ids": [
+      "D10"
+    ]
+  },
+  {
+    "query_id": "Q32",
+    "variant": "high",
+    "text": "Mera jo pehle se savings khaata hai use BSBDA mein tabdeel karwa sakta hoon kya",
+    "relevant_doc_ids": [
+      "D10"
+    ]
+  },
+  {
+    "query_id": "Q33",
+    "variant": "en",
+    "text": "How much yearly financial benefit does the PM-KISAN scheme provide to farmers",
+    "relevant_doc_ids": [
+      "D11"
+    ]
+  },
+  {
+    "query_id": "Q34",
+    "variant": "low",
+    "text": "PM-KISAN yojana mein farmers ko yearly kitna paisa milta hai",
+    "relevant_doc_ids": [
+      "D11"
+    ]
+  },
+  {
+    "query_id": "Q35",
+    "variant": "medium",
+    "text": "PM-KISAN yojana ke tahat kisano ko saal mein kitna paisa milta hai",
+    "relevant_doc_ids": [
+      "D11"
+    ]
+  },
+  {
+    "query_id": "Q36",
+    "variant": "high",
+    "text": "PM-KISAN yojana mein kisan parivar ko ek saal mein kitna paisa milta hai aur kitni kisto mein milta hai",
+    "relevant_doc_ids": [
+      "D11"
+    ]
+  },
+  {
+    "query_id": "Q37",
+    "variant": "en",
+    "text": "What are the eligibility criteria for a farmer family to receive PM-KISAN benefits",
+    "relevant_doc_ids": [
+      "D12"
+    ]
+  },
+  {
+    "query_id": "Q38",
+    "variant": "low",
+    "text": "PM-KISAN ke liye eligibility criteria kya hai farmer family ke liye",
+    "relevant_doc_ids": [
+      "D12"
+    ]
+  },
+  {
+    "query_id": "Q39",
+    "variant": "medium",
+    "text": "PM-KISAN yojana ke liye kisan parivar ko kya sharte poori karni padti hain",
+    "relevant_doc_ids": [
+      "D12"
+    ]
+  },
+  {
+    "query_id": "Q40",
+    "variant": "high",
+    "text": "PM-KISAN ka labh lene ke liye kisan parivar ko kaunsi sharte poori karni hoti hain",
+    "relevant_doc_ids": [
+      "D12"
+    ]
+  },
+  {
+    "query_id": "Q41",
+    "variant": "en",
+    "text": "Are institutional landholders eligible for PM-KISAN benefits",
+    "relevant_doc_ids": [
+      "D13"
+    ]
+  },
+  {
+    "query_id": "Q42",
+    "variant": "low",
+    "text": "Institutional landholders PM-KISAN ke liye eligible hain kya",
+    "relevant_doc_ids": [
+      "D13"
+    ]
+  },
+  {
+    "query_id": "Q43",
+    "variant": "medium",
+    "text": "Kya institutional landholders ko PM-KISAN ka fayda milta hai",
+    "relevant_doc_ids": [
+      "D13"
+    ]
+  },
+  {
+    "query_id": "Q44",
+    "variant": "high",
+    "text": "Agar zameen kisi sanstha ke naam par hai to kya PM-KISAN ka labh milega",
+    "relevant_doc_ids": [
+      "D13"
+    ]
+  },
+  {
+    "query_id": "Q45",
+    "variant": "en",
+    "text": "Which categories of people are excluded from PM-KISAN even if they own farmland",
+    "relevant_doc_ids": [
+      "D14"
+    ]
+  },
+  {
+    "query_id": "Q46",
+    "variant": "low",
+    "text": "PM-KISAN se kaun kaun exclude hote hain agar unke paas zameen bhi ho",
+    "relevant_doc_ids": [
+      "D14"
+    ]
+  },
+  {
+    "query_id": "Q47",
+    "variant": "medium",
+    "text": "Zameen hone ke bawajood kaunse log PM-KISAN se exclude kiye jaate hain",
+    "relevant_doc_ids": [
+      "D14"
+    ]
+  },
+  {
+    "query_id": "Q48",
+    "variant": "high",
+    "text": "Sarkari naukri wale ya pension paane wale kisan PM-KISAN ka labh le sakte hain kya",
+    "relevant_doc_ids": [
+      "D14"
+    ]
+  },
+  {
+    "query_id": "Q49",
+    "variant": "en",
+    "text": "Is a linked Aadhaar number mandatory for receiving PM-KISAN payments",
+    "relevant_doc_ids": [
+      "D15"
+    ]
+  },
+  {
+    "query_id": "Q50",
+    "variant": "low",
+    "text": "PM-KISAN payment ke liye Aadhaar link hona mandatory hai kya",
+    "relevant_doc_ids": [
+      "D15"
+    ]
+  },
+  {
+    "query_id": "Q51",
+    "variant": "medium",
+    "text": "Kya PM-KISAN ka paisa lene ke liye Aadhaar link karna zaroori hai",
+    "relevant_doc_ids": [
+      "D15"
+    ]
+  },
+  {
+    "query_id": "Q52",
+    "variant": "high",
+    "text": "PM-KISAN ki kisht paane ke liye Aadhaar seeding zaroori hai kya aur mismatch hone par kya hota hai",
+    "relevant_doc_ids": [
+      "D15"
+    ]
+  },
+  {
+    "query_id": "Q53",
+    "variant": "en",
+    "text": "Can farmers with agricultural land in urban areas receive PM-KISAN benefits",
+    "relevant_doc_ids": [
+      "D17"
+    ]
+  },
+  {
+    "query_id": "Q54",
+    "variant": "low",
+    "text": "Urban area mein agricultural land wale farmers ko PM-KISAN milta hai kya",
+    "relevant_doc_ids": [
+      "D17"
+    ]
+  },
+  {
+    "query_id": "Q55",
+    "variant": "medium",
+    "text": "Shehri ilaake mein kheti ki zameen ho to kya PM-KISAN ka labh milta hai",
+    "relevant_doc_ids": [
+      "D17"
+    ]
+  },
+  {
+    "query_id": "Q56",
+    "variant": "high",
+    "text": "Agar meri kheti ki zameen shehar ke andar hai to kya mujhe PM-KISAN ka paisa milega",
+    "relevant_doc_ids": [
+      "D17"
+    ]
+  },
+  {
+    "query_id": "Q57",
+    "variant": "en",
+    "text": "How can a farmer apply for PM-KISAN online or through a Common Service Centre",
+    "relevant_doc_ids": [
+      "D19",
+      "D20"
+    ]
+  },
+  {
+    "query_id": "Q58",
+    "variant": "low",
+    "text": "PM-KISAN ke liye online apply kaise karein ya CSC se kaise karein",
+    "relevant_doc_ids": [
+      "D19",
+      "D20"
+    ]
+  },
+  {
+    "query_id": "Q59",
+    "variant": "medium",
+    "text": "Kisan PM-KISAN ke liye registration online kaise kare ya CSC jaakar kaise kare",
+    "relevant_doc_ids": [
+      "D19",
+      "D20"
+    ]
+  },
+  {
+    "query_id": "Q60",
+    "variant": "high",
+    "text": "PM-KISAN mein naye kisan ka registration khud portal par karein ya CSC centre jaakar karwayein, dono tarike kaise hain",
+    "relevant_doc_ids": [
+      "D19",
+      "D20"
+    ]
+  },
+  {
+    "query_id": "Q61",
+    "variant": "low",
+    "text": "What is a bsbda account, is there any minimum balance requirement",
+    "relevant_doc_ids": [
+      "D01"
+    ]
+  },
+  {
+    "query_id": "Q62",
+    "variant": "high",
+    "text": "kya bsbda khata zero balance account hota hai ya balance rakhna padega",
+    "relevant_doc_ids": [
+      "D01"
+    ]
+  },
+  {
+    "query_id": "Q63",
+    "variant": "medium",
+    "text": "Kya ek hi bank mein do bsbdaa account open kar sakte hain",
+    "relevant_doc_ids": [
+      "D02"
+    ]
+  },
+  {
+    "query_id": "Q64",
+    "variant": "low",
+    "text": "How many free cash withdrawals can I make from a bsb-da account each month",
+    "relevant_doc_ids": [
+      "D03"
+    ]
+  },
+  {
+    "query_id": "Q65",
+    "variant": "high",
+    "text": "atm me balance enquiry karne par monthly limit cut hoti hai kya",
+    "relevant_doc_ids": [
+      "D04"
+    ]
+  },
+  {
+    "query_id": "Q66",
+    "variant": "medium",
+    "text": "bsbda account holder ko atm debit card free milta hai ya annual charge lagta hai",
+    "relevant_doc_ids": [
+      "D05"
+    ]
+  },
+  {
+    "query_id": "Q67",
+    "variant": "high",
+    "text": "kya bsbda khata khulwane par pasbook free di jaati hai",
+    "relevant_doc_ids": [
+      "D07"
+    ]
+  },
+  {
+    "query_id": "Q68",
+    "variant": "low",
+    "text": "Can I open a small account using simplified kyc documentation",
+    "relevant_doc_ids": [
+      "D08"
+    ]
+  },
+  {
+    "query_id": "Q69",
+    "variant": "medium",
+    "text": "simplified kyc wala small acount kitne months tak valid rehta hai",
+    "relevant_doc_ids": [
+      "D09"
+    ]
+  },
+  {
+    "query_id": "Q70",
+    "variant": "low",
+    "text": "How much financial benefit does pmkisan yojana provide to farmers annually",
+    "relevant_doc_ids": [
+      "D11"
+    ]
+  },
+  {
+    "query_id": "Q71",
+    "variant": "high",
+    "text": "pm-kisaan yojana ka labh lene ke liye farmer family ki eligibility sharte kya hain",
+    "relevant_doc_ids": [
+      "D12"
+    ]
+  },
+  {
+    "query_id": "Q72",
+    "variant": "medium",
+    "text": "kya institutional landholder ko pmkisan scheme ka fayda milta hai",
+    "relevant_doc_ids": [
+      "D13"
+    ]
+  },
+  {
+    "query_id": "Q73",
+    "variant": "high",
+    "text": "pmkisan payment aane ke liye aadhar link karwana mandatory hai kya",
+    "relevant_doc_ids": [
+      "D15"
+    ]
+  },
+  {
+    "query_id": "Q74",
+    "variant": "medium",
+    "text": "Agar adhar details mismatch ho jaye to kya pm-kisan ki kist ruk jayegi",
+    "relevant_doc_ids": [
+      "D15"
+    ]
+  },
+  {
+    "query_id": "Q75",
+    "variant": "high",
+    "text": "kisan pmkisan registration ke liye common service center ya csc par kaise jayein",
+    "relevant_doc_ids": [
+      "D20"
+    ]
+  },
+  {
+    "query_id": "Q076",
+    "variant": "hi-en",
+    "text": "eefc account and what are its benefits kya hota hai",
+    "relevant_doc_ids": [
+      "C021"
+    ],
+    "source_question": "Q 1. What is an EEFC Account and what are its benefits?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q077",
+    "variant": "hi-en",
+    "text": "open an eefc account ke liye kaun eligible hai, kya documents chahiye",
+    "relevant_doc_ids": [
+      "C022"
+    ],
+    "source_question": "Q 2. Who can open an EEFC account?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q078",
+    "variant": "hi-en",
+    "text": "different types of eefc accounts kya hota hai",
+    "relevant_doc_ids": [
+      "C023"
+    ],
+    "source_question": "Q 3. What are the different types of EEFC accounts?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q079",
+    "variant": "hi-en",
+    "text": "one’s foreign exchange earnings can be credited into an eefc account kitna/kitni hota hai aur kya limit hai",
+    "relevant_doc_ids": [
+      "C024"
+    ],
+    "source_question": "Q 4. How much of one’s foreign exchange earnings can be credited into an EEFC account?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q080",
+    "variant": "hi-en",
+    "text": "kya eefc account can be opened by special economic zone (sez) units ho sakta hai ya nahi",
+    "relevant_doc_ids": [
+      "C025"
+    ],
+    "source_question": "Q 5. Whether EEFC Account can be opened by Special Economic Zone (SEZ) Units?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q081",
+    "variant": "hi-en",
+    "text": "kya any cheque facility available ho sakta hai ya nahi",
+    "relevant_doc_ids": [
+      "C026"
+    ],
+    "source_question": "Q 6. Is there any Cheque facility available?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q082",
+    "variant": "hi-en",
+    "text": "permissible credits into this account kya hota hai",
+    "relevant_doc_ids": [
+      "C027"
+    ],
+    "source_question": "Q 7. What are the permissible credits into this account?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q083",
+    "variant": "hi-en",
+    "text": "kya foreign exchange earnings received through an international credit card be credited to the eefc account ho sakta hai ya nahi",
+    "relevant_doc_ids": [
+      "C028"
+    ],
+    "source_question": "Q 8. Can foreign exchange earnings received through an international credit card be credited to the EEFC account?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q084",
+    "variant": "hi-en",
+    "text": "permissible debits into this account kya hota hai",
+    "relevant_doc_ids": [
+      "C029"
+    ],
+    "source_question": "Q 9. What are the permissible debits into this account?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q085",
+    "variant": "hi-en",
+    "text": "kya any restriction on withdrawal in rupees of funds held in an eefc account ho sakta hai ya nahi",
+    "relevant_doc_ids": [
+      "C030"
+    ],
+    "source_question": "Q 10. Is there any restriction on withdrawal in rupees of funds held in an EEFC account?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q086",
+    "variant": "hi-en",
+    "text": "kya eefc balances can be covered against exchange risk ho sakta hai ya nahi",
+    "relevant_doc_ids": [
+      "C031"
+    ],
+    "source_question": "Q. 11. Whether the EEFC balances can be covered against exchange risk?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q087",
+    "variant": "hi-en",
+    "text": "kya eefc account is permitted to be held jointly with a resident relative ho sakta hai ya nahi",
+    "relevant_doc_ids": [
+      "C032"
+    ],
+    "source_question": "Q. 12. Whether EEFC Account is permitted to be held jointly with a resident relative?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q088",
+    "variant": "hi-en",
+    "text": "remittance of assets kya hota hai",
+    "relevant_doc_ids": [
+      "C033"
+    ],
+    "source_question": "Q1. What is meant by Remittance of Assets?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q089",
+    "variant": "hi-en",
+    "text": "tax implications in respect of remittance of assets kya hota hai",
+    "relevant_doc_ids": [
+      "C037"
+    ],
+    "source_question": "Q6. What are the Tax implications in respect of remittance of assets?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q090",
+    "variant": "hi-en",
+    "text": "participate in the scheme ke liye kaun eligible hai, kya documents chahiye",
+    "relevant_doc_ids": [
+      "C038"
+    ],
+    "source_question": "1. Who can participate in the Scheme?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q091",
+    "variant": "hi-en",
+    "text": "eligible investors participate in the auctions kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C041"
+    ],
+    "source_question": "4. How can the eligible investors participate in the auctions?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q092",
+    "variant": "hi-en",
+    "text": "aggregator or facilitator kaun hota hai",
+    "relevant_doc_ids": [
+      "C042"
+    ],
+    "source_question": "5. Who is an aggregator or facilitator?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q093",
+    "variant": "hi-en",
+    "text": "minimum/ maximum bidding amount kya hota hai",
+    "relevant_doc_ids": [
+      "C043"
+    ],
+    "source_question": "6. What is the minimum/ maximum bidding amount?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q094",
+    "variant": "hi-en",
+    "text": "bids can an investor make under this scheme kitni hoti hain",
+    "relevant_doc_ids": [
+      "C044"
+    ],
+    "source_question": "7. How many bids can an investor make under this scheme?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q095",
+    "variant": "hi-en",
+    "text": "kya application form ho sakta hai ya nahi",
+    "relevant_doc_ids": [
+      "C045"
+    ],
+    "source_question": "8. Is there an application form?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q096",
+    "variant": "hi-en",
+    "text": "investor make payment for the security kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C046"
+    ],
+    "source_question": "9. How will the investor make payment for the security?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q097",
+    "variant": "hi-en",
+    "text": "non-competitive bidder know the modalities of payment kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C048"
+    ],
+    "source_question": "11. How will the non-competitive bidder know the modalities of payment?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q098",
+    "variant": "hi-en",
+    "text": "rbi allot the bids to non-competitive bidder kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C050"
+    ],
+    "source_question": "13. How will the RBI allot the bids to non-competitive bidder?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q099",
+    "variant": "hi-en",
+    "text": "securities be issued kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C051"
+    ],
+    "source_question": "14. How will the securities be issued?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q100",
+    "variant": "hi-en",
+    "text": "aggregator or facilitator make partial allotment kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C054"
+    ],
+    "source_question": "17. How will the aggregator or facilitator make partial allotment?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q101",
+    "variant": "hi-en",
+    "text": "agar payment for the securities is made to the aggregator or facilitator after the date of issue of the security toh kya karna chahiye, kya procedure hai",
+    "relevant_doc_ids": [
+      "C055"
+    ],
+    "source_question": "18. What if the payment for the securities is made to the aggregator or facilitator after the date of issue of the security?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q102",
+    "variant": "hi-en",
+    "text": "nri kaun hota hai",
+    "relevant_doc_ids": [
+      "C057"
+    ],
+    "source_question": "Q1. Who is an NRI?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q103",
+    "variant": "hi-en",
+    "text": "pio kaun hota hai",
+    "relevant_doc_ids": [
+      "C058"
+    ],
+    "source_question": "Q2. Who is a PIO?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q104",
+    "variant": "hi-en",
+    "text": "major accounts that can be opened in india by a non-resident kya hota hai",
+    "relevant_doc_ids": [
+      "C059"
+    ],
+    "source_question": "Q3. What are the major accounts that can be opened in India by a non-resident?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q105",
+    "variant": "hi-en",
+    "text": "kya bangladeshi/ pakistani national or an entity owned/ controlled from bangladesh/ pakistan have an account in india ho sakta hai ya nahi",
+    "relevant_doc_ids": [
+      "C060"
+    ],
+    "source_question": "Q4. Can a Bangladeshi/ Pakistani national or an entity owned/ controlled from Bangladesh/ Pakistan have an account in India?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q106",
+    "variant": "hi-en",
+    "text": "accounts that a tourist visiting india can open kya hota hai",
+    "relevant_doc_ids": [
+      "C061"
+    ],
+    "source_question": "Q5. What are the accounts that a tourist visiting India can open?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q107",
+    "variant": "hi-en",
+    "text": "snrr account kya hota hai",
+    "relevant_doc_ids": [
+      "C062"
+    ],
+    "source_question": "Q6. What is an SNRR account?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q108",
+    "variant": "hi-en",
+    "text": "deposits that foreign diplomatic missions/ personnel and their family members in india can hold kya hota hai",
+    "relevant_doc_ids": [
+      "C063"
+    ],
+    "source_question": "Q 7. What are the deposits that foreign Diplomatic missions/ personnel and their family members in India can hold?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q109",
+    "variant": "hi-en",
+    "text": "kya persons resident in nepal and bhutan have accounts in india ho sakta hai ya nahi",
+    "relevant_doc_ids": [
+      "C064"
+    ],
+    "source_question": "Q8. Can persons resident in Nepal and Bhutan have accounts in India?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q110",
+    "variant": "hi-en",
+    "text": "kya multilateral organisation have deposits in india ho sakta hai ya nahi",
+    "relevant_doc_ids": [
+      "C065"
+    ],
+    "source_question": "Q9. Can multilateral organisation have deposits in India?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q111",
+    "variant": "hi-en",
+    "text": "kya indian company accept deposits from non-residents in compliance with section 160 of the companies act, 2013 ho sakta hai ya nahi",
+    "relevant_doc_ids": [
+      "C066"
+    ],
+    "source_question": "Q10. Can an Indian company accept deposits from non-residents in compliance with section 160 of the Companies Act, 2013?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q112",
+    "variant": "hi-en",
+    "text": "kya foreign portfolio investor or a foreign venture capital investor open a foreign currency account in india ho sakta hai ya nahi",
+    "relevant_doc_ids": [
+      "C067"
+    ],
+    "source_question": "Q11. Can a Foreign Portfolio Investor or a Foreign Venture Capital Investor open a foreign currency account in India?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q113",
+    "variant": "hi-en",
+    "text": "open an escrow account in india and for what purpose ke liye kaun eligible hai, kya documents chahiye",
+    "relevant_doc_ids": [
+      "C068"
+    ],
+    "source_question": "Q12. Who can open an Escrow Account in India and for what purpose?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q114",
+    "variant": "hi-en",
+    "text": "authorised persons under foreign exchange management act, 1999 (“fema”) kaun hota hai",
+    "relevant_doc_ids": [
+      "C069"
+    ],
+    "source_question": "1. Who are Authorised Persons under Foreign Exchange Management Act, 1999 (“FEMA”)?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q115",
+    "variant": "hi-en",
+    "text": "objective behind allowing ffmcs to do business kya hota hai",
+    "relevant_doc_ids": [
+      "C070"
+    ],
+    "source_question": "2. What is the objective behind allowing FFMCs to do business?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q116",
+    "variant": "hi-en",
+    "text": "kya licence is mandatory for carrying out money changing business ho sakta hai ya nahi",
+    "relevant_doc_ids": [
+      "C071"
+    ],
+    "source_question": "3. Whether a licence is mandatory for carrying out money changing business?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q117",
+    "variant": "hi-en",
+    "text": "apply for an ffmc licence ke liye kaun eligible hai, kya documents chahiye",
+    "relevant_doc_ids": [
+      "C072"
+    ],
+    "source_question": "4. Who can apply for an FFMC licence?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q118",
+    "variant": "hi-en",
+    "text": "kya nof required to be maintained on an ongoing basis ho sakta hai ya nahi",
+    "relevant_doc_ids": [
+      "C075"
+    ],
+    "source_question": "7. Is NOF required to be maintained on an ongoing basis?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q119",
+    "variant": "hi-en",
+    "text": "time frame within which a newly licensed ffmc should commence operations kya hota hai",
+    "relevant_doc_ids": [
+      "C076"
+    ],
+    "source_question": "8. What is the time frame within which a newly licensed FFMC should commence operations?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q120",
+    "variant": "hi-en",
+    "text": "agar application for licence renewal be made toh kya karna chahiye, kya procedure hai",
+    "relevant_doc_ids": [
+      "C077"
+    ],
+    "source_question": "9. When should an application for licence renewal be made?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q121",
+    "variant": "hi-en",
+    "text": "money changing facilities presently available in india kya hota hai",
+    "relevant_doc_ids": [
+      "C079"
+    ],
+    "source_question": "11. What are the money changing facilities presently available in India?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q122",
+    "variant": "hi-en",
+    "text": "objective of the scheme for appointing franchisees by ad category banks, ads category-ii and ffmcs for undertaking restricted money changing activities kya hota hai",
+    "relevant_doc_ids": [
+      "C080"
+    ],
+    "source_question": "12. What is the objective of the Scheme for appointing Franchisees by AD Category Banks, ADs Category-II and FFMCs for undertaking restricted money changing activities?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q123",
+    "variant": "hi-en",
+    "text": "salient features of franchisee agreement kya hota hai",
+    "relevant_doc_ids": [
+      "C081"
+    ],
+    "source_question": "13. What are the salient features of Franchisee Agreement?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q124",
+    "variant": "hi-en",
+    "text": "submission of application by ad category – i bank/ ad category - ii/ ffmc to the reserve bank for appointment of franchisees ke liye procedure kya hai",
+    "relevant_doc_ids": [
+      "C082"
+    ],
+    "source_question": "14. What is the procedure for submission of application by AD Category – I bank/ AD Category - II/ FFMC to the Reserve Bank for appointment of franchisees?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q125",
+    "variant": "hi-en",
+    "text": "checks to be ensured by ad category-i banks/ads category-ii/ffmcs while conducting due diligence of franchisees before appointing them kya hota hai",
+    "relevant_doc_ids": [
+      "C083"
+    ],
+    "source_question": "15. What are the checks to be ensured by AD Category-I banks/ADs Category-II/FFMCs while conducting due diligence of Franchisees before appointing them?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q126",
+    "variant": "hi-en",
+    "text": "criteria for selection of centres kya hota hai",
+    "relevant_doc_ids": [
+      "C084"
+    ],
+    "source_question": "16. What are the criteria for selection of centres?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q127",
+    "variant": "hi-en",
+    "text": "guidelines on provision for training of franchisees kya hota hai",
+    "relevant_doc_ids": [
+      "C085"
+    ],
+    "source_question": "17. What are the guidelines on provision for training of franchisees?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q128",
+    "variant": "hi-en",
+    "text": "guidelines in respect of reporting, audit and inspection of franchisees kya hota hai",
+    "relevant_doc_ids": [
+      "C086"
+    ],
+    "source_question": "18. What are the guidelines in respect of Reporting, Audit and Inspection of franchisees?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q129",
+    "variant": "hi-en",
+    "text": "kya authorised dealers category-ii issue forex pre-paid cards ho sakta hai ya nahi",
+    "relevant_doc_ids": [
+      "C088"
+    ],
+    "source_question": "20. Can Authorised Dealers Category-II issue forex pre-paid cards?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q130",
+    "variant": "hi-en",
+    "text": "kya forex pre-paid cards be used at duty free shops located at international airports in india ho sakta hai ya nahi",
+    "relevant_doc_ids": [
+      "C089"
+    ],
+    "source_question": "21. Can forex pre-paid cards be used at Duty Free Shops located at International Airports in India?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q131",
+    "variant": "hi-en",
+    "text": "position of papua new guinea paper banknotes kya hota hai",
+    "relevant_doc_ids": [
+      "C090"
+    ],
+    "source_question": "22. What is the position of Papua New Guinea Paper Banknotes?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q132",
+    "variant": "hi-en",
+    "text": "position of old generation ‘1000 shillings (ksh)’ banknotes in kenya kya hota hai",
+    "relevant_doc_ids": [
+      "C091"
+    ],
+    "source_question": "23. What is the position of old generation ‘1000 shillings (Ksh)’ banknotes in Kenya?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q133",
+    "variant": "hi-en",
+    "text": "national electronic funds transfer system kya hota hai",
+    "relevant_doc_ids": [
+      "C092"
+    ],
+    "source_question": "1. What is National Electronic Funds Transfer system?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q134",
+    "variant": "hi-en",
+    "text": "advantages of using neft system kya hota hai",
+    "relevant_doc_ids": [
+      "C093"
+    ],
+    "source_question": "2. What are the advantages of using NEFT system?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q135",
+    "variant": "hi-en",
+    "text": "neft system operate kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C094"
+    ],
+    "source_question": "3. How does the NEFT system operate?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q136",
+    "variant": "hi-en",
+    "text": "indian financial system code kya hota hai",
+    "relevant_doc_ids": [
+      "C095"
+    ],
+    "source_question": "4. What is Indian Financial System Code?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q137",
+    "variant": "hi-en",
+    "text": "find the ifsc of a bank-branch kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C096"
+    ],
+    "source_question": "5. How can I find the IFSC of a bank-branch?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q138",
+    "variant": "hi-en",
+    "text": "avail neft system for fund transfer / receipt ke liye kaun eligible hai, kya documents chahiye",
+    "relevant_doc_ids": [
+      "C097"
+    ],
+    "source_question": "6. Who can avail NEFT system for fund transfer / receipt?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q139",
+    "variant": "hi-en",
+    "text": "kya any limit on funds / amount to be remitted through neft system ho sakta hai ya nahi",
+    "relevant_doc_ids": [
+      "C098"
+    ],
+    "source_question": "7. Is there any limit on funds / amount to be remitted through NEFT system?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q140",
+    "variant": "hi-en",
+    "text": "kya neft system be used for remitting funds even by those who do not have a bank account ho sakta hai ya nahi",
+    "relevant_doc_ids": [
+      "C099"
+    ],
+    "source_question": "8. Can the NEFT system be used for remitting funds even by those who do not have a bank account?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q141",
+    "variant": "hi-en",
+    "text": "kya send funds to my relative / friend residing abroad through neft system ho sakta hai ya nahi",
+    "relevant_doc_ids": [
+      "C100"
+    ],
+    "source_question": "9. Can I send funds to my relative / friend residing abroad through NEFT system?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q142",
+    "variant": "hi-en",
+    "text": "operating hours of neft kya hota hai",
+    "relevant_doc_ids": [
+      "C101"
+    ],
+    "source_question": "10. What are the operating hours of NEFT?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q143",
+    "variant": "hi-en",
+    "text": "essential details required for remitting funds through neft system kya hota hai",
+    "relevant_doc_ids": [
+      "C102"
+    ],
+    "source_question": "11. What are the essential details required for remitting funds through NEFT system?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q144",
+    "variant": "hi-en",
+    "text": "customer charges levied by bank for neft transactions kya hota hai",
+    "relevant_doc_ids": [
+      "C103"
+    ],
+    "source_question": "12. What are the customer charges levied by bank for NEFT transactions?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q145",
+    "variant": "hi-en",
+    "text": "kya use neft to transfer funds from / to nre and nro accounts ho sakta hai ya nahi",
+    "relevant_doc_ids": [
+      "C104"
+    ],
+    "source_question": "13. Can I use NEFT to transfer funds from / to NRE and NRO accounts?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q146",
+    "variant": "hi-en",
+    "text": "kya originate a neft transaction to draw / receive funds from another account ho sakta hai ya nahi",
+    "relevant_doc_ids": [
+      "C105"
+    ],
+    "source_question": "14. Can I originate a NEFT transaction to draw / receive funds from another account?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q147",
+    "variant": "hi-en",
+    "text": "track status of neft transactions initiated kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C106"
+    ],
+    "source_question": "15. How can I track status of NEFT transactions initiated?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q148",
+    "variant": "hi-en",
+    "text": "help desk / contact point at the rbi kya hota hai",
+    "relevant_doc_ids": [
+      "C108"
+    ],
+    "source_question": "17. What is the Help Desk / Contact point at the RBI?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q149",
+    "variant": "hi-en",
+    "text": "time should i expect for receipt of funds by beneficiary kitna/kitni hota hai aur kya limit hai",
+    "relevant_doc_ids": [
+      "C109"
+    ],
+    "source_question": "18. How much time should I expect for receipt of funds by beneficiary?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q150",
+    "variant": "hi-en",
+    "text": "penalties / compensation for delayed credit or return of funds by beneficiary bank kya hota hai",
+    "relevant_doc_ids": [
+      "C111"
+    ],
+    "source_question": "20. What are the penalties / compensation for delayed credit or return of funds by beneficiary bank?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q151",
+    "variant": "hi-en",
+    "text": "file complaint under the rb-ios 2021 kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C114"
+    ],
+    "source_question": "23. How can I file complaint under the RB-IOS 2021?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q152",
+    "variant": "hi-en",
+    "text": "practices which should be adopted by a customer for safe and secure digital payments kya hota hai",
+    "relevant_doc_ids": [
+      "C115"
+    ],
+    "source_question": "24. What are the practices which should be adopted by a customer for safe and secure digital payments?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q153",
+    "variant": "hi-en",
+    "text": "legal entity identifier and how is it relevant in case of large value neft transactions kya hota hai",
+    "relevant_doc_ids": [
+      "C116"
+    ],
+    "source_question": "25. What is Legal Entity Identifier and how is it relevant in case of large value NEFT transactions?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q154",
+    "variant": "hi-en",
+    "text": "rbi's role with regard to conduct of government's banking transaction kya hota hai",
+    "relevant_doc_ids": [
+      "C117"
+    ],
+    "source_question": "1. What is RBI's role with regard to conduct of Government's banking transaction?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q155",
+    "variant": "hi-en",
+    "text": "reserve bank of india discharge its statutory obligation of being 'banker to government' kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C118"
+    ],
+    "source_question": "2. How does Reserve Bank of India discharge its statutory obligation of being 'Banker to Government'?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q156",
+    "variant": "hi-en",
+    "text": "receipted challan for payment made into government account made available kab hua tha / kab hota hai",
+    "relevant_doc_ids": [
+      "C120"
+    ],
+    "source_question": "4. When is the receipted challan for payment made into government account made available?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q157",
+    "variant": "hi-en",
+    "text": "agar paper token is misplaced / lost toh kya karna chahiye, kya procedure hai",
+    "relevant_doc_ids": [
+      "C121"
+    ],
+    "source_question": "5. What if the paper token is misplaced / lost?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q158",
+    "variant": "hi-en",
+    "text": "agar receipted challan is misplaced toh kya karna chahiye, kya procedure hai",
+    "relevant_doc_ids": [
+      "C122"
+    ],
+    "source_question": "6. What if the Receipted Challan is misplaced?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q159",
+    "variant": "hi-en",
+    "text": "kya agency banks compensated for conduct of central/state government banking ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C123"
+    ],
+    "source_question": "7. Are agency banks compensated for conduct of Central/State Government banking?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q160",
+    "variant": "hi-en",
+    "text": "rbi’s role in goods and service tax regime kya hota hai",
+    "relevant_doc_ids": [
+      "C124"
+    ],
+    "source_question": "8. What is RBI’s role in Goods and Service Tax regime?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q161",
+    "variant": "hi-en",
+    "text": "dicgc insure kya karta hai",
+    "relevant_doc_ids": [
+      "C126"
+    ],
+    "source_question": "2. What does the DICGC insure?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q162",
+    "variant": "hi-en",
+    "text": "maximum deposit amount insured by the dicgc kya hota hai",
+    "relevant_doc_ids": [
+      "C127"
+    ],
+    "source_question": "3. What is the maximum deposit amount insured by the DICGC?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q163",
+    "variant": "hi-en",
+    "text": "you know whether your bank is insured by the dicgc or not kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C128"
+    ],
+    "source_question": "4. How will you know whether your bank is insured by the DICGC or not?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q164",
+    "variant": "hi-en",
+    "text": "ceiling on amount of insured deposits kept by one person in different branches of a bank kya hota hai",
+    "relevant_doc_ids": [
+      "C129"
+    ],
+    "source_question": "5. What is the ceiling on amount of Insured deposits kept by one person in different branches of a bank?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q165",
+    "variant": "hi-en",
+    "text": "kya deposit insurance be increased by depositing funds into several different accounts all at the same bank ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C131"
+    ],
+    "source_question": "7. Can deposit insurance be increased by depositing funds into several different accounts all at the same bank?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q166",
+    "variant": "hi-en",
+    "text": "kya deposits in different banks separately insured ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C132"
+    ],
+    "source_question": "8. Are deposits in different banks separately insured?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q167",
+    "variant": "hi-en",
+    "text": "meaning of deposits held in the same capacity and same right; and deposits held in different capacity and different right kya hota hai",
+    "relevant_doc_ids": [
+      "C134"
+    ],
+    "source_question": "10. What is the meaning of deposits held in the same capacity and same right; and deposits held in different capacity and different right?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q168",
+    "variant": "hi-en",
+    "text": "kya bank deduct the amount of dues payable by the depositor ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C135"
+    ],
+    "source_question": "11. Can the bank deduct the amount of dues payable by the depositor?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q169",
+    "variant": "hi-en",
+    "text": "pays the cost of deposits insurance kaun hota hai",
+    "relevant_doc_ids": [
+      "C136"
+    ],
+    "source_question": "12. Who pays the cost of deposits insurance?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q170",
+    "variant": "hi-en",
+    "text": "dicgc liable to pay kab hua tha / kab hota hai",
+    "relevant_doc_ids": [
+      "C137"
+    ],
+    "source_question": "13. When is DICGC liable to pay?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q171",
+    "variant": "hi-en",
+    "text": "kya any insured bank withdraw from the dicgc coverage ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C139"
+    ],
+    "source_question": "15. Can any insured bank withdraw from the DICGC coverage?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q172",
+    "variant": "hi-en",
+    "text": "kya dicgc withdraw deposit insurance coverage from any bank ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C140"
+    ],
+    "source_question": "16. Can the DICGC withdraw deposit insurance coverage from any bank?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q173",
+    "variant": "hi-en",
+    "text": "kya payments under rtgs final and irrevocable ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C143"
+    ],
+    "source_question": "2. Are the payments under RTGS final and irrevocable?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q174",
+    "variant": "hi-en",
+    "text": "benefits of using rtgs kya hota hai",
+    "relevant_doc_ids": [
+      "C144"
+    ],
+    "source_question": "3. What are the benefits of using RTGS?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q175",
+    "variant": "hi-en",
+    "text": "processing of rtgs different from that of national electronic funds transfer (neft) system kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C145"
+    ],
+    "source_question": "4. How is the processing of RTGS different from that of National Electronic Funds Transfer (NEFT) System?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q176",
+    "variant": "hi-en",
+    "text": "kya rtgs a 24x7 system or are there some timings applicable ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C146"
+    ],
+    "source_question": "5. Is RTGS a 24x7 system or are there some timings applicable?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q177",
+    "variant": "hi-en",
+    "text": "kya any minimum / maximum amount stipulation for rtgs transactions ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C147"
+    ],
+    "source_question": "6. Is there any minimum / maximum amount stipulation for RTGS transactions?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q178",
+    "variant": "hi-en",
+    "text": "essential information that the remitting customer needs to furnish to the bank for making a remittance kya hota hai",
+    "relevant_doc_ids": [
+      "C149"
+    ],
+    "source_question": "8. What is the essential information that the remitting customer needs to furnish to the bank for making a remittance?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q179",
+    "variant": "hi-en",
+    "text": "time taken for effecting funds transfer from one account to another through rtgs kya hota hai",
+    "relevant_doc_ids": [
+      "C154"
+    ],
+    "source_question": "13. What is the time taken for effecting funds transfer from one account to another through RTGS?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q180",
+    "variant": "hi-en",
+    "text": "kya remitting customer initiate a transaction for a future date ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C155"
+    ],
+    "source_question": "14. Can a remitting customer initiate a transaction for a future date?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q181",
+    "variant": "hi-en",
+    "text": "kya transaction be originated to draw (receive) funds from another account ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C156"
+    ],
+    "source_question": "15. Can a transaction be originated to draw (receive) funds from another account?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q182",
+    "variant": "hi-en",
+    "text": "kya rtgs transaction be tracked ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C157"
+    ],
+    "source_question": "16. Can an RTGS transaction be tracked?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q183",
+    "variant": "hi-en",
+    "text": "kya customer eligible to get compensation for delay in returning the payment ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C159"
+    ],
+    "source_question": "18. Is a customer eligible to get compensation for delay in returning the payment?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q184",
+    "variant": "hi-en",
+    "text": "utr number kya hota hai",
+    "relevant_doc_ids": [
+      "C161"
+    ],
+    "source_question": "20. What is UTR number?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q185",
+    "variant": "hi-en",
+    "text": "help desk / contact point at the rbi kya hota hai",
+    "relevant_doc_ids": [
+      "C162"
+    ],
+    "source_question": "21. What is the Help Desk / Contact point at the RBI?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q186",
+    "variant": "hi-en",
+    "text": "file complaint under the rb-ios 2021 kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C164"
+    ],
+    "source_question": "23. How can I file complaint under the RB-IOS 2021?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q187",
+    "variant": "hi-en",
+    "text": "legal entity identifier and how is it relevant in case of rtgs transactions kya hota hai",
+    "relevant_doc_ids": [
+      "C165"
+    ],
+    "source_question": "24. What is Legal Entity Identifier and how is it relevant in case of RTGS transactions?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q188",
+    "variant": "hi-en",
+    "text": "authorized dealer (ad) kaun hota hai",
+    "relevant_doc_ids": [
+      "C166"
+    ],
+    "source_question": "Q 1. Who is an Authorized Dealer (AD)?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q189",
+    "variant": "hi-en",
+    "text": "authorized by the reserve bank to sell foreign exchange for travel purposes kaun hota hai",
+    "relevant_doc_ids": [
+      "C167"
+    ],
+    "source_question": "Q 2. Who are authorized by the Reserve Bank to sell foreign exchange for travel purposes?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q190",
+    "variant": "hi-en",
+    "text": "foreign currency can be carried in cash for travel abroad kitna/kitni hota hai aur kya limit hai",
+    "relevant_doc_ids": [
+      "C168"
+    ],
+    "source_question": "Q 3. How much foreign currency can be carried in cash for travel abroad?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q191",
+    "variant": "hi-en",
+    "text": "indian currency can be brought in while coming into india kitna/kitni hota hai aur kya limit hai",
+    "relevant_doc_ids": [
+      "C169"
+    ],
+    "source_question": "Q 4. How much Indian currency can be brought in while coming into India?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q192",
+    "variant": "hi-en",
+    "text": "foreign exchange can be brought in while visiting india kitna/kitni hota hai aur kya limit hai",
+    "relevant_doc_ids": [
+      "C170"
+    ],
+    "source_question": "Q 5. How much foreign exchange can be brought in while visiting India?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q193",
+    "variant": "hi-en",
+    "text": "kya pay by cash full rupee equivalent of foreign exchange being purchased for travel abroad ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C171"
+    ],
+    "source_question": "Q 6. Can one pay by cash full rupee equivalent of foreign exchange being purchased for travel abroad?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q194",
+    "variant": "hi-en",
+    "text": "kya any time-frame for a traveller who has returned to india to surrender foreign exchange ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C172"
+    ],
+    "source_question": "Q 7. Is there any time-frame for a traveller who has returned to India to surrender foreign exchange?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q195",
+    "variant": "hi-en",
+    "text": "kya foreign coins be surrendered to an authorised dealer on return from abroad ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C173"
+    ],
+    "source_question": "Q 8. Should foreign coins be surrendered to an Authorised Dealer on return from abroad?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q196",
+    "variant": "hi-en",
+    "text": "kya any category of visit which requires prior approval from the reserve bank or the government of india ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C174"
+    ],
+    "source_question": "Q 9. Is there any category of visit which requires prior approval from the Reserve Bank or the Government of India?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q197",
+    "variant": "hi-en",
+    "text": "kya permission is required for receiving grant/donation from abroad under the foreign contribution regulation act, 1976 ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C175"
+    ],
+    "source_question": "Q 10. Whether permission is required for receiving grant/donation from abroad under the Foreign Contribution Regulation Act, 1976?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q198",
+    "variant": "hi-en",
+    "text": "permitted to hold international credit card (icc) and international debit card (idc) for undertaking foreign exchange transactions kaun hota hai",
+    "relevant_doc_ids": [
+      "C176"
+    ],
+    "source_question": "Q 11. Who is permitted to hold International Credit Card (ICC) and International Debit Card (IDC) for undertaking foreign exchange transactions?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q199",
+    "variant": "hi-en",
+    "text": "jewellery can be carried while going abroad kitna/kitni hota hai aur kya limit hai",
+    "relevant_doc_ids": [
+      "C177"
+    ],
+    "source_question": "Q 12. How much jewellery can be carried while going abroad?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q200",
+    "variant": "hi-en",
+    "text": "kya resident extend local hospitality to a non-resident ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C178"
+    ],
+    "source_question": "Q 13. Can a resident extend local hospitality to a non-resident?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q201",
+    "variant": "hi-en",
+    "text": "kya residents purchase air tickets in india for their travel not touching india ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C179"
+    ],
+    "source_question": "Q 14. Can residents purchase air tickets in India for their travel not touching India?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q202",
+    "variant": "hi-en",
+    "text": "kya meeting of medical expenses of a nri close relative, in india, by resident individuals permitted ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C180"
+    ],
+    "source_question": "Q 15. Is meeting of medical expenses of a NRI close relative, in India, by Resident Individuals permitted?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q203",
+    "variant": "hi-en",
+    "text": "kya person resident in india hold assets outside india ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C181"
+    ],
+    "source_question": "Q 16. Can a person resident in India hold assets outside India?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q204",
+    "variant": "hi-en",
+    "text": "indo-nepal remittance facility scheme under neft ecosystem kya hota hai",
+    "relevant_doc_ids": [
+      "C182"
+    ],
+    "source_question": "1. What is Indo-Nepal Remittance Facility Scheme under NEFT ecosystem?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q205",
+    "variant": "hi-en",
+    "text": "salient features of inrf scheme kya hota hai",
+    "relevant_doc_ids": [
+      "C183"
+    ],
+    "source_question": "2. What are the salient features of INRF Scheme?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q206",
+    "variant": "hi-en",
+    "text": "kya any limit on number of such transactions ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C184"
+    ],
+    "source_question": "3. Is there any limit on number of such transactions?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q207",
+    "variant": "hi-en",
+    "text": "documents required to be presented by the remitter kya hota hai",
+    "relevant_doc_ids": [
+      "C186"
+    ],
+    "source_question": "5. What are the documents required to be presented by the remitter?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q208",
+    "variant": "hi-en",
+    "text": "transactions flow from india to nepal and what are the timelines for completion of the transactions kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C187"
+    ],
+    "source_question": "6. How do the transactions flow from India to Nepal and what are the timelines for completion of the transactions?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q209",
+    "variant": "hi-en",
+    "text": "remitting customer in india know about the branches of nsbl and the outlets of prabhu money transfer kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C188"
+    ],
+    "source_question": "7. How does the remitting customer in India know about the branches of NSBL and the outlets of Prabhu Money Transfer?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q210",
+    "variant": "hi-en",
+    "text": "remitter get back money if it is not delivered to the beneficiary kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C189"
+    ],
+    "source_question": "8. How does the remitter get back money if it is not delivered to the beneficiary?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q211",
+    "variant": "hi-en",
+    "text": "charges for availing the remittance facility kya hota hai",
+    "relevant_doc_ids": [
+      "C190"
+    ],
+    "source_question": "9. What are the charges for availing the remittance facility?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q212",
+    "variant": "hi-en",
+    "text": "be contacted for redressal of grievances under the scheme ke liye kaun eligible hai, kya documents chahiye",
+    "relevant_doc_ids": [
+      "C191"
+    ],
+    "source_question": "10. Who can be contacted for redressal of grievances under the Scheme?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q213",
+    "variant": "hi-en",
+    "text": "kya bi-lateral arrangements between bank / non-banks in india and those in nepal covered under inrf scheme ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C192"
+    ],
+    "source_question": "11. Are bi-lateral arrangements between bank / non-banks in India and those in Nepal covered under INRF Scheme?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q214",
+    "variant": "hi-en",
+    "text": "kya joint account can be continued for family pension after death of a pensioner ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C194"
+    ],
+    "source_question": "1. Whether a Joint Account can be continued for family pension after death of a pensioner?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q215",
+    "variant": "hi-en",
+    "text": "pension credited to the pensioner's account by the paying branch kab hua tha / kab hota hai",
+    "relevant_doc_ids": [
+      "C195"
+    ],
+    "source_question": "2. When is the pension credited to the pensioner's account by the paying branch?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q216",
+    "variant": "hi-en",
+    "text": "kya pension paying bank recover the excess amount credited to the pensioner’s account ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C196"
+    ],
+    "source_question": "3. Can the pension paying bank recover the excess amount credited to the pensioner’s account?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q217",
+    "variant": "hi-en",
+    "text": "kya acknowledgement be given by pension paying banks while accepting life certificates from pensioners ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C197"
+    ],
+    "source_question": "4. Should acknowledgement be given by pension paying banks while accepting Life Certificates from pensioners?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q218",
+    "variant": "hi-en",
+    "text": "kya it possible to submit life certificates without visiting the branch ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C198"
+    ],
+    "source_question": "5. Is it possible to submit life certificates without visiting the branch?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q219",
+    "variant": "hi-en",
+    "text": "kya pensioner withdraw pension from his/ her account when he/she is not able to sign or put thumb/toe impression or unable to be present in the bank ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C199"
+    ],
+    "source_question": "6. Can a pensioner withdraw pension from his/ her account when he/she is not able to sign or put thumb/toe impression or unable to be present in the bank?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q220",
+    "variant": "hi-en",
+    "text": "kya pensioner is entitled for any compensation from the abs for delayed credit of pension/ arrears of pension ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C202"
+    ],
+    "source_question": "8. Whether a pensioner is entitled for any compensation from the ABs for delayed credit of pension/ arrears of pension?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q221",
+    "variant": "hi-en",
+    "text": "person resident in india kaun hota hai",
+    "relevant_doc_ids": [
+      "C203"
+    ],
+    "source_question": "Q1. Who is a person resident in India?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q222",
+    "variant": "hi-en",
+    "text": "foreign currency account kya hota hai",
+    "relevant_doc_ids": [
+      "C204"
+    ],
+    "source_question": "Q2. What is a foreign currency account?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q223",
+    "variant": "hi-en",
+    "text": "major foreign currency accounts that can be opened in india by a resident individual kya hota hai",
+    "relevant_doc_ids": [
+      "C205"
+    ],
+    "source_question": "Q3. What are the major foreign currency accounts that can be opened in India by a resident individual?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q224",
+    "variant": "hi-en",
+    "text": "kya resident continue to maintain an account outside india which was opened by him when he was a non-resident ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C208"
+    ],
+    "source_question": "Q6. Can a resident continue to maintain an account outside India which was opened by him when he was a non-resident?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q225",
+    "variant": "hi-en",
+    "text": "status of the account held outside india on the demise of the account holder kya hota hai",
+    "relevant_doc_ids": [
+      "C209"
+    ],
+    "source_question": "Q7. What is the status of the account held outside India on the demise of the account holder?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q226",
+    "variant": "hi-en",
+    "text": "payment and settlement systems act, 2007 (pss act, 2007) came into effect kab hua tha / kab hota hai",
+    "relevant_doc_ids": [
+      "C211"
+    ],
+    "source_question": "Q 1. When did Payment and Settlement Systems Act, 2007 (PSS Act, 2007) came into effect?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q227",
+    "variant": "hi-en",
+    "text": "objective of the pss act, 2007 kya hota hai",
+    "relevant_doc_ids": [
+      "C212"
+    ],
+    "source_question": "Q 2. What is the objective of the PSS Act, 2007?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q228",
+    "variant": "hi-en",
+    "text": "regulations made under the pss act, 2007 and when did they come into force kya hota hai",
+    "relevant_doc_ids": [
+      "C213"
+    ],
+    "source_question": "Q 3. What are the Regulations made under the PSS Act, 2007 and when did they come into force?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q229",
+    "variant": "hi-en",
+    "text": "objectives of these two regulations kya hota hai",
+    "relevant_doc_ids": [
+      "C214"
+    ],
+    "source_question": "Q 4. What are the objectives of these two Regulations?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q230",
+    "variant": "hi-en",
+    "text": "“payment obligation” kya hota hai",
+    "relevant_doc_ids": [
+      "C216"
+    ],
+    "source_question": "Q 6. What is a “Payment Obligation”?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q231",
+    "variant": "hi-en",
+    "text": "“payment instruction” kya hota hai",
+    "relevant_doc_ids": [
+      "C217"
+    ],
+    "source_question": "Q 7. What is a “Payment Instruction”?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q232",
+    "variant": "hi-en",
+    "text": "“settlement” kya hota hai",
+    "relevant_doc_ids": [
+      "C218"
+    ],
+    "source_question": "Q 8. What is a “Settlement”?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q233",
+    "variant": "hi-en",
+    "text": "“payment system” under the pss act, 2007 kya hota hai",
+    "relevant_doc_ids": [
+      "C219"
+    ],
+    "source_question": "Q 9. What is a “Payment System” under the PSS Act, 2007?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q234",
+    "variant": "hi-en",
+    "text": "kya entities operating a payment system or intending to operate a payment system required to get a license, approval or authorization for the purpose ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C220"
+    ],
+    "source_question": "Q 10. Are entities operating a payment system or intending to operate a payment system required to get a license, approval or authorization for the purpose?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q235",
+    "variant": "hi-en",
+    "text": "kya any application fee to be submitted along with the application for authorization ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C221"
+    ],
+    "source_question": "Q 11. Is there any application fee to be submitted along with the application for authorization?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q236",
+    "variant": "hi-en",
+    "text": "kya foreign entities allowed to operate a payment system in india ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C222"
+    ],
+    "source_question": "Q 12. Are foreign entities allowed to operate a payment system in India?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q237",
+    "variant": "hi-en",
+    "text": "kya foreign entities required to get a license or approval or authorization from reserve bank before commencing operations ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C223"
+    ],
+    "source_question": "Q 13. Are foreign entities required to get a license or approval or authorization from Reserve Bank before commencing operations?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q238",
+    "variant": "hi-en",
+    "text": "financial market infrastructures kya hota hai",
+    "relevant_doc_ids": [
+      "C224"
+    ],
+    "source_question": "Q 14. What are Financial Market Infrastructures?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q239",
+    "variant": "hi-en",
+    "text": "kya foreign financial market infrastructure (fmi) start operations in india ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C225"
+    ],
+    "source_question": "Q 15. Can a foreign Financial Market Infrastructure (FMI) start operations in India?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q240",
+    "variant": "hi-en",
+    "text": "services which a foreign entity can provide kya hota hai",
+    "relevant_doc_ids": [
+      "C226"
+    ],
+    "source_question": "Q 16. What are the services which a foreign entity can provide?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q241",
+    "variant": "hi-en",
+    "text": "factors which the reserve bank will consider while deciding on an application submitted for authorization kya hota hai",
+    "relevant_doc_ids": [
+      "C227"
+    ],
+    "source_question": "Q 17. What are the factors which the Reserve Bank will consider while deciding on an application submitted for authorization?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q242",
+    "variant": "hi-en",
+    "text": "parameters taken into consideration for giving authorisation to the applicants kya hota hai",
+    "relevant_doc_ids": [
+      "C228"
+    ],
+    "source_question": "Q 18. What are the parameters taken into consideration for giving authorisation to the applicants?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q243",
+    "variant": "hi-en",
+    "text": "kya reserve bank refuse to grant authorization to commence or operate a payment system ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C229"
+    ],
+    "source_question": "Q 19. Can the Reserve Bank refuse to grant authorization to commence or operate a payment system?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q244",
+    "variant": "hi-en",
+    "text": "kya reserve bank revoke authorization granted under the pss act 2007 ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C230"
+    ],
+    "source_question": "Q 20. Can the Reserve Bank revoke authorization granted under the PSS Act 2007?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q245",
+    "variant": "hi-en",
+    "text": "kya any appellate authority to whom an aggrieved applicant whose application for authorization is refused or a system provider whose authorization is revoked, can appeal ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C231"
+    ],
+    "source_question": "Q 21. Is there any appellate authority to whom an aggrieved applicant whose application for authorization is refused or a system provider whose authorization is revoked, can appeal?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q246",
+    "variant": "hi-en",
+    "text": "kya reserve bank collect any authorisation fees and direct the applicant to furnish a security deposit ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C232"
+    ],
+    "source_question": "Q 22. Can the Reserve Bank collect any authorisation fees and direct the applicant to furnish a security deposit?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q247",
+    "variant": "hi-en",
+    "text": "kya reserve bank can call for returns, information etc., from the system provider with regard to the operation of the payment system ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C234"
+    ],
+    "source_question": "Q 24. Whether the Reserve Bank can call for returns, information etc., from the system provider with regard to the operation of the payment system?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q248",
+    "variant": "hi-en",
+    "text": "kya reserve bank can share such information as received above with other regulators, etc ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C235"
+    ],
+    "source_question": "Q 25. Whether the Reserve Bank can share such information as received above with other regulators, etc.?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q249",
+    "variant": "hi-en",
+    "text": "kya reserve bank inspect the premises of the system provider ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C236"
+    ],
+    "source_question": "Q 26. Can the Reserve Bank inspect the premises of the system provider?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q250",
+    "variant": "hi-en",
+    "text": "kya reserve bank conduct inspection of foreign entities authorized by it but located in foreign jurisdictions ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C237"
+    ],
+    "source_question": "Q 27. Can Reserve Bank conduct inspection of foreign entities authorized by it but located in foreign jurisdictions?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q251",
+    "variant": "hi-en",
+    "text": "kya reserve bank issue directions to the system provider ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C238"
+    ],
+    "source_question": "Q 28. Can the Reserve Bank issue directions to the system provider?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q252",
+    "variant": "hi-en",
+    "text": "duties of a system provider under the pss act, 2007 kya hota hai",
+    "relevant_doc_ids": [
+      "C240"
+    ],
+    "source_question": "Q 30. What are the duties of a system provider under the PSS Act, 2007?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q253",
+    "variant": "hi-en",
+    "text": "mechanism for settlement of disputes under the pss act, 2007 kya hota hai",
+    "relevant_doc_ids": [
+      "C241"
+    ],
+    "source_question": "Q 31. What is the mechanism for settlement of disputes under the PSS Act, 2007?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q254",
+    "variant": "hi-en",
+    "text": "consequences of dishonour of electronic fund transfer under the pss act, 2007 kya hota hai",
+    "relevant_doc_ids": [
+      "C242"
+    ],
+    "source_question": "Q 32. What are the consequences of dishonour of electronic fund transfer under the PSS Act, 2007?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q255",
+    "variant": "hi-en",
+    "text": "kya any penalties or punitive action laid down under the pss act, 2007 ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C243"
+    ],
+    "source_question": "Q 33. Are there any penalties or punitive action laid down under the PSS Act, 2007?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q256",
+    "variant": "hi-en",
+    "text": "automated teller machine (atm) kya hota hai",
+    "relevant_doc_ids": [
+      "C244"
+    ],
+    "source_question": "1. What is an Automated Teller Machine (ATM)?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q257",
+    "variant": "hi-en",
+    "text": "white label atms (wlas) kya hota hai",
+    "relevant_doc_ids": [
+      "C245"
+    ],
+    "source_question": "2. What are White Label ATMs (WLAs)?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q258",
+    "variant": "hi-en",
+    "text": "services / facilities available at atms / wlas kya hota hai",
+    "relevant_doc_ids": [
+      "C248"
+    ],
+    "source_question": "5. What are the services / facilities available at ATMs / WLAs?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q259",
+    "variant": "hi-en",
+    "text": "pre-requisites for transacting at an atm / wla kya hota hai",
+    "relevant_doc_ids": [
+      "C250"
+    ],
+    "source_question": "7. What are the pre-requisites for transacting at an ATM / WLA?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q260",
+    "variant": "hi-en",
+    "text": "personal identification number (pin) kya hota hai",
+    "relevant_doc_ids": [
+      "C251"
+    ],
+    "source_question": "8. What is Personal Identification Number (PIN)?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q261",
+    "variant": "hi-en",
+    "text": "kya cards issued by a bank in india be used at any atm / wla in the country ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C252"
+    ],
+    "source_question": "9. Can cards issued by a bank in India be used at any ATM / WLA in the country?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q262",
+    "variant": "hi-en",
+    "text": "on-us and off-us transaction kya hota hai",
+    "relevant_doc_ids": [
+      "C253"
+    ],
+    "source_question": "10. What is an On-Us and Off-Us transaction?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q263",
+    "variant": "hi-en",
+    "text": "kya customers entitled to any free transactions at atms ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C254"
+    ],
+    "source_question": "11. Are customers entitled to any free transactions at ATMs?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q264",
+    "variant": "hi-en",
+    "text": "kya bank offer more number of free transactions at atms ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C255"
+    ],
+    "source_question": "12. Can a bank offer more number of free transactions at ATMs?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q265",
+    "variant": "hi-en",
+    "text": "kya above prescription of free transactions applicable to a basic savings bank deposit account (bsbda) also ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C256"
+    ],
+    "source_question": "13. Is the above prescription of free transactions applicable to a Basic Savings Bank Deposit Account (BSBDA) also?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q266",
+    "variant": "hi-en",
+    "text": "kya any type of transactions that are not to be counted under free transactions ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C257"
+    ],
+    "source_question": "14. Are there any type of transactions that are not to be counted under free transactions?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q267",
+    "variant": "hi-en",
+    "text": "know if the atm location is metro or non-metro kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C258"
+    ],
+    "source_question": "15. How can one know if the ATM location is metro or non-metro?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q268",
+    "variant": "hi-en",
+    "text": "kya customers charged for transactions at atms ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C259"
+    ],
+    "source_question": "16. Are customers charged for transactions at ATMs?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q269",
+    "variant": "hi-en",
+    "text": "charges prescribed by rbi for use of credit cards at atms and for withdrawal at atm located abroad kya hota hai",
+    "relevant_doc_ids": [
+      "C260"
+    ],
+    "source_question": "17. What are the charges prescribed by RBI for use of credit cards at ATMs and for withdrawal at ATM located abroad?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q270",
+    "variant": "hi-en",
+    "text": "kya any time limit for the card issuing bank to recredit the customer’s account for a failed atm / wla transaction indicated under q. no. 18 ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C263"
+    ],
+    "source_question": "20. Is there any time limit for the card issuing bank to recredit the customer’s account for a failed ATM / WLA transaction indicated under Q. No. 18?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q271",
+    "variant": "hi-en",
+    "text": "kya customers eligible for compensation for delays beyond days of a failed transaction ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C264"
+    ],
+    "source_question": "21. Are the customers eligible for compensation for delays beyond days of a failed transaction?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q272",
+    "variant": "hi-en",
+    "text": "course of action for the customer if the reversal and compensation are not carried by the bank kya hota hai",
+    "relevant_doc_ids": [
+      "C265"
+    ],
+    "source_question": "22. What is the course of action for the customer if the reversal and compensation are not carried by the bank?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q273",
+    "variant": "hi-en",
+    "text": "magnetic stripe cards and emv chip & pin cards kya hota hai",
+    "relevant_doc_ids": [
+      "C269"
+    ],
+    "source_question": "26. What are Magnetic Stripe cards and EMV Chip & PIN cards?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q274",
+    "variant": "hi-en",
+    "text": "banks for issuing magnetic stripe cards or emv chip & pin cards ke liye mandate kya hai",
+    "relevant_doc_ids": [
+      "C270"
+    ],
+    "source_question": "27. What is the mandate for banks for issuing Magnetic Stripe cards or EMV Chip & PIN cards?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q275",
+    "variant": "hi-en",
+    "text": "nostro account kya hota hai",
+    "relevant_doc_ids": [
+      "C274"
+    ],
+    "source_question": "4. What is a Nostro Account?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q276",
+    "variant": "hi-en",
+    "text": "charges levied for the collection of these usd denominated cheques kya hota hai",
+    "relevant_doc_ids": [
+      "C275"
+    ],
+    "source_question": "5. What are the charges levied for the collection of these USD denominated cheques?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q277",
+    "variant": "hi-en",
+    "text": "kya us regulations applicable to usd cheque collection ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C276"
+    ],
+    "source_question": "6. Are US regulations applicable to USD cheque collection?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q278",
+    "variant": "hi-en",
+    "text": "kya customer choose the mode for collecting usd cheques ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C277"
+    ],
+    "source_question": "7. Can the customer choose the mode for collecting USD cheques?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q279",
+    "variant": "hi-en",
+    "text": "kya customers given credit and allowed to use the funds after sight of credit in the nostro accounts of banks ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C280"
+    ],
+    "source_question": "10. Are customers given credit and allowed to use the funds after sight of credit in the Nostro accounts of banks?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q280",
+    "variant": "hi-en",
+    "text": "instructions for facilitating customer awareness and redressing customer complaints kya hota hai",
+    "relevant_doc_ids": [
+      "C283"
+    ],
+    "source_question": "13. What are the instructions for facilitating customer awareness and redressing customer complaints?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q281",
+    "variant": "hi-en",
+    "text": "kya any other instructions to banks in this regard ho sakta ya nahi",
+    "relevant_doc_ids": [
+      "C284"
+    ],
+    "source_question": "14. Are there any other instructions to banks in this regard?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q282",
+    "variant": "hi-en",
+    "text": "bond kya hota hai",
+    "relevant_doc_ids": [
+      "C285"
+    ],
+    "source_question": "1. What is a Bond?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q283",
+    "variant": "hi-en",
+    "text": "government security (g-sec) kya hota hai",
+    "relevant_doc_ids": [
+      "C286"
+    ],
+    "source_question": "What is a Government Security (G-Sec)?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q284",
+    "variant": "hi-en",
+    "text": "g-secs issued kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C296"
+    ],
+    "source_question": "3. How are the G-Secs issued?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q285",
+    "variant": "hi-en",
+    "text": "different types of auctions used for issue of securities kya hota hai",
+    "relevant_doc_ids": [
+      "C298"
+    ],
+    "source_question": "4. What are the different types of auctions used for issue of securities?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q286",
+    "variant": "hi-en",
+    "text": "open market operations (omos) kya hota hai",
+    "relevant_doc_ids": [
+      "C303"
+    ],
+    "source_question": "5. What are Open Market Operations (OMOs)?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q287",
+    "variant": "hi-en",
+    "text": "liquidity adjustment facility (laf) and whether re-repo in government securities market is allowed kya hota hai",
+    "relevant_doc_ids": [
+      "C305"
+    ],
+    "source_question": "6. What is Liquidity Adjustment Facility (LAF) and whether Re-repo in Government Securities Market is allowed?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q288",
+    "variant": "hi-en",
+    "text": "trading in g-secs take place and what regulations are applicable to prevent abuse kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C307"
+    ],
+    "source_question": "8. How does the trading in G-Secs take place and what regulations are applicable to prevent abuse?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q289",
+    "variant": "hi-en",
+    "text": "major players in the g-secs market kaun hota hai",
+    "relevant_doc_ids": [
+      "C313"
+    ],
+    "source_question": "9. Who are the major players in the G-Secs market?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q290",
+    "variant": "hi-en",
+    "text": "do's and don’ts prescribed by rbi for the co-operative banks dealing in g-secs kya hota hai",
+    "relevant_doc_ids": [
+      "C314"
+    ],
+    "source_question": "10. What are the Do's and Don’ts prescribed by RBI for the Co-operative banks dealing in G-Secs?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q291",
+    "variant": "hi-en",
+    "text": "dealing transactions recorded by the dealing desk kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C315"
+    ],
+    "source_question": "11. How are the dealing transactions recorded by the dealing desk?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q292",
+    "variant": "hi-en",
+    "text": "important considerations while undertaking security transactions kya hota hai",
+    "relevant_doc_ids": [
+      "C316"
+    ],
+    "source_question": "12. What are the important considerations while undertaking security transactions?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q293",
+    "variant": "hi-en",
+    "text": "get information about the price of a g-sec kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C318"
+    ],
+    "source_question": "14. How does one get information about the price of a G-Sec?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q294",
+    "variant": "hi-en",
+    "text": "g-secs transactions reported kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C320"
+    ],
+    "source_question": "15. How are the G-Secs transactions reported?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q295",
+    "variant": "hi-en",
+    "text": "shut period kya hota hai",
+    "relevant_doc_ids": [
+      "C323"
+    ],
+    "source_question": "17. What is shut period?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q296",
+    "variant": "hi-en",
+    "text": "delivery versus payment (dvp) settlement kya hota hai",
+    "relevant_doc_ids": [
+      "C324"
+    ],
+    "source_question": "18. What is Delivery versus Payment (DvP) Settlement?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q297",
+    "variant": "hi-en",
+    "text": "role of the clearing corporation of india limited (ccil) kya hota hai",
+    "relevant_doc_ids": [
+      "C325"
+    ],
+    "source_question": "19. What is the role of the Clearing Corporation of India Limited (CCIL)?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q298",
+    "variant": "hi-en",
+    "text": "‘when issued’ market and “short sale” kya hota hai",
+    "relevant_doc_ids": [
+      "C326"
+    ],
+    "source_question": "20. What is the ‘When Issued’ market and “Short Sale”?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q299",
+    "variant": "hi-en",
+    "text": "basic mathematical concepts one should know for calculations involved in bond prices and yields kya hota hai",
+    "relevant_doc_ids": [
+      "C327"
+    ],
+    "source_question": "21. What are the basic mathematical concepts one should know for calculations involved in bond prices and yields?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q300",
+    "variant": "hi-en",
+    "text": "price of a bond calculated kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C331"
+    ],
+    "source_question": "22. How is the Price of a bond calculated?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q301",
+    "variant": "hi-en",
+    "text": "relationship between yield and price of a bond kya hota hai",
+    "relevant_doc_ids": [
+      "C332"
+    ],
+    "source_question": "23. What is the relationship between yield and price of a bond?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q302",
+    "variant": "hi-en",
+    "text": "yield of a bond calculated kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C333"
+    ],
+    "source_question": "24. How is the yield of a bond calculated?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q303",
+    "variant": "hi-en",
+    "text": "day count conventions used in calculating bond yields kya hota hai",
+    "relevant_doc_ids": [
+      "C342"
+    ],
+    "source_question": "25. What are the day count conventions used in calculating bond yields?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q304",
+    "variant": "hi-en",
+    "text": "yield of a t- bill calculated kaise hota hai, iska process kya hai",
+    "relevant_doc_ids": [
+      "C343"
+    ],
+    "source_question": "26. How is the yield of a T- Bill calculated?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q305",
+    "variant": "hi-en",
+    "text": "duration kya hota hai",
+    "relevant_doc_ids": [
+      "C344"
+    ],
+    "source_question": "27. What is Duration?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q306",
+    "variant": "hi-en",
+    "text": "modified duration kya hota hai",
+    "relevant_doc_ids": [
+      "C347"
+    ],
+    "source_question": "What is Modified Duration?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q307",
+    "variant": "hi-en",
+    "text": "pv 01 kya hota hai",
+    "relevant_doc_ids": [
+      "C349"
+    ],
+    "source_question": "What is PV 01?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q308",
+    "variant": "hi-en",
+    "text": "convexity kya hota hai",
+    "relevant_doc_ids": [
+      "C351"
+    ],
+    "source_question": "What is Convexity?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q309",
+    "variant": "hi-en",
+    "text": "important guidelines for valuation of securities kya hota hai",
+    "relevant_doc_ids": [
+      "C352"
+    ],
+    "source_question": "28. What are the important guidelines for valuation of securities?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q310",
+    "variant": "hi-en",
+    "text": "risks involved in holding g-secs kya hota hai",
+    "relevant_doc_ids": [
+      "C353"
+    ],
+    "source_question": "29. What are the risks involved in holding G-Secs?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q311",
+    "variant": "hi-en",
+    "text": "money market kya hota hai",
+    "relevant_doc_ids": [
+      "C355"
+    ],
+    "source_question": "30. What is Money Market?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q312",
+    "variant": "hi-en",
+    "text": "different money market instruments kya hota hai",
+    "relevant_doc_ids": [
+      "C356"
+    ],
+    "source_question": "What are the different money market instruments?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q313",
+    "variant": "hi-en",
+    "text": "role and functions of fimmda & fbil kya hota hai",
+    "relevant_doc_ids": [
+      "C362"
+    ],
+    "source_question": "31. What are the role and functions of FIMMDA & FBIL?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  },
+  {
+    "query_id": "Q314",
+    "variant": "hi-en",
+    "text": "various websites that give information on g-secs kya hota hai",
+    "relevant_doc_ids": [
+      "C363"
+    ],
+    "source_question": "32. What are the various websites that give information on G-Secs?",
+    "review_status": "auto_generated_v3_verified_by_manual_sample"
+  }
+]
