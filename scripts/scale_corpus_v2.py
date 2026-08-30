@@ -325,6 +325,90 @@ def extract_clean_topic(chunk_text: str, category_name: str) -> str:
     return topic
 
 
+def classify_chunk_intent(raw_q: str, chunk_text: str) -> str:
+    """Classify the semantic question intent of an FAQ chunk."""
+    q_low = raw_q.lower()
+
+    # 1. Grievance / Dispute / Complaint / Delay
+    if re.search(r"\b(complain|complaint|grievance|dispute|ombudsman|delay in credit|non-credit|redressal|whom should i approach|whom to approach|whom can a customer contact)\b", q_low):
+        return "GRIEVANCE"
+
+    # 2. Cancellation / Closure / Surrender / Revocation
+    if re.search(r"\b(cancellation|closure|closing|close|shut period|revoke|surrender)\b", q_low):
+        return "CLOSURE_OR_CANCELLATION"
+
+    # 3. Quantitative / Limit / Penalty / Rates / Tenure / Charges / Balance
+    if re.search(r"\b(how much|how many|minimum|maximum|limit|penalty|interest rate|tenure|what rate|charge|fee|compensation|amount offered|balance requirement|pricing|amount|cost)\b", q_low):
+        return "LIMITS_AND_TERMS"
+
+    # 4. Definitional "Who is a/an" (Person, NRI, Resident, PIO, Aggregator, Facilitator)
+    if re.search(r"\b(who is an? (?:nri|pio|resident|aggregator|facilitator|person|tourist|borrower|guarantor))\b", q_low):
+        return "DEFINITIONAL"
+
+    # 5. Eligibility / Permission / Who can open/apply / Joint holding / Restrictions
+    if re.search(r"\b(who can|who is eligible|who are eligible|can a|can an|can i|can one|whether .* can|whether .* is permitted|is there any restriction|is it mandatory|who can participate|who can apply|who can open|permitted to be held|who is eligible)\b", q_low):
+        return "ELIGIBILITY"
+
+    # 6. Procedural / Application / Steps / Form submission / Issuance / Calculation
+    if re.search(r"\b(how to apply|how to|where can one submit|where to submit|how does an investor make payment|how will securities be issued|how is payment into|step|procedure|process of applying|how to calculate|how does an investor make)\b", q_low):
+        return "PROCEDURAL"
+
+    # 7. Rules / Conditions / Regulations / Regulatory framework / Prescriptions
+    if re.search(r"\b(rules|guidelines|regulations|prescription|condition|circumstances|framework|mandate|norm|provisions|considerations)\b", q_low):
+        return "RULES_AND_CONDITIONS"
+
+    # 8. Definitional (What is X, Meaning of X, Types of X, Objectives of X)
+    if re.search(r"\b(what is|what are|what does|meaning of|meant by|define|types of|objectives of|what would be|who is)\b", q_low):
+        return "DEFINITIONAL"
+
+    # Fallback to DEFINITIONAL
+    return "DEFINITIONAL"
+
+
+INTENT_TEMPLATES = {
+    "DEFINITIONAL": [
+        ("{topic} kya hota hai aur iska purpose kya hai", 0.50),
+        ("what is {topic} and how does it work", 0.40),
+        ("{topic} ke baare mein jaankari chahiye", 0.55),
+        ("{topic} kya hota hai", 0.60),
+    ],
+    "ELIGIBILITY": [
+        ("{topic} ke liye documents aur eligibility kya chahiye", 0.50),
+        ("kya {topic} ke liye eligible hone ki koi specific criteria hai", 0.55),
+        ("who can apply for {topic} and what are the requirements", 0.40),
+        ("kya senior citizens ko {topic} par special benefit milta hai", 0.50),
+    ],
+    "PROCEDURAL": [
+        ("how to apply for {topic} online or offline", 0.35),
+        ("{topic} ka process aur step-by-step procedure kya hai", 0.50),
+        ("{topic} ke liye online form kaise bhare", 0.60),
+        ("what is the process for {topic} registration or application", 0.35),
+    ],
+    "LIMITS_AND_TERMS": [
+        ("{topic} mein kitna limit aur penalty hota hai", 0.60),
+        ("{topic} ka interest rate aur tenure kitna hai", 0.40),
+        ("kya {topic} ke liye minimum balance ya charge lagta hai", 0.55),
+        ("what is the maximum and minimum limit for {topic}", 0.35),
+    ],
+    "GRIEVANCE": [
+        ("{topic} mein dispute ya delay hone par redressal kaise milega", 0.55),
+        ("whom to approach for {topic} complaint or grievance", 0.40),
+        ("mera {topic} transaction fail ho gaya toh complain kahan kare", 0.65),
+        ("{topic} issue solve na ho toh ombudsman ko complain kaise kare", 0.60),
+    ],
+    "RULES_AND_CONDITIONS": [
+        ("{topic} ke rules aur guidelines kya hain", 0.45),
+        ("kya {topic} par koi restriction ya special condition lagti hai", 0.55),
+        ("{topic} update karwane ke liye bank branch jana padega kya", 0.55),
+        ("what are the RBI guidelines and regulations for {topic}", 0.40),
+    ],
+    "CLOSURE_OR_CANCELLATION": [
+        ("what is the process for {topic} cancellation or closure", 0.30),
+        ("{topic} close ya surrender karne ka procedure kya hai", 0.55),
+    ]
+}
+
+
 def generate_scaled_queries(corpus_chunks: List[Dict]):
     print("\n=== STEP 2: GENERATING SCALED QUERIES (V2) ===")
     
@@ -344,37 +428,33 @@ def generate_scaled_queries(corpus_chunks: List[Dict]):
             "review_status": "verified_pilot"
         })
 
-    # 2. For newly added chunks (C021+), synthesize template-based queries with clean entity extraction
-    patterns = [
-        ("kya {topic} ke liye minimum balance ya charge lagta hai", 0.55),
-        ("{topic} ke rules aur guidelines kya hain", 0.45),
-        ("how to apply for {topic} online or offline", 0.35),
-        ("{topic} mein kitna limit aur penalty hota hai", 0.60),
-        ("kya senior citizens ko {topic} par special benefit milta hai", 0.50),
-        ("{topic} ke liye documents aur eligibility kya chahiye", 0.50),
-        ("mera {topic} transaction fail ho gaya toh complain kahan kare", 0.65),
-        ("{topic} ka interest rate aur tenure kitna hai", 0.40),
-        ("what is the process for {topic} cancellation or closure", 0.30),
-        ("{topic} update karwane ke liye bank branch jana padega kya", 0.55),
-    ]
-
+    # 2. For newly added chunks (C021+), synthesize intent-matched queries
     pilot_chunk_ids = set(chunk["chunk_id"] for chunk in corpus_chunks[:20])
     new_chunks = [c for c in corpus_chunks if c["chunk_id"] not in pilot_chunk_ids]
     
     discarded_count = 0
     q_counter = len(scaled_queries) + 1
+    intent_rotation = {}
+
     for c in new_chunks:
         cid = c["chunk_id"]
         c_text = c["text"]
+        q_match = re.search(r"Q:\s*(.*?)(?:\?|\n|$)", c_text)
+        raw_q = q_match.group(1).strip() if q_match else ""
         
         topic = extract_clean_topic(c_text, c.get("category", ""))
         if not topic:
             discarded_count += 1
             continue
 
-        pat_idx = (q_counter) % len(patterns)
-        template_str, target_cmi = patterns[pat_idx]
+        intent = classify_chunk_intent(raw_q, c_text)
+        templates = INTENT_TEMPLATES[intent]
         
+        rot_idx = intent_rotation.get(intent, 0)
+        template_str, target_cmi = templates[rot_idx % len(templates)]
+        intent_rotation[intent] = rot_idx + 1
+
+        # Prevent duplicate words like "transaction transaction"
         if "{topic} transaction" in template_str and topic.lower().endswith("transaction"):
             topic_clean = re.sub(r"\btransaction\b", "", topic, flags=re.IGNORECASE).strip()
             if topic_clean:
@@ -386,7 +466,8 @@ def generate_scaled_queries(corpus_chunks: List[Dict]):
             "query_id": f"Q{q_counter:03d}",
             "text": query_text,
             "relevant_doc_ids": [cid],
-            "template_origin": f"pattern_{pat_idx}",
+            "template_origin": f"intent_{intent.lower()}_{rot_idx % len(templates)}",
+            "source_intent": intent,
             "cmi_target": target_cmi,
             "review_status": "auto_generated_for_review"
         })
