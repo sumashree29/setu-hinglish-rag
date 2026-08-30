@@ -1,0 +1,610 @@
+[
+  {
+    "query_id": "Q01",
+    "variant": "en",
+    "text": "What is a Basic Savings Bank Deposit Account and is there a minimum balance requirement",
+    "relevant_doc_ids": [
+      "D01"
+    ]
+  },
+  {
+    "query_id": "Q02",
+    "variant": "low",
+    "text": "What is BSBDA account, minimum balance rakhna padta hai kya",
+    "relevant_doc_ids": [
+      "D01"
+    ]
+  },
+  {
+    "query_id": "Q03",
+    "variant": "medium",
+    "text": "BSBDA account kya hota hai, minimum balance ki zarurat hai kya",
+    "relevant_doc_ids": [
+      "D01"
+    ]
+  },
+  {
+    "query_id": "Q04",
+    "variant": "high",
+    "text": "BSBDA khaate mein minimum balance rakhna padta hai ya yeh zero balance account hota hai",
+    "relevant_doc_ids": [
+      "D01"
+    ]
+  },
+  {
+    "query_id": "Q05",
+    "variant": "en",
+    "text": "Can I open more than one Basic Savings Bank Deposit Account in the same bank",
+    "relevant_doc_ids": [
+      "D02"
+    ]
+  },
+  {
+    "query_id": "Q06",
+    "variant": "low",
+    "text": "Can I ek se zyada BSBDA account same bank mein khol sakta hoon",
+    "relevant_doc_ids": [
+      "D02"
+    ]
+  },
+  {
+    "query_id": "Q07",
+    "variant": "medium",
+    "text": "Ek bank mein ek se zyada BSBDA account khol sakte hain kya",
+    "relevant_doc_ids": [
+      "D02"
+    ]
+  },
+  {
+    "query_id": "Q08",
+    "variant": "high",
+    "text": "Kya main ek hi bank mein do BSBDA khaata khol sakta hoon ya sirf ek hi milega",
+    "relevant_doc_ids": [
+      "D02"
+    ]
+  },
+  {
+    "query_id": "Q09",
+    "variant": "en",
+    "text": "How many free withdrawals are allowed per month on a BSBDA account",
+    "relevant_doc_ids": [
+      "D03"
+    ]
+  },
+  {
+    "query_id": "Q10",
+    "variant": "low",
+    "text": "BSBDA account mein monthly kitne free withdrawals milte hain",
+    "relevant_doc_ids": [
+      "D03"
+    ]
+  },
+  {
+    "query_id": "Q11",
+    "variant": "medium",
+    "text": "Ek mahine mein BSBDA se kitni baar free withdrawal kar sakte hain",
+    "relevant_doc_ids": [
+      "D03"
+    ]
+  },
+  {
+    "query_id": "Q12",
+    "variant": "high",
+    "text": "BSBDA khaate mein mahine bhar mein kitni baar paisa nikalna free hota hai",
+    "relevant_doc_ids": [
+      "D03"
+    ]
+  },
+  {
+    "query_id": "Q13",
+    "variant": "en",
+    "text": "Does checking my balance at an ATM count as one of the free withdrawals",
+    "relevant_doc_ids": [
+      "D04"
+    ]
+  },
+  {
+    "query_id": "Q14",
+    "variant": "low",
+    "text": "ATM mein balance check karna free withdrawal mein count hota hai kya",
+    "relevant_doc_ids": [
+      "D04"
+    ]
+  },
+  {
+    "query_id": "Q15",
+    "variant": "medium",
+    "text": "ATM se balance check karne par kya woh withdrawal limit mein aata hai",
+    "relevant_doc_ids": [
+      "D04"
+    ]
+  },
+  {
+    "query_id": "Q16",
+    "variant": "high",
+    "text": "Agar main ATM mein sirf balance dekhta hoon to kya woh withdrawal ginti mein aata hai",
+    "relevant_doc_ids": [
+      "D04"
+    ]
+  },
+  {
+    "query_id": "Q17",
+    "variant": "en",
+    "text": "Is the ATM debit card provided free of cost with a BSBDA account",
+    "relevant_doc_ids": [
+      "D05"
+    ]
+  },
+  {
+    "query_id": "Q18",
+    "variant": "low",
+    "text": "BSBDA account ke saath ATM card free milta hai kya",
+    "relevant_doc_ids": [
+      "D05"
+    ]
+  },
+  {
+    "query_id": "Q19",
+    "variant": "medium",
+    "text": "Kya BSBDA khaate mein ATM debit card bina charge ke milta hai",
+    "relevant_doc_ids": [
+      "D05"
+    ]
+  },
+  {
+    "query_id": "Q20",
+    "variant": "high",
+    "text": "BSBDA khulwane par ATM card free milega ya uske liye alag se paisa dena hoga",
+    "relevant_doc_ids": [
+      "D05"
+    ]
+  },
+  {
+    "query_id": "Q21",
+    "variant": "en",
+    "text": "Is there any age or income restriction for opening a BSBDA account",
+    "relevant_doc_ids": [
+      "D06"
+    ]
+  },
+  {
+    "query_id": "Q22",
+    "variant": "low",
+    "text": "BSBDA account kholne ke liye koi age ya income limit hai kya",
+    "relevant_doc_ids": [
+      "D06"
+    ]
+  },
+  {
+    "query_id": "Q23",
+    "variant": "medium",
+    "text": "Kya BSBDA khaata kholne ke liye age ya income ki koi shart hoti hai",
+    "relevant_doc_ids": [
+      "D06"
+    ]
+  },
+  {
+    "query_id": "Q24",
+    "variant": "high",
+    "text": "BSBDA khulwane ke liye kya koi umar ya kamai ki seema hoti hai",
+    "relevant_doc_ids": [
+      "D06"
+    ]
+  },
+  {
+    "query_id": "Q25",
+    "variant": "en",
+    "text": "What is a BSBDA small account opened under simplified KYC and how long is it valid",
+    "relevant_doc_ids": [
+      "D08",
+      "D09"
+    ]
+  },
+  {
+    "query_id": "Q26",
+    "variant": "low",
+    "text": "Simplified KYC wala BSBDA small account kitne time ke liye valid hota hai",
+    "relevant_doc_ids": [
+      "D08",
+      "D09"
+    ]
+  },
+  {
+    "query_id": "Q27",
+    "variant": "medium",
+    "text": "Small account jo simplified KYC se khulta hai woh kitne saal tak valid rehta hai",
+    "relevant_doc_ids": [
+      "D08",
+      "D09"
+    ]
+  },
+  {
+    "query_id": "Q28",
+    "variant": "high",
+    "text": "Simplified KYC se khula hua small account kitne mahine tak chalta hai aur extend ho sakta hai kya",
+    "relevant_doc_ids": [
+      "D08",
+      "D09"
+    ]
+  },
+  {
+    "query_id": "Q29",
+    "variant": "en",
+    "text": "Can my existing normal savings account be converted into a BSBDA account",
+    "relevant_doc_ids": [
+      "D10"
+    ]
+  },
+  {
+    "query_id": "Q30",
+    "variant": "low",
+    "text": "Mera normal savings account BSBDA mein convert ho sakta hai kya",
+    "relevant_doc_ids": [
+      "D10"
+    ]
+  },
+  {
+    "query_id": "Q31",
+    "variant": "medium",
+    "text": "Kya mera purana savings account BSBDA mein badla ja sakta hai",
+    "relevant_doc_ids": [
+      "D10"
+    ]
+  },
+  {
+    "query_id": "Q32",
+    "variant": "high",
+    "text": "Mera jo pehle se savings khaata hai use BSBDA mein tabdeel karwa sakta hoon kya",
+    "relevant_doc_ids": [
+      "D10"
+    ]
+  },
+  {
+    "query_id": "Q33",
+    "variant": "en",
+    "text": "How much yearly financial benefit does the PM-KISAN scheme provide to farmers",
+    "relevant_doc_ids": [
+      "D11"
+    ]
+  },
+  {
+    "query_id": "Q34",
+    "variant": "low",
+    "text": "PM-KISAN yojana mein farmers ko yearly kitna paisa milta hai",
+    "relevant_doc_ids": [
+      "D11"
+    ]
+  },
+  {
+    "query_id": "Q35",
+    "variant": "medium",
+    "text": "PM-KISAN yojana ke tahat kisano ko saal mein kitna paisa milta hai",
+    "relevant_doc_ids": [
+      "D11"
+    ]
+  },
+  {
+    "query_id": "Q36",
+    "variant": "high",
+    "text": "PM-KISAN yojana mein kisan parivar ko ek saal mein kitna paisa milta hai aur kitni kisto mein milta hai",
+    "relevant_doc_ids": [
+      "D11"
+    ]
+  },
+  {
+    "query_id": "Q37",
+    "variant": "en",
+    "text": "What are the eligibility criteria for a farmer family to receive PM-KISAN benefits",
+    "relevant_doc_ids": [
+      "D12"
+    ]
+  },
+  {
+    "query_id": "Q38",
+    "variant": "low",
+    "text": "PM-KISAN ke liye eligibility criteria kya hai farmer family ke liye",
+    "relevant_doc_ids": [
+      "D12"
+    ]
+  },
+  {
+    "query_id": "Q39",
+    "variant": "medium",
+    "text": "PM-KISAN yojana ke liye kisan parivar ko kya sharte poori karni padti hain",
+    "relevant_doc_ids": [
+      "D12"
+    ]
+  },
+  {
+    "query_id": "Q40",
+    "variant": "high",
+    "text": "PM-KISAN ka labh lene ke liye kisan parivar ko kaunsi sharte poori karni hoti hain",
+    "relevant_doc_ids": [
+      "D12"
+    ]
+  },
+  {
+    "query_id": "Q41",
+    "variant": "en",
+    "text": "Are institutional landholders eligible for PM-KISAN benefits",
+    "relevant_doc_ids": [
+      "D13"
+    ]
+  },
+  {
+    "query_id": "Q42",
+    "variant": "low",
+    "text": "Institutional landholders PM-KISAN ke liye eligible hain kya",
+    "relevant_doc_ids": [
+      "D13"
+    ]
+  },
+  {
+    "query_id": "Q43",
+    "variant": "medium",
+    "text": "Kya institutional landholders ko PM-KISAN ka fayda milta hai",
+    "relevant_doc_ids": [
+      "D13"
+    ]
+  },
+  {
+    "query_id": "Q44",
+    "variant": "high",
+    "text": "Agar zameen kisi sanstha ke naam par hai to kya PM-KISAN ka labh milega",
+    "relevant_doc_ids": [
+      "D13"
+    ]
+  },
+  {
+    "query_id": "Q45",
+    "variant": "en",
+    "text": "Which categories of people are excluded from PM-KISAN even if they own farmland",
+    "relevant_doc_ids": [
+      "D14"
+    ]
+  },
+  {
+    "query_id": "Q46",
+    "variant": "low",
+    "text": "PM-KISAN se kaun kaun exclude hote hain agar unke paas zameen bhi ho",
+    "relevant_doc_ids": [
+      "D14"
+    ]
+  },
+  {
+    "query_id": "Q47",
+    "variant": "medium",
+    "text": "Zameen hone ke bawajood kaunse log PM-KISAN se exclude kiye jaate hain",
+    "relevant_doc_ids": [
+      "D14"
+    ]
+  },
+  {
+    "query_id": "Q48",
+    "variant": "high",
+    "text": "Sarkari naukri wale ya pension paane wale kisan PM-KISAN ka labh le sakte hain kya",
+    "relevant_doc_ids": [
+      "D14"
+    ]
+  },
+  {
+    "query_id": "Q49",
+    "variant": "en",
+    "text": "Is a linked Aadhaar number mandatory for receiving PM-KISAN payments",
+    "relevant_doc_ids": [
+      "D15"
+    ]
+  },
+  {
+    "query_id": "Q50",
+    "variant": "low",
+    "text": "PM-KISAN payment ke liye Aadhaar link hona mandatory hai kya",
+    "relevant_doc_ids": [
+      "D15"
+    ]
+  },
+  {
+    "query_id": "Q51",
+    "variant": "medium",
+    "text": "Kya PM-KISAN ka paisa lene ke liye Aadhaar link karna zaroori hai",
+    "relevant_doc_ids": [
+      "D15"
+    ]
+  },
+  {
+    "query_id": "Q52",
+    "variant": "high",
+    "text": "PM-KISAN ki kisht paane ke liye Aadhaar seeding zaroori hai kya aur mismatch hone par kya hota hai",
+    "relevant_doc_ids": [
+      "D15"
+    ]
+  },
+  {
+    "query_id": "Q53",
+    "variant": "en",
+    "text": "Can farmers with agricultural land in urban areas receive PM-KISAN benefits",
+    "relevant_doc_ids": [
+      "D17"
+    ]
+  },
+  {
+    "query_id": "Q54",
+    "variant": "low",
+    "text": "Urban area mein agricultural land wale farmers ko PM-KISAN milta hai kya",
+    "relevant_doc_ids": [
+      "D17"
+    ]
+  },
+  {
+    "query_id": "Q55",
+    "variant": "medium",
+    "text": "Shehri ilaake mein kheti ki zameen ho to kya PM-KISAN ka labh milta hai",
+    "relevant_doc_ids": [
+      "D17"
+    ]
+  },
+  {
+    "query_id": "Q56",
+    "variant": "high",
+    "text": "Agar meri kheti ki zameen shehar ke andar hai to kya mujhe PM-KISAN ka paisa milega",
+    "relevant_doc_ids": [
+      "D17"
+    ]
+  },
+  {
+    "query_id": "Q57",
+    "variant": "en",
+    "text": "How can a farmer apply for PM-KISAN online or through a Common Service Centre",
+    "relevant_doc_ids": [
+      "D19",
+      "D20"
+    ]
+  },
+  {
+    "query_id": "Q58",
+    "variant": "low",
+    "text": "PM-KISAN ke liye online apply kaise karein ya CSC se kaise karein",
+    "relevant_doc_ids": [
+      "D19",
+      "D20"
+    ]
+  },
+  {
+    "query_id": "Q59",
+    "variant": "medium",
+    "text": "Kisan PM-KISAN ke liye registration online kaise kare ya CSC jaakar kaise kare",
+    "relevant_doc_ids": [
+      "D19",
+      "D20"
+    ]
+  },
+  {
+    "query_id": "Q60",
+    "variant": "high",
+    "text": "PM-KISAN mein naye kisan ka registration khud portal par karein ya CSC centre jaakar karwayein, dono tarike kaise hain",
+    "relevant_doc_ids": [
+      "D19",
+      "D20"
+    ]
+  },
+  {
+    "query_id": "Q61",
+    "variant": "low",
+    "text": "What is a bsbda account, is there any minimum balance requirement",
+    "relevant_doc_ids": [
+      "D01"
+    ]
+  },
+  {
+    "query_id": "Q62",
+    "variant": "high",
+    "text": "kya bsbda khata zero balance account hota hai ya balance rakhna padega",
+    "relevant_doc_ids": [
+      "D01"
+    ]
+  },
+  {
+    "query_id": "Q63",
+    "variant": "medium",
+    "text": "Kya ek hi bank mein do bsbdaa account open kar sakte hain",
+    "relevant_doc_ids": [
+      "D02"
+    ]
+  },
+  {
+    "query_id": "Q64",
+    "variant": "low",
+    "text": "How many free cash withdrawals can I make from a bsb-da account each month",
+    "relevant_doc_ids": [
+      "D03"
+    ]
+  },
+  {
+    "query_id": "Q65",
+    "variant": "high",
+    "text": "atm me balance enquiry karne par monthly limit cut hoti hai kya",
+    "relevant_doc_ids": [
+      "D04"
+    ]
+  },
+  {
+    "query_id": "Q66",
+    "variant": "medium",
+    "text": "bsbda account holder ko atm debit card free milta hai ya annual charge lagta hai",
+    "relevant_doc_ids": [
+      "D05"
+    ]
+  },
+  {
+    "query_id": "Q67",
+    "variant": "high",
+    "text": "kya bsbda khata khulwane par pasbook free di jaati hai",
+    "relevant_doc_ids": [
+      "D07"
+    ]
+  },
+  {
+    "query_id": "Q68",
+    "variant": "low",
+    "text": "Can I open a small account using simplified kyc documentation",
+    "relevant_doc_ids": [
+      "D08"
+    ]
+  },
+  {
+    "query_id": "Q69",
+    "variant": "medium",
+    "text": "simplified kyc wala small acount kitne months tak valid rehta hai",
+    "relevant_doc_ids": [
+      "D09"
+    ]
+  },
+  {
+    "query_id": "Q70",
+    "variant": "low",
+    "text": "How much financial benefit does pmkisan yojana provide to farmers annually",
+    "relevant_doc_ids": [
+      "D11"
+    ]
+  },
+  {
+    "query_id": "Q71",
+    "variant": "high",
+    "text": "pm-kisaan yojana ka labh lene ke liye farmer family ki eligibility sharte kya hain",
+    "relevant_doc_ids": [
+      "D12"
+    ]
+  },
+  {
+    "query_id": "Q72",
+    "variant": "medium",
+    "text": "kya institutional landholder ko pmkisan scheme ka fayda milta hai",
+    "relevant_doc_ids": [
+      "D13"
+    ]
+  },
+  {
+    "query_id": "Q73",
+    "variant": "high",
+    "text": "pmkisan payment aane ke liye aadhar link karwana mandatory hai kya",
+    "relevant_doc_ids": [
+      "D15"
+    ]
+  },
+  {
+    "query_id": "Q74",
+    "variant": "medium",
+    "text": "Agar adhar details mismatch ho jaye to kya pm-kisan ki kist ruk jayegi",
+    "relevant_doc_ids": [
+      "D15"
+    ]
+  },
+  {
+    "query_id": "Q75",
+    "variant": "high",
+    "text": "kisan pmkisan registration ke liye common service center ya csc par kaise jayein",
+    "relevant_doc_ids": [
+      "D20"
+    ]
+  }
+]
