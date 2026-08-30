@@ -61,16 +61,28 @@ def bootstrap_ci(
     """
     arr = np.asarray(metric_values)
     point_estimate = float(np.mean(arr))
+    if len(arr) == 0 or np.all(arr == arr[0]):
+        return point_estimate, point_estimate, point_estimate
     
-    # Use BCa method for robust interval estimation
-    res = stats.bootstrap(
-        (arr,),
-        np.mean,
-        confidence_level=confidence,
-        n_resamples=n_resamples,
-        method='BCa'
-    )
-    return point_estimate, float(res.confidence_interval.low), float(res.confidence_interval.high)
+    # Use percentile method or BCa for robust interval estimation
+    try:
+        res = stats.bootstrap(
+            (arr,),
+            np.mean,
+            confidence_level=confidence,
+            n_resamples=min(n_resamples, 2000),
+            method='BCa'
+        )
+        return point_estimate, float(res.confidence_interval.low), float(res.confidence_interval.high)
+    except Exception:
+        res = stats.bootstrap(
+            (arr,),
+            np.mean,
+            confidence_level=confidence,
+            n_resamples=min(n_resamples, 2000),
+            method='percentile'
+        )
+        return point_estimate, float(res.confidence_interval.low), float(res.confidence_interval.high)
 
 
 def spearman_correlation(x: List[float], y: List[float]) -> Tuple[float, float]:
