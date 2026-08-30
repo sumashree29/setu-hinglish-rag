@@ -684,7 +684,7 @@
   },
   {
     "query_id": "Q076",
-    "text": "mera EEFC benefits transaction fail ho gaya toh complain kahan kare",
+    "text": "mera EEFC transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
       "C021"
     ],
@@ -694,7 +694,7 @@
   },
   {
     "query_id": "Q077",
-    "text": "open EEFC ka interest rate aur tenure kitna hai",
+    "text": "EEFC ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
       "C022"
     ],
@@ -704,7 +704,7 @@
   },
   {
     "query_id": "Q078",
-    "text": "what is the process for different types EEFC accounts cancellation or closure",
+    "text": "what is the process for EEFC accounts cancellation or closure",
     "relevant_doc_ids": [
       "C023"
     ],
@@ -714,7 +714,7 @@
   },
   {
     "query_id": "Q079",
-    "text": "much ones foreign exchange update karwane ke liye bank branch jana padega kya",
+    "text": "foreign exchange earnings update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
       "C024"
     ],
@@ -724,7 +724,7 @@
   },
   {
     "query_id": "Q080",
-    "text": "kya Whether EEFC opened Special ke liye minimum balance ya charge lagta hai",
+    "text": "kya Special Economic Zone SEZ ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
       "C025"
     ],
@@ -734,9 +734,9 @@
   },
   {
     "query_id": "Q081",
-    "text": "there Cheque facility available ke rules aur guidelines kya hain",
+    "text": "permissible credits ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
-      "C026"
+      "C027"
     ],
     "template_origin": "pattern_1",
     "cmi_target": 0.45,
@@ -744,9 +744,9 @@
   },
   {
     "query_id": "Q082",
-    "text": "how to apply for permissible credits into this online or offline",
+    "text": "how to apply for EEFC online or offline",
     "relevant_doc_ids": [
-      "C027"
+      "C028"
     ],
     "template_origin": "pattern_2",
     "cmi_target": 0.35,
@@ -754,9 +754,9 @@
   },
   {
     "query_id": "Q083",
-    "text": "foreign exchange earnings received mein kitna limit aur penalty hota hai",
+    "text": "permissible debits mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
-      "C028"
+      "C029"
     ],
     "template_origin": "pattern_3",
     "cmi_target": 0.6,
@@ -764,9 +764,9 @@
   },
   {
     "query_id": "Q084",
-    "text": "kya senior citizens ko permissible debits into this par special benefit milta hai",
+    "text": "kya senior citizens ko EEFC par special benefit milta hai",
     "relevant_doc_ids": [
-      "C029"
+      "C030"
     ],
     "template_origin": "pattern_4",
     "cmi_target": 0.5,
@@ -774,9 +774,9 @@
   },
   {
     "query_id": "Q085",
-    "text": "there restriction withdrawal rupees ke liye documents aur eligibility kya chahiye",
+    "text": "exchange risk ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
-      "C030"
+      "C031"
     ],
     "template_origin": "pattern_5",
     "cmi_target": 0.5,
@@ -784,9 +784,9 @@
   },
   {
     "query_id": "Q086",
-    "text": "mera Whether EEFC balances covered transaction fail ho gaya toh complain kahan kare",
+    "text": "mera resident relative transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
-      "C031"
+      "C032"
     ],
     "template_origin": "pattern_6",
     "cmi_target": 0.65,
@@ -794,9 +794,9 @@
   },
   {
     "query_id": "Q087",
-    "text": "Whether EEFC permitted held ka interest rate aur tenure kitna hai",
+    "text": "Remittance Assets ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
-      "C032"
+      "C033"
     ],
     "template_origin": "pattern_7",
     "cmi_target": 0.4,
@@ -804,9 +804,9 @@
   },
   {
     "query_id": "Q088",
-    "text": "what is the process for meant Remittance Assets cancellation or closure",
+    "text": "what is the process for Resident cancellation or closure",
     "relevant_doc_ids": [
-      "C033"
+      "C034"
     ],
     "template_origin": "pattern_8",
     "cmi_target": 0.3,
@@ -814,9 +814,9 @@
   },
   {
     "query_id": "Q089",
-    "text": "Resident update karwane ke liye bank branch jana padega kya",
+    "text": "permanently resident update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
-      "C034"
+      "C035"
     ],
     "template_origin": "pattern_9",
     "cmi_target": 0.55,
@@ -824,9 +824,9 @@
   },
   {
     "query_id": "Q090",
-    "text": "kya meant not permanently resident ke liye minimum balance ya charge lagta hai",
+    "text": "kya Remittance Assets ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
-      "C035"
+      "C036"
     ],
     "template_origin": "pattern_0",
     "cmi_target": 0.55,
@@ -834,9 +834,9 @@
   },
   {
     "query_id": "Q091",
-    "text": "cases related Remittance Assets ke rules aur guidelines kya hain",
+    "text": "Tax implications respect remittance ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
-      "C036"
+      "C037"
     ],
     "template_origin": "pattern_1",
     "cmi_target": 0.45,
@@ -844,9 +844,9 @@
   },
   {
     "query_id": "Q092",
-    "text": "how to apply for implications respect remittance assets online or offline",
+    "text": "how to apply for amount offered non-competitive bidding online or offline",
     "relevant_doc_ids": [
-      "C037"
+      "C040"
     ],
     "template_origin": "pattern_2",
     "cmi_target": 0.35,
@@ -854,9 +854,9 @@
   },
   {
     "query_id": "Q093",
-    "text": "participate Scheme mein kitna limit aur penalty hota hai",
+    "text": "auctions mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
-      "C038"
+      "C041"
     ],
     "template_origin": "pattern_3",
     "cmi_target": 0.6,
@@ -864,9 +864,9 @@
   },
   {
     "query_id": "Q094",
-    "text": "kya senior citizens ko non-competitive bidding allowed auctions par special benefit milta hai",
+    "text": "kya senior citizens ko aggregator facilitator par special benefit milta hai",
     "relevant_doc_ids": [
-      "C039"
+      "C042"
     ],
     "template_origin": "pattern_4",
     "cmi_target": 0.5,
@@ -874,9 +874,9 @@
   },
   {
     "query_id": "Q095",
-    "text": "would amount offered non-competitive ke liye documents aur eligibility kya chahiye",
+    "text": "minimum maximum bidding amount ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
-      "C040"
+      "C043"
     ],
     "template_origin": "pattern_5",
     "cmi_target": 0.5,
@@ -884,9 +884,9 @@
   },
   {
     "query_id": "Q096",
-    "text": "mera eligible investors participate auctions transaction fail ho gaya toh complain kahan kare",
+    "text": "mera investor make payment security transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
-      "C041"
+      "C046"
     ],
     "template_origin": "pattern_6",
     "cmi_target": 0.65,
@@ -894,9 +894,9 @@
   },
   {
     "query_id": "Q097",
-    "text": "aggregator facilitator ka interest rate aur tenure kitna hai",
+    "text": "modalities payment ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
-      "C042"
+      "C048"
     ],
     "template_origin": "pattern_7",
     "cmi_target": 0.4,
@@ -904,9 +904,9 @@
   },
   {
     "query_id": "Q098",
-    "text": "what is the process for minimum maximum bidding amount cancellation or closure",
+    "text": "what is the process for RBI allot bids cancellation or closure",
     "relevant_doc_ids": [
-      "C043"
+      "C050"
     ],
     "template_origin": "pattern_8",
     "cmi_target": 0.3,
@@ -914,9 +914,9 @@
   },
   {
     "query_id": "Q099",
-    "text": "many bids investor make update karwane ke liye bank branch jana padega kya",
+    "text": "amount through non-competitive bidding update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
-      "C044"
+      "C053"
     ],
     "template_origin": "pattern_9",
     "cmi_target": 0.55,
@@ -924,9 +924,9 @@
   },
   {
     "query_id": "Q100",
-    "text": "kya there application form ke liye minimum balance ya charge lagta hai",
+    "text": "kya partial allotment ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
-      "C045"
+      "C054"
     ],
     "template_origin": "pattern_0",
     "cmi_target": 0.55,
@@ -934,9 +934,9 @@
   },
   {
     "query_id": "Q101",
-    "text": "investor make payment security ke rules aur guidelines kya hain",
+    "text": "payment securities made aggregator ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
-      "C046"
+      "C055"
     ],
     "template_origin": "pattern_1",
     "cmi_target": 0.45,
@@ -944,9 +944,9 @@
   },
   {
     "query_id": "Q102",
-    "text": "how to apply for aggregator facilitator charge this online or offline",
+    "text": "how to apply for security online or offline",
     "relevant_doc_ids": [
-      "C047"
+      "C056"
     ],
     "template_origin": "pattern_2",
     "cmi_target": 0.35,
@@ -954,9 +954,9 @@
   },
   {
     "query_id": "Q103",
-    "text": "non-competitive bidder know modalities mein kitna limit aur penalty hota hai",
+    "text": "NRI mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
-      "C048"
+      "C057"
     ],
     "template_origin": "pattern_3",
     "cmi_target": 0.6,
@@ -964,9 +964,9 @@
   },
   {
     "query_id": "Q104",
-    "text": "kya senior citizens ko rate non-competitive bidders allotment par special benefit milta hai",
+    "text": "kya senior citizens ko PIO par special benefit milta hai",
     "relevant_doc_ids": [
-      "C049"
+      "C058"
     ],
     "template_origin": "pattern_4",
     "cmi_target": 0.5,
@@ -974,9 +974,9 @@
   },
   {
     "query_id": "Q105",
-    "text": "allot bids non-competitive bidder ke liye documents aur eligibility kya chahiye",
+    "text": "major accounts opened India ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
-      "C050"
+      "C059"
     ],
     "template_origin": "pattern_5",
     "cmi_target": 0.5,
@@ -984,9 +984,9 @@
   },
   {
     "query_id": "Q106",
-    "text": "mera securities issued transaction fail ho gaya toh complain kahan kare",
+    "text": "mera Bangladeshi Pakistani national entity transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
-      "C051"
+      "C060"
     ],
     "template_origin": "pattern_6",
     "cmi_target": 0.65,
@@ -994,9 +994,9 @@
   },
   {
     "query_id": "Q107",
-    "text": "non-competitive bidding amount more ka interest rate aur tenure kitna hai",
+    "text": "accounts tourist visiting India ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
-      "C052"
+      "C061"
     ],
     "template_origin": "pattern_7",
     "cmi_target": 0.4,
@@ -1004,9 +1004,9 @@
   },
   {
     "query_id": "Q108",
-    "text": "what is the process for amount through non-competitive bidding cancellation or closure",
+    "text": "what is the process for SNRR cancellation or closure",
     "relevant_doc_ids": [
-      "C053"
+      "C062"
     ],
     "template_origin": "pattern_8",
     "cmi_target": 0.3,
@@ -1014,9 +1014,9 @@
   },
   {
     "query_id": "Q109",
-    "text": "aggregator facilitator make partial update karwane ke liye bank branch jana padega kya",
+    "text": "deposits foreign Diplomatic missions update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
-      "C054"
+      "C063"
     ],
     "template_origin": "pattern_9",
     "cmi_target": 0.55,
@@ -1024,9 +1024,9 @@
   },
   {
     "query_id": "Q110",
-    "text": "kya payment securities made aggregator ke liye minimum balance ya charge lagta hai",
+    "text": "kya persons resident Nepal Bhutan ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
-      "C055"
+      "C064"
     ],
     "template_origin": "pattern_0",
     "cmi_target": 0.55,
@@ -1034,107 +1034,7 @@
   },
   {
     "query_id": "Q111",
-    "text": "many days investor receive ke rules aur guidelines kya hain",
-    "relevant_doc_ids": [
-      "C056"
-    ],
-    "template_origin": "pattern_1",
-    "cmi_target": 0.45,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q112",
-    "text": "how to apply for RBI Banking Domain FAQ 52 online or offline",
-    "relevant_doc_ids": [
-      "C057"
-    ],
-    "template_origin": "pattern_2",
-    "cmi_target": 0.35,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q113",
-    "text": "RBI Banking Domain FAQ 52 mein kitna limit aur penalty hota hai",
-    "relevant_doc_ids": [
-      "C058"
-    ],
-    "template_origin": "pattern_3",
-    "cmi_target": 0.6,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q114",
-    "text": "kya senior citizens ko major accounts that opened par special benefit milta hai",
-    "relevant_doc_ids": [
-      "C059"
-    ],
-    "template_origin": "pattern_4",
-    "cmi_target": 0.5,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q115",
-    "text": "Bangladeshi Pakistani national entity ke liye documents aur eligibility kya chahiye",
-    "relevant_doc_ids": [
-      "C060"
-    ],
-    "template_origin": "pattern_5",
-    "cmi_target": 0.5,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q116",
-    "text": "mera accounts that tourist visiting transaction fail ho gaya toh complain kahan kare",
-    "relevant_doc_ids": [
-      "C061"
-    ],
-    "template_origin": "pattern_6",
-    "cmi_target": 0.65,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q117",
-    "text": "SNRR ka interest rate aur tenure kitna hai",
-    "relevant_doc_ids": [
-      "C062"
-    ],
-    "template_origin": "pattern_7",
-    "cmi_target": 0.4,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q118",
-    "text": "what is the process for deposits that foreign Diplomatic cancellation or closure",
-    "relevant_doc_ids": [
-      "C063"
-    ],
-    "template_origin": "pattern_8",
-    "cmi_target": 0.3,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q119",
-    "text": "persons resident Nepal Bhutan update karwane ke liye bank branch jana padega kya",
-    "relevant_doc_ids": [
-      "C064"
-    ],
-    "template_origin": "pattern_9",
-    "cmi_target": 0.55,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q120",
-    "text": "kya multilateral organisation deposits India ke liye minimum balance ya charge lagta hai",
-    "relevant_doc_ids": [
-      "C065"
-    ],
-    "template_origin": "pattern_0",
-    "cmi_target": 0.55,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q121",
-    "text": "Q10 Indian company accept ke rules aur guidelines kya hain",
+    "text": "ndian company accept deposits ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
       "C066"
     ],
@@ -1143,8 +1043,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q122",
-    "text": "how to apply for Q11 Foreign Portfolio Investor online or offline",
+    "query_id": "Q112",
+    "text": "how to apply for Foreign Portfolio Investor Foreign online or offline",
     "relevant_doc_ids": [
       "C067"
     ],
@@ -1153,8 +1053,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q123",
-    "text": "Q12 open Escrow India mein kitna limit aur penalty hota hai",
+    "query_id": "Q113",
+    "text": "Escrow mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
       "C068"
     ],
@@ -1163,7 +1063,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q124",
+    "query_id": "Q114",
     "text": "kya senior citizens ko Authorised Persons Foreign Exchange par special benefit milta hai",
     "relevant_doc_ids": [
       "C069"
@@ -1173,7 +1073,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q125",
+    "query_id": "Q115",
     "text": "objective behind allowing FFMCs ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
       "C070"
@@ -1183,8 +1083,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q126",
-    "text": "mera Whether licence mandatory carrying transaction fail ho gaya toh complain kahan kare",
+    "query_id": "Q116",
+    "text": "mera licence mandatory carrying money transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
       "C071"
     ],
@@ -1193,8 +1093,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q127",
-    "text": "apply FFMC licence ka interest rate aur tenure kitna hai",
+    "query_id": "Q117",
+    "text": "FFMC licence ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
       "C072"
     ],
@@ -1203,8 +1103,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q128",
-    "text": "what is the process for submit application FFMC licence cancellation or closure",
+    "query_id": "Q118",
+    "text": "what is the process for FFMC licence cancellation or closure",
     "relevant_doc_ids": [
       "C073"
     ],
@@ -1213,8 +1113,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q129",
-    "text": "calculate Owned Funds NOF update karwane ke liye bank branch jana padega kya",
+    "query_id": "Q119",
+    "text": "calculate Owned Funds update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
       "C074"
     ],
@@ -1223,7 +1123,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q130",
+    "query_id": "Q120",
     "text": "kya required maintained ongoing basis ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
       "C075"
@@ -1233,7 +1133,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q131",
+    "query_id": "Q121",
     "text": "time frame within newly ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
       "C076"
@@ -1243,8 +1143,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q132",
-    "text": "how to apply for should application licence renewal online or offline",
+    "query_id": "Q122",
+    "text": "how to apply for application licence renewal online or offline",
     "relevant_doc_ids": [
       "C077"
     ],
@@ -1253,8 +1153,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q133",
-    "text": "circumstances Reserve revoke FFMC mein kitna limit aur penalty hota hai",
+    "query_id": "Q123",
+    "text": "FFMC licence mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
       "C078"
     ],
@@ -1263,7 +1163,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q134",
+    "query_id": "Q124",
     "text": "kya senior citizens ko money changing facilities presently par special benefit milta hai",
     "relevant_doc_ids": [
       "C079"
@@ -1273,7 +1173,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q135",
+    "query_id": "Q125",
     "text": "objective Scheme appointing Franchisees ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
       "C080"
@@ -1283,7 +1183,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q136",
+    "query_id": "Q126",
     "text": "mera salient features Franchisee Agreement transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
       "C081"
@@ -1293,8 +1193,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q137",
-    "text": "procedure submission application Category ka interest rate aur tenure kitna hai",
+    "query_id": "Q127",
+    "text": "procedure submission application AD ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
       "C082"
     ],
@@ -1303,8 +1203,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q138",
-    "text": "what is the process for checks ensured Category-I banksADs cancellation or closure",
+    "query_id": "Q128",
+    "text": "what is the process for checks ensured AD Category-I cancellation or closure",
     "relevant_doc_ids": [
       "C083"
     ],
@@ -1313,7 +1213,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q139",
+    "query_id": "Q129",
     "text": "criteria selection centres update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
       "C084"
@@ -1323,7 +1223,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q140",
+    "query_id": "Q130",
     "text": "kya guidelines provision training franchisees ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
       "C085"
@@ -1333,7 +1233,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q141",
+    "query_id": "Q131",
     "text": "guidelines respect Reporting Audit ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
       "C086"
@@ -1343,7 +1243,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q142",
+    "query_id": "Q132",
     "text": "how to apply for franchisee need adhere KYCAMLCFT online or offline",
     "relevant_doc_ids": [
       "C087"
@@ -1353,7 +1253,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q143",
+    "query_id": "Q133",
     "text": "Authorised Dealers Category-II issue mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
       "C088"
@@ -1363,7 +1263,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q144",
+    "query_id": "Q134",
     "text": "kya senior citizens ko forex pre-paid cards used par special benefit milta hai",
     "relevant_doc_ids": [
       "C089"
@@ -1373,7 +1273,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q145",
+    "query_id": "Q135",
     "text": "position Papua Guinea Paper ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
       "C090"
@@ -1383,7 +1283,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q146",
+    "query_id": "Q136",
     "text": "mera position generation 1000 shillings transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
       "C091"
@@ -1393,7 +1293,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q147",
+    "query_id": "Q137",
     "text": "National Electronic Funds Transfer ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
       "C092"
@@ -1403,7 +1303,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q148",
+    "query_id": "Q138",
     "text": "what is the process for advantages using NEFT system cancellation or closure",
     "relevant_doc_ids": [
       "C093"
@@ -1413,7 +1313,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q149",
+    "query_id": "Q139",
     "text": "NEFT system operate update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
       "C094"
@@ -1423,8 +1323,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q150",
-    "text": "kya Indian Financial System Code ke liye minimum balance ya charge lagta hai",
+    "query_id": "Q140",
+    "text": "kya ndian Financial System Code ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
       "C095"
     ],
@@ -1433,7 +1333,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q151",
+    "query_id": "Q141",
     "text": "find IFSC bank-branch ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
       "C096"
@@ -1443,7 +1343,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q152",
+    "query_id": "Q142",
     "text": "how to apply for avail NEFT system fund online or offline",
     "relevant_doc_ids": [
       "C097"
@@ -1453,8 +1353,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q153",
-    "text": "there limit funds amount mein kitna limit aur penalty hota hai",
+    "query_id": "Q143",
+    "text": "limit funds amount remitted mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
       "C098"
     ],
@@ -1463,8 +1363,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q154",
-    "text": "kya senior citizens ko NEFT system used remitting par special benefit milta hai",
+    "query_id": "Q144",
+    "text": "kya senior citizens ko NEFT system used par special benefit milta hai",
     "relevant_doc_ids": [
       "C099"
     ],
@@ -1473,8 +1373,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q155",
-    "text": "send funds relative friend ke liye documents aur eligibility kya chahiye",
+    "query_id": "Q145",
+    "text": "NEFT system ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
       "C100"
     ],
@@ -1483,7 +1383,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q156",
+    "query_id": "Q146",
     "text": "mera operating hours NEFT transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
       "C101"
@@ -1493,8 +1393,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q157",
-    "text": "essential details required remitting ka interest rate aur tenure kitna hai",
+    "query_id": "Q147",
+    "text": "remitting funds through NEFT ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
       "C102"
     ],
@@ -1503,7 +1403,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q158",
+    "query_id": "Q148",
     "text": "what is the process for customer charges levied NEFT cancellation or closure",
     "relevant_doc_ids": [
       "C103"
@@ -1513,8 +1413,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q159",
-    "text": "NEFT transfer funds accounts update karwane ke liye bank branch jana padega kya",
+    "query_id": "Q149",
+    "text": "NRE NRO accounts update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
       "C104"
     ],
@@ -1523,7 +1423,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q160",
+    "query_id": "Q150",
     "text": "kya originate NEFT transaction draw ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
       "C105"
@@ -1533,7 +1433,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q161",
+    "query_id": "Q151",
     "text": "track status NEFT transactions ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
       "C106"
@@ -1543,7 +1443,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q162",
+    "query_id": "Q152",
     "text": "how to apply for details source NEFT transaction online or offline",
     "relevant_doc_ids": [
       "C107"
@@ -1553,7 +1453,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q163",
+    "query_id": "Q153",
     "text": "Help Desk Contact point mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
       "C108"
@@ -1563,8 +1463,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q164",
-    "text": "kya senior citizens ko much time should expect par special benefit milta hai",
+    "query_id": "Q154",
+    "text": "kya senior citizens ko time expect receipt funds par special benefit milta hai",
     "relevant_doc_ids": [
       "C109"
     ],
@@ -1573,7 +1473,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q165",
+    "query_id": "Q155",
     "text": "happens funds credited beneficiary ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
       "C110"
@@ -1583,7 +1483,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q166",
+    "query_id": "Q156",
     "text": "mera penalties compensation delayed credit transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
       "C111"
@@ -1593,7 +1493,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q167",
+    "query_id": "Q157",
     "text": "happens write wrong number ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
       "C112"
@@ -1603,8 +1503,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q168",
-    "text": "what is the process for Whom should approach raising cancellation or closure",
+    "query_id": "Q158",
+    "text": "what is the process for NEFT transaction cancellation or closure",
     "relevant_doc_ids": [
       "C113"
     ],
@@ -1613,7 +1513,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q169",
+    "query_id": "Q159",
     "text": "file complaint RB-IOS 2021 update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
       "C114"
@@ -1623,8 +1523,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q170",
-    "text": "kya practices should adopted customer ke liye minimum balance ya charge lagta hai",
+    "query_id": "Q160",
+    "text": "kya practices adopted customer safe ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
       "C115"
     ],
@@ -1633,7 +1533,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q171",
+    "query_id": "Q161",
     "text": "Legal Entity Identifier relevant ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
       "C116"
@@ -1643,8 +1543,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q172",
-    "text": "how to apply for RBIs role with regard online or offline",
+    "query_id": "Q162",
+    "text": "how to apply for RBI role regard conduct online or offline",
     "relevant_doc_ids": [
       "C117"
     ],
@@ -1653,7 +1553,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q173",
+    "query_id": "Q163",
     "text": "Reserve India discharge statutory mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
       "C118"
@@ -1663,8 +1563,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q174",
-    "text": "kya senior citizens ko payment into government made par special benefit milta hai",
+    "query_id": "Q164",
+    "text": "kya senior citizens ko payment government made par special benefit milta hai",
     "relevant_doc_ids": [
       "C119"
     ],
@@ -1673,7 +1573,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q175",
+    "query_id": "Q165",
     "text": "receipted challan payment made ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
       "C120"
@@ -1683,7 +1583,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q176",
+    "query_id": "Q166",
     "text": "mera paper token misplaced lost transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
       "C121"
@@ -1693,7 +1593,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q177",
+    "query_id": "Q167",
     "text": "Receipted Challan misplaced ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
       "C122"
@@ -1703,7 +1603,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q178",
+    "query_id": "Q168",
     "text": "what is the process for agency banks compensated conduct cancellation or closure",
     "relevant_doc_ids": [
       "C123"
@@ -1713,8 +1613,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q179",
-    "text": "RBIs role Goods Service update karwane ke liye bank branch jana padega kya",
+    "query_id": "Q169",
+    "text": "RBI role Goods Service update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
       "C124"
     ],
@@ -1723,8 +1623,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q180",
-    "text": "kya banks insured DICGC ke liye minimum balance ya charge lagta hai",
+    "query_id": "Q170",
+    "text": "kya nsured DICGC ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
       "C125"
     ],
@@ -1733,7 +1633,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q181",
+    "query_id": "Q171",
     "text": "DICGC insure ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
       "C126"
@@ -1743,7 +1643,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q182",
+    "query_id": "Q172",
     "text": "how to apply for maximum deposit amount insured online or offline",
     "relevant_doc_ids": [
       "C127"
@@ -1753,8 +1653,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q183",
-    "text": "know whether your insured mein kitna limit aur penalty hota hai",
+    "query_id": "Q173",
+    "text": "insured DICGC mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
       "C128"
     ],
@@ -1763,7 +1663,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q184",
+    "query_id": "Q174",
     "text": "kya senior citizens ko ceiling amount Insured deposits par special benefit milta hai",
     "relevant_doc_ids": [
       "C129"
@@ -1773,7 +1673,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q185",
+    "query_id": "Q175",
     "text": "DICGC insure just principal ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
       "C130"
@@ -1783,8 +1683,8 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q186",
-    "text": "mera deposit insurance increased depositing transaction fail ho gaya toh complain kahan kare",
+    "query_id": "Q176",
+    "text": "mera several different accounts same transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
       "C131"
     ],
@@ -1793,7 +1693,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q187",
+    "query_id": "Q177",
     "text": "deposits different banks separately ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
       "C132"
@@ -1803,10 +1703,110 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q188",
-    "text": "what is the process for funds deposit different banks cancellation or closure",
+    "query_id": "Q178",
+    "text": "what is the process for deposits held same capacity cancellation or closure",
     "relevant_doc_ids": [
-      "C133"
+      "C134"
+    ],
+    "template_origin": "pattern_8",
+    "cmi_target": 0.3,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q179",
+    "text": "pays cost deposits insurance update karwane ke liye bank branch jana padega kya",
+    "relevant_doc_ids": [
+      "C136"
+    ],
+    "template_origin": "pattern_9",
+    "cmi_target": 0.55,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q180",
+    "text": "kya DICGC directly deal depositors ke liye minimum balance ya charge lagta hai",
+    "relevant_doc_ids": [
+      "C138"
+    ],
+    "template_origin": "pattern_0",
+    "cmi_target": 0.55,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q181",
+    "text": "insured withdraw DICGC coverage ke rules aur guidelines kya hain",
+    "relevant_doc_ids": [
+      "C139"
+    ],
+    "template_origin": "pattern_1",
+    "cmi_target": 0.45,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q182",
+    "text": "how to apply for Corporation liability banks de-registration online or offline",
+    "relevant_doc_ids": [
+      "C141"
+    ],
+    "template_origin": "pattern_2",
+    "cmi_target": 0.35,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q183",
+    "text": "RTGS stand mein kitna limit aur penalty hota hai",
+    "relevant_doc_ids": [
+      "C142"
+    ],
+    "template_origin": "pattern_3",
+    "cmi_target": 0.6,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q184",
+    "text": "kya senior citizens ko payments RTGS final irrevocable par special benefit milta hai",
+    "relevant_doc_ids": [
+      "C143"
+    ],
+    "template_origin": "pattern_4",
+    "cmi_target": 0.5,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q185",
+    "text": "benefits using RTGS ke liye documents aur eligibility kya chahiye",
+    "relevant_doc_ids": [
+      "C144"
+    ],
+    "template_origin": "pattern_5",
+    "cmi_target": 0.5,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q186",
+    "text": "mera processing RTGS different National transaction fail ho gaya toh complain kahan kare",
+    "relevant_doc_ids": [
+      "C145"
+    ],
+    "template_origin": "pattern_6",
+    "cmi_target": 0.65,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q187",
+    "text": "timings applicable ka interest rate aur tenure kitna hai",
+    "relevant_doc_ids": [
+      "C146"
+    ],
+    "template_origin": "pattern_7",
+    "cmi_target": 0.4,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q188",
+    "text": "what is the process for minimum maximum amount stipulation cancellation or closure",
+    "relevant_doc_ids": [
+      "C147"
     ],
     "template_origin": "pattern_8",
     "cmi_target": 0.3,
@@ -1814,9 +1814,9 @@
   },
   {
     "query_id": "Q189",
-    "text": "meaning deposits held same update karwane ke liye bank branch jana padega kya",
+    "text": "about processing charges service update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
-      "C134"
+      "C148"
     ],
     "template_origin": "pattern_9",
     "cmi_target": 0.55,
@@ -1824,9 +1824,9 @@
   },
   {
     "query_id": "Q190",
-    "text": "kya deduct amount dues payable ke liye minimum balance ya charge lagta hai",
+    "text": "kya essential information remitting customer ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
-      "C135"
+      "C149"
     ],
     "template_origin": "pattern_0",
     "cmi_target": 0.55,
@@ -1834,9 +1834,9 @@
   },
   {
     "query_id": "Q191",
-    "text": "pays cost deposits insurance ke rules aur guidelines kya hain",
+    "text": "branches India provide RTGS ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
-      "C136"
+      "C151"
     ],
     "template_origin": "pattern_1",
     "cmi_target": 0.45,
@@ -1844,9 +1844,9 @@
   },
   {
     "query_id": "Q192",
-    "text": "how to apply for DICGC liable online or offline",
+    "text": "how to apply for care taken while originating online or offline",
     "relevant_doc_ids": [
-      "C137"
+      "C152"
     ],
     "template_origin": "pattern_2",
     "cmi_target": 0.35,
@@ -1854,9 +1854,9 @@
   },
   {
     "query_id": "Q193",
-    "text": "DICGC directly deal with mein kitna limit aur penalty hota hai",
+    "text": "RTGS credit beneficiary given mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
-      "C138"
+      "C153"
     ],
     "template_origin": "pattern_3",
     "cmi_target": 0.6,
@@ -1864,9 +1864,9 @@
   },
   {
     "query_id": "Q194",
-    "text": "kya senior citizens ko insured withdraw DICGC coverage par special benefit milta hai",
+    "text": "kya senior citizens ko time taken effecting funds par special benefit milta hai",
     "relevant_doc_ids": [
-      "C139"
+      "C154"
     ],
     "template_origin": "pattern_4",
     "cmi_target": 0.5,
@@ -1874,9 +1874,9 @@
   },
   {
     "query_id": "Q195",
-    "text": "DICGC withdraw deposit insurance ke liye documents aur eligibility kya chahiye",
+    "text": "transaction future date ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
-      "C140"
+      "C155"
     ],
     "template_origin": "pattern_5",
     "cmi_target": 0.5,
@@ -1884,9 +1884,9 @@
   },
   {
     "query_id": "Q196",
-    "text": "mera Corporations liability banks de-registration transaction fail ho gaya toh complain kahan kare",
+    "text": "mera remitting customer back money transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
-      "C141"
+      "C158"
     ],
     "template_origin": "pattern_6",
     "cmi_target": 0.65,
@@ -1894,9 +1894,9 @@
   },
   {
     "query_id": "Q197",
-    "text": "RTGS stand ka interest rate aur tenure kitna hai",
+    "text": "customer eligible compensation delay ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
-      "C142"
+      "C159"
     ],
     "template_origin": "pattern_7",
     "cmi_target": 0.4,
@@ -1904,9 +1904,9 @@
   },
   {
     "query_id": "Q198",
-    "text": "what is the process for payments RTGS final irrevocable cancellation or closure",
+    "text": "what is the process for non-credit delay credit beneficiary cancellation or closure",
     "relevant_doc_ids": [
-      "C143"
+      "C160"
     ],
     "template_origin": "pattern_8",
     "cmi_target": 0.3,
@@ -1914,9 +1914,9 @@
   },
   {
     "query_id": "Q199",
-    "text": "benefits using RTGS update karwane ke liye bank branch jana padega kya",
+    "text": "UTR number update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
-      "C144"
+      "C161"
     ],
     "template_origin": "pattern_9",
     "cmi_target": 0.55,
@@ -1924,9 +1924,9 @@
   },
   {
     "query_id": "Q200",
-    "text": "kya processing RTGS different that ke liye minimum balance ya charge lagta hai",
+    "text": "kya Help Desk Contact point ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
-      "C145"
+      "C162"
     ],
     "template_origin": "pattern_0",
     "cmi_target": 0.55,
@@ -1934,9 +1934,9 @@
   },
   {
     "query_id": "Q201",
-    "text": "RTGS 24x7 system there ke rules aur guidelines kya hain",
+    "text": "RTGS transaction ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
-      "C146"
+      "C163"
     ],
     "template_origin": "pattern_1",
     "cmi_target": 0.45,
@@ -1944,9 +1944,9 @@
   },
   {
     "query_id": "Q202",
-    "text": "how to apply for there minimum maximum amount online or offline",
+    "text": "how to apply for file complaint RB-IOS 2021 online or offline",
     "relevant_doc_ids": [
-      "C147"
+      "C164"
     ],
     "template_origin": "pattern_2",
     "cmi_target": 0.35,
@@ -1954,9 +1954,9 @@
   },
   {
     "query_id": "Q203",
-    "text": "about processing charges service mein kitna limit aur penalty hota hai",
+    "text": "Legal Entity Identifier relevant mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
-      "C148"
+      "C165"
     ],
     "template_origin": "pattern_3",
     "cmi_target": 0.6,
@@ -1964,9 +1964,9 @@
   },
   {
     "query_id": "Q204",
-    "text": "kya senior citizens ko essential information that remitting par special benefit milta hai",
+    "text": "kya senior citizens ko Authorized Dealer AD par special benefit milta hai",
     "relevant_doc_ids": [
-      "C149"
+      "C166"
     ],
     "template_origin": "pattern_4",
     "cmi_target": 0.5,
@@ -1974,9 +1974,9 @@
   },
   {
     "query_id": "Q205",
-    "text": "would know IFSC number ke liye documents aur eligibility kya chahiye",
+    "text": "authorized Reserve sell foreign ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
-      "C150"
+      "C167"
     ],
     "template_origin": "pattern_5",
     "cmi_target": 0.5,
@@ -1984,9 +1984,9 @@
   },
   {
     "query_id": "Q206",
-    "text": "mera branches India provide RTGS transaction fail ho gaya toh complain kahan kare",
+    "text": "mera foreign currency carried cash transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
-      "C151"
+      "C168"
     ],
     "template_origin": "pattern_6",
     "cmi_target": 0.65,
@@ -1994,9 +1994,9 @@
   },
   {
     "query_id": "Q207",
-    "text": "care should taken while ka interest rate aur tenure kitna hai",
+    "text": "ndian currency brought ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
-      "C152"
+      "C169"
     ],
     "template_origin": "pattern_7",
     "cmi_target": 0.4,
@@ -2004,9 +2004,9 @@
   },
   {
     "query_id": "Q208",
-    "text": "what is the process for RTGS credit beneficiary given cancellation or closure",
+    "text": "what is the process for foreign exchange brought while cancellation or closure",
     "relevant_doc_ids": [
-      "C153"
+      "C170"
     ],
     "template_origin": "pattern_8",
     "cmi_target": 0.3,
@@ -2014,9 +2014,9 @@
   },
   {
     "query_id": "Q209",
-    "text": "time taken effecting funds update karwane ke liye bank branch jana padega kya",
+    "text": "foreign exchange update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
-      "C154"
+      "C171"
     ],
     "template_origin": "pattern_9",
     "cmi_target": 0.55,
@@ -2024,9 +2024,9 @@
   },
   {
     "query_id": "Q210",
-    "text": "kya remitting customer initiate transaction ke liye minimum balance ya charge lagta hai",
+    "text": "kya time-frame traveller returned India ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
-      "C155"
+      "C172"
     ],
     "template_origin": "pattern_0",
     "cmi_target": 0.55,
@@ -2034,9 +2034,9 @@
   },
   {
     "query_id": "Q211",
-    "text": "transaction originated draw receive ke rules aur guidelines kya hain",
+    "text": "foreign coins surrendered Authorised ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
-      "C156"
+      "C173"
     ],
     "template_origin": "pattern_1",
     "cmi_target": 0.45,
@@ -2044,9 +2044,9 @@
   },
   {
     "query_id": "Q212",
-    "text": "how to apply for RTGS transaction tracked online or offline",
+    "text": "how to apply for category visit requires prior online or offline",
     "relevant_doc_ids": [
-      "C157"
+      "C174"
     ],
     "template_origin": "pattern_2",
     "cmi_target": 0.35,
@@ -2054,9 +2054,9 @@
   },
   {
     "query_id": "Q213",
-    "text": "Would remitting customer back mein kitna limit aur penalty hota hai",
+    "text": "permission required receiving grantdonation mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
-      "C158"
+      "C175"
     ],
     "template_origin": "pattern_3",
     "cmi_target": 0.6,
@@ -2064,9 +2064,9 @@
   },
   {
     "query_id": "Q214",
-    "text": "kya senior citizens ko customer eligible compensation delay par special benefit milta hai",
+    "text": "kya senior citizens ko permitted hold International Credit par special benefit milta hai",
     "relevant_doc_ids": [
-      "C159"
+      "C176"
     ],
     "template_origin": "pattern_4",
     "cmi_target": 0.5,
@@ -2074,9 +2074,9 @@
   },
   {
     "query_id": "Q215",
-    "text": "Whom customer contact case ke liye documents aur eligibility kya chahiye",
+    "text": "jewellery carried while going ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
-      "C160"
+      "C177"
     ],
     "template_origin": "pattern_5",
     "cmi_target": 0.5,
@@ -2084,9 +2084,9 @@
   },
   {
     "query_id": "Q216",
-    "text": "mera number transaction fail ho gaya toh complain kahan kare",
+    "text": "mera resident extend local hospitality transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
-      "C161"
+      "C178"
     ],
     "template_origin": "pattern_6",
     "cmi_target": 0.65,
@@ -2094,9 +2094,9 @@
   },
   {
     "query_id": "Q217",
-    "text": "Help Desk Contact point ka interest rate aur tenure kitna hai",
+    "text": "residents purchase tickets India ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
-      "C162"
+      "C179"
     ],
     "template_origin": "pattern_7",
     "cmi_target": 0.4,
@@ -2104,9 +2104,9 @@
   },
   {
     "query_id": "Q218",
-    "text": "what is the process for Whom should approach raising cancellation or closure",
+    "text": "what is the process for meeting medical expenses NRI cancellation or closure",
     "relevant_doc_ids": [
-      "C163"
+      "C180"
     ],
     "template_origin": "pattern_8",
     "cmi_target": 0.3,
@@ -2114,9 +2114,9 @@
   },
   {
     "query_id": "Q219",
-    "text": "file complaint RB-IOS 2021 update karwane ke liye bank branch jana padega kya",
+    "text": "assets update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
-      "C164"
+      "C181"
     ],
     "template_origin": "pattern_9",
     "cmi_target": 0.55,
@@ -2124,9 +2124,9 @@
   },
   {
     "query_id": "Q220",
-    "text": "kya Legal Entity Identifier relevant ke liye minimum balance ya charge lagta hai",
+    "text": "kya ndo-Nepal Remittance Facility Scheme ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
-      "C165"
+      "C182"
     ],
     "template_origin": "pattern_0",
     "cmi_target": 0.55,
@@ -2134,9 +2134,9 @@
   },
   {
     "query_id": "Q221",
-    "text": "Authorized Dealer AD ke rules aur guidelines kya hain",
+    "text": "salient features INRF Scheme ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
-      "C166"
+      "C183"
     ],
     "template_origin": "pattern_1",
     "cmi_target": 0.45,
@@ -2144,9 +2144,9 @@
   },
   {
     "query_id": "Q222",
-    "text": "how to apply for authorized Reserve sell foreign online or offline",
+    "text": "how to apply for limit number transactions online or offline",
     "relevant_doc_ids": [
-      "C167"
+      "C184"
     ],
     "template_origin": "pattern_2",
     "cmi_target": 0.35,
@@ -2154,9 +2154,9 @@
   },
   {
     "query_id": "Q223",
-    "text": "much foreign currency carried mein kitna limit aur penalty hota hai",
+    "text": "beneficiary need maintain branch mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
-      "C168"
+      "C185"
     ],
     "template_origin": "pattern_3",
     "cmi_target": 0.6,
@@ -2164,9 +2164,9 @@
   },
   {
     "query_id": "Q224",
-    "text": "kya senior citizens ko much Indian currency brought par special benefit milta hai",
+    "text": "kya senior citizens ko documents required presented remitter par special benefit milta hai",
     "relevant_doc_ids": [
-      "C169"
+      "C186"
     ],
     "template_origin": "pattern_4",
     "cmi_target": 0.5,
@@ -2174,9 +2174,9 @@
   },
   {
     "query_id": "Q225",
-    "text": "much foreign exchange brought ke liye documents aur eligibility kya chahiye",
+    "text": "transactions flow India Nepal ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
-      "C170"
+      "C187"
     ],
     "template_origin": "pattern_5",
     "cmi_target": 0.5,
@@ -2184,9 +2184,9 @@
   },
   {
     "query_id": "Q226",
-    "text": "mera cash full rupee equivalent transaction fail ho gaya toh complain kahan kare",
+    "text": "mera remitting customer India know transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
-      "C171"
+      "C188"
     ],
     "template_origin": "pattern_6",
     "cmi_target": 0.65,
@@ -2194,9 +2194,9 @@
   },
   {
     "query_id": "Q227",
-    "text": "there time-frame traveller returned ka interest rate aur tenure kitna hai",
+    "text": "remitter back money delivered ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
-      "C172"
+      "C189"
     ],
     "template_origin": "pattern_7",
     "cmi_target": 0.4,
@@ -2204,9 +2204,9 @@
   },
   {
     "query_id": "Q228",
-    "text": "what is the process for Should foreign coins surrendered cancellation or closure",
+    "text": "what is the process for charges availing remittance facility cancellation or closure",
     "relevant_doc_ids": [
-      "C173"
+      "C190"
     ],
     "template_origin": "pattern_8",
     "cmi_target": 0.3,
@@ -2214,9 +2214,9 @@
   },
   {
     "query_id": "Q229",
-    "text": "there category visit requires update karwane ke liye bank branch jana padega kya",
+    "text": "contacted redressal grievances Scheme update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
-      "C174"
+      "C191"
     ],
     "template_origin": "pattern_9",
     "cmi_target": 0.55,
@@ -2224,9 +2224,9 @@
   },
   {
     "query_id": "Q230",
-    "text": "kya Whether permission required receiving ke liye minimum balance ya charge lagta hai",
+    "text": "kya bi-lateral arrangements between non-banks ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
-      "C175"
+      "C192"
     ],
     "template_origin": "pattern_0",
     "cmi_target": 0.55,
@@ -2234,9 +2234,9 @@
   },
   {
     "query_id": "Q231",
-    "text": "permitted hold International Credit ke rules aur guidelines kya hain",
+    "text": "Scheme Payment Pension Government ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
-      "C176"
+      "C193"
     ],
     "template_origin": "pattern_1",
     "cmi_target": 0.45,
@@ -2244,9 +2244,9 @@
   },
   {
     "query_id": "Q232",
-    "text": "how to apply for much jewellery carried while online or offline",
+    "text": "how to apply for Joint continued family pension online or offline",
     "relevant_doc_ids": [
-      "C177"
+      "C194"
     ],
     "template_origin": "pattern_2",
     "cmi_target": 0.35,
@@ -2254,9 +2254,9 @@
   },
   {
     "query_id": "Q233",
-    "text": "resident extend local hospitality mein kitna limit aur penalty hota hai",
+    "text": "pension paying recover excess mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
-      "C178"
+      "C196"
     ],
     "template_origin": "pattern_3",
     "cmi_target": 0.6,
@@ -2264,9 +2264,9 @@
   },
   {
     "query_id": "Q234",
-    "text": "kya senior citizens ko residents purchase tickets India par special benefit milta hai",
+    "text": "kya senior citizens ko Life Certificates pensioners par special benefit milta hai",
     "relevant_doc_ids": [
-      "C179"
+      "C197"
     ],
     "template_origin": "pattern_4",
     "cmi_target": 0.5,
@@ -2274,9 +2274,9 @@
   },
   {
     "query_id": "Q235",
-    "text": "meeting medical expenses close ke liye documents aur eligibility kya chahiye",
+    "text": "possible submit life certificates ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
-      "C180"
+      "C198"
     ],
     "template_origin": "pattern_5",
     "cmi_target": 0.5,
@@ -2284,9 +2284,9 @@
   },
   {
     "query_id": "Q236",
-    "text": "mera person resident India hold transaction fail ho gaya toh complain kahan kare",
+    "text": "mera pensioner withdraw pension heshe transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
-      "C181"
+      "C199"
     ],
     "template_origin": "pattern_6",
     "cmi_target": 0.65,
@@ -2294,9 +2294,9 @@
   },
   {
     "query_id": "Q237",
-    "text": "Indo-Nepal Remittance Facility Scheme ka interest rate aur tenure kitna hai",
+    "text": "Withdrawal pension sick disabled ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
-      "C182"
+      "C200"
     ],
     "template_origin": "pattern_7",
     "cmi_target": 0.4,
@@ -2304,9 +2304,9 @@
   },
   {
     "query_id": "Q238",
-    "text": "what is the process for salient features INRF Scheme cancellation or closure",
+    "text": "what is the process for payment revised rate paid cancellation or closure",
     "relevant_doc_ids": [
-      "C183"
+      "C201"
     ],
     "template_origin": "pattern_8",
     "cmi_target": 0.3,
@@ -2314,9 +2314,9 @@
   },
   {
     "query_id": "Q239",
-    "text": "there limit number such update karwane ke liye bank branch jana padega kya",
+    "text": "delayed credit pension arrears update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
-      "C184"
+      "C202"
     ],
     "template_origin": "pattern_9",
     "cmi_target": 0.55,
@@ -2324,9 +2324,9 @@
   },
   {
     "query_id": "Q240",
-    "text": "kya beneficiary need maintain with ke liye minimum balance ya charge lagta hai",
+    "text": "kya foreign currency ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
-      "C185"
+      "C204"
     ],
     "template_origin": "pattern_0",
     "cmi_target": 0.55,
@@ -2334,9 +2334,9 @@
   },
   {
     "query_id": "Q241",
-    "text": "documents required presented remitter ke rules aur guidelines kya hain",
+    "text": "major foreign currency accounts ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
-      "C186"
+      "C205"
     ],
     "template_origin": "pattern_1",
     "cmi_target": 0.45,
@@ -2344,9 +2344,9 @@
   },
   {
     "query_id": "Q242",
-    "text": "how to apply for transactions flow India Nepal online or offline",
+    "text": "how to apply for India online or offline",
     "relevant_doc_ids": [
-      "C187"
+      "C206"
     ],
     "template_origin": "pattern_2",
     "cmi_target": 0.35,
@@ -2354,206 +2354,6 @@
   },
   {
     "query_id": "Q243",
-    "text": "remitting customer India know mein kitna limit aur penalty hota hai",
-    "relevant_doc_ids": [
-      "C188"
-    ],
-    "template_origin": "pattern_3",
-    "cmi_target": 0.6,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q244",
-    "text": "kya senior citizens ko remitter back money delivered par special benefit milta hai",
-    "relevant_doc_ids": [
-      "C189"
-    ],
-    "template_origin": "pattern_4",
-    "cmi_target": 0.5,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q245",
-    "text": "charges availing remittance facility ke liye documents aur eligibility kya chahiye",
-    "relevant_doc_ids": [
-      "C190"
-    ],
-    "template_origin": "pattern_5",
-    "cmi_target": 0.5,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q246",
-    "text": "mera contacted redressal grievances Scheme transaction fail ho gaya toh complain kahan kare",
-    "relevant_doc_ids": [
-      "C191"
-    ],
-    "template_origin": "pattern_6",
-    "cmi_target": 0.65,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q247",
-    "text": "bi-lateral arrangements between non-banks ka interest rate aur tenure kitna hai",
-    "relevant_doc_ids": [
-      "C192"
-    ],
-    "template_origin": "pattern_7",
-    "cmi_target": 0.4,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q248",
-    "text": "what is the process for Scheme Payment Pension Government cancellation or closure",
-    "relevant_doc_ids": [
-      "C193"
-    ],
-    "template_origin": "pattern_8",
-    "cmi_target": 0.3,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q249",
-    "text": "Whether Joint continued family update karwane ke liye bank branch jana padega kya",
-    "relevant_doc_ids": [
-      "C194"
-    ],
-    "template_origin": "pattern_9",
-    "cmi_target": 0.55,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q250",
-    "text": "kya pension credited pensioners paying ke liye minimum balance ya charge lagta hai",
-    "relevant_doc_ids": [
-      "C195"
-    ],
-    "template_origin": "pattern_0",
-    "cmi_target": 0.55,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q251",
-    "text": "pension paying recover excess ke rules aur guidelines kya hain",
-    "relevant_doc_ids": [
-      "C196"
-    ],
-    "template_origin": "pattern_1",
-    "cmi_target": 0.45,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q252",
-    "text": "how to apply for Should acknowledgement given pension online or offline",
-    "relevant_doc_ids": [
-      "C197"
-    ],
-    "template_origin": "pattern_2",
-    "cmi_target": 0.35,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q253",
-    "text": "possible submit life certificates mein kitna limit aur penalty hota hai",
-    "relevant_doc_ids": [
-      "C198"
-    ],
-    "template_origin": "pattern_3",
-    "cmi_target": 0.6,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q254",
-    "text": "kya senior citizens ko pensioner withdraw pension his par special benefit milta hai",
-    "relevant_doc_ids": [
-      "C199"
-    ],
-    "template_origin": "pattern_4",
-    "cmi_target": 0.5,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q255",
-    "text": "Withdrawal pension old sick ke liye documents aur eligibility kya chahiye",
-    "relevant_doc_ids": [
-      "C200"
-    ],
-    "template_origin": "pattern_5",
-    "cmi_target": 0.5,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q256",
-    "text": "mera payment revised rate paid transaction fail ho gaya toh complain kahan kare",
-    "relevant_doc_ids": [
-      "C201"
-    ],
-    "template_origin": "pattern_6",
-    "cmi_target": 0.65,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q257",
-    "text": "Whether pensioner entitled compensation ka interest rate aur tenure kitna hai",
-    "relevant_doc_ids": [
-      "C202"
-    ],
-    "template_origin": "pattern_7",
-    "cmi_target": 0.4,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q258",
-    "text": "what is the process for person resident India cancellation or closure",
-    "relevant_doc_ids": [
-      "C203"
-    ],
-    "template_origin": "pattern_8",
-    "cmi_target": 0.3,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q259",
-    "text": "foreign currency update karwane ke liye bank branch jana padega kya",
-    "relevant_doc_ids": [
-      "C204"
-    ],
-    "template_origin": "pattern_9",
-    "cmi_target": 0.55,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q260",
-    "text": "kya major foreign currency accounts ke liye minimum balance ya charge lagta hai",
-    "relevant_doc_ids": [
-      "C205"
-    ],
-    "template_origin": "pattern_0",
-    "cmi_target": 0.55,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q261",
-    "text": "form foreign currency India ke rules aur guidelines kya hain",
-    "relevant_doc_ids": [
-      "C206"
-    ],
-    "template_origin": "pattern_1",
-    "cmi_target": 0.45,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q262",
-    "text": "how to apply for resident individual open foreign online or offline",
-    "relevant_doc_ids": [
-      "C207"
-    ],
-    "template_origin": "pattern_2",
-    "cmi_target": 0.35,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q263",
     "text": "resident continue maintain outside mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
       "C208"
@@ -2563,7 +2363,7 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q264",
+    "query_id": "Q244",
     "text": "kya senior citizens ko status held outside India par special benefit milta hai",
     "relevant_doc_ids": [
       "C209"
@@ -2573,10 +2373,210 @@
     "review_status": "auto_generated_for_review"
   },
   {
-    "query_id": "Q265",
-    "text": "Amendments Principal Regulations ke liye documents aur eligibility kya chahiye",
+    "query_id": "Q245",
+    "text": "Payment Settlement Systems 2007 ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
-      "C210"
+      "C211"
+    ],
+    "template_origin": "pattern_5",
+    "cmi_target": 0.5,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q246",
+    "text": "mera objective PSS 2007 transaction fail ho gaya toh complain kahan kare",
+    "relevant_doc_ids": [
+      "C212"
+    ],
+    "template_origin": "pattern_6",
+    "cmi_target": 0.65,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q247",
+    "text": "Regulations made PSS 2007 ka interest rate aur tenure kitna hai",
+    "relevant_doc_ids": [
+      "C213"
+    ],
+    "template_origin": "pattern_7",
+    "cmi_target": 0.4,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q248",
+    "text": "what is the process for payment obligation payment instruction cancellation or closure",
+    "relevant_doc_ids": [
+      "C215"
+    ],
+    "template_origin": "pattern_8",
+    "cmi_target": 0.3,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q249",
+    "text": "Payment Obligation update karwane ke liye bank branch jana padega kya",
+    "relevant_doc_ids": [
+      "C216"
+    ],
+    "template_origin": "pattern_9",
+    "cmi_target": 0.55,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q250",
+    "text": "kya Payment Instruction ke liye minimum balance ya charge lagta hai",
+    "relevant_doc_ids": [
+      "C217"
+    ],
+    "template_origin": "pattern_0",
+    "cmi_target": 0.55,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q251",
+    "text": "Settlement ke rules aur guidelines kya hain",
+    "relevant_doc_ids": [
+      "C218"
+    ],
+    "template_origin": "pattern_1",
+    "cmi_target": 0.45,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q252",
+    "text": "how to apply for Payment System PSS 2007 online or offline",
+    "relevant_doc_ids": [
+      "C219"
+    ],
+    "template_origin": "pattern_2",
+    "cmi_target": 0.35,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q253",
+    "text": "entities operating payment system mein kitna limit aur penalty hota hai",
+    "relevant_doc_ids": [
+      "C220"
+    ],
+    "template_origin": "pattern_3",
+    "cmi_target": 0.6,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q254",
+    "text": "kya senior citizens ko application fee submitted along par special benefit milta hai",
+    "relevant_doc_ids": [
+      "C221"
+    ],
+    "template_origin": "pattern_4",
+    "cmi_target": 0.5,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q255",
+    "text": "foreign entities allowed operate ke liye documents aur eligibility kya chahiye",
+    "relevant_doc_ids": [
+      "C222"
+    ],
+    "template_origin": "pattern_5",
+    "cmi_target": 0.5,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q256",
+    "text": "mera foreign entities required license transaction fail ho gaya toh complain kahan kare",
+    "relevant_doc_ids": [
+      "C223"
+    ],
+    "template_origin": "pattern_6",
+    "cmi_target": 0.65,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q257",
+    "text": "Financial Market Infrastructures ka interest rate aur tenure kitna hai",
+    "relevant_doc_ids": [
+      "C224"
+    ],
+    "template_origin": "pattern_7",
+    "cmi_target": 0.4,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q258",
+    "text": "what is the process for foreign Financial Market Infrastructure cancellation or closure",
+    "relevant_doc_ids": [
+      "C225"
+    ],
+    "template_origin": "pattern_8",
+    "cmi_target": 0.3,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q259",
+    "text": "services foreign entity provide update karwane ke liye bank branch jana padega kya",
+    "relevant_doc_ids": [
+      "C226"
+    ],
+    "template_origin": "pattern_9",
+    "cmi_target": 0.55,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q260",
+    "text": "kya factors Reserve consider while ke liye minimum balance ya charge lagta hai",
+    "relevant_doc_ids": [
+      "C227"
+    ],
+    "template_origin": "pattern_0",
+    "cmi_target": 0.55,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q261",
+    "text": "parameters taken consideration giving ke rules aur guidelines kya hain",
+    "relevant_doc_ids": [
+      "C228"
+    ],
+    "template_origin": "pattern_1",
+    "cmi_target": 0.45,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q262",
+    "text": "how to apply for Reserve refuse grant authorization online or offline",
+    "relevant_doc_ids": [
+      "C229"
+    ],
+    "template_origin": "pattern_2",
+    "cmi_target": 0.35,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q263",
+    "text": "Reserve revoke authorization granted mein kitna limit aur penalty hota hai",
+    "relevant_doc_ids": [
+      "C230"
+    ],
+    "template_origin": "pattern_3",
+    "cmi_target": 0.6,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q264",
+    "text": "kya senior citizens ko appellate authority whom aggrieved par special benefit milta hai",
+    "relevant_doc_ids": [
+      "C231"
+    ],
+    "template_origin": "pattern_4",
+    "cmi_target": 0.5,
+    "review_status": "auto_generated_for_review"
+  },
+  {
+    "query_id": "Q265",
+    "text": "Reserve collect authorisation fees ke liye documents aur eligibility kya chahiye",
+    "relevant_doc_ids": [
+      "C232"
     ],
     "template_origin": "pattern_5",
     "cmi_target": 0.5,
@@ -2584,9 +2584,9 @@
   },
   {
     "query_id": "Q266",
-    "text": "mera Payment Settlement Systems Act transaction fail ho gaya toh complain kahan kare",
+    "text": "mera Reserve powers down standards transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
-      "C211"
+      "C233"
     ],
     "template_origin": "pattern_6",
     "cmi_target": 0.65,
@@ -2594,9 +2594,9 @@
   },
   {
     "query_id": "Q267",
-    "text": "objective Act 2007 ka interest rate aur tenure kitna hai",
+    "text": "Reserve call returns information ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
-      "C212"
+      "C234"
     ],
     "template_origin": "pattern_7",
     "cmi_target": 0.4,
@@ -2604,9 +2604,9 @@
   },
   {
     "query_id": "Q268",
-    "text": "what is the process for Regulations made Act 2007 cancellation or closure",
+    "text": "what is the process for regulators cancellation or closure",
     "relevant_doc_ids": [
-      "C213"
+      "C235"
     ],
     "template_origin": "pattern_8",
     "cmi_target": 0.3,
@@ -2614,9 +2614,9 @@
   },
   {
     "query_id": "Q269",
-    "text": "objectives these Regulations update karwane ke liye bank branch jana padega kya",
+    "text": "Reserve inspect premises system update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
-      "C214"
+      "C236"
     ],
     "template_origin": "pattern_9",
     "cmi_target": 0.55,
@@ -2624,9 +2624,9 @@
   },
   {
     "query_id": "Q270",
-    "text": "kya Act 2007 define payment ke liye minimum balance ya charge lagta hai",
+    "text": "kya foreign entities ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
-      "C215"
+      "C237"
     ],
     "template_origin": "pattern_0",
     "cmi_target": 0.55,
@@ -2634,9 +2634,9 @@
   },
   {
     "query_id": "Q271",
-    "text": "Payment Obligation ke rules aur guidelines kya hain",
+    "text": "Reserve issue directions system ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
-      "C216"
+      "C238"
     ],
     "template_origin": "pattern_1",
     "cmi_target": 0.45,
@@ -2644,9 +2644,9 @@
   },
   {
     "query_id": "Q272",
-    "text": "how to apply for Payment Instruction online or offline",
+    "text": "how to apply for PSS 2007 deal netting online or offline",
     "relevant_doc_ids": [
-      "C217"
+      "C239"
     ],
     "template_origin": "pattern_2",
     "cmi_target": 0.35,
@@ -2654,9 +2654,9 @@
   },
   {
     "query_id": "Q273",
-    "text": "Settlement mein kitna limit aur penalty hota hai",
+    "text": "duties system provider PSS mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
-      "C218"
+      "C240"
     ],
     "template_origin": "pattern_3",
     "cmi_target": 0.6,
@@ -2664,9 +2664,9 @@
   },
   {
     "query_id": "Q274",
-    "text": "kya senior citizens ko Payment System Act 2007 par special benefit milta hai",
+    "text": "kya senior citizens ko mechanism settlement disputes PSS par special benefit milta hai",
     "relevant_doc_ids": [
-      "C219"
+      "C241"
     ],
     "template_origin": "pattern_4",
     "cmi_target": 0.5,
@@ -2674,9 +2674,9 @@
   },
   {
     "query_id": "Q275",
-    "text": "entities operating payment system ke liye documents aur eligibility kya chahiye",
+    "text": "consequences dishonour electronic fund ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
-      "C220"
+      "C242"
     ],
     "template_origin": "pattern_5",
     "cmi_target": 0.5,
@@ -2684,9 +2684,9 @@
   },
   {
     "query_id": "Q276",
-    "text": "mera there application submitted along transaction fail ho gaya toh complain kahan kare",
+    "text": "mera penalties punitive action laid transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
-      "C221"
+      "C243"
     ],
     "template_origin": "pattern_6",
     "cmi_target": 0.65,
@@ -2694,9 +2694,9 @@
   },
   {
     "query_id": "Q277",
-    "text": "foreign entities allowed operate ka interest rate aur tenure kitna hai",
+    "text": "Automated Teller Machine ATM ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
-      "C222"
+      "C244"
     ],
     "template_origin": "pattern_7",
     "cmi_target": 0.4,
@@ -2704,9 +2704,9 @@
   },
   {
     "query_id": "Q278",
-    "text": "what is the process for foreign entities required license cancellation or closure",
+    "text": "what is the process for White Label ATMs WLAs cancellation or closure",
     "relevant_doc_ids": [
-      "C223"
+      "C245"
     ],
     "template_origin": "pattern_8",
     "cmi_target": 0.3,
@@ -2714,9 +2714,9 @@
   },
   {
     "query_id": "Q279",
-    "text": "Financial Market Infrastructures update karwane ke liye bank branch jana padega kya",
+    "text": "customer difference facilities available update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
-      "C224"
+      "C246"
     ],
     "template_origin": "pattern_9",
     "cmi_target": 0.55,
@@ -2724,9 +2724,9 @@
   },
   {
     "query_id": "Q280",
-    "text": "kya foreign Financial Market Infrastructure ke liye minimum balance ya charge lagta hai",
+    "text": "kya rationale allowing non-bank entities ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
-      "C225"
+      "C247"
     ],
     "template_origin": "pattern_0",
     "cmi_target": 0.55,
@@ -2734,9 +2734,9 @@
   },
   {
     "query_id": "Q281",
-    "text": "services foreign entity provide ke rules aur guidelines kya hain",
+    "text": "services facilities available ATMs ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
-      "C226"
+      "C248"
     ],
     "template_origin": "pattern_1",
     "cmi_target": 0.45,
@@ -2744,9 +2744,9 @@
   },
   {
     "query_id": "Q282",
-    "text": "how to apply for factors Reserve consider while online or offline",
+    "text": "how to apply for types cards used ATM online or offline",
     "relevant_doc_ids": [
-      "C227"
+      "C249"
     ],
     "template_origin": "pattern_2",
     "cmi_target": 0.35,
@@ -2754,9 +2754,9 @@
   },
   {
     "query_id": "Q283",
-    "text": "parameters taken into consideration mein kitna limit aur penalty hota hai",
+    "text": "transacting ATM WLA mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
-      "C228"
+      "C250"
     ],
     "template_origin": "pattern_3",
     "cmi_target": 0.6,
@@ -2764,9 +2764,9 @@
   },
   {
     "query_id": "Q284",
-    "text": "kya senior citizens ko Reserve refuse grant authorization par special benefit milta hai",
+    "text": "kya senior citizens ko Personal Identification Number par special benefit milta hai",
     "relevant_doc_ids": [
-      "C229"
+      "C251"
     ],
     "template_origin": "pattern_4",
     "cmi_target": 0.5,
@@ -2774,9 +2774,9 @@
   },
   {
     "query_id": "Q285",
-    "text": "Reserve revoke authorization granted ke liye documents aur eligibility kya chahiye",
+    "text": "cards issued India used ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
-      "C230"
+      "C252"
     ],
     "template_origin": "pattern_5",
     "cmi_target": 0.5,
@@ -2784,9 +2784,9 @@
   },
   {
     "query_id": "Q286",
-    "text": "mera there appellate authority whom transaction fail ho gaya toh complain kahan kare",
+    "text": "mera On-Us Off-Us transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
-      "C231"
+      "C253"
     ],
     "template_origin": "pattern_6",
     "cmi_target": 0.65,
@@ -2794,9 +2794,9 @@
   },
   {
     "query_id": "Q287",
-    "text": "Reserve collect authorisation fees ka interest rate aur tenure kitna hai",
+    "text": "customers entitled free transactions ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
-      "C232"
+      "C254"
     ],
     "template_origin": "pattern_7",
     "cmi_target": 0.4,
@@ -2804,9 +2804,9 @@
   },
   {
     "query_id": "Q288",
-    "text": "what is the process for Reserve powers down standards cancellation or closure",
+    "text": "what is the process for offer number free transactions cancellation or closure",
     "relevant_doc_ids": [
-      "C233"
+      "C255"
     ],
     "template_origin": "pattern_8",
     "cmi_target": 0.3,
@@ -2814,9 +2814,9 @@
   },
   {
     "query_id": "Q289",
-    "text": "Whether Reserve call returns update karwane ke liye bank branch jana padega kya",
+    "text": "Basic Savings Deposit BSBDA update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
-      "C234"
+      "C256"
     ],
     "template_origin": "pattern_9",
     "cmi_target": 0.55,
@@ -2824,9 +2824,9 @@
   },
   {
     "query_id": "Q290",
-    "text": "kya Whether Reserve share such ke liye minimum balance ya charge lagta hai",
+    "text": "kya type transactions counted free ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
-      "C235"
+      "C257"
     ],
     "template_origin": "pattern_0",
     "cmi_target": 0.55,
@@ -2834,9 +2834,9 @@
   },
   {
     "query_id": "Q291",
-    "text": "Reserve inspect premises system ke rules aur guidelines kya hain",
+    "text": "ATM location metro non-metro ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
-      "C236"
+      "C258"
     ],
     "template_origin": "pattern_1",
     "cmi_target": 0.45,
@@ -2844,9 +2844,9 @@
   },
   {
     "query_id": "Q292",
-    "text": "how to apply for Reserve conduct inspection foreign online or offline",
+    "text": "how to apply for customers charged transactions ATMs online or offline",
     "relevant_doc_ids": [
-      "C237"
+      "C259"
     ],
     "template_origin": "pattern_2",
     "cmi_target": 0.35,
@@ -2854,9 +2854,9 @@
   },
   {
     "query_id": "Q293",
-    "text": "Reserve issue directions system mein kitna limit aur penalty hota hai",
+    "text": "charges prescribed RBI credit mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
-      "C238"
+      "C260"
     ],
     "template_origin": "pattern_3",
     "cmi_target": 0.6,
@@ -2864,9 +2864,9 @@
   },
   {
     "query_id": "Q294",
-    "text": "kya senior citizens ko 2007 deal with netting par special benefit milta hai",
+    "text": "kya senior citizens ko steps customer take failed par special benefit milta hai",
     "relevant_doc_ids": [
-      "C239"
+      "C261"
     ],
     "template_origin": "pattern_4",
     "cmi_target": 0.5,
@@ -2874,9 +2874,9 @@
   },
   {
     "query_id": "Q295",
-    "text": "duties system provider Act ke liye documents aur eligibility kya chahiye",
+    "text": "customer contact numbers lodging ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
-      "C240"
+      "C262"
     ],
     "template_origin": "pattern_5",
     "cmi_target": 0.5,
@@ -2884,9 +2884,9 @@
   },
   {
     "query_id": "Q296",
-    "text": "mera mechanism settlement disputes Act transaction fail ho gaya toh complain kahan kare",
+    "text": "mera time limit card issuing transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
-      "C241"
+      "C263"
     ],
     "template_origin": "pattern_6",
     "cmi_target": 0.65,
@@ -2894,9 +2894,9 @@
   },
   {
     "query_id": "Q297",
-    "text": "consequences dishonour electronic fund ka interest rate aur tenure kitna hai",
+    "text": "customers eligible compensation delays ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
-      "C242"
+      "C264"
     ],
     "template_origin": "pattern_7",
     "cmi_target": 0.4,
@@ -2904,9 +2904,9 @@
   },
   {
     "query_id": "Q298",
-    "text": "what is the process for there penalties punitive action cancellation or closure",
+    "text": "what is the process for course action customer reversal cancellation or closure",
     "relevant_doc_ids": [
-      "C243"
+      "C265"
     ],
     "template_origin": "pattern_8",
     "cmi_target": 0.3,
@@ -2914,9 +2914,9 @@
   },
   {
     "query_id": "Q299",
-    "text": "Automated Teller Machine ATM update karwane ke liye bank branch jana padega kya",
+    "text": "done ATM card validity update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
-      "C244"
+      "C266"
     ],
     "template_origin": "pattern_9",
     "cmi_target": 0.55,
@@ -2924,9 +2924,9 @@
   },
   {
     "query_id": "Q300",
-    "text": "kya White Label ATMs WLAs ke liye minimum balance ya charge lagta hai",
+    "text": "kya customer keep ATM WLA ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
-      "C245"
+      "C267"
     ],
     "template_origin": "pattern_0",
     "cmi_target": 0.55,
@@ -2934,9 +2934,9 @@
   },
   {
     "query_id": "Q301",
-    "text": "customer there difference facilities ke rules aur guidelines kya hain",
+    "text": "done card lost stolen ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
-      "C246"
+      "C268"
     ],
     "template_origin": "pattern_1",
     "cmi_target": 0.45,
@@ -2944,9 +2944,9 @@
   },
   {
     "query_id": "Q302",
-    "text": "how to apply for been rationale allowing non-bank online or offline",
+    "text": "how to apply for Magnetic Stripe cards Chip online or offline",
     "relevant_doc_ids": [
-      "C247"
+      "C269"
     ],
     "template_origin": "pattern_2",
     "cmi_target": 0.35,
@@ -2954,9 +2954,9 @@
   },
   {
     "query_id": "Q303",
-    "text": "services facilities available ATMs mein kitna limit aur penalty hota hai",
+    "text": "mandate banks issuing Magnetic mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
-      "C248"
+      "C270"
     ],
     "template_origin": "pattern_3",
     "cmi_target": 0.6,
@@ -2964,9 +2964,9 @@
   },
   {
     "query_id": "Q304",
-    "text": "kya senior citizens ko types cards used par special benefit milta hai",
+    "text": "kya senior citizens ko received cheque denominated Dollars par special benefit milta hai",
     "relevant_doc_ids": [
-      "C249"
+      "C271"
     ],
     "template_origin": "pattern_4",
     "cmi_target": 0.5,
@@ -2974,9 +2974,9 @@
   },
   {
     "query_id": "Q305",
-    "text": "pre-requisites transacting ke liye documents aur eligibility kya chahiye",
+    "text": "RBI advised banks frame ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
-      "C250"
+      "C272"
     ],
     "template_origin": "pattern_5",
     "cmi_target": 0.5,
@@ -2984,9 +2984,9 @@
   },
   {
     "query_id": "Q306",
-    "text": "mera Personal Identification Number PIN transaction fail ho gaya toh complain kahan kare",
+    "text": "mera clear cheques payable required transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
-      "C251"
+      "C273"
     ],
     "template_origin": "pattern_6",
     "cmi_target": 0.65,
@@ -2994,9 +2994,9 @@
   },
   {
     "query_id": "Q307",
-    "text": "cards issued India used ka interest rate aur tenure kitna hai",
+    "text": "Nostro ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
-      "C252"
+      "C274"
     ],
     "template_origin": "pattern_7",
     "cmi_target": 0.4,
@@ -3004,9 +3004,9 @@
   },
   {
     "query_id": "Q308",
-    "text": "what is the process for On-Us Off-Us transaction cancellation or closure",
+    "text": "what is the process for charges levied collection denominated cancellation or closure",
     "relevant_doc_ids": [
-      "C253"
+      "C275"
     ],
     "template_origin": "pattern_8",
     "cmi_target": 0.3,
@@ -3014,9 +3014,9 @@
   },
   {
     "query_id": "Q309",
-    "text": "customers entitled free transactions update karwane ke liye bank branch jana padega kya",
+    "text": "regulations applicable cheque collection update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
-      "C254"
+      "C276"
     ],
     "template_origin": "pattern_9",
     "cmi_target": 0.55,
@@ -3024,9 +3024,9 @@
   },
   {
     "query_id": "Q310",
-    "text": "kya offer more number free ke liye minimum balance ya charge lagta hai",
+    "text": "kya customer choose mode collecting ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
-      "C255"
+      "C277"
     ],
     "template_origin": "pattern_0",
     "cmi_target": 0.55,
@@ -3034,9 +3034,9 @@
   },
   {
     "query_id": "Q311",
-    "text": "above prescription free transactions ke rules aur guidelines kya hain",
+    "text": "Just RBI mandated timeframe ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
-      "C256"
+      "C278"
     ],
     "template_origin": "pattern_1",
     "cmi_target": 0.45,
@@ -3044,9 +3044,9 @@
   },
   {
     "query_id": "Q312",
-    "text": "how to apply for there type transactions that online or offline",
+    "text": "how to apply for customers given credit allowed online or offline",
     "relevant_doc_ids": [
-      "C257"
+      "C280"
     ],
     "template_origin": "pattern_2",
     "cmi_target": 0.35,
@@ -3054,9 +3054,9 @@
   },
   {
     "query_id": "Q313",
-    "text": "know location metro non-metro mein kitna limit aur penalty hota hai",
+    "text": "Funds credited customers accounts mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
-      "C258"
+      "C281"
     ],
     "template_origin": "pattern_3",
     "cmi_target": 0.6,
@@ -3064,9 +3064,9 @@
   },
   {
     "query_id": "Q314",
-    "text": "kya senior citizens ko customers charged transactions ATMs par special benefit milta hai",
+    "text": "kya senior citizens ko customer compensated delay collection par special benefit milta hai",
     "relevant_doc_ids": [
-      "C259"
+      "C282"
     ],
     "template_origin": "pattern_4",
     "cmi_target": 0.5,
@@ -3074,9 +3074,9 @@
   },
   {
     "query_id": "Q315",
-    "text": "charges prescribed credit cards ke liye documents aur eligibility kya chahiye",
+    "text": "nstructions facilitating customer awareness ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
-      "C260"
+      "C283"
     ],
     "template_origin": "pattern_5",
     "cmi_target": 0.5,
@@ -3084,9 +3084,9 @@
   },
   {
     "query_id": "Q316",
-    "text": "mera steps should customer take transaction fail ho gaya toh complain kahan kare",
+    "text": "mera instructions banks regard transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
-      "C261"
+      "C284"
     ],
     "template_origin": "pattern_6",
     "cmi_target": 0.65,
@@ -3094,9 +3094,9 @@
   },
   {
     "query_id": "Q317",
-    "text": "customer contact numbers lodging ka interest rate aur tenure kitna hai",
+    "text": "Bond ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
-      "C262"
+      "C285"
     ],
     "template_origin": "pattern_7",
     "cmi_target": 0.4,
@@ -3104,9 +3104,9 @@
   },
   {
     "query_id": "Q318",
-    "text": "what is the process for there time limit card cancellation or closure",
+    "text": "what is the process for Government Security G-Sec cancellation or closure",
     "relevant_doc_ids": [
-      "C263"
+      "C286"
     ],
     "template_origin": "pattern_8",
     "cmi_target": 0.3,
@@ -3114,9 +3114,9 @@
   },
   {
     "query_id": "Q319",
-    "text": "customers eligible compensation delays update karwane ke liye bank branch jana padega kya",
+    "text": "Treasury Bills T-bills update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
-      "C264"
+      "C287"
     ],
     "template_origin": "pattern_9",
     "cmi_target": 0.55,
@@ -3124,9 +3124,9 @@
   },
   {
     "query_id": "Q320",
-    "text": "kya course action customer reversal ke liye minimum balance ya charge lagta hai",
+    "text": "kya Cash Management Bills CMBs ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
-      "C265"
+      "C288"
     ],
     "template_origin": "pattern_0",
     "cmi_target": 0.55,
@@ -3134,9 +3134,9 @@
   },
   {
     "query_id": "Q321",
-    "text": "should done card validity ke rules aur guidelines kya hain",
+    "text": "Dated G-Secs ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
-      "C266"
+      "C289"
     ],
     "template_origin": "pattern_1",
     "cmi_target": 0.45,
@@ -3144,9 +3144,9 @@
   },
   {
     "query_id": "Q322",
-    "text": "how to apply for should customer keep transaction online or offline",
+    "text": "how to apply for State Development Loans SDLs online or offline",
     "relevant_doc_ids": [
-      "C267"
+      "C290"
     ],
     "template_origin": "pattern_2",
     "cmi_target": 0.35,
@@ -3154,9 +3154,9 @@
   },
   {
     "query_id": "Q323",
-    "text": "should done card lost mein kitna limit aur penalty hota hai",
+    "text": "invest G-Secs mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
-      "C268"
+      "C291"
     ],
     "template_origin": "pattern_3",
     "cmi_target": 0.6,
@@ -3164,9 +3164,9 @@
   },
   {
     "query_id": "Q324",
-    "text": "kya senior citizens ko Magnetic Stripe cards Chip par special benefit milta hai",
+    "text": "kya senior citizens ko Primary Urban Co-operative Banks par special benefit milta hai",
     "relevant_doc_ids": [
-      "C269"
+      "C292"
     ],
     "template_origin": "pattern_4",
     "cmi_target": 0.5,
@@ -3174,9 +3174,9 @@
   },
   {
     "query_id": "Q325",
-    "text": "mandate banks issuing Magnetic ke liye documents aur eligibility kya chahiye",
+    "text": "Rural Co-operative Banks ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
-      "C270"
+      "C293"
     ],
     "template_origin": "pattern_5",
     "cmi_target": 0.5,
@@ -3184,9 +3184,9 @@
   },
   {
     "query_id": "Q326",
-    "text": "mera received cheque denominated Dollars transaction fail ho gaya toh complain kahan kare",
+    "text": "mera Regional Rural Banks RRBs transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
-      "C271"
+      "C294"
     ],
     "template_origin": "pattern_6",
     "cmi_target": 0.65,
@@ -3194,9 +3194,9 @@
   },
   {
     "query_id": "Q327",
-    "text": "advised banks frame their ka interest rate aur tenure kitna hai",
+    "text": "Provident funds entities ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
-      "C272"
+      "C295"
     ],
     "template_origin": "pattern_7",
     "cmi_target": 0.4,
@@ -3204,9 +3204,9 @@
   },
   {
     "query_id": "Q328",
-    "text": "what is the process for clear that cheques payable cancellation or closure",
+    "text": "what is the process for G-Secs issued cancellation or closure",
     "relevant_doc_ids": [
-      "C273"
+      "C296"
     ],
     "template_origin": "pattern_8",
     "cmi_target": 0.3,
@@ -3214,9 +3214,9 @@
   },
   {
     "query_id": "Q329",
-    "text": "Nostro update karwane ke liye bank branch jana padega kya",
+    "text": "Floatation State Government Loans update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
-      "C274"
+      "C297"
     ],
     "template_origin": "pattern_9",
     "cmi_target": 0.55,
@@ -3224,9 +3224,9 @@
   },
   {
     "query_id": "Q330",
-    "text": "kya charges levied collection these ke liye minimum balance ya charge lagta hai",
+    "text": "kya auctions used issue securities ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
-      "C275"
+      "C298"
     ],
     "template_origin": "pattern_0",
     "cmi_target": 0.55,
@@ -3234,9 +3234,9 @@
   },
   {
     "query_id": "Q331",
-    "text": "regulations applicable cheque collection ke rules aur guidelines kya hain",
+    "text": "Yield based auction security ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
-      "C276"
+      "C299"
     ],
     "template_origin": "pattern_1",
     "cmi_target": 0.45,
@@ -3244,9 +3244,9 @@
   },
   {
     "query_id": "Q332",
-    "text": "how to apply for customer choose mode collecting online or offline",
+    "text": "how to apply for Non-Competitive Bidding online or offline",
     "relevant_doc_ids": [
-      "C277"
+      "C301"
     ],
     "template_origin": "pattern_2",
     "cmi_target": 0.35,
@@ -3254,9 +3254,9 @@
   },
   {
     "query_id": "Q333",
-    "text": "Just mandated timeframe collection mein kitna limit aur penalty hota hai",
+    "text": "Conversion Switch Government India mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
-      "C278"
+      "C302"
     ],
     "template_origin": "pattern_3",
     "cmi_target": 0.6,
@@ -3264,9 +3264,9 @@
   },
   {
     "query_id": "Q334",
-    "text": "kya senior citizens ko appears that cooling period par special benefit milta hai",
+    "text": "kya senior citizens ko Open Market Operations OMOs par special benefit milta hai",
     "relevant_doc_ids": [
-      "C279"
+      "C303"
     ],
     "template_origin": "pattern_4",
     "cmi_target": 0.5,
@@ -3274,9 +3274,9 @@
   },
   {
     "query_id": "Q335",
-    "text": "customers given credit allowed ke liye documents aur eligibility kya chahiye",
+    "text": "repurchase buyback G-Secs ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
-      "C280"
+      "C304"
     ],
     "template_origin": "pattern_5",
     "cmi_target": 0.5,
@@ -3284,9 +3284,9 @@
   },
   {
     "query_id": "Q336",
-    "text": "mera Funds credited customers accounts transaction fail ho gaya toh complain kahan kare",
+    "text": "mera Liquidity Adjustment Facility LAF transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
-      "C281"
+      "C305"
     ],
     "template_origin": "pattern_6",
     "cmi_target": 0.65,
@@ -3294,9 +3294,9 @@
   },
   {
     "query_id": "Q337",
-    "text": "customer compensated delay collection ka interest rate aur tenure kitna hai",
+    "text": "G-Secs ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
-      "C282"
+      "C306"
     ],
     "template_origin": "pattern_7",
     "cmi_target": 0.4,
@@ -3304,9 +3304,9 @@
   },
   {
     "query_id": "Q338",
-    "text": "what is the process for instructions facilitating customer awareness cancellation or closure",
+    "text": "what is the process for trading G-Secs take place cancellation or closure",
     "relevant_doc_ids": [
-      "C283"
+      "C307"
     ],
     "template_origin": "pattern_8",
     "cmi_target": 0.3,
@@ -3314,9 +3314,9 @@
   },
   {
     "query_id": "Q339",
-    "text": "there other instructions banks update karwane ke liye bank branch jana padega kya",
+    "text": "Over Counter OTC Telephone update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
-      "C284"
+      "C308"
     ],
     "template_origin": "pattern_9",
     "cmi_target": 0.55,
@@ -3324,9 +3324,9 @@
   },
   {
     "query_id": "Q340",
-    "text": "kya Bond ke liye minimum balance ya charge lagta hai",
+    "text": "kya NDS-OM-Web ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
-      "C285"
+      "C309"
     ],
     "template_origin": "pattern_0",
     "cmi_target": 0.55,
@@ -3334,9 +3334,9 @@
   },
   {
     "query_id": "Q341",
-    "text": "Government Security G-Sec ke rules aur guidelines kya hain",
+    "text": "Stock Exchanges ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
-      "C286"
+      "C310"
     ],
     "template_origin": "pattern_1",
     "cmi_target": 0.45,
@@ -3344,9 +3344,9 @@
   },
   {
     "query_id": "Q342",
-    "text": "how to apply for Treasury Bills T-bills online or offline",
+    "text": "how to apply for Regulations applicable prevent abuse online or offline",
     "relevant_doc_ids": [
-      "C287"
+      "C311"
     ],
     "template_origin": "pattern_2",
     "cmi_target": 0.35,
@@ -3354,9 +3354,9 @@
   },
   {
     "query_id": "Q343",
-    "text": "Cash Management Bills CMBs mein kitna limit aur penalty hota hai",
+    "text": "Guidelines Value free transfer mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
-      "C288"
+      "C312"
     ],
     "template_origin": "pattern_3",
     "cmi_target": 0.6,
@@ -3364,9 +3364,9 @@
   },
   {
     "query_id": "Q344",
-    "text": "kya senior citizens ko Dated G-Secs par special benefit milta hai",
+    "text": "kya senior citizens ko major players G-Secs market par special benefit milta hai",
     "relevant_doc_ids": [
-      "C289"
+      "C313"
     ],
     "template_origin": "pattern_4",
     "cmi_target": 0.5,
@@ -3374,9 +3374,9 @@
   },
   {
     "query_id": "Q345",
-    "text": "State Development Loans SDLs ke liye documents aur eligibility kya chahiye",
+    "text": "prescribed RBI Co-operative banks ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
-      "C290"
+      "C314"
     ],
     "template_origin": "pattern_5",
     "cmi_target": 0.5,
@@ -3384,9 +3384,9 @@
   },
   {
     "query_id": "Q346",
-    "text": "mera should invest G-Secs transaction fail ho gaya toh complain kahan kare",
+    "text": "mera dealing transactions recorded dealing transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
-      "C291"
+      "C315"
     ],
     "template_origin": "pattern_6",
     "cmi_target": 0.65,
@@ -3394,9 +3394,9 @@
   },
   {
     "query_id": "Q347",
-    "text": "Primary Urban Co-operative Banks ka interest rate aur tenure kitna hai",
+    "text": "undertaking security transactions ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
-      "C292"
+      "C316"
     ],
     "template_origin": "pattern_7",
     "cmi_target": 0.4,
@@ -3404,9 +3404,9 @@
   },
   {
     "query_id": "Q348",
-    "text": "what is the process for Rural Co-operative Banks cancellation or closure",
+    "text": "what is the process for price G-Sec change cancellation or closure",
     "relevant_doc_ids": [
-      "C293"
+      "C317"
     ],
     "template_origin": "pattern_8",
     "cmi_target": 0.3,
@@ -3414,9 +3414,9 @@
   },
   {
     "query_id": "Q349",
-    "text": "Regional Rural Banks RRBs update karwane ke liye bank branch jana padega kya",
+    "text": "information about price G-Sec update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
-      "C294"
+      "C318"
     ],
     "template_origin": "pattern_9",
     "cmi_target": 0.55,
@@ -3424,9 +3424,9 @@
   },
   {
     "query_id": "Q350",
-    "text": "kya Provident funds other entities ke liye minimum balance ya charge lagta hai",
+    "text": "kya NDS-OM Market ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
-      "C295"
+      "C319"
     ],
     "template_origin": "pattern_0",
     "cmi_target": 0.55,
@@ -3434,9 +3434,9 @@
   },
   {
     "query_id": "Q351",
-    "text": "G-Secs issued ke rules aur guidelines kya hain",
+    "text": "G-Secs transactions reported ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
-      "C296"
+      "C320"
     ],
     "template_origin": "pattern_1",
     "cmi_target": 0.45,
@@ -3444,9 +3444,9 @@
   },
   {
     "query_id": "Q352",
-    "text": "how to apply for Floatation State Government Loans online or offline",
+    "text": "how to apply for Primary Market online or offline",
     "relevant_doc_ids": [
-      "C297"
+      "C321"
     ],
     "template_origin": "pattern_2",
     "cmi_target": 0.35,
@@ -3454,9 +3454,9 @@
   },
   {
     "query_id": "Q353",
-    "text": "different types auctions used mein kitna limit aur penalty hota hai",
+    "text": "Secondary Market mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
-      "C298"
+      "C322"
     ],
     "template_origin": "pattern_3",
     "cmi_target": 0.6,
@@ -3464,9 +3464,9 @@
   },
   {
     "query_id": "Q354",
-    "text": "kya senior citizens ko Yield based auction security par special benefit milta hai",
+    "text": "kya senior citizens ko shut period par special benefit milta hai",
     "relevant_doc_ids": [
-      "C299"
+      "C323"
     ],
     "template_origin": "pattern_4",
     "cmi_target": 0.5,
@@ -3474,9 +3474,9 @@
   },
   {
     "query_id": "Q355",
-    "text": "Price based auction existing ke liye documents aur eligibility kya chahiye",
+    "text": "Delivery versus Payment DvP ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
-      "C300"
+      "C324"
     ],
     "template_origin": "pattern_5",
     "cmi_target": 0.5,
@@ -3484,9 +3484,9 @@
   },
   {
     "query_id": "Q356",
-    "text": "mera Non-Competitive Bidding NCB transaction fail ho gaya toh complain kahan kare",
+    "text": "mera role Clearing Corporation India transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
-      "C301"
+      "C325"
     ],
     "template_origin": "pattern_6",
     "cmi_target": 0.65,
@@ -3494,9 +3494,9 @@
   },
   {
     "query_id": "Q357",
-    "text": "Conversion Switch Government India ka interest rate aur tenure kitna hai",
+    "text": "Issued market Short Sale ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
-      "C302"
+      "C326"
     ],
     "template_origin": "pattern_7",
     "cmi_target": 0.4,
@@ -3504,9 +3504,9 @@
   },
   {
     "query_id": "Q358",
-    "text": "what is the process for Open Market Operations OMOs cancellation or closure",
+    "text": "what is the process for basic mathematical concepts know cancellation or closure",
     "relevant_doc_ids": [
-      "C303"
+      "C327"
     ],
     "template_origin": "pattern_8",
     "cmi_target": 0.3,
@@ -3514,9 +3514,9 @@
   },
   {
     "query_id": "Q359",
-    "text": "meant repurchase buyback G-Secs update karwane ke liye bank branch jana padega kya",
+    "text": "Time Value Money update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
-      "C304"
+      "C328"
     ],
     "template_origin": "pattern_9",
     "cmi_target": 0.55,
@@ -3524,9 +3524,9 @@
   },
   {
     "query_id": "Q360",
-    "text": "kya Liquidity Adjustment Facility LAF ke liye minimum balance ya charge lagta hai",
+    "text": "kya Present Value NPV ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
-      "C305"
+      "C330"
     ],
     "template_origin": "pattern_0",
     "cmi_target": 0.55,
@@ -3534,9 +3534,9 @@
   },
   {
     "query_id": "Q361",
-    "text": "form G-Secs held ke rules aur guidelines kya hain",
+    "text": "Price bond calculated ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
-      "C306"
+      "C331"
     ],
     "template_origin": "pattern_1",
     "cmi_target": 0.45,
@@ -3544,9 +3544,9 @@
   },
   {
     "query_id": "Q362",
-    "text": "how to apply for trading G-Secs take place online or offline",
+    "text": "how to apply for relationship between yield price online or offline",
     "relevant_doc_ids": [
-      "C307"
+      "C332"
     ],
     "template_origin": "pattern_2",
     "cmi_target": 0.35,
@@ -3554,9 +3554,9 @@
   },
   {
     "query_id": "Q363",
-    "text": "Over Counter OTC Telephone mein kitna limit aur penalty hota hai",
+    "text": "yield bond calculated mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
-      "C308"
+      "C333"
     ],
     "template_origin": "pattern_3",
     "cmi_target": 0.6,
@@ -3564,9 +3564,9 @@
   },
   {
     "query_id": "Q364",
-    "text": "kya senior citizens ko iii NDS-OM-Web par special benefit milta hai",
+    "text": "kya senior citizens ko Coupon Yield par special benefit milta hai",
     "relevant_doc_ids": [
-      "C309"
+      "C334"
     ],
     "template_origin": "pattern_4",
     "cmi_target": 0.5,
@@ -3574,9 +3574,9 @@
   },
   {
     "query_id": "Q365",
-    "text": "Stock Exchanges ke liye documents aur eligibility kya chahiye",
+    "text": "Current Yield ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
-      "C310"
+      "C336"
     ],
     "template_origin": "pattern_5",
     "cmi_target": 0.5,
@@ -3584,9 +3584,9 @@
   },
   {
     "query_id": "Q366",
-    "text": "mera Regulations applicable prevent abuse transaction fail ho gaya toh complain kahan kare",
+    "text": "mera Yield Maturity transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
-      "C311"
+      "C338"
     ],
     "template_origin": "pattern_6",
     "cmi_target": 0.65,
@@ -3594,9 +3594,9 @@
   },
   {
     "query_id": "Q367",
-    "text": "Guidelines Value free transfer ka interest rate aur tenure kitna hai",
+    "text": "YTM Calculation ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
-      "C312"
+      "C339"
     ],
     "template_origin": "pattern_7",
     "cmi_target": 0.4,
@@ -3604,9 +3604,9 @@
   },
   {
     "query_id": "Q368",
-    "text": "what is the process for major players G-Secs market cancellation or closure",
+    "text": "what is the process for Manual Trial Error Method cancellation or closure",
     "relevant_doc_ids": [
-      "C313"
+      "C340"
     ],
     "template_origin": "pattern_8",
     "cmi_target": 0.3,
@@ -3614,9 +3614,9 @@
   },
   {
     "query_id": "Q369",
-    "text": "Dos Donts prescribed Co-operative update karwane ke liye bank branch jana padega kya",
+    "text": "Spread Sheet Method using update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
-      "C314"
+      "C341"
     ],
     "template_origin": "pattern_9",
     "cmi_target": 0.55,
@@ -3624,9 +3624,9 @@
   },
   {
     "query_id": "Q370",
-    "text": "kya dealing transactions recorded dealing ke liye minimum balance ya charge lagta hai",
+    "text": "kya day count conventions ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
-      "C315"
+      "C342"
     ],
     "template_origin": "pattern_0",
     "cmi_target": 0.55,
@@ -3634,9 +3634,9 @@
   },
   {
     "query_id": "Q371",
-    "text": "important considerations while undertaking ke rules aur guidelines kya hain",
+    "text": "yield Bill calculated ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
-      "C316"
+      "C343"
     ],
     "template_origin": "pattern_1",
     "cmi_target": 0.45,
@@ -3644,9 +3644,9 @@
   },
   {
     "query_id": "Q372",
-    "text": "how to apply for price G-Sec change online or offline",
+    "text": "how to apply for Duration online or offline",
     "relevant_doc_ids": [
-      "C317"
+      "C344"
     ],
     "template_origin": "pattern_2",
     "cmi_target": 0.35,
@@ -3654,9 +3654,9 @@
   },
   {
     "query_id": "Q373",
-    "text": "information about price G-Sec mein kitna limit aur penalty hota hai",
+    "text": "Calculation Duration mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
-      "C318"
+      "C345"
     ],
     "template_origin": "pattern_3",
     "cmi_target": 0.6,
@@ -3664,9 +3664,9 @@
   },
   {
     "query_id": "Q374",
-    "text": "kya senior citizens ko NDS-OM Market par special benefit milta hai",
+    "text": "kya senior citizens ko Modified Duration par special benefit milta hai",
     "relevant_doc_ids": [
-      "C319"
+      "C347"
     ],
     "template_origin": "pattern_4",
     "cmi_target": 0.5,
@@ -3674,9 +3674,9 @@
   },
   {
     "query_id": "Q375",
-    "text": "G-Secs transactions reported ke liye documents aur eligibility kya chahiye",
+    "text": "Convexity ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
-      "C320"
+      "C351"
     ],
     "template_origin": "pattern_5",
     "cmi_target": 0.5,
@@ -3684,9 +3684,9 @@
   },
   {
     "query_id": "Q376",
-    "text": "mera Primary Market transaction fail ho gaya toh complain kahan kare",
+    "text": "mera aluation securities transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
-      "C321"
+      "C352"
     ],
     "template_origin": "pattern_6",
     "cmi_target": 0.65,
@@ -3694,9 +3694,9 @@
   },
   {
     "query_id": "Q377",
-    "text": "Secondary Market ka interest rate aur tenure kitna hai",
+    "text": "risks involved ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
-      "C322"
+      "C353"
     ],
     "template_origin": "pattern_7",
     "cmi_target": 0.4,
@@ -3704,9 +3704,9 @@
   },
   {
     "query_id": "Q378",
-    "text": "what is the process for shut period cancellation or closure",
+    "text": "what is the process for Risk Mitigation cancellation or closure",
     "relevant_doc_ids": [
-      "C323"
+      "C354"
     ],
     "template_origin": "pattern_8",
     "cmi_target": 0.3,
@@ -3714,9 +3714,9 @@
   },
   {
     "query_id": "Q379",
-    "text": "Delivery versus Payment DvP update karwane ke liye bank branch jana padega kya",
+    "text": "Money Market update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
-      "C324"
+      "C355"
     ],
     "template_origin": "pattern_9",
     "cmi_target": 0.55,
@@ -3724,9 +3724,9 @@
   },
   {
     "query_id": "Q380",
-    "text": "kya role Clearing Corporation India ke liye minimum balance ya charge lagta hai",
+    "text": "kya different money market instruments ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
-      "C325"
+      "C356"
     ],
     "template_origin": "pattern_0",
     "cmi_target": 0.55,
@@ -3734,9 +3734,9 @@
   },
   {
     "query_id": "Q381",
-    "text": "When Issued market Short ke rules aur guidelines kya hain",
+    "text": "Call money market ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
-      "C326"
+      "C357"
     ],
     "template_origin": "pattern_1",
     "cmi_target": 0.45,
@@ -3744,9 +3744,9 @@
   },
   {
     "query_id": "Q382",
-    "text": "how to apply for basic mathematical concepts should online or offline",
+    "text": "how to apply for Repo market online or offline",
     "relevant_doc_ids": [
-      "C327"
+      "C358"
     ],
     "template_origin": "pattern_2",
     "cmi_target": 0.35,
@@ -3754,9 +3754,9 @@
   },
   {
     "query_id": "Q383",
-    "text": "Time Value Money mein kitna limit aur penalty hota hai",
+    "text": "Triparty Repo mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
-      "C328"
+      "C359"
     ],
     "template_origin": "pattern_3",
     "cmi_target": 0.6,
@@ -3764,9 +3764,9 @@
   },
   {
     "query_id": "Q384",
-    "text": "kya senior citizens ko illustration par special benefit milta hai",
+    "text": "kya senior citizens ko Commercial Paper par special benefit milta hai",
     "relevant_doc_ids": [
-      "C329"
+      "C360"
     ],
     "template_origin": "pattern_4",
     "cmi_target": 0.5,
@@ -3774,9 +3774,9 @@
   },
   {
     "query_id": "Q385",
-    "text": "Present Value NPV ke liye documents aur eligibility kya chahiye",
+    "text": "Certificate Deposit ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
-      "C330"
+      "C361"
     ],
     "template_origin": "pattern_5",
     "cmi_target": 0.5,
@@ -3784,9 +3784,9 @@
   },
   {
     "query_id": "Q386",
-    "text": "mera Price bond calculated transaction fail ho gaya toh complain kahan kare",
+    "text": "mera role functions FIMMDA FBIL transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
-      "C331"
+      "C362"
     ],
     "template_origin": "pattern_6",
     "cmi_target": 0.65,
@@ -3794,9 +3794,9 @@
   },
   {
     "query_id": "Q387",
-    "text": "relationship between yield price ka interest rate aur tenure kitna hai",
+    "text": "websites give information G-Secs ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
-      "C332"
+      "C363"
     ],
     "template_origin": "pattern_7",
     "cmi_target": 0.4,
@@ -3804,9 +3804,9 @@
   },
   {
     "query_id": "Q388",
-    "text": "what is the process for yield bond calculated cancellation or closure",
+    "text": "what is the process for Accrued Interest cancellation or closure",
     "relevant_doc_ids": [
-      "C333"
+      "C364"
     ],
     "template_origin": "pattern_8",
     "cmi_target": 0.3,
@@ -3814,9 +3814,9 @@
   },
   {
     "query_id": "Q389",
-    "text": "Coupon Yield update karwane ke liye bank branch jana padega kya",
+    "text": "Auction Multiple price Uniform update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
-      "C334"
+      "C365"
     ],
     "template_origin": "pattern_9",
     "cmi_target": 0.55,
@@ -3824,9 +3824,9 @@
   },
   {
     "query_id": "Q390",
-    "text": "kya Illustration ke liye minimum balance ya charge lagta hai",
+    "text": "kya Price Yield ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
-      "C335"
+      "C366"
     ],
     "template_origin": "pattern_0",
     "cmi_target": 0.55,
@@ -3834,9 +3834,9 @@
   },
   {
     "query_id": "Q391",
-    "text": "Current Yield ke rules aur guidelines kya hain",
+    "text": "Big Figure ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
-      "C336"
+      "C367"
     ],
     "template_origin": "pattern_1",
     "cmi_target": 0.45,
@@ -3844,9 +3844,9 @@
   },
   {
     "query_id": "Q392",
-    "text": "how to apply for Illustration online or offline",
+    "text": "how to apply for Competitive online or offline",
     "relevant_doc_ids": [
-      "C337"
+      "C368"
     ],
     "template_origin": "pattern_2",
     "cmi_target": 0.35,
@@ -3854,9 +3854,9 @@
   },
   {
     "query_id": "Q393",
-    "text": "iii Yield Maturity mein kitna limit aur penalty hota hai",
+    "text": "Coupon Frequency mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
-      "C338"
+      "C369"
     ],
     "template_origin": "pattern_3",
     "cmi_target": 0.6,
@@ -3864,9 +3864,9 @@
   },
   {
     "query_id": "Q394",
-    "text": "kya senior citizens ko Calculation par special benefit milta hai",
+    "text": "kya senior citizens ko Duration Macaulay Duration par special benefit milta hai",
     "relevant_doc_ids": [
-      "C339"
+      "C370"
     ],
     "template_origin": "pattern_4",
     "cmi_target": 0.5,
@@ -3874,9 +3874,9 @@
   },
   {
     "query_id": "Q395",
-    "text": "Manual Trial Error Method ke liye documents aur eligibility kya chahiye",
+    "text": "Face Value ke liye documents aur eligibility kya chahiye",
     "relevant_doc_ids": [
-      "C340"
+      "C371"
     ],
     "template_origin": "pattern_5",
     "cmi_target": 0.5,
@@ -3884,9 +3884,9 @@
   },
   {
     "query_id": "Q396",
-    "text": "mera Spread Sheet Method using transaction fail ho gaya toh complain kahan kare",
+    "text": "mera Floating-Rate Bond transaction fail ho gaya toh complain kahan kare",
     "relevant_doc_ids": [
-      "C341"
+      "C372"
     ],
     "template_origin": "pattern_6",
     "cmi_target": 0.65,
@@ -3894,9 +3894,9 @@
   },
   {
     "query_id": "Q397",
-    "text": "count conventions used calculating ka interest rate aur tenure kitna hai",
+    "text": "Gilt G-Secs ka interest rate aur tenure kitna hai",
     "relevant_doc_ids": [
-      "C342"
+      "C373"
     ],
     "template_origin": "pattern_7",
     "cmi_target": 0.4,
@@ -3904,9 +3904,9 @@
   },
   {
     "query_id": "Q398",
-    "text": "what is the process for yield Bill calculated cancellation or closure",
+    "text": "what is the process for Market cancellation or closure",
     "relevant_doc_ids": [
-      "C343"
+      "C374"
     ],
     "template_origin": "pattern_8",
     "cmi_target": 0.3,
@@ -3914,9 +3914,9 @@
   },
   {
     "query_id": "Q399",
-    "text": "Duration update karwane ke liye bank branch jana padega kya",
+    "text": "Maturity Date update karwane ke liye bank branch jana padega kya",
     "relevant_doc_ids": [
-      "C344"
+      "C375"
     ],
     "template_origin": "pattern_9",
     "cmi_target": 0.55,
@@ -3924,9 +3924,9 @@
   },
   {
     "query_id": "Q400",
-    "text": "kya Calculation Duration ke liye minimum balance ya charge lagta hai",
+    "text": "kya Non-Competitive ke liye minimum balance ya charge lagta hai",
     "relevant_doc_ids": [
-      "C345"
+      "C376"
     ],
     "template_origin": "pattern_0",
     "cmi_target": 0.55,
@@ -3934,9 +3934,9 @@
   },
   {
     "query_id": "Q401",
-    "text": "Illustration ke rules aur guidelines kya hain",
+    "text": "Primary Dealers ke rules aur guidelines kya hain",
     "relevant_doc_ids": [
-      "C346"
+      "C377"
     ],
     "template_origin": "pattern_1",
     "cmi_target": 0.45,
@@ -3944,9 +3944,9 @@
   },
   {
     "query_id": "Q402",
-    "text": "how to apply for Modified Duration online or offline",
+    "text": "how to apply for Real Time Gross Settlement online or offline",
     "relevant_doc_ids": [
-      "C347"
+      "C378"
     ],
     "template_origin": "pattern_2",
     "cmi_target": 0.35,
@@ -3954,9 +3954,9 @@
   },
   {
     "query_id": "Q403",
-    "text": "Illustration mein kitna limit aur penalty hota hai",
+    "text": "RepoReverse Repo mein kitna limit aur penalty hota hai",
     "relevant_doc_ids": [
-      "C348"
+      "C379"
     ],
     "template_origin": "pattern_3",
     "cmi_target": 0.6,
@@ -3964,321 +3964,11 @@
   },
   {
     "query_id": "Q404",
-    "text": "kya senior citizens ko RBI Banking Domain FAQ 79 par special benefit milta hai",
-    "relevant_doc_ids": [
-      "C349"
-    ],
-    "template_origin": "pattern_4",
-    "cmi_target": 0.5,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q405",
-    "text": "Illustration ke liye documents aur eligibility kya chahiye",
-    "relevant_doc_ids": [
-      "C350"
-    ],
-    "template_origin": "pattern_5",
-    "cmi_target": 0.5,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q406",
-    "text": "mera Convexity transaction fail ho gaya toh complain kahan kare",
-    "relevant_doc_ids": [
-      "C351"
-    ],
-    "template_origin": "pattern_6",
-    "cmi_target": 0.65,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q407",
-    "text": "important guidelines valuation securities ka interest rate aur tenure kitna hai",
-    "relevant_doc_ids": [
-      "C352"
-    ],
-    "template_origin": "pattern_7",
-    "cmi_target": 0.4,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q408",
-    "text": "what is the process for risks involved holding G-Secs cancellation or closure",
-    "relevant_doc_ids": [
-      "C353"
-    ],
-    "template_origin": "pattern_8",
-    "cmi_target": 0.3,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q409",
-    "text": "Risk Mitigation update karwane ke liye bank branch jana padega kya",
-    "relevant_doc_ids": [
-      "C354"
-    ],
-    "template_origin": "pattern_9",
-    "cmi_target": 0.55,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q410",
-    "text": "kya Money Market ke liye minimum balance ya charge lagta hai",
-    "relevant_doc_ids": [
-      "C355"
-    ],
-    "template_origin": "pattern_0",
-    "cmi_target": 0.55,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q411",
-    "text": "different money market instruments ke rules aur guidelines kya hain",
-    "relevant_doc_ids": [
-      "C356"
-    ],
-    "template_origin": "pattern_1",
-    "cmi_target": 0.45,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q412",
-    "text": "how to apply for Call money market online or offline",
-    "relevant_doc_ids": [
-      "C357"
-    ],
-    "template_origin": "pattern_2",
-    "cmi_target": 0.35,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q413",
-    "text": "Repo market mein kitna limit aur penalty hota hai",
-    "relevant_doc_ids": [
-      "C358"
-    ],
-    "template_origin": "pattern_3",
-    "cmi_target": 0.6,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q414",
-    "text": "kya senior citizens ko Triparty Repo par special benefit milta hai",
-    "relevant_doc_ids": [
-      "C359"
-    ],
-    "template_origin": "pattern_4",
-    "cmi_target": 0.5,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q415",
-    "text": "Commercial Paper CP ke liye documents aur eligibility kya chahiye",
-    "relevant_doc_ids": [
-      "C360"
-    ],
-    "template_origin": "pattern_5",
-    "cmi_target": 0.5,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q416",
-    "text": "mera Certificate Deposit CD transaction fail ho gaya toh complain kahan kare",
-    "relevant_doc_ids": [
-      "C361"
-    ],
-    "template_origin": "pattern_6",
-    "cmi_target": 0.65,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q417",
-    "text": "role functions FIMMDA FBIL ka interest rate aur tenure kitna hai",
-    "relevant_doc_ids": [
-      "C362"
-    ],
-    "template_origin": "pattern_7",
-    "cmi_target": 0.4,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q418",
-    "text": "what is the process for various websites that give cancellation or closure",
-    "relevant_doc_ids": [
-      "C363"
-    ],
-    "template_origin": "pattern_8",
-    "cmi_target": 0.3,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q419",
-    "text": "Accrued Interest update karwane ke liye bank branch jana padega kya",
-    "relevant_doc_ids": [
-      "C364"
-    ],
-    "template_origin": "pattern_9",
-    "cmi_target": 0.55,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q420",
-    "text": "kya Auction Multiple price Uniform ke liye minimum balance ya charge lagta hai",
-    "relevant_doc_ids": [
-      "C365"
-    ],
-    "template_origin": "pattern_0",
-    "cmi_target": 0.55,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q421",
-    "text": "Price Yield ke rules aur guidelines kya hain",
-    "relevant_doc_ids": [
-      "C366"
-    ],
-    "template_origin": "pattern_1",
-    "cmi_target": 0.45,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q422",
-    "text": "how to apply for Figure online or offline",
-    "relevant_doc_ids": [
-      "C367"
-    ],
-    "template_origin": "pattern_2",
-    "cmi_target": 0.35,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q423",
-    "text": "Competitive mein kitna limit aur penalty hota hai",
-    "relevant_doc_ids": [
-      "C368"
-    ],
-    "template_origin": "pattern_3",
-    "cmi_target": 0.6,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q424",
-    "text": "kya senior citizens ko Coupon Frequency par special benefit milta hai",
-    "relevant_doc_ids": [
-      "C369"
-    ],
-    "template_origin": "pattern_4",
-    "cmi_target": 0.5,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q425",
-    "text": "Duration Macaulay Duration ke liye documents aur eligibility kya chahiye",
-    "relevant_doc_ids": [
-      "C370"
-    ],
-    "template_origin": "pattern_5",
-    "cmi_target": 0.5,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q426",
-    "text": "mera Face Value transaction fail ho gaya toh complain kahan kare",
-    "relevant_doc_ids": [
-      "C371"
-    ],
-    "template_origin": "pattern_6",
-    "cmi_target": 0.65,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q427",
-    "text": "Floating-Rate Bond ka interest rate aur tenure kitna hai",
-    "relevant_doc_ids": [
-      "C372"
-    ],
-    "template_origin": "pattern_7",
-    "cmi_target": 0.4,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q428",
-    "text": "what is the process for Gilt G-Secs cancellation or closure",
-    "relevant_doc_ids": [
-      "C373"
-    ],
-    "template_origin": "pattern_8",
-    "cmi_target": 0.3,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q429",
-    "text": "Market update karwane ke liye bank branch jana padega kya",
-    "relevant_doc_ids": [
-      "C374"
-    ],
-    "template_origin": "pattern_9",
-    "cmi_target": 0.55,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q430",
-    "text": "kya Maturity Date ke liye minimum balance ya charge lagta hai",
-    "relevant_doc_ids": [
-      "C375"
-    ],
-    "template_origin": "pattern_0",
-    "cmi_target": 0.55,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q431",
-    "text": "Non-Competitive ke rules aur guidelines kya hain",
-    "relevant_doc_ids": [
-      "C376"
-    ],
-    "template_origin": "pattern_1",
-    "cmi_target": 0.45,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q432",
-    "text": "how to apply for Primary Dealers online or offline",
-    "relevant_doc_ids": [
-      "C377"
-    ],
-    "template_origin": "pattern_2",
-    "cmi_target": 0.35,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q433",
-    "text": "Real Time Gross Settlement mein kitna limit aur penalty hota hai",
-    "relevant_doc_ids": [
-      "C378"
-    ],
-    "template_origin": "pattern_3",
-    "cmi_target": 0.6,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q434",
-    "text": "kya senior citizens ko RepoReverse Repo par special benefit milta hai",
-    "relevant_doc_ids": [
-      "C379"
-    ],
-    "template_origin": "pattern_4",
-    "cmi_target": 0.5,
-    "review_status": "auto_generated_for_review"
-  },
-  {
-    "query_id": "Q435",
-    "text": "Residual Maturity ke liye documents aur eligibility kya chahiye",
+    "text": "kya senior citizens ko Residual Maturity par special benefit milta hai",
     "relevant_doc_ids": [
       "C380"
     ],
-    "template_origin": "pattern_5",
+    "template_origin": "pattern_4",
     "cmi_target": 0.5,
     "review_status": "auto_generated_for_review"
   }

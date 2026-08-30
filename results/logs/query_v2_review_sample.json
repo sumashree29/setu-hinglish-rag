@@ -1,0 +1,677 @@
+[
+  {
+    "query_id": "Q079",
+    "query_text": "foreign exchange earnings update karwane ke liye bank branch jana padega kya",
+    "relevant_doc_ids": [
+      "C024"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q088",
+    "query_text": "what is the process for Resident cancellation or closure",
+    "relevant_doc_ids": [
+      "C034"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q089",
+    "query_text": "permanently resident update karwane ke liye bank branch jana padega kya",
+    "relevant_doc_ids": [
+      "C035"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q091",
+    "query_text": "Tax implications respect remittance ke rules aur guidelines kya hain",
+    "relevant_doc_ids": [
+      "C037"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q092",
+    "query_text": "how to apply for amount offered non-competitive bidding online or offline",
+    "relevant_doc_ids": [
+      "C040"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q098",
+    "query_text": "what is the process for RBI allot bids cancellation or closure",
+    "relevant_doc_ids": [
+      "C050"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q099",
+    "query_text": "amount through non-competitive bidding update karwane ke liye bank branch jana padega kya",
+    "relevant_doc_ids": [
+      "C053"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q104",
+    "query_text": "kya senior citizens ko PIO par special benefit milta hai",
+    "relevant_doc_ids": [
+      "C058"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q111",
+    "query_text": "ndian company accept deposits ke rules aur guidelines kya hain",
+    "relevant_doc_ids": [
+      "C066"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q112",
+    "query_text": "how to apply for Foreign Portfolio Investor Foreign online or offline",
+    "relevant_doc_ids": [
+      "C067"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q116",
+    "query_text": "mera licence mandatory carrying money transaction fail ho gaya toh complain kahan kare",
+    "relevant_doc_ids": [
+      "C071"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q120",
+    "query_text": "kya required maintained ongoing basis ke liye minimum balance ya charge lagta hai",
+    "relevant_doc_ids": [
+      "C075"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q123",
+    "query_text": "FFMC licence mein kitna limit aur penalty hota hai",
+    "relevant_doc_ids": [
+      "C078"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q125",
+    "query_text": "objective Scheme appointing Franchisees ke liye documents aur eligibility kya chahiye",
+    "relevant_doc_ids": [
+      "C080"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q127",
+    "query_text": "procedure submission application AD ka interest rate aur tenure kitna hai",
+    "relevant_doc_ids": [
+      "C082"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q128",
+    "query_text": "what is the process for checks ensured AD Category-I cancellation or closure",
+    "relevant_doc_ids": [
+      "C083"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q133",
+    "query_text": "Authorised Dealers Category-II issue mein kitna limit aur penalty hota hai",
+    "relevant_doc_ids": [
+      "C088"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q139",
+    "query_text": "NEFT system operate update karwane ke liye bank branch jana padega kya",
+    "relevant_doc_ids": [
+      "C094"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q147",
+    "query_text": "remitting funds through NEFT ka interest rate aur tenure kitna hai",
+    "relevant_doc_ids": [
+      "C102"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q155",
+    "query_text": "happens funds credited beneficiary ke liye documents aur eligibility kya chahiye",
+    "relevant_doc_ids": [
+      "C110"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q157",
+    "query_text": "happens write wrong number ka interest rate aur tenure kitna hai",
+    "relevant_doc_ids": [
+      "C112"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q159",
+    "query_text": "file complaint RB-IOS 2021 update karwane ke liye bank branch jana padega kya",
+    "relevant_doc_ids": [
+      "C114"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q163",
+    "query_text": "Reserve India discharge statutory mein kitna limit aur penalty hota hai",
+    "relevant_doc_ids": [
+      "C118"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q174",
+    "query_text": "kya senior citizens ko ceiling amount Insured deposits par special benefit milta hai",
+    "relevant_doc_ids": [
+      "C129"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q177",
+    "query_text": "deposits different banks separately ka interest rate aur tenure kitna hai",
+    "relevant_doc_ids": [
+      "C132"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q183",
+    "query_text": "RTGS stand mein kitna limit aur penalty hota hai",
+    "relevant_doc_ids": [
+      "C142"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q186",
+    "query_text": "mera processing RTGS different National transaction fail ho gaya toh complain kahan kare",
+    "relevant_doc_ids": [
+      "C145"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q187",
+    "query_text": "timings applicable ka interest rate aur tenure kitna hai",
+    "relevant_doc_ids": [
+      "C146"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q188",
+    "query_text": "what is the process for minimum maximum amount stipulation cancellation or closure",
+    "relevant_doc_ids": [
+      "C147"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q190",
+    "query_text": "kya essential information remitting customer ke liye minimum balance ya charge lagta hai",
+    "relevant_doc_ids": [
+      "C149"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q192",
+    "query_text": "how to apply for care taken while originating online or offline",
+    "relevant_doc_ids": [
+      "C152"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q193",
+    "query_text": "RTGS credit beneficiary given mein kitna limit aur penalty hota hai",
+    "relevant_doc_ids": [
+      "C153"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q195",
+    "query_text": "transaction future date ke liye documents aur eligibility kya chahiye",
+    "relevant_doc_ids": [
+      "C155"
+    ],
+    "flagged": true,
+    "flag_reason": "Broken entity fragment (starts with 'transaction'): 'transaction future date'"
+  },
+  {
+    "query_id": "Q201",
+    "query_text": "RTGS transaction ke rules aur guidelines kya hain",
+    "relevant_doc_ids": [
+      "C163"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q211",
+    "query_text": "foreign coins surrendered Authorised ke rules aur guidelines kya hain",
+    "relevant_doc_ids": [
+      "C173"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q212",
+    "query_text": "how to apply for category visit requires prior online or offline",
+    "relevant_doc_ids": [
+      "C174"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q214",
+    "query_text": "kya senior citizens ko permitted hold International Credit par special benefit milta hai",
+    "relevant_doc_ids": [
+      "C176"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q216",
+    "query_text": "mera resident extend local hospitality transaction fail ho gaya toh complain kahan kare",
+    "relevant_doc_ids": [
+      "C178"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q218",
+    "query_text": "what is the process for meeting medical expenses NRI cancellation or closure",
+    "relevant_doc_ids": [
+      "C180"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q224",
+    "query_text": "kya senior citizens ko documents required presented remitter par special benefit milta hai",
+    "relevant_doc_ids": [
+      "C186"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q226",
+    "query_text": "mera remitting customer India know transaction fail ho gaya toh complain kahan kare",
+    "relevant_doc_ids": [
+      "C188"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q242",
+    "query_text": "how to apply for India online or offline",
+    "relevant_doc_ids": [
+      "C206"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q248",
+    "query_text": "what is the process for payment obligation payment instruction cancellation or closure",
+    "relevant_doc_ids": [
+      "C215"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q250",
+    "query_text": "kya Payment Instruction ke liye minimum balance ya charge lagta hai",
+    "relevant_doc_ids": [
+      "C217"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q252",
+    "query_text": "how to apply for Payment System PSS 2007 online or offline",
+    "relevant_doc_ids": [
+      "C219"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q257",
+    "query_text": "Financial Market Infrastructures ka interest rate aur tenure kitna hai",
+    "relevant_doc_ids": [
+      "C224"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q259",
+    "query_text": "services foreign entity provide update karwane ke liye bank branch jana padega kya",
+    "relevant_doc_ids": [
+      "C226"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q261",
+    "query_text": "parameters taken consideration giving ke rules aur guidelines kya hain",
+    "relevant_doc_ids": [
+      "C228"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q262",
+    "query_text": "how to apply for Reserve refuse grant authorization online or offline",
+    "relevant_doc_ids": [
+      "C229"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q265",
+    "query_text": "Reserve collect authorisation fees ke liye documents aur eligibility kya chahiye",
+    "relevant_doc_ids": [
+      "C232"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q269",
+    "query_text": "Reserve inspect premises system update karwane ke liye bank branch jana padega kya",
+    "relevant_doc_ids": [
+      "C236"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q270",
+    "query_text": "kya foreign entities ke liye minimum balance ya charge lagta hai",
+    "relevant_doc_ids": [
+      "C237"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q290",
+    "query_text": "kya type transactions counted free ke liye minimum balance ya charge lagta hai",
+    "relevant_doc_ids": [
+      "C257"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q292",
+    "query_text": "how to apply for customers charged transactions ATMs online or offline",
+    "relevant_doc_ids": [
+      "C259"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q305",
+    "query_text": "RBI advised banks frame ke liye documents aur eligibility kya chahiye",
+    "relevant_doc_ids": [
+      "C272"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q308",
+    "query_text": "what is the process for charges levied collection denominated cancellation or closure",
+    "relevant_doc_ids": [
+      "C275"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q311",
+    "query_text": "Just RBI mandated timeframe ke rules aur guidelines kya hain",
+    "relevant_doc_ids": [
+      "C278"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q312",
+    "query_text": "how to apply for customers given credit allowed online or offline",
+    "relevant_doc_ids": [
+      "C280"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q334",
+    "query_text": "kya senior citizens ko Open Market Operations OMOs par special benefit milta hai",
+    "relevant_doc_ids": [
+      "C303"
+    ],
+    "flagged": true,
+    "flag_reason": "Broken entity fragment (starts with 'open'): 'Open Market Operations OMOs'"
+  },
+  {
+    "query_id": "Q349",
+    "query_text": "information about price G-Sec update karwane ke liye bank branch jana padega kya",
+    "relevant_doc_ids": [
+      "C318"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q350",
+    "query_text": "kya NDS-OM Market ke liye minimum balance ya charge lagta hai",
+    "relevant_doc_ids": [
+      "C319"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q355",
+    "query_text": "Delivery versus Payment DvP ke liye documents aur eligibility kya chahiye",
+    "relevant_doc_ids": [
+      "C324"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q358",
+    "query_text": "what is the process for basic mathematical concepts know cancellation or closure",
+    "relevant_doc_ids": [
+      "C327"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q361",
+    "query_text": "Price bond calculated ke rules aur guidelines kya hain",
+    "relevant_doc_ids": [
+      "C331"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q363",
+    "query_text": "yield bond calculated mein kitna limit aur penalty hota hai",
+    "relevant_doc_ids": [
+      "C333"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q371",
+    "query_text": "yield Bill calculated ke rules aur guidelines kya hain",
+    "relevant_doc_ids": [
+      "C343"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q377",
+    "query_text": "risks involved ka interest rate aur tenure kitna hai",
+    "relevant_doc_ids": [
+      "C353"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q378",
+    "query_text": "what is the process for Risk Mitigation cancellation or closure",
+    "relevant_doc_ids": [
+      "C354"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q384",
+    "query_text": "kya senior citizens ko Commercial Paper par special benefit milta hai",
+    "relevant_doc_ids": [
+      "C360"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q385",
+    "query_text": "Certificate Deposit ke liye documents aur eligibility kya chahiye",
+    "relevant_doc_ids": [
+      "C361"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q387",
+    "query_text": "websites give information G-Secs ka interest rate aur tenure kitna hai",
+    "relevant_doc_ids": [
+      "C363"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q392",
+    "query_text": "how to apply for Competitive online or offline",
+    "relevant_doc_ids": [
+      "C368"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q397",
+    "query_text": "Gilt G-Secs ka interest rate aur tenure kitna hai",
+    "relevant_doc_ids": [
+      "C373"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q401",
+    "query_text": "Primary Dealers ke rules aur guidelines kya hain",
+    "relevant_doc_ids": [
+      "C377"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  },
+  {
+    "query_id": "Q403",
+    "query_text": "RepoReverse Repo mein kitna limit aur penalty hota hai",
+    "relevant_doc_ids": [
+      "C379"
+    ],
+    "flagged": false,
+    "flag_reason": null
+  }
+]
