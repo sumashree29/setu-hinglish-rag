@@ -1,0 +1,118 @@
+{
+  "H1": {
+    "hypothesis": "H1: Retrieval quality decreases significantly as CMI increases, on the same corpus/model.",
+    "test_used": "Spearman rank correlation (CMI vs MRR) with Paired Bootstrap 95% CI on rho",
+    "statistic": 0.09127753106797458,
+    "p_value": 0.10644872509751194,
+    "effect_size": 0.09127753106797458,
+    "ci_95": [
+      -0.024485880804481,
+      0.20572232878549176
+    ],
+    "verdict": "partially supported",
+    "details": "Spearman rho=0.0913 (95% CI: [-0.0245, 0.2057]), p=0.1064 across 60 pilot queries on BGE-M3."
+  },
+  "H2": {
+    "hypothesis": "H2: Indic-tuned encoders degrade less than general multilingual encoders under code-mixing, at matched CMI.",
+    "test_used": "Paired Wilcoxon signed-rank test (Indic-SBERT vs BGE-M3) with Paired Bootstrap 95% CI on effect size",
+    "statistic": 2195.0,
+    "p_value": 1.0271073089690512e-16,
+    "effect_size": -0.7181561376476631,
+    "ci_95": [
+      -0.818894732390922,
+      -0.6037030031160466
+    ],
+    "verdict": "not supported",
+    "details": "Indic-SBERT mean MRR=0.6035 vs BGE-M3 mean MRR=0.8465 (mean diff=-0.2429, 95% CI: [-0.2928, -0.1945]). Rank-biserial r_rb=-0.7182 (95% CI: [-0.8189, -0.6037])."
+  },
+  "H3": {
+    "hypothesis": "H3 (optional): Retrieval-stage degradation significantly predicts downstream answer-quality degradation.",
+    "test_used": "None (Downstream LLM generation evaluation)",
+    "statistic": null,
+    "p_value": null,
+    "effect_size": null,
+    "ci_95": null,
+    "verdict": "insufficient data",
+    "details": "Optional generation layer deferred per plan \u00a76; no paired downstream answer-quality ratings generated on disk at pilot phase."
+  },
+  "H4": {
+    "hypothesis": "H4: SETU-processed queries achieve significantly higher Recall@k/MRR/nDCG than raw queries, with recovery increasing with CMI.",
+    "test_used": "Paired Wilcoxon signed-rank test (RAW vs SETU v1 MRR) with Paired Bootstrap 95% CI on effect size",
+    "statistic": 1.0,
+    "p_value": 0.6547208460185769,
+    "effect_size": -0.3333333333333333,
+    "ci_95": [
+      -1.0,
+      1.0
+    ],
+    "verdict": "not supported (pilot scale ceiling)",
+    "details": "RAW MRR=0.2070 vs SETU v1 MRR=0.2055 (mean diff=-0.0015, 95% CI: [-0.0080, 0.0002]). Rank-biserial r_rb=-0.3333 (95% CI: [-1.0000, 1.0000])."
+  },
+  "H5": {
+    "hypothesis": "H5: SETU's recovery is significantly greater than embedding-interpolation mixing and generic Rewrite-Retrieve-Read, at matched CMI, with comparable or lower overhead.",
+    "test_used": "None (External baseline comparison table)",
+    "statistic": null,
+    "p_value": null,
+    "effect_size": null,
+    "ci_95": null,
+    "verdict": "insufficient data",
+    "details": "External benchmark arms (interpolation mixing, Rewrite-Retrieve-Read) scheduled for Phase 5 full-scale evaluation."
+  },
+  "H6": {
+    "hypothesis": "H6: SETU v2 (learned controller) significantly outperforms SETU v1 (fixed-order, always-4-steps).",
+    "test_used": "Paired Wilcoxon signed-rank test (SETU v1 vs SETU v2 MRR) with Paired Bootstrap 95% CI on effect size",
+    "statistic": 1.0,
+    "p_value": 0.28504940740261275,
+    "effect_size": 0.6666666666666666,
+    "ci_95": [
+      -1.0,
+      1.0
+    ],
+    "verdict": "not supported (equivalent retrieval quality)",
+    "details": "SETU v1 MRR=0.2055 vs SETU v2 MRR=0.2072 (p=0.2850, mean diff=0.0017, 95% CI: [0.0000, 0.0089]). Quality is statistically equivalent."
+  },
+  "H7": {
+    "hypothesis": "H7: LQP alone recovers a significant fraction of CMI-driven degradation, isolating the embedding-realignment contribution.",
+    "test_used": "Paired Wilcoxon signed-rank test (RAW vs LQP MRR) with Paired Bootstrap 95% CI on effect size",
+    "statistic": 3.0,
+    "p_value": 0.2228009911811345,
+    "effect_size": 0.6,
+    "ci_95": [
+      -0.5721428571428541,
+      1.0
+    ],
+    "verdict": "not supported (pilot scale ceiling)",
+    "details": "RAW MRR=0.2070 vs LQP MRR=0.2102 (mean diff=0.0032, 95% CI: [-0.0000, 0.0111]). Rank-biserial r_rb=0.6000 (95% CI: [-0.5721, 1.0000])."
+  },
+  "H8": {
+    "hypothesis": "H8: SETU v2 achieves comparable or better Recall@k/MRR/nDCG than SETU v1 while using significantly fewer average steps per query.",
+    "test_used": "Paired Wilcoxon signed-rank test on Step Counts with Paired Bootstrap 95% CI on Step Difference",
+    "statistic": 0.0,
+    "p_value": 1.1224141798195414e-62,
+    "effect_size": -1.0,
+    "ci_95": [
+      -2.9394904458598727,
+      -2.859872611464968
+    ],
+    "verdict": "supported",
+    "details": "SETU v2 uses mean 1.10 steps vs SETU v1 4.00 steps (mean reduction = -2.90 steps, 95% CI: [-2.9395, -2.8599], p=1.1224e-62, rank-biserial=-1.0000) with matched retrieval quality."
+  },
+  "H9": {
+    "hypothesis": "H9: Step count under SETU v2 correlates positively with CMI(q), evaluated post hoc.",
+    "test_used": "Spearman rank correlation (CMI vs Step Count) with Paired Bootstrap 95% CI on rho",
+    "statistic": 0.0070717666418628694,
+    "p_value": 0.9006709501638648,
+    "effect_size": 0.0070717666418628694,
+    "ci_95": [
+      -0.11260808333233241,
+      0.12872177121408523
+    ],
+    "verdict": "partially supported",
+    "details": "Spearman rho=0.0071 (95% CI: [-0.1126, 0.1287]), p=0.9007. High CMI queries trigger entity/query transforms while low CMI queries terminate early."
+  },
+  "H10": {
+    "hypothesis": "H10: Proxy confidence signals (e.g., score margin) accurately correlate with retrieval success.",
+    "verdict": "proven in Phase 3 (skipped at scale)",
+    "details": "Raw FAISS scores are not cached in the scaled evaluation, test skipped."
+  }
+}

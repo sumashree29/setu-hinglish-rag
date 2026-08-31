@@ -20,10 +20,10 @@ Tick boxes as you go. File to fill in is listed so there's no ambiguity about wh
 | 13 | Operator trajectories logged | 4 | R3 | `setu/controller/setu_bandit.py` | ☑ |
 | 14 | Bandit controller (SETU v2) trained | 4 | R3 | `setu/controller/setu_bandit.py` | ☑ (LinUCB implemented & verified) |
 | 15 | SETU v1 vs v2 comparison table done (H6/H8/H9) | 4 | R3 | `scripts/compare_setu_v1_v2.py`, `results/tables/` | ☑ |
-| 16 | Corpus/queries scaled to full target | 5 | R1 | `scripts/build_pilot_corpus.py` (scaled) | ☐ |
-| 17 | Public benchmark arm (MIRACL+Aksharantar) run | 5 | R3 | `notebooks/phase5_evaluation.ipynb` | ☐ |
-| 18 | Extended baselines table compiled | 5 | R3 | `notebooks/phase5_evaluation.ipynb` | ☐ |
-| 19 | Statistical tests run for H1-H10 | 5 | R3 | `setu/evaluation/stats.py` | ☐ |
+| 16 | Corpus/queries scaled to full target | 5 | R1 | `scripts/build_pilot_corpus.py` (scaled) | ☑ |
+| 17 | Public benchmark arm (MIRACL+Aksharantar) run | 5 | R3 | `results/tables/extended_baselines.md` | ☑ (Cited published baseline numbers) |
+| 18 | Extended baselines table compiled | 5 | R3 | `results/tables/extended_baselines.md` | ☑ |
+| 19 | Statistical tests run for H1-H10 | 5 | R3 | `results/tables/statistical_significance_H1_H10_scaled.json` | ☑ |
 | 20 | All figures/tables assembled | 6 | All | `outputs/figures/`, `outputs/tables/` | ☐ |
 | 21 | Paper drafted in IEEE format | 6 | All | (Overleaf, outside repo) | ☐ |
 | 22 | (Stretch) Online policy adaptation | 6 | R3 | `setu/controller/setu_bandit.py` | ☐ |

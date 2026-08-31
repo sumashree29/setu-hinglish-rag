@@ -228,3 +228,8 @@ for model_key in MODELS:
         print(f"{model_display_names[model_key]:<15} | {m:<10} | {slope:<28.4f} | {rho:<22.4f} | {p_rho:<12.4e}")
     print("-" * 95)
 
+out_per_query = LOG_DIR / "per_query_metrics_v2.json"
+with open(out_per_query, "w", encoding="utf-8") as f:
+    json.dump(per_query_results, f, indent=2)
+print(f"Saved scaled per-query metrics to {out_per_query}")
+
