@@ -489,7 +489,7 @@
   },
   {
     "query_id": "Q61",
-    "variant": "low",
+    "variant": "misspelled",
     "text": "What is a bsbda account, is there any minimum balance requirement",
     "relevant_doc_ids": [
       "D01"
@@ -497,7 +497,7 @@
   },
   {
     "query_id": "Q62",
-    "variant": "high",
+    "variant": "misspelled",
     "text": "kya bsbda khata zero balance account hota hai ya balance rakhna padega",
     "relevant_doc_ids": [
       "D01"
@@ -505,7 +505,7 @@
   },
   {
     "query_id": "Q63",
-    "variant": "medium",
+    "variant": "misspelled",
     "text": "Kya ek hi bank mein do bsbdaa account open kar sakte hain",
     "relevant_doc_ids": [
       "D02"
@@ -513,7 +513,7 @@
   },
   {
     "query_id": "Q64",
-    "variant": "low",
+    "variant": "misspelled",
     "text": "How many free cash withdrawals can I make from a bsb-da account each month",
     "relevant_doc_ids": [
       "D03"
@@ -521,7 +521,7 @@
   },
   {
     "query_id": "Q65",
-    "variant": "high",
+    "variant": "misspelled",
     "text": "atm me balance enquiry karne par monthly limit cut hoti hai kya",
     "relevant_doc_ids": [
       "D04"
@@ -529,7 +529,7 @@
   },
   {
     "query_id": "Q66",
-    "variant": "medium",
+    "variant": "misspelled",
     "text": "bsbda account holder ko atm debit card free milta hai ya annual charge lagta hai",
     "relevant_doc_ids": [
       "D05"
@@ -537,7 +537,7 @@
   },
   {
     "query_id": "Q67",
-    "variant": "high",
+    "variant": "misspelled",
     "text": "kya bsbda khata khulwane par pasbook free di jaati hai",
     "relevant_doc_ids": [
       "D07"
@@ -545,7 +545,7 @@
   },
   {
     "query_id": "Q68",
-    "variant": "low",
+    "variant": "misspelled",
     "text": "Can I open a small account using simplified kyc documentation",
     "relevant_doc_ids": [
       "D08"
@@ -553,7 +553,7 @@
   },
   {
     "query_id": "Q69",
-    "variant": "medium",
+    "variant": "misspelled",
     "text": "simplified kyc wala small acount kitne months tak valid rehta hai",
     "relevant_doc_ids": [
       "D09"
@@ -561,7 +561,7 @@
   },
   {
     "query_id": "Q70",
-    "variant": "low",
+    "variant": "misspelled",
     "text": "How much financial benefit does pmkisan yojana provide to farmers annually",
     "relevant_doc_ids": [
       "D11"
@@ -569,7 +569,7 @@
   },
   {
     "query_id": "Q71",
-    "variant": "high",
+    "variant": "misspelled",
     "text": "pm-kisaan yojana ka labh lene ke liye farmer family ki eligibility sharte kya hain",
     "relevant_doc_ids": [
       "D12"
@@ -577,7 +577,7 @@
   },
   {
     "query_id": "Q72",
-    "variant": "medium",
+    "variant": "misspelled",
     "text": "kya institutional landholder ko pmkisan scheme ka fayda milta hai",
     "relevant_doc_ids": [
       "D13"
@@ -585,7 +585,7 @@
   },
   {
     "query_id": "Q73",
-    "variant": "high",
+    "variant": "misspelled",
     "text": "pmkisan payment aane ke liye aadhar link karwana mandatory hai kya",
     "relevant_doc_ids": [
       "D15"
@@ -593,7 +593,7 @@
   },
   {
     "query_id": "Q74",
-    "variant": "medium",
+    "variant": "misspelled",
     "text": "Agar adhar details mismatch ho jaye to kya pm-kisan ki kist ruk jayegi",
     "relevant_doc_ids": [
       "D15"
@@ -601,7 +601,7 @@
   },
   {
     "query_id": "Q75",
-    "variant": "high",
+    "variant": "misspelled",
     "text": "kisan pmkisan registration ke liye common service center ya csc par kaise jayein",
     "relevant_doc_ids": [
       "D20"

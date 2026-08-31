@@ -175,16 +175,44 @@ for model_key, (model_name, needs_prefix) in EMBEDDING_MODELS.items():
     ]
     caep_features = []
     caep_labels = []
-    for ent in entities[:100]: # Train on representative entity set
+    for ent in entities: # Train on all domain entities
         caep_features.append(build_entity_features(ent, ent, entity_freq, embed_fn))
         caep_labels.append(0)
+        
         if ent.lower() != ent:
             caep_features.append(build_entity_features(ent.lower(), ent, entity_freq, embed_fn))
             caep_labels.append(1)
+            
         if len(ent) > 3:
             del_var = ent[:2] + ent[3:]
             caep_features.append(build_entity_features(del_var.lower(), ent, entity_freq, embed_fn))
             caep_labels.append(1)
+            
+        vowel_var = ent.lower().replace("aa", "a").replace("ee", "i").replace("oo", "u")
+        if vowel_var != ent.lower():
+            caep_features.append(build_entity_features(vowel_var, ent, entity_freq, embed_fn))
+            caep_labels.append(1)
+
+        dup_var = ent.lower() + ent[-1].lower()
+        caep_features.append(build_entity_features(dup_var, ent, entity_freq, embed_fn))
+        caep_labels.append(1)
+
+        if "Aadhaar" in ent:
+            for v in ["aadhar", "adhar", "aaddhar"]:
+                caep_features.append(build_entity_features(v, ent, entity_freq, embed_fn))
+                caep_labels.append(1)
+        if "BSBDA" in ent:
+            for v in ["bsb-da", "bsbdaa", "bsbda"]:
+                caep_features.append(build_entity_features(v, ent, entity_freq, embed_fn))
+                caep_labels.append(1)
+        if "PM-KISAN" in ent or "Kisan" in ent:
+            for v in ["pmkisan", "pm-kisaan", "kisaan"]:
+                caep_features.append(build_entity_features(v, ent, entity_freq, embed_fn))
+                caep_labels.append(1)
+        if "KYC" in ent:
+            caep_features.append(build_entity_features("kyc", ent, entity_freq, embed_fn))
+            caep_labels.append(1)
+            
         for hw in common_hard_negatives:
             if fuzz.ratio(hw.lower(), ent.lower()) < 70:
                 caep_features.append(build_entity_features(hw, ent, entity_freq, embed_fn))
