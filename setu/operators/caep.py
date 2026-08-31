@@ -45,7 +45,12 @@ def extract_entity_list(corpus_chunks: List[str]) -> List[str]:
                     for w in words:
                         if w.lower() not in STOPWORDS and w[0].isupper():
                             entities.add(w)
-    return sorted(list(entities))
+    whitelist = {"ATM", "KYC", "PAN", "PM", "RBI", "AD", "ADs", "FMI", "OMO", "LAF"}
+    final_entities = []
+    for ent in sorted(list(entities)):
+        if len(ent) >= 4 or ent.upper() in whitelist:
+            final_entities.append(ent)
+    return final_entities
 
 
 def entity_frequencies(corpus_chunks: List[str]) -> Dict[str, int]:
@@ -156,7 +161,12 @@ def apply_caep(query: str, entities: List[str], gate: LogisticRegression, entity
                 best_score = score
                 best_entity = entity
                 
-        if best_entity and best_score > 50:
+        if best_entity and best_score > 85:
+            # For very short entities, only allow exact (case-insensitive) matches
+            if len(best_entity) < 4 and best_score < 100:
+                new_words.append(word)
+                continue
+            
             features = build_entity_features(clean_word, best_entity, entity_freq, embed_fn=embed_fn)
             pred = gate.predict([features])[0]
             if pred == 1:

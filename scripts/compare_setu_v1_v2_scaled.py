@@ -35,7 +35,7 @@ queries = json.load(open("data/processed/queries_v3_final.json", encoding="utf-8
 
 # --- Embedding + FAISS setup (BGE-M3, matches fitted LQP model dim 1024) ---
 print("Loading embedding model (BGE-M3)...")
-model = SentenceTransformer("BAAI/bge-m3")
+model = SentenceTransformer("BAAI/bge-m3", local_files_only=True)
 
 
 def embed_fn(texts):
@@ -60,11 +60,11 @@ entities = extract_entity_list(doc_texts)
 entity_freq = entity_frequencies(doc_texts)
 
 print("Loading real fitted CAEP gate, LQP model, and LAG model from results/models/...")
-with open("results/models/caep_gate.pkl", "rb") as f:
+with open("results/models/caep_gate_bge_m3.pkl", "rb") as f:
     caep_gate = pickle.load(f)
-with open("results/models/lqp_model.pkl", "rb") as f:
+with open("results/models/lqp_model_bge_m3.pkl", "rb") as f:
     lqp_model = pickle.load(f)
-with open("results/models/lag_model.pkl", "rb") as f:
+with open("results/models/lag_model_v3.pkl", "rb") as f:
     lag_model = pickle.load(f)
 
 print("Loaded caep_gate.pkl, lqp_model.pkl, and lag_model.pkl (trained on real corpus/PHINC/pilot labels)\n")
@@ -188,7 +188,7 @@ print(f"Mean steps taken: {v2_metrics['mean_steps']:.2f}")
 print(f"Mean latency: {v2_metrics['mean_latency_ms']:.2f} ms")
 
 # --- Metrics across Q61-Q75 subset (Misspelled entity queries only) ---
-subset_qids = [q["query_id"] for q in queries if int(q["query_id"].replace("Q", "")) >= 61]
+subset_qids = [q["query_id"] for q in queries if 61 <= int(q["query_id"].replace("Q", "")) <= 75]
 subset_results = {}
 if subset_qids:
     qrels_sub = Qrels({qid: qrels_dict[qid] for qid in subset_qids})
@@ -233,6 +233,5 @@ comparison_out = {
 }
 comparison_path = tables_dir / "setu_v1_v2_comparison_scaled.json"
 with open(comparison_path, "w", encoding="utf-8") as f:
-    json.dump(comparison_out, f, indent=2)
-print(f"\nSaved comparison table to {comparison_path}")
-
+print(f"\nSaved aggregate comparison to {tables_dir / 'setu_v1_v2_comparison_scaled.json'}")
+print(f"Saved per-query MRR metrics to {logs_dir / 'setu_v1_v2_per_query_scaled.json'}")

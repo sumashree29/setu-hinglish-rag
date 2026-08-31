@@ -25,7 +25,8 @@ def entity_density(query: str, entities: List[str]) -> float:
     tokens = query.split()
     if not tokens:
         return 0.0
-    entity_tokens = sum(1 for t in tokens if any(e.lower() in t.lower() for e in entities))
+    entity_set = {e.lower() for e in entities}
+    entity_tokens = sum(1 for t in tokens if t.lower() in entity_set)
     return entity_tokens / len(tokens)
 
 

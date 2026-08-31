@@ -63,8 +63,8 @@ results_h1_h10["H1"] = {
     "p_value": float(p_val_h1),
     "effect_size": float(rho_h1),
     "ci_95": [float(h1_ci_low), float(h1_ci_high)],
-    "verdict": "partially supported",
-    "details": f"Spearman rho={rho_h1:.4f} (95% CI: [{h1_ci_low:.4f}, {h1_ci_high:.4f}]), p={p_val_h1:.4f} across 60 pilot queries on BGE-M3."
+    "verdict": "supported" if p_val_h1 < 0.05 else "not supported",
+    "details": f"Spearman rho={rho_h1:.4f} (95% CI: [{h1_ci_low:.4f}, {h1_ci_high:.4f}]), p={p_val_h1:.4f} across 314 queries on BGE-M3."
 }
 
 # -------------------------------------------------------------
@@ -87,7 +87,7 @@ results_h1_h10["H2"] = {
     "p_value": float(p_val_h2),
     "effect_size": float(eff_h2),
     "ci_95": [float(h2_ci_low), float(h2_ci_high)],
-    "verdict": "not supported",
+    "verdict": "supported" if p_val_h2 < 0.05 and np.mean(diff_h2) > 0 else "not supported",
     "details": f"Indic-SBERT mean MRR={np.mean(indic_mrr):.4f} vs BGE-M3 mean MRR={np.mean(bge_common_mrr):.4f} (mean diff={np.mean(diff_h2):.4f}, 95% CI: [{h2_d_low:.4f}, {h2_d_high:.4f}]). Rank-biserial r_rb={eff_h2:.4f} (95% CI: [{h2_ci_low:.4f}, {h2_ci_high:.4f}])."
 }
 
@@ -113,10 +113,10 @@ from sentence_transformers import SentenceTransformer
 from setu.operators.caep import extract_entity_list, entity_frequencies
 from setu.controller.setu_bandit import setu_v1_fixed_order, setu_v2_run, LinUCBController
 
-chunks = [json.loads(line) for line in open(ROOT / "data" / "processed" / "corpus_chunks.jsonl", encoding="utf-8")]
+chunks = [json.loads(line) for line in open(ROOT / "data" / "processed" / "corpus_chunks_v2.jsonl", encoding="utf-8")]
 doc_ids = [c["chunk_id"] for c in chunks]
 doc_texts = [c["text"] for c in chunks]
-model = SentenceTransformer("BAAI/bge-m3")
+model = SentenceTransformer("BAAI/bge-m3", local_files_only=True)
 doc_emb = model.encode(doc_texts, convert_to_numpy=True).astype("float32")
 faiss.normalize_L2(doc_emb)
 idx = faiss.IndexFlatIP(doc_emb.shape[1])
@@ -130,9 +130,9 @@ def faiss_search(q_emb, k=10):
 
 entities = extract_entity_list(doc_texts)
 entity_freq = entity_frequencies(doc_texts)
-caep_gate = pickle.load(open(ROOT / "results" / "models" / "caep_gate.pkl", "rb"))
-lqp_model = pickle.load(open(ROOT / "results" / "models" / "lqp_model.pkl", "rb"))
-lag_model = pickle.load(open(ROOT / "results" / "models" / "lag_model.pkl", "rb"))
+caep_gate = pickle.load(open(ROOT / "results" / "models" / "caep_gate_bge_m3.pkl", "rb"))
+lqp_model = pickle.load(open(ROOT / "results" / "models" / "lqp_model_bge_m3.pkl", "rb"))
+lag_model = pickle.load(open(ROOT / "results" / "models" / "lag_model_v3.pkl", "rb"))
 
 raw_mrrs, v1_mrrs, v2_mrrs = [], [], []
 v2_steps_per_q, cmi_per_q = [], []
@@ -227,7 +227,7 @@ results_h1_h10["H4"] = {
     "p_value": float(p_val_h4),
     "effect_size": float(eff_h4),
     "ci_95": [float(h4_rb_low), float(h4_rb_high)],
-    "verdict": "not supported (pilot scale ceiling)",
+    "verdict": "supported" if p_val_h4 < 0.05 and np.mean(diff_h4) > 0 else "not supported",
     "details": f"RAW MRR={np.mean(raw_mrrs):.4f} vs SETU v1 MRR={np.mean(v1_mrrs):.4f} (mean diff={np.mean(diff_h4):.4f}, 95% CI: [{h4_d_low:.4f}, {h4_d_high:.4f}]). Rank-biserial r_rb={eff_h4:.4f} (95% CI: [{h4_rb_low:.4f}, {h4_rb_high:.4f}])."
 }
 
@@ -298,7 +298,7 @@ results_h1_h10["H7"] = {
     "p_value": float(p_val_h7),
     "effect_size": float(eff_h7),
     "ci_95": [float(h7_rb_low), float(h7_rb_high)],
-    "verdict": "not supported (pilot scale ceiling)",
+    "verdict": "supported" if p_val_h4 < 0.05 and np.mean(diff_h4) > 0 else "not supported",
     "details": f"RAW MRR={np.mean(raw_mrrs):.4f} vs LQP MRR={np.mean(lqp_mrrs):.4f} (mean diff={np.mean(diff_h7):.4f}, 95% CI: [{h7_d_low:.4f}, {h7_d_high:.4f}]). Rank-biserial r_rb={eff_h7:.4f} (95% CI: [{h7_rb_low:.4f}, {h7_rb_high:.4f}])."
 }
 
@@ -335,7 +335,7 @@ results_h1_h10["H9"] = {
     "p_value": float(p_val_h9),
     "effect_size": float(rho_h9),
     "ci_95": [float(h9_ci_low), float(h9_ci_high)],
-    "verdict": "partially supported",
+    "verdict": "supported" if p_val_h9 < 0.05 and rho_h9 > 0 else "not supported",
     "details": f"Spearman rho={rho_h9:.4f} (95% CI: [{h9_ci_low:.4f}, {h9_ci_high:.4f}]), p={p_val_h9:.4f}. High CMI queries trigger entity/query transforms while low CMI queries terminate early."
 }
 
