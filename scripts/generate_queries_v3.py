@@ -269,45 +269,78 @@ def build_paraphrased_query(q_raw):
     q = strip_numbering(q_raw).rstrip('?.').strip()
     ql = q.lower()
 
+    # Aggressive Hindi vocabulary mapping to remove exact lexical matches
+    vocab_map = {
+        r'\bdeposit(s)?\b': 'jama',
+        r'\baccount(s)?\b': 'khata',
+        r'\binterest( rate)?\b': 'byaaj',
+        r'\btransfer(red|s)?\b': 'bhejna',
+        r'\bloan(s)?\b': 'karz',
+        r'\bdocument(s)?\b': 'kagzaat',
+        r'\bpayment(s)?\b': 'bhugtan',
+        r'\brules?\b': 'niyam',
+        r'\blimits?\b': 'seema',
+        r'\bamount\b': 'rakam',
+        r'\bapplication\b': 'form',
+        r'\bapply\b': 'aavedan',
+        r'\bfunds?\b': 'paise',
+        r'\bbank\b': 'bank',
+        r'\bpenalty\b': 'jurmana',
+        r'\bcompensation\b': 'muawza',
+        r'\bcomplaint\b': 'shikayat',
+        r'\bforeign\b': 'videshi',
+        r'\bcurrency\b': 'mudra',
+        r'\bsecurity\b': 'suraksha',
+        r'\bbranch(es)?\b': 'shakha',
+        r'\bcheque(s)?\b': 'check',
+        r'\bwithdraw(al)?\b': 'nikalna',
+        r'\breceipt(s)?\b': 'raseed',
+        r'\bpension(er)?\b': 'pension',
+        r'\bdeath\b': 'maut',
+        r'\bissue(d)?\b': 'jaari',
+        r'\bfee(s)?\b': 'fees',
+        r'\bcard(s)?\b': 'card'
+    }
+
     if re.match(r'how much (of )?(.*)', ql):
         m = re.match(r'how much (of )?(.*)', ql)
         top = paraphrase_topic(m.group(2))
-        return f"{top} ki maximum limit aur charges kitne hote hain"
+        return f"{top} ki maximum seema aur charges kitne hote hain"
 
     if re.match(r'how many (.*)', ql):
         m = re.match(r'how many (.*)', ql)
         top = paraphrase_topic(m.group(1))
-        return f"{top} ki total count aur limit kitni hai"
+        return f"{top} ki total ginti aur seema kitni hai"
 
     if re.match(r'how (will|does|do|can|is|are) (.*)', ql):
         m = re.match(r'how (will|does|do|can|is|are) (.*)', ql)
         top = paraphrase_topic(m.group(2))
-        return f"{top} ka process aur step-by-step procedure kya hota hai"
+        return f"{top} ka tareeqa aur step-by-step procedure kya hota hai"
 
     if re.match(r'(whether|can|is there|are there|should|is|are) (.*)', ql):
         m = re.match(r'(whether|can|is there|are there|should|is|are) (.*)', ql)
         top = paraphrase_topic(m.group(2))
-        return f"kya {top} allow kiya jata hai ya koi specific restriction hai"
+        return f"kya {top} allow kiya jata hai ya koi khaas rukawat hai"
 
     if re.match(r'(what if|when should|when did|when) (.*)', ql):
         m = re.match(r'(what if|when should|when did|when) (.*)', ql)
         top = paraphrase_topic(m.group(2))
-        return f"agar {top} toh aise case mein kya rule lagta hai"
+        return f"agar {top} toh aise case mein kya niyam lagta hai"
 
     if re.match(r'what is the (procedure|process|mandate|time ?frame) for (.*)', ql):
         m = re.match(r'what is the (procedure|process|mandate|time ?frame) for (.*)', ql)
         kind, top = m.group(1), paraphrase_topic(m.group(2))
-        return f"{top} ke rules aur {kind} kya hain"
+        return f"{top} ke niyam aur tareeqa kya hain"
 
     if re.match(r'what (is|are) (meant by )?(.*)', ql):
         m = re.match(r'what (is|are) (meant by )?(.*)', ql)
         top = paraphrase_topic(m.group(3))
-        return f"{top} ka matlab aur details kya hain"
+        return f"{top} ka arth aur details kya hain"
 
     if re.match(r'who (is|are) (a |an )?(.*)', ql):
         m = re.match(r'who (is|are) (a |an )?(.*)', ql)
         top = paraphrase_topic(m.group(3))
-        return f"{top} ki definition aur role kya hai"
+        return f"{top} ki pehchaan aur role kya hai"
 
     if re.match(r'what does (.*?) (mean|insure|cover)', ql):
         m = re.match(r'what does (.*?) (mean|insure|cover)', ql)
@@ -317,15 +350,21 @@ def build_paraphrased_query(q_raw):
     if re.match(r'who can (.*)', ql):
         m = re.match(r'who can (.*)', ql)
         top = paraphrase_topic(m.group(1))
-        return f"{top} ke liye eligibility aur criteria kya hoti hai"
+        return f"{top} ke liye yogyata aur criteria kya hoti hai"
 
     if re.match(r'who (.*)', ql):
         m = re.match(r'who (.*)', ql)
         top = paraphrase_topic(m.group(1))
-        return f"{top} kaun hota hai aur rules kya hain"
+        return f"{top} kaun hota hai aur niyam kya hain"
 
     top = paraphrase_topic(q)
-    return f"{top} ke baare mein rules aur jaankari chahiye"
+    base_query = f"{top} ke baare mein niyam aur jaankari chahiye"
+    
+    # Apply aggressive vocab replacement
+    for eng, hin in vocab_map.items():
+        base_query = re.sub(eng, hin, base_query, flags=re.IGNORECASE)
+        
+    return base_query
 
 def regenerate_all_queries():
     # Load existing queries_v3_final.json to preserve pilot queries Q01-Q75

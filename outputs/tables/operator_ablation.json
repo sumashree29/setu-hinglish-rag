@@ -1,0 +1,61 @@
+{
+    "full_dataset": {
+        "RAW": {
+            "ndcg@10": 0.8959784883060604,
+            "mrr": 0.8665873015873016,
+            "recall@5": 0.9466666666666667,
+            "recall@10": 0.9866666666666667,
+            "mean_latency_ms": 118.83101066574454
+        },
+        "LQP_alone": {
+            "ndcg@10": 0.9059146266874789,
+            "mrr": 0.8798888888888888,
+            "recall@5": 0.96,
+            "recall@10": 0.9866666666666667,
+            "mean_latency_ms": 15.691088006521266
+        },
+        "CAEP_alone": {
+            "ndcg@10": 0.8941298631880178,
+            "mrr": 0.8643650793650793,
+            "recall@5": 0.9466666666666667,
+            "recall@10": 0.9866666666666667,
+            "mean_latency_ms": 805.8397453278303
+        },
+        "LAG_alone": {
+            "ndcg@10": 0.8989535156296973,
+            "mrr": 0.8702380952380951,
+            "recall@5": 0.9466666666666667,
+            "recall@10": 0.9866666666666667,
+            "mean_latency_ms": 342.09359598346055
+        }
+    },
+    "misspelled_subset": {
+        "RAW": {
+            "ndcg@10": 0.9507906338095277,
+            "mrr": 0.9333333333333333,
+            "recall@5": 1.0,
+            "recall@10": 1.0
+        },
+        "LQP_alone": {
+            "ndcg@10": 0.9753953169047639,
+            "mrr": 0.9666666666666667,
+            "recall@5": 1.0,
+            "recall@10": 1.0
+        },
+        "CAEP_alone": {
+            "ndcg@10": 0.9753953169047639,
+            "mrr": 0.9666666666666667,
+            "recall@5": 1.0,
+            "recall@10": 1.0
+        },
+        "LAG_alone": {
+            "ndcg@10": 0.9753953169047639,
+            "mrr": 0.9666666666666667,
+            "recall@5": 1.0,
+            "recall@10": 1.0
+        }
+    },
+    "n_total_queries": 75,
+    "n_misspelled_queries": 15,
+    "limitation_note": "Standalone operators (LQP/CAEP/LAG) still underperform RAW at scale on all 3 models, though the gap has narrowed since retraining on the full 380-chunk corpus."
+}

@@ -233,5 +233,6 @@ comparison_out = {
 }
 comparison_path = tables_dir / "setu_v1_v2_comparison_scaled.json"
 with open(comparison_path, "w", encoding="utf-8") as f:
+    json.dump(comparison_out, f, indent=4)
 print(f"\nSaved aggregate comparison to {tables_dir / 'setu_v1_v2_comparison_scaled.json'}")
 print(f"Saved per-query MRR metrics to {logs_dir / 'setu_v1_v2_per_query_scaled.json'}")
