@@ -610,7 +610,7 @@
   {
     "query_id": "Q076",
     "variant": "hi-en",
-    "text": "EEFC account features ka matlab aur details kya hain",
+    "text": "EEFC account features ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C021"
     ],
@@ -620,7 +620,7 @@
   {
     "query_id": "Q077",
     "variant": "hi-en",
-    "text": "EEFC account opening ke liye eligibility aur criteria kya hoti hai",
+    "text": "EEFC account opening ke liye yogyata aur criteria kya hoti hai",
     "relevant_doc_ids": [
       "C022"
     ],
@@ -630,7 +630,7 @@
   {
     "query_id": "Q078",
     "variant": "hi-en",
-    "text": "EEFC account types ka matlab aur details kya hain",
+    "text": "EEFC account types ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C023"
     ],
@@ -640,7 +640,7 @@
   {
     "query_id": "Q079",
     "variant": "hi-en",
-    "text": "foreign exchange ki maximum limit aur charges kitne hote hain",
+    "text": "foreign exchange ki maximum seema aur charges kitne hote hain",
     "relevant_doc_ids": [
       "C024"
     ],
@@ -650,7 +650,7 @@
   {
     "query_id": "Q080",
     "variant": "hi-en",
-    "text": "kya SEZ units allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya SEZ units allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C025"
     ],
@@ -660,7 +660,7 @@
   {
     "query_id": "Q081",
     "variant": "hi-en",
-    "text": "kya any cheque facility available allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya any cheque facility available allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C026"
     ],
@@ -670,7 +670,7 @@
   {
     "query_id": "Q082",
     "variant": "hi-en",
-    "text": "permissible credits ka matlab aur details kya hain",
+    "text": "permissible credits ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C027"
     ],
@@ -680,7 +680,7 @@
   {
     "query_id": "Q083",
     "variant": "hi-en",
-    "text": "kya foreign exchange allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya foreign exchange allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C028"
     ],
@@ -690,7 +690,7 @@
   {
     "query_id": "Q084",
     "variant": "hi-en",
-    "text": "permissible debits ka matlab aur details kya hain",
+    "text": "permissible debits ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C029"
     ],
@@ -700,7 +700,7 @@
   {
     "query_id": "Q085",
     "variant": "hi-en",
-    "text": "kya any restriction on withdrawal allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya any restriction on withdrawal allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C030"
     ],
@@ -710,7 +710,7 @@
   {
     "query_id": "Q086",
     "variant": "hi-en",
-    "text": "kya the eefc balances allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya the eefc balances allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C031"
     ],
@@ -720,7 +720,7 @@
   {
     "query_id": "Q087",
     "variant": "hi-en",
-    "text": "kya eefc account allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya eefc account allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C032"
     ],
@@ -730,7 +730,7 @@
   {
     "query_id": "Q088",
     "variant": "hi-en",
-    "text": "asset remittance ka matlab aur details kya hain",
+    "text": "asset remittance ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C033"
     ],
@@ -740,7 +740,7 @@
   {
     "query_id": "Q089",
     "variant": "hi-en",
-    "text": "asset remittance ka matlab aur details kya hain",
+    "text": "asset remittance ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C037"
     ],
@@ -750,7 +750,7 @@
   {
     "query_id": "Q090",
     "variant": "hi-en",
-    "text": "scheme participation ke liye eligibility aur criteria kya hoti hai",
+    "text": "scheme participation ke liye yogyata aur criteria kya hoti hai",
     "relevant_doc_ids": [
       "C038"
     ],
@@ -760,7 +760,7 @@
   {
     "query_id": "Q091",
     "variant": "hi-en",
-    "text": "auction participation ka process aur step-by-step procedure kya hota hai",
+    "text": "auction participation ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C041"
     ],
@@ -770,7 +770,7 @@
   {
     "query_id": "Q092",
     "variant": "hi-en",
-    "text": "aggregator facilitator ki definition aur role kya hai",
+    "text": "aggregator facilitator ki pehchaan aur role kya hai",
     "relevant_doc_ids": [
       "C042"
     ],
@@ -780,7 +780,7 @@
   {
     "query_id": "Q093",
     "variant": "hi-en",
-    "text": "bidding limits ka matlab aur details kya hain",
+    "text": "bidding limits ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C043"
     ],
@@ -790,7 +790,7 @@
   {
     "query_id": "Q094",
     "variant": "hi-en",
-    "text": "investor bids allowed ki total count aur limit kitni hai",
+    "text": "investor bids allowed ki total ginti aur seema kitni hai",
     "relevant_doc_ids": [
       "C044"
     ],
@@ -800,7 +800,7 @@
   {
     "query_id": "Q095",
     "variant": "hi-en",
-    "text": "kya an application form allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya an application form allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C045"
     ],
@@ -810,7 +810,7 @@
   {
     "query_id": "Q096",
     "variant": "hi-en",
-    "text": "security payment ka process aur step-by-step procedure kya hota hai",
+    "text": "security payment ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C046"
     ],
@@ -820,7 +820,7 @@
   {
     "query_id": "Q097",
     "variant": "hi-en",
-    "text": "non-competitive bidder payment mode ka process aur step-by-step procedure kya hota hai",
+    "text": "non-competitive bidder payment mode ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C048"
     ],
@@ -830,7 +830,7 @@
   {
     "query_id": "Q098",
     "variant": "hi-en",
-    "text": "non-competitive allotment by RBI ka process aur step-by-step procedure kya hota hai",
+    "text": "non-competitive allotment by RBI ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C050"
     ],
@@ -840,7 +840,7 @@
   {
     "query_id": "Q099",
     "variant": "hi-en",
-    "text": "securities issuance ka process aur step-by-step procedure kya hota hai",
+    "text": "securities issuance ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C051"
     ],
@@ -850,7 +850,7 @@
   {
     "query_id": "Q100",
     "variant": "hi-en",
-    "text": "aggregator facilitator ka process aur step-by-step procedure kya hota hai",
+    "text": "aggregator facilitator ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C054"
     ],
@@ -860,7 +860,7 @@
   {
     "query_id": "Q101",
     "variant": "hi-en",
-    "text": "agar aggregator facilitator toh aise case mein kya rule lagta hai",
+    "text": "agar aggregator facilitator toh aise case mein kya niyam lagta hai",
     "relevant_doc_ids": [
       "C055"
     ],
@@ -870,7 +870,7 @@
   {
     "query_id": "Q102",
     "variant": "hi-en",
-    "text": "nri ki definition aur role kya hai",
+    "text": "nri ki pehchaan aur role kya hai",
     "relevant_doc_ids": [
       "C057"
     ],
@@ -880,7 +880,7 @@
   {
     "query_id": "Q103",
     "variant": "hi-en",
-    "text": "pio ki definition aur role kya hai",
+    "text": "pio ki pehchaan aur role kya hai",
     "relevant_doc_ids": [
       "C058"
     ],
@@ -890,7 +890,7 @@
   {
     "query_id": "Q104",
     "variant": "hi-en",
-    "text": "NRI bank accounts ka matlab aur details kya hain",
+    "text": "NRI bank accounts ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C059"
     ],
@@ -900,7 +900,7 @@
   {
     "query_id": "Q105",
     "variant": "hi-en",
-    "text": "kya a bangladeshi/ pakistani national allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya a bangladeshi/ pakistani national allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C060"
     ],
@@ -910,7 +910,7 @@
   {
     "query_id": "Q106",
     "variant": "hi-en",
-    "text": "tourist bank accounts ka matlab aur details kya hain",
+    "text": "tourist bank accounts ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C061"
     ],
@@ -920,7 +920,7 @@
   {
     "query_id": "Q107",
     "variant": "hi-en",
-    "text": "an snrr account ka matlab aur details kya hain",
+    "text": "an snrr account ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C062"
     ],
@@ -930,7 +930,7 @@
   {
     "query_id": "Q108",
     "variant": "hi-en",
-    "text": "diplomatic mission deposits ka matlab aur details kya hain",
+    "text": "diplomatic mission deposits ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C063"
     ],
@@ -940,7 +940,7 @@
   {
     "query_id": "Q109",
     "variant": "hi-en",
-    "text": "kya persons resident in nepal allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya persons resident in nepal allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C064"
     ],
@@ -950,7 +950,7 @@
   {
     "query_id": "Q110",
     "variant": "hi-en",
-    "text": "kya multilateral organisation deposits allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya multilateral organisation deposits allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C065"
     ],
@@ -960,7 +960,7 @@
   {
     "query_id": "Q111",
     "variant": "hi-en",
-    "text": "kya company deposits from non-residents allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya company deposits from non-residents allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C066"
     ],
@@ -970,7 +970,7 @@
   {
     "query_id": "Q112",
     "variant": "hi-en",
-    "text": "kya FPI foreign currency account allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya FPI foreign currency account allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C067"
     ],
@@ -980,7 +980,7 @@
   {
     "query_id": "Q113",
     "variant": "hi-en",
-    "text": "Escrow account opening ke liye eligibility aur criteria kya hoti hai",
+    "text": "Escrow account opening ke liye yogyata aur criteria kya hoti hai",
     "relevant_doc_ids": [
       "C068"
     ],
@@ -990,7 +990,7 @@
   {
     "query_id": "Q114",
     "variant": "hi-en",
-    "text": "FEMA Authorised Persons ki definition aur role kya hai",
+    "text": "FEMA Authorised Persons ki pehchaan aur role kya hai",
     "relevant_doc_ids": [
       "C069"
     ],
@@ -1000,7 +1000,7 @@
   {
     "query_id": "Q115",
     "variant": "hi-en",
-    "text": "FFMC business objective ka matlab aur details kya hain",
+    "text": "FFMC business objective ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C070"
     ],
@@ -1010,7 +1010,7 @@
   {
     "query_id": "Q116",
     "variant": "hi-en",
-    "text": "kya money changing licence mandate allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya money changing licence mandate allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C071"
     ],
@@ -1020,7 +1020,7 @@
   {
     "query_id": "Q117",
     "variant": "hi-en",
-    "text": "FFMC licence application ke liye eligibility aur criteria kya hoti hai",
+    "text": "FFMC licence application ke liye yogyata aur criteria kya hoti hai",
     "relevant_doc_ids": [
       "C072"
     ],
@@ -1030,7 +1030,7 @@
   {
     "query_id": "Q118",
     "variant": "hi-en",
-    "text": "kya ongoing NOF requirement allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya ongoing NOF requirement allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C075"
     ],
@@ -1040,7 +1040,7 @@
   {
     "query_id": "Q119",
     "variant": "hi-en",
-    "text": "FFMC operations time limit ka matlab aur details kya hain",
+    "text": "FFMC operations time limit ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C076"
     ],
@@ -1050,7 +1050,7 @@
   {
     "query_id": "Q120",
     "variant": "hi-en",
-    "text": "agar licence renewal application toh aise case mein kya rule lagta hai",
+    "text": "agar licence renewal application toh aise case mein kya niyam lagta hai",
     "relevant_doc_ids": [
       "C077"
     ],
@@ -1060,7 +1060,7 @@
   {
     "query_id": "Q121",
     "variant": "hi-en",
-    "text": "money changing facilities ka matlab aur details kya hain",
+    "text": "money changing facilities ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C079"
     ],
@@ -1070,7 +1070,7 @@
   {
     "query_id": "Q122",
     "variant": "hi-en",
-    "text": "franchisee appointment objective ka matlab aur details kya hain",
+    "text": "franchisee appointment objective ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C080"
     ],
@@ -1080,7 +1080,7 @@
   {
     "query_id": "Q123",
     "variant": "hi-en",
-    "text": "franchisee agreement features ka matlab aur details kya hain",
+    "text": "franchisee agreement features ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C081"
     ],
@@ -1090,7 +1090,7 @@
   {
     "query_id": "Q124",
     "variant": "hi-en",
-    "text": "franchisee application submission ke rules aur procedure kya hain",
+    "text": "franchisee application submission ke niyam aur tareeqa kya hain",
     "relevant_doc_ids": [
       "C082"
     ],
@@ -1100,7 +1100,7 @@
   {
     "query_id": "Q125",
     "variant": "hi-en",
-    "text": "franchisee due diligence checks ka matlab aur details kya hain",
+    "text": "franchisee due diligence checks ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C083"
     ],
@@ -1110,7 +1110,7 @@
   {
     "query_id": "Q126",
     "variant": "hi-en",
-    "text": "selection criteria for centres ka matlab aur details kya hain",
+    "text": "selection criteria for centres ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C084"
     ],
@@ -1120,7 +1120,7 @@
   {
     "query_id": "Q127",
     "variant": "hi-en",
-    "text": "franchisee training guidelines ka matlab aur details kya hain",
+    "text": "franchisee training guidelines ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C085"
     ],
@@ -1130,7 +1130,7 @@
   {
     "query_id": "Q128",
     "variant": "hi-en",
-    "text": "franchisee reporting and audit ka matlab aur details kya hain",
+    "text": "franchisee reporting and audit ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C086"
     ],
@@ -1140,7 +1140,7 @@
   {
     "query_id": "Q129",
     "variant": "hi-en",
-    "text": "kya AD Category-II forex prepaid cards allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya AD Category-II forex prepaid cards allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C088"
     ],
@@ -1150,7 +1150,7 @@
   {
     "query_id": "Q130",
     "variant": "hi-en",
-    "text": "kya forex prepaid cards at Duty Free allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya forex prepaid cards at Duty Free allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C089"
     ],
@@ -1160,7 +1160,7 @@
   {
     "query_id": "Q131",
     "variant": "hi-en",
-    "text": "Papua New Guinea banknotes rule ka matlab aur details kya hain",
+    "text": "Papua New Guinea banknotes rule ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C090"
     ],
@@ -1170,7 +1170,7 @@
   {
     "query_id": "Q132",
     "variant": "hi-en",
-    "text": "Kenya 1000 shillings banknote rule ka matlab aur details kya hain",
+    "text": "Kenya 1000 shillings banknote rule ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C091"
     ],
@@ -1180,7 +1180,7 @@
   {
     "query_id": "Q133",
     "variant": "hi-en",
-    "text": "NEFT system ka matlab aur details kya hain",
+    "text": "NEFT system ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C092"
     ],
@@ -1190,7 +1190,7 @@
   {
     "query_id": "Q134",
     "variant": "hi-en",
-    "text": "NEFT benefits ka matlab aur details kya hain",
+    "text": "NEFT benefits ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C093"
     ],
@@ -1200,7 +1200,7 @@
   {
     "query_id": "Q135",
     "variant": "hi-en",
-    "text": "NEFT working process ka process aur step-by-step procedure kya hota hai",
+    "text": "NEFT working process ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C094"
     ],
@@ -1210,7 +1210,7 @@
   {
     "query_id": "Q136",
     "variant": "hi-en",
-    "text": "IFSC code ka matlab aur details kya hain",
+    "text": "IFSC code ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C095"
     ],
@@ -1220,7 +1220,7 @@
   {
     "query_id": "Q137",
     "variant": "hi-en",
-    "text": "find bank IFSC ka process aur step-by-step procedure kya hota hai",
+    "text": "find bank IFSC ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C096"
     ],
@@ -1230,7 +1230,7 @@
   {
     "query_id": "Q138",
     "variant": "hi-en",
-    "text": "NEFT transfer eligibility ke liye eligibility aur criteria kya hoti hai",
+    "text": "NEFT transfer eligibility ke liye yogyata aur criteria kya hoti hai",
     "relevant_doc_ids": [
       "C097"
     ],
@@ -1240,7 +1240,7 @@
   {
     "query_id": "Q139",
     "variant": "hi-en",
-    "text": "kya NEFT transfer limits allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya NEFT transfer limits allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C098"
     ],
@@ -1250,7 +1250,7 @@
   {
     "query_id": "Q140",
     "variant": "hi-en",
-    "text": "kya NEFT without bank account allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya NEFT without bank account allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C099"
     ],
@@ -1260,7 +1260,7 @@
   {
     "query_id": "Q141",
     "variant": "hi-en",
-    "text": "kya NEFT transfer abroad allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya NEFT transfer abroad allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C100"
     ],
@@ -1270,7 +1270,7 @@
   {
     "query_id": "Q142",
     "variant": "hi-en",
-    "text": "NEFT operational timings ka matlab aur details kya hain",
+    "text": "NEFT operational timings ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C101"
     ],
@@ -1280,7 +1280,7 @@
   {
     "query_id": "Q143",
     "variant": "hi-en",
-    "text": "NEFT transfer required details ka matlab aur details kya hain",
+    "text": "NEFT transfer required details ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C102"
     ],
@@ -1290,7 +1290,7 @@
   {
     "query_id": "Q144",
     "variant": "hi-en",
-    "text": "NEFT customer charges ka matlab aur details kya hain",
+    "text": "NEFT customer charges ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C103"
     ],
@@ -1300,7 +1300,7 @@
   {
     "query_id": "Q145",
     "variant": "hi-en",
-    "text": "kya NEFT for NRE NRO accounts allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya NEFT for NRE NRO accounts allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C104"
     ],
@@ -1310,7 +1310,7 @@
   {
     "query_id": "Q146",
     "variant": "hi-en",
-    "text": "kya NEFT inward draw transaction allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya NEFT inward draw transaction allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C105"
     ],
@@ -1320,7 +1320,7 @@
   {
     "query_id": "Q147",
     "variant": "hi-en",
-    "text": "NEFT transaction tracking ka process aur step-by-step procedure kya hota hai",
+    "text": "NEFT transaction tracking ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C106"
     ],
@@ -1330,7 +1330,7 @@
   {
     "query_id": "Q148",
     "variant": "hi-en",
-    "text": "RBI helpdesk contact ka matlab aur details kya hain",
+    "text": "RBI helpdesk contact ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C108"
     ],
@@ -1340,7 +1340,7 @@
   {
     "query_id": "Q149",
     "variant": "hi-en",
-    "text": "NEFT settlement time ki maximum limit aur charges kitne hote hain",
+    "text": "NEFT settlement time ki maximum seema aur charges kitne hote hain",
     "relevant_doc_ids": [
       "C109"
     ],
@@ -1350,7 +1350,7 @@
   {
     "query_id": "Q150",
     "variant": "hi-en",
-    "text": "NEFT delay penalty compensation ka matlab aur details kya hain",
+    "text": "NEFT delay penalty compensation ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C111"
     ],
@@ -1360,7 +1360,7 @@
   {
     "query_id": "Q151",
     "variant": "hi-en",
-    "text": "RB-IOS complaint filing ka process aur step-by-step procedure kya hota hai",
+    "text": "RB-IOS complaint filing ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C114"
     ],
@@ -1370,7 +1370,7 @@
   {
     "query_id": "Q152",
     "variant": "hi-en",
-    "text": "safe digital payment practices ka matlab aur details kya hain",
+    "text": "safe digital payment practices ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C115"
     ],
@@ -1380,7 +1380,7 @@
   {
     "query_id": "Q153",
     "variant": "hi-en",
-    "text": "LEI in large NEFT transfers ka matlab aur details kya hain",
+    "text": "LEI in large NEFT transfers ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C116"
     ],
@@ -1390,7 +1390,7 @@
   {
     "query_id": "Q154",
     "variant": "hi-en",
-    "text": "RBI government banking role ka matlab aur details kya hain",
+    "text": "RBI government banking role ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C117"
     ],
@@ -1400,7 +1400,7 @@
   {
     "query_id": "Q155",
     "variant": "hi-en",
-    "text": "RBI banker to government role ka process aur step-by-step procedure kya hota hai",
+    "text": "RBI banker to government role ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C118"
     ],
@@ -1410,7 +1410,7 @@
   {
     "query_id": "Q156",
     "variant": "hi-en",
-    "text": "agar government payment receipt challan toh aise case mein kya rule lagta hai",
+    "text": "agar government payment receipt challan toh aise case mein kya niyam lagta hai",
     "relevant_doc_ids": [
       "C120"
     ],
@@ -1420,7 +1420,7 @@
   {
     "query_id": "Q157",
     "variant": "hi-en",
-    "text": "agar lost paper token procedure toh aise case mein kya rule lagta hai",
+    "text": "agar lost paper token procedure toh aise case mein kya niyam lagta hai",
     "relevant_doc_ids": [
       "C121"
     ],
@@ -1430,7 +1430,7 @@
   {
     "query_id": "Q158",
     "variant": "hi-en",
-    "text": "agar lost receipted challan procedure toh aise case mein kya rule lagta hai",
+    "text": "agar lost receipted challan procedure toh aise case mein kya niyam lagta hai",
     "relevant_doc_ids": [
       "C122"
     ],
@@ -1440,7 +1440,7 @@
   {
     "query_id": "Q159",
     "variant": "hi-en",
-    "text": "kya agency bank government compensation allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya agency bank government compensation allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C123"
     ],
@@ -1450,7 +1450,7 @@
   {
     "query_id": "Q160",
     "variant": "hi-en",
-    "text": "RBI role in GST ka matlab aur details kya hain",
+    "text": "RBI role in GST ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C124"
     ],
@@ -1470,7 +1470,7 @@
   {
     "query_id": "Q162",
     "variant": "hi-en",
-    "text": "DICGC insurance maximum limit ka matlab aur details kya hain",
+    "text": "DICGC insurance maximum limit ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C127"
     ],
@@ -1480,7 +1480,7 @@
   {
     "query_id": "Q163",
     "variant": "hi-en",
-    "text": "check if bank is DICGC insured ka process aur step-by-step procedure kya hota hai",
+    "text": "check if bank is DICGC insured ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C128"
     ],
@@ -1490,7 +1490,7 @@
   {
     "query_id": "Q164",
     "variant": "hi-en",
-    "text": "DICGC insurance across branches ka matlab aur details kya hain",
+    "text": "DICGC insurance across branches ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C129"
     ],
@@ -1500,7 +1500,7 @@
   {
     "query_id": "Q165",
     "variant": "hi-en",
-    "text": "kya insurance increase via multiple accounts allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya insurance increase via multiple accounts allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C131"
     ],
@@ -1510,7 +1510,7 @@
   {
     "query_id": "Q166",
     "variant": "hi-en",
-    "text": "kya separate insurance for different banks allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya separate insurance for different banks allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C132"
     ],
@@ -1520,7 +1520,7 @@
   {
     "query_id": "Q167",
     "variant": "hi-en",
-    "text": "deposits in same vs different capacity ka matlab aur details kya hain",
+    "text": "deposits in same vs different capacity ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C134"
     ],
@@ -1530,7 +1530,7 @@
   {
     "query_id": "Q168",
     "variant": "hi-en",
-    "text": "kya bank deduction of depositor dues allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya bank deduction of depositor dues allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C135"
     ],
@@ -1540,7 +1540,7 @@
   {
     "query_id": "Q169",
     "variant": "hi-en",
-    "text": "deposit insurance cost payment kaun hota hai aur rules kya hain",
+    "text": "deposit insurance cost payment kaun hota hai aur niyam kya hain",
     "relevant_doc_ids": [
       "C136"
     ],
@@ -1550,7 +1550,7 @@
   {
     "query_id": "Q170",
     "variant": "hi-en",
-    "text": "agar DICGC payout conditions toh aise case mein kya rule lagta hai",
+    "text": "agar DICGC payout conditions toh aise case mein kya niyam lagta hai",
     "relevant_doc_ids": [
       "C137"
     ],
@@ -1560,7 +1560,7 @@
   {
     "query_id": "Q171",
     "variant": "hi-en",
-    "text": "kya bank withdrawal from DICGC allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya bank withdrawal from DICGC allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C139"
     ],
@@ -1570,7 +1570,7 @@
   {
     "query_id": "Q172",
     "variant": "hi-en",
-    "text": "kya DICGC coverage cancellation allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya DICGC coverage cancellation allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C140"
     ],
@@ -1580,7 +1580,7 @@
   {
     "query_id": "Q173",
     "variant": "hi-en",
-    "text": "kya RTGS payment finality allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya RTGS payment finality allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C143"
     ],
@@ -1590,7 +1590,7 @@
   {
     "query_id": "Q174",
     "variant": "hi-en",
-    "text": "RTGS benefits ka matlab aur details kya hain",
+    "text": "RTGS benefits ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C144"
     ],
@@ -1600,7 +1600,7 @@
   {
     "query_id": "Q175",
     "variant": "hi-en",
-    "text": "RTGS vs NEFT processing ka process aur step-by-step procedure kya hota hai",
+    "text": "RTGS vs NEFT processing ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C145"
     ],
@@ -1610,7 +1610,7 @@
   {
     "query_id": "Q176",
     "variant": "hi-en",
-    "text": "kya RTGS 24x7 availability allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya RTGS 24x7 availability allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C146"
     ],
@@ -1620,7 +1620,7 @@
   {
     "query_id": "Q177",
     "variant": "hi-en",
-    "text": "kya RTGS minimum maximum limits allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya RTGS minimum maximum limits allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C147"
     ],
@@ -1630,7 +1630,7 @@
   {
     "query_id": "Q178",
     "variant": "hi-en",
-    "text": "RTGS remittance required details ka matlab aur details kya hain",
+    "text": "RTGS remittance required details ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C149"
     ],
@@ -1640,7 +1640,7 @@
   {
     "query_id": "Q179",
     "variant": "hi-en",
-    "text": "RTGS transfer duration ka matlab aur details kya hain",
+    "text": "RTGS transfer duration ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C154"
     ],
@@ -1650,7 +1650,7 @@
   {
     "query_id": "Q180",
     "variant": "hi-en",
-    "text": "kya future date RTGS transfer allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya future date RTGS transfer allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C155"
     ],
@@ -1660,7 +1660,7 @@
   {
     "query_id": "Q181",
     "variant": "hi-en",
-    "text": "kya originate transaction to draw funds allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya originate transaction to draw funds allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C156"
     ],
@@ -1670,7 +1670,7 @@
   {
     "query_id": "Q182",
     "variant": "hi-en",
-    "text": "kya track RTGS transaction allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya track RTGS transaction allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C157"
     ],
@@ -1680,7 +1680,7 @@
   {
     "query_id": "Q183",
     "variant": "hi-en",
-    "text": "kya RTGS delay return compensation allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya RTGS delay return compensation allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C159"
     ],
@@ -1690,7 +1690,7 @@
   {
     "query_id": "Q184",
     "variant": "hi-en",
-    "text": "UTR number ka matlab aur details kya hain",
+    "text": "UTR number ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C161"
     ],
@@ -1700,7 +1700,7 @@
   {
     "query_id": "Q185",
     "variant": "hi-en",
-    "text": "RBI helpdesk contact ka matlab aur details kya hain",
+    "text": "RBI helpdesk contact ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C162"
     ],
@@ -1710,7 +1710,7 @@
   {
     "query_id": "Q186",
     "variant": "hi-en",
-    "text": "RB-IOS complaint filing ka process aur step-by-step procedure kya hota hai",
+    "text": "RB-IOS complaint filing ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C164"
     ],
@@ -1720,7 +1720,7 @@
   {
     "query_id": "Q187",
     "variant": "hi-en",
-    "text": "LEI in RTGS transactions ka matlab aur details kya hain",
+    "text": "LEI in RTGS transactions ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C165"
     ],
@@ -1730,7 +1730,7 @@
   {
     "query_id": "Q188",
     "variant": "hi-en",
-    "text": "Authorized Dealer AD ki definition aur role kya hai",
+    "text": "Authorized Dealer AD ki pehchaan aur role kya hai",
     "relevant_doc_ids": [
       "C166"
     ],
@@ -1740,7 +1740,7 @@
   {
     "query_id": "Q189",
     "variant": "hi-en",
-    "text": "entities authorized to sell forex ki definition aur role kya hai",
+    "text": "entities authorized to sell forex ki pehchaan aur role kya hai",
     "relevant_doc_ids": [
       "C167"
     ],
@@ -1750,7 +1750,7 @@
   {
     "query_id": "Q190",
     "variant": "hi-en",
-    "text": "cash forex limits for travel ki maximum limit aur charges kitne hote hain",
+    "text": "cash forex limits for travel ki maximum seema aur charges kitne hote hain",
     "relevant_doc_ids": [
       "C168"
     ],
@@ -1760,7 +1760,7 @@
   {
     "query_id": "Q191",
     "variant": "hi-en",
-    "text": "rupee currency limits entering India ki maximum limit aur charges kitne hote hain",
+    "text": "rupee currency limits entering India ki maximum seema aur charges kitne hote hain",
     "relevant_doc_ids": [
       "C169"
     ],
@@ -1770,7 +1770,7 @@
   {
     "query_id": "Q192",
     "variant": "hi-en",
-    "text": "forex import limits into India ki maximum limit aur charges kitne hote hain",
+    "text": "forex import limits into India ki maximum seema aur charges kitne hote hain",
     "relevant_doc_ids": [
       "C170"
     ],
@@ -1780,7 +1780,7 @@
   {
     "query_id": "Q193",
     "variant": "hi-en",
-    "text": "kya cash payment for forex purchase allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya cash payment for forex purchase allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C171"
     ],
@@ -1790,7 +1790,7 @@
   {
     "query_id": "Q194",
     "variant": "hi-en",
-    "text": "kya forex surrender time limit on return allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya forex surrender time limit on return allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C172"
     ],
@@ -1800,7 +1800,7 @@
   {
     "query_id": "Q195",
     "variant": "hi-en",
-    "text": "kya surrender of foreign coins allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya surrender of foreign coins allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C173"
     ],
@@ -1810,7 +1810,7 @@
   {
     "query_id": "Q196",
     "variant": "hi-en",
-    "text": "kya travel categories requiring RBI approval allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya travel categories requiring RBI approval allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C174"
     ],
@@ -1820,7 +1820,7 @@
   {
     "query_id": "Q197",
     "variant": "hi-en",
-    "text": "kya FCRA grant donation permission allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya FCRA grant donation permission allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C175"
     ],
@@ -1830,7 +1830,7 @@
   {
     "query_id": "Q198",
     "variant": "hi-en",
-    "text": "eligibility for ICC and IDC cards ki definition aur role kya hai",
+    "text": "eligibility for ICC and IDC cards ki pehchaan aur role kya hai",
     "relevant_doc_ids": [
       "C176"
     ],
@@ -1840,7 +1840,7 @@
   {
     "query_id": "Q199",
     "variant": "hi-en",
-    "text": "jewellery export allowance abroad ki maximum limit aur charges kitne hote hain",
+    "text": "jewellery export allowance abroad ki maximum seema aur charges kitne hote hain",
     "relevant_doc_ids": [
       "C177"
     ],
@@ -1850,7 +1850,7 @@
   {
     "query_id": "Q200",
     "variant": "hi-en",
-    "text": "kya local hospitality to non-residents allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya local hospitality to non-residents allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C178"
     ],
@@ -1860,7 +1860,7 @@
   {
     "query_id": "Q201",
     "variant": "hi-en",
-    "text": "kya air ticket booking for travel outside India allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya air ticket booking for travel outside India allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C179"
     ],
@@ -1870,7 +1870,7 @@
   {
     "query_id": "Q202",
     "variant": "hi-en",
-    "text": "kya paying medical expenses of NRI relative allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya paying medical expenses of NRI relative allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C180"
     ],
@@ -1880,7 +1880,7 @@
   {
     "query_id": "Q203",
     "variant": "hi-en",
-    "text": "kya holding foreign assets by residents allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya holding foreign assets by residents allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C181"
     ],
@@ -1890,7 +1890,7 @@
   {
     "query_id": "Q204",
     "variant": "hi-en",
-    "text": "Indo-Nepal remittance scheme ka matlab aur details kya hain",
+    "text": "Indo-Nepal remittance scheme ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C182"
     ],
@@ -1900,7 +1900,7 @@
   {
     "query_id": "Q205",
     "variant": "hi-en",
-    "text": "INRF scheme features ka matlab aur details kya hain",
+    "text": "INRF scheme features ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C183"
     ],
@@ -1910,7 +1910,7 @@
   {
     "query_id": "Q206",
     "variant": "hi-en",
-    "text": "kya INRF transaction count limits allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya INRF transaction count limits allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C184"
     ],
@@ -1920,7 +1920,7 @@
   {
     "query_id": "Q207",
     "variant": "hi-en",
-    "text": "INRF remitter required documents ka matlab aur details kya hain",
+    "text": "INRF remitter required documents ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C186"
     ],
@@ -1930,7 +1930,7 @@
   {
     "query_id": "Q208",
     "variant": "hi-en",
-    "text": "India-Nepal transfer workflow and timeline ka process aur step-by-step procedure kya hota hai",
+    "text": "India-Nepal transfer workflow and timeline ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C187"
     ],
@@ -1940,7 +1940,7 @@
   {
     "query_id": "Q209",
     "variant": "hi-en",
-    "text": "NSBL and Prabhu Money Transfer outlets ka process aur step-by-step procedure kya hota hai",
+    "text": "NSBL and Prabhu Money Transfer outlets ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C188"
     ],
@@ -1950,7 +1950,7 @@
   {
     "query_id": "Q210",
     "variant": "hi-en",
-    "text": "INRF failed transfer refund ka process aur step-by-step procedure kya hota hai",
+    "text": "INRF failed transfer refund ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C189"
     ],
@@ -1960,7 +1960,7 @@
   {
     "query_id": "Q211",
     "variant": "hi-en",
-    "text": "Indo-Nepal remittance charges ka matlab aur details kya hain",
+    "text": "Indo-Nepal remittance charges ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C190"
     ],
@@ -1970,7 +1970,7 @@
   {
     "query_id": "Q212",
     "variant": "hi-en",
-    "text": "INRF grievance redressal contact ke liye eligibility aur criteria kya hoti hai",
+    "text": "INRF grievance redressal contact ke liye yogyata aur criteria kya hoti hai",
     "relevant_doc_ids": [
       "C191"
     ],
@@ -1980,7 +1980,7 @@
   {
     "query_id": "Q213",
     "variant": "hi-en",
-    "text": "kya bilateral arrangements under INRF allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya bilateral arrangements under INRF allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C192"
     ],
@@ -1990,7 +1990,7 @@
   {
     "query_id": "Q214",
     "variant": "hi-en",
-    "text": "kya joint account continuation for family pension allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya joint account continuation for family pension allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C194"
     ],
@@ -2000,7 +2000,7 @@
   {
     "query_id": "Q215",
     "variant": "hi-en",
-    "text": "agar pension credit timing toh aise case mein kya rule lagta hai",
+    "text": "agar pension credit timing toh aise case mein kya niyam lagta hai",
     "relevant_doc_ids": [
       "C195"
     ],
@@ -2010,7 +2010,7 @@
   {
     "query_id": "Q216",
     "variant": "hi-en",
-    "text": "kya recovery of excess pension credit allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya recovery of excess pension credit allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C196"
     ],
@@ -2020,7 +2020,7 @@
   {
     "query_id": "Q217",
     "variant": "hi-en",
-    "text": "kya life certificate acknowledgement receipt allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya life certificate acknowledgement receipt allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C197"
     ],
@@ -2030,7 +2030,7 @@
   {
     "query_id": "Q218",
     "variant": "hi-en",
-    "text": "kya digital life certificate submission allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya digital life certificate submission allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C198"
     ],
@@ -2040,7 +2040,7 @@
   {
     "query_id": "Q219",
     "variant": "hi-en",
-    "text": "kya pension withdrawal for incapacitated pensioner allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya pension withdrawal for incapacitated pensioner allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C199"
     ],
@@ -2050,7 +2050,7 @@
   {
     "query_id": "Q220",
     "variant": "hi-en",
-    "text": "kya delayed pension compensation allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya delayed pension compensation allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C202"
     ],
@@ -2060,7 +2060,7 @@
   {
     "query_id": "Q221",
     "variant": "hi-en",
-    "text": "person resident ki definition aur role kya hai",
+    "text": "person resident ki pehchaan aur role kya hai",
     "relevant_doc_ids": [
       "C203"
     ],
@@ -2070,7 +2070,7 @@
   {
     "query_id": "Q222",
     "variant": "hi-en",
-    "text": "foreign currency account ka matlab aur details kya hain",
+    "text": "foreign currency account ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C204"
     ],
@@ -2080,7 +2080,7 @@
   {
     "query_id": "Q223",
     "variant": "hi-en",
-    "text": "foreign currency account ka matlab aur details kya hain",
+    "text": "foreign currency account ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C205"
     ],
@@ -2090,7 +2090,7 @@
   {
     "query_id": "Q224",
     "variant": "hi-en",
-    "text": "kya retaining foreign account after returning to India allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya retaining foreign account after returning to India allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C208"
     ],
@@ -2100,7 +2100,7 @@
   {
     "query_id": "Q225",
     "variant": "hi-en",
-    "text": "foreign account status after holder demise ka matlab aur details kya hain",
+    "text": "foreign account status after holder demise ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C209"
     ],
@@ -2110,7 +2110,7 @@
   {
     "query_id": "Q226",
     "variant": "hi-en",
-    "text": "agar PSS Act 2007 effective date toh aise case mein kya rule lagta hai",
+    "text": "agar PSS Act 2007 effective date toh aise case mein kya niyam lagta hai",
     "relevant_doc_ids": [
       "C211"
     ],
@@ -2120,7 +2120,7 @@
   {
     "query_id": "Q227",
     "variant": "hi-en",
-    "text": "PSS Act objective ka matlab aur details kya hain",
+    "text": "PSS Act objective ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C212"
     ],
@@ -2130,7 +2130,7 @@
   {
     "query_id": "Q228",
     "variant": "hi-en",
-    "text": "PSS Act regulations and enforcement ka matlab aur details kya hain",
+    "text": "PSS Act regulations and enforcement ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C213"
     ],
@@ -2140,7 +2140,7 @@
   {
     "query_id": "Q229",
     "variant": "hi-en",
-    "text": "PSS regulations objectives ka matlab aur details kya hain",
+    "text": "PSS regulations objectives ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C214"
     ],
@@ -2150,7 +2150,7 @@
   {
     "query_id": "Q230",
     "variant": "hi-en",
-    "text": "payment obligation definition ka matlab aur details kya hain",
+    "text": "payment obligation definition ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C216"
     ],
@@ -2160,7 +2160,7 @@
   {
     "query_id": "Q231",
     "variant": "hi-en",
-    "text": "payment instruction definition ka matlab aur details kya hain",
+    "text": "payment instruction definition ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C217"
     ],
@@ -2170,7 +2170,7 @@
   {
     "query_id": "Q232",
     "variant": "hi-en",
-    "text": "settlement meaning in PSS ka matlab aur details kya hain",
+    "text": "settlement meaning in PSS ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C218"
     ],
@@ -2180,7 +2180,7 @@
   {
     "query_id": "Q233",
     "variant": "hi-en",
-    "text": "payment system definition under PSS Act ka matlab aur details kya hain",
+    "text": "payment system definition under PSS Act ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C219"
     ],
@@ -2190,7 +2190,7 @@
   {
     "query_id": "Q234",
     "variant": "hi-en",
-    "text": "kya payment system authorization license mandate allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya payment system authorization license mandate allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C220"
     ],
@@ -2200,7 +2200,7 @@
   {
     "query_id": "Q235",
     "variant": "hi-en",
-    "text": "kya payment system authorization fee allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya payment system authorization fee allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C221"
     ],
@@ -2210,7 +2210,7 @@
   {
     "query_id": "Q236",
     "variant": "hi-en",
-    "text": "kya foreign entities operating payment systems allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya foreign entities operating payment systems allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C222"
     ],
@@ -2220,7 +2220,7 @@
   {
     "query_id": "Q237",
     "variant": "hi-en",
-    "text": "kya foreign payment entity RBI license requirement allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya foreign payment entity RBI license requirement allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C223"
     ],
@@ -2230,7 +2230,7 @@
   {
     "query_id": "Q238",
     "variant": "hi-en",
-    "text": "Financial Market Infrastructures FMI ka matlab aur details kya hain",
+    "text": "Financial Market Infrastructures FMI ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C224"
     ],
@@ -2240,7 +2240,7 @@
   {
     "query_id": "Q239",
     "variant": "hi-en",
-    "text": "kya foreign FMI operations in India allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya foreign FMI operations in India allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C225"
     ],
@@ -2250,7 +2250,7 @@
   {
     "query_id": "Q240",
     "variant": "hi-en",
-    "text": "services permitted for foreign entities ka matlab aur details kya hain",
+    "text": "services permitted for foreign entities ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C226"
     ],
@@ -2260,7 +2260,7 @@
   {
     "query_id": "Q241",
     "variant": "hi-en",
-    "text": "RBI payment authorization evaluation factors ka matlab aur details kya hain",
+    "text": "RBI payment authorization evaluation factors ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C227"
     ],
@@ -2270,7 +2270,7 @@
   {
     "query_id": "Q242",
     "variant": "hi-en",
-    "text": "parameters for payment system authorization ka matlab aur details kya hain",
+    "text": "parameters for payment system authorization ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C228"
     ],
@@ -2280,7 +2280,7 @@
   {
     "query_id": "Q243",
     "variant": "hi-en",
-    "text": "kya RBI refusal of payment authorization allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya RBI refusal of payment authorization allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C229"
     ],
@@ -2290,7 +2290,7 @@
   {
     "query_id": "Q244",
     "variant": "hi-en",
-    "text": "kya RBI revocation of payment authorization allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya RBI revocation of payment authorization allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C230"
     ],
@@ -2300,7 +2300,7 @@
   {
     "query_id": "Q245",
     "variant": "hi-en",
-    "text": "kya appellate authority under PSS Act allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya appellate authority under PSS Act allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C231"
     ],
@@ -2310,7 +2310,7 @@
   {
     "query_id": "Q246",
     "variant": "hi-en",
-    "text": "kya RBI authorization fee and security deposit allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya RBI authorization fee and security deposit allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C232"
     ],
@@ -2320,7 +2320,7 @@
   {
     "query_id": "Q247",
     "variant": "hi-en",
-    "text": "kya RBI power to call for payment returns allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya RBI power to call for payment returns allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C234"
     ],
@@ -2330,7 +2330,7 @@
   {
     "query_id": "Q248",
     "variant": "hi-en",
-    "text": "kya RBI sharing payment info with regulators allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya RBI sharing payment info with regulators allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C235"
     ],
@@ -2340,7 +2340,7 @@
   {
     "query_id": "Q249",
     "variant": "hi-en",
-    "text": "kya RBI inspection of payment provider premises allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya RBI inspection of payment provider premises allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C236"
     ],
@@ -2350,7 +2350,7 @@
   {
     "query_id": "Q250",
     "variant": "hi-en",
-    "text": "kya RBI inspection of overseas entities allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya RBI inspection of overseas entities allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C237"
     ],
@@ -2360,7 +2360,7 @@
   {
     "query_id": "Q251",
     "variant": "hi-en",
-    "text": "kya RBI directions to payment providers allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya RBI directions to payment providers allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C238"
     ],
@@ -2370,7 +2370,7 @@
   {
     "query_id": "Q252",
     "variant": "hi-en",
-    "text": "duties of payment system provider ka matlab aur details kya hain",
+    "text": "duties of payment system provider ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C240"
     ],
@@ -2380,7 +2380,7 @@
   {
     "query_id": "Q253",
     "variant": "hi-en",
-    "text": "dispute settlement under PSS Act ka matlab aur details kya hain",
+    "text": "dispute settlement under PSS Act ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C241"
     ],
@@ -2390,7 +2390,7 @@
   {
     "query_id": "Q254",
     "variant": "hi-en",
-    "text": "electronic fund transfer dishonour consequences ka matlab aur details kya hain",
+    "text": "electronic fund transfer dishonour consequences ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C242"
     ],
@@ -2400,7 +2400,7 @@
   {
     "query_id": "Q255",
     "variant": "hi-en",
-    "text": "kya penalties under PSS Act allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya penalties under PSS Act allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C243"
     ],
@@ -2410,7 +2410,7 @@
   {
     "query_id": "Q256",
     "variant": "hi-en",
-    "text": "Automated Teller Machine ATM ka matlab aur details kya hain",
+    "text": "Automated Teller Machine ATM ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C244"
     ],
@@ -2420,7 +2420,7 @@
   {
     "query_id": "Q257",
     "variant": "hi-en",
-    "text": "White Label ATMs WLA ka matlab aur details kya hain",
+    "text": "White Label ATMs WLA ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C245"
     ],
@@ -2430,7 +2430,7 @@
   {
     "query_id": "Q258",
     "variant": "hi-en",
-    "text": "services available at ATMs and WLAs ka matlab aur details kya hain",
+    "text": "services available at ATMs and WLAs ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C248"
     ],
@@ -2440,7 +2440,7 @@
   {
     "query_id": "Q259",
     "variant": "hi-en",
-    "text": "ATM transaction pre-requisites ka matlab aur details kya hain",
+    "text": "ATM transaction pre-requisites ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C250"
     ],
@@ -2450,7 +2450,7 @@
   {
     "query_id": "Q260",
     "variant": "hi-en",
-    "text": "PIN number ka matlab aur details kya hain",
+    "text": "PIN number ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C251"
     ],
@@ -2460,7 +2460,7 @@
   {
     "query_id": "Q261",
     "variant": "hi-en",
-    "text": "kya using debit card at any ATM allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya using debit card at any ATM allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C252"
     ],
@@ -2470,7 +2470,7 @@
   {
     "query_id": "Q262",
     "variant": "hi-en",
-    "text": "On-Us vs Off-Us transactions ka matlab aur details kya hain",
+    "text": "On-Us vs Off-Us transactions ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C253"
     ],
@@ -2480,7 +2480,7 @@
   {
     "query_id": "Q263",
     "variant": "hi-en",
-    "text": "kya free ATM transactions quota allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya free ATM transactions quota allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C254"
     ],
@@ -2490,7 +2490,7 @@
   {
     "query_id": "Q264",
     "variant": "hi-en",
-    "text": "kya extra free ATM transactions by banks allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya extra free ATM transactions by banks allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C255"
     ],
@@ -2500,7 +2500,7 @@
   {
     "query_id": "Q265",
     "variant": "hi-en",
-    "text": "kya free ATM transactions for BSBDA accounts allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya free ATM transactions for BSBDA accounts allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C256"
     ],
@@ -2510,7 +2510,7 @@
   {
     "query_id": "Q266",
     "variant": "hi-en",
-    "text": "kya transactions excluded from free ATM count allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya transactions excluded from free ATM count allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C257"
     ],
@@ -2520,7 +2520,7 @@
   {
     "query_id": "Q267",
     "variant": "hi-en",
-    "text": "identify metro vs non-metro ATM ka process aur step-by-step procedure kya hota hai",
+    "text": "identify metro vs non-metro ATM ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C258"
     ],
@@ -2530,7 +2530,7 @@
   {
     "query_id": "Q268",
     "variant": "hi-en",
-    "text": "kya ATM transaction charges allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya ATM transaction charges allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C259"
     ],
@@ -2540,7 +2540,7 @@
   {
     "query_id": "Q269",
     "variant": "hi-en",
-    "text": "credit card ATM withdrawal charges ka matlab aur details kya hain",
+    "text": "credit card ATM withdrawal charges ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C260"
     ],
@@ -2550,7 +2550,7 @@
   {
     "query_id": "Q270",
     "variant": "hi-en",
-    "text": "kya failed ATM transaction refund turnaround time allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya failed ATM transaction refund turnaround time allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C263"
     ],
@@ -2560,7 +2560,7 @@
   {
     "query_id": "Q271",
     "variant": "hi-en",
-    "text": "kya failed ATM transaction delay compensation allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya failed ATM transaction delay compensation allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C264"
     ],
@@ -2570,7 +2570,7 @@
   {
     "query_id": "Q272",
     "variant": "hi-en",
-    "text": "remedy for non-reversal of failed ATM transaction ka matlab aur details kya hain",
+    "text": "remedy for non-reversal of failed ATM transaction ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C265"
     ],
@@ -2580,7 +2580,7 @@
   {
     "query_id": "Q273",
     "variant": "hi-en",
-    "text": "magnetic stripe vs EMV chip cards ka matlab aur details kya hain",
+    "text": "magnetic stripe vs EMV chip cards ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C269"
     ],
@@ -2590,7 +2590,7 @@
   {
     "query_id": "Q274",
     "variant": "hi-en",
-    "text": "mandate for EMV chip card issuance ke rules aur mandate kya hain",
+    "text": "mandate for EMV chip card issuance ke niyam aur tareeqa kya hain",
     "relevant_doc_ids": [
       "C270"
     ],
@@ -2600,7 +2600,7 @@
   {
     "query_id": "Q275",
     "variant": "hi-en",
-    "text": "a nostro account ka matlab aur details kya hain",
+    "text": "a nostro account ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C274"
     ],
@@ -2610,7 +2610,7 @@
   {
     "query_id": "Q276",
     "variant": "hi-en",
-    "text": "USD cheque collection charges ka matlab aur details kya hain",
+    "text": "USD cheque collection charges ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C275"
     ],
@@ -2620,7 +2620,7 @@
   {
     "query_id": "Q277",
     "variant": "hi-en",
-    "text": "kya US regulations on USD cheques allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya US regulations on USD cheques allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C276"
     ],
@@ -2630,7 +2630,7 @@
   {
     "query_id": "Q278",
     "variant": "hi-en",
-    "text": "kya choice of USD cheque collection mode allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya choice of USD cheque collection mode allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C277"
     ],
@@ -2640,7 +2640,7 @@
   {
     "query_id": "Q279",
     "variant": "hi-en",
-    "text": "kya credit availability on Nostro sight allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya credit availability on Nostro sight allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C280"
     ],
@@ -2650,7 +2650,7 @@
   {
     "query_id": "Q280",
     "variant": "hi-en",
-    "text": "customer awareness and complaints rules ka matlab aur details kya hain",
+    "text": "customer awareness and complaints rules ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C283"
     ],
@@ -2660,7 +2660,7 @@
   {
     "query_id": "Q281",
     "variant": "hi-en",
-    "text": "kya additional instructions for banks allow kiya jata hai ya koi specific restriction hai",
+    "text": "kya additional instructions for banks allow kiya jata hai ya koi khaas rukawat hai",
     "relevant_doc_ids": [
       "C284"
     ],
@@ -2670,7 +2670,7 @@
   {
     "query_id": "Q282",
     "variant": "hi-en",
-    "text": "a bond ka matlab aur details kya hain",
+    "text": "a bond ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C285"
     ],
@@ -2680,7 +2680,7 @@
   {
     "query_id": "Q283",
     "variant": "hi-en",
-    "text": "Government Security G-Sec ka matlab aur details kya hain",
+    "text": "Government Security G-Sec ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C286"
     ],
@@ -2690,7 +2690,7 @@
   {
     "query_id": "Q284",
     "variant": "hi-en",
-    "text": "G-Sec issuance process ka process aur step-by-step procedure kya hota hai",
+    "text": "G-Sec issuance process ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C296"
     ],
@@ -2700,7 +2700,7 @@
   {
     "query_id": "Q285",
     "variant": "hi-en",
-    "text": "security auction types ka matlab aur details kya hain",
+    "text": "security auction types ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C298"
     ],
@@ -2710,7 +2710,7 @@
   {
     "query_id": "Q286",
     "variant": "hi-en",
-    "text": "Open Market Operations OMO ka matlab aur details kya hain",
+    "text": "Open Market Operations OMO ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C303"
     ],
@@ -2720,7 +2720,7 @@
   {
     "query_id": "Q287",
     "variant": "hi-en",
-    "text": "LAF facility and re-repo rules ka matlab aur details kya hain",
+    "text": "LAF facility and re-repo rules ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C305"
     ],
@@ -2730,7 +2730,7 @@
   {
     "query_id": "Q288",
     "variant": "hi-en",
-    "text": "G-Sec trading process and market abuse rules ka process aur step-by-step procedure kya hota hai",
+    "text": "G-Sec trading process and market abuse rules ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C307"
     ],
@@ -2740,7 +2740,7 @@
   {
     "query_id": "Q289",
     "variant": "hi-en",
-    "text": "key participants in G-Sec market ki definition aur role kya hai",
+    "text": "key participants in G-Sec market ki pehchaan aur role kya hai",
     "relevant_doc_ids": [
       "C313"
     ],
@@ -2750,7 +2750,7 @@
   {
     "query_id": "Q290",
     "variant": "hi-en",
-    "text": "G-Sec guidelines for co-operative banks ka matlab aur details kya hain",
+    "text": "G-Sec guidelines for co-operative banks ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C314"
     ],
@@ -2760,7 +2760,7 @@
   {
     "query_id": "Q291",
     "variant": "hi-en",
-    "text": "recording dealing desk transactions ka process aur step-by-step procedure kya hota hai",
+    "text": "recording dealing desk transactions ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C315"
     ],
@@ -2770,7 +2770,7 @@
   {
     "query_id": "Q292",
     "variant": "hi-en",
-    "text": "security transaction considerations ka matlab aur details kya hain",
+    "text": "security transaction considerations ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C316"
     ],
@@ -2780,7 +2780,7 @@
   {
     "query_id": "Q293",
     "variant": "hi-en",
-    "text": "tracking G-Sec market price ka process aur step-by-step procedure kya hota hai",
+    "text": "tracking G-Sec market price ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C318"
     ],
@@ -2790,7 +2790,7 @@
   {
     "query_id": "Q294",
     "variant": "hi-en",
-    "text": "reporting G-Sec trades ka process aur step-by-step procedure kya hota hai",
+    "text": "reporting G-Sec trades ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C320"
     ],
@@ -2800,7 +2800,7 @@
   {
     "query_id": "Q295",
     "variant": "hi-en",
-    "text": "shut period ka matlab aur details kya hain",
+    "text": "shut period ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C323"
     ],
@@ -2810,7 +2810,7 @@
   {
     "query_id": "Q296",
     "variant": "hi-en",
-    "text": "Delivery vs Payment DvP settlement ka matlab aur details kya hain",
+    "text": "Delivery vs Payment DvP settlement ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C324"
     ],
@@ -2820,7 +2820,7 @@
   {
     "query_id": "Q297",
     "variant": "hi-en",
-    "text": "CCIL role and functions ka matlab aur details kya hain",
+    "text": "CCIL role and functions ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C325"
     ],
@@ -2830,7 +2830,7 @@
   {
     "query_id": "Q298",
     "variant": "hi-en",
-    "text": "When Issued market and short selling ka matlab aur details kya hain",
+    "text": "When Issued market and short selling ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C326"
     ],
@@ -2840,7 +2840,7 @@
   {
     "query_id": "Q299",
     "variant": "hi-en",
-    "text": "math concepts for bond price and yield ka matlab aur details kya hain",
+    "text": "math concepts for bond price and yield ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C327"
     ],
@@ -2850,7 +2850,7 @@
   {
     "query_id": "Q300",
     "variant": "hi-en",
-    "text": "bond price calculation formula ka process aur step-by-step procedure kya hota hai",
+    "text": "bond price calculation formula ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C331"
     ],
@@ -2860,7 +2860,7 @@
   {
     "query_id": "Q301",
     "variant": "hi-en",
-    "text": "bond yield vs price relationship ka matlab aur details kya hain",
+    "text": "bond yield vs price relationship ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C332"
     ],
@@ -2870,7 +2870,7 @@
   {
     "query_id": "Q302",
     "variant": "hi-en",
-    "text": "calculating bond yield ka process aur step-by-step procedure kya hota hai",
+    "text": "calculating bond yield ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C333"
     ],
@@ -2880,7 +2880,7 @@
   {
     "query_id": "Q303",
     "variant": "hi-en",
-    "text": "bond yield day count conventions ka matlab aur details kya hain",
+    "text": "bond yield day count conventions ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C342"
     ],
@@ -2890,7 +2890,7 @@
   {
     "query_id": "Q304",
     "variant": "hi-en",
-    "text": "T-Bill yield calculation ka process aur step-by-step procedure kya hota hai",
+    "text": "T-Bill yield calculation ka tareeqa aur step-by-step procedure kya hota hai",
     "relevant_doc_ids": [
       "C343"
     ],
@@ -2900,7 +2900,7 @@
   {
     "query_id": "Q305",
     "variant": "hi-en",
-    "text": "duration ka matlab aur details kya hain",
+    "text": "duration ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C344"
     ],
@@ -2910,7 +2910,7 @@
   {
     "query_id": "Q306",
     "variant": "hi-en",
-    "text": "modified duration ka matlab aur details kya hain",
+    "text": "modified duration ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C347"
     ],
@@ -2920,7 +2920,7 @@
   {
     "query_id": "Q307",
     "variant": "hi-en",
-    "text": "pv 01 ka matlab aur details kya hain",
+    "text": "pv 01 ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C349"
     ],
@@ -2930,7 +2930,7 @@
   {
     "query_id": "Q308",
     "variant": "hi-en",
-    "text": "convexity ka matlab aur details kya hain",
+    "text": "convexity ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C351"
     ],
@@ -2940,7 +2940,7 @@
   {
     "query_id": "Q309",
     "variant": "hi-en",
-    "text": "security valuation guidelines ka matlab aur details kya hain",
+    "text": "security valuation guidelines ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C352"
     ],
@@ -2950,7 +2950,7 @@
   {
     "query_id": "Q310",
     "variant": "hi-en",
-    "text": "risks in holding G-Secs ka matlab aur details kya hain",
+    "text": "risks in holding G-Secs ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C353"
     ],
@@ -2960,7 +2960,7 @@
   {
     "query_id": "Q311",
     "variant": "hi-en",
-    "text": "money market ka matlab aur details kya hain",
+    "text": "money market ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C355"
     ],
@@ -2970,7 +2970,7 @@
   {
     "query_id": "Q312",
     "variant": "hi-en",
-    "text": "money market instruments ka matlab aur details kya hain",
+    "text": "money market instruments ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C356"
     ],
@@ -2980,7 +2980,7 @@
   {
     "query_id": "Q313",
     "variant": "hi-en",
-    "text": "FIMMDA and FBIL roles ka matlab aur details kya hain",
+    "text": "FIMMDA and FBIL roles ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C362"
     ],
@@ -2990,7 +2990,7 @@
   {
     "query_id": "Q314",
     "variant": "hi-en",
-    "text": "websites for G-Sec info ka matlab aur details kya hain",
+    "text": "websites for G-Sec info ka arth aur details kya hain",
     "relevant_doc_ids": [
       "C363"
     ],

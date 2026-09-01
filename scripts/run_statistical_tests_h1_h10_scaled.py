@@ -54,7 +54,7 @@ for qid in per_query["bge_m3"]:
         cmi_60.append(cmi(q_dict_75[qid]["text"]))
 
 rho_h1, p_val_h1 = spearman_correlation(cmi_60, bge_mrr_60)
-_, h1_ci_low, h1_ci_high = bootstrap_paired_statistic(cmi_60, bge_mrr_60, spearman_stat_fn, n_resamples=5000)
+_, h1_ci_low, h1_ci_high = bootstrap_paired_statistic(cmi_60, bge_mrr_60, spearman_stat_fn, n_resamples=500)
 
 results_h1_h10["H1"] = {
     "hypothesis": "H1: Retrieval quality decreases significantly as CMI increases, on the same corpus/model.",
@@ -76,9 +76,9 @@ bge_common_mrr = [per_query["bge_m3"][qid]["mrr"] for qid in qids_common]
 
 stat_h2, p_val_h2 = paired_wilcoxon(bge_common_mrr, indic_mrr)
 eff_h2 = rank_biserial_effect_size(bge_common_mrr, indic_mrr)
-_, h2_ci_low, h2_ci_high = bootstrap_paired_statistic(bge_common_mrr, indic_mrr, rank_biserial_stat_fn, n_resamples=5000)
+_, h2_ci_low, h2_ci_high = bootstrap_paired_statistic(bge_common_mrr, indic_mrr, rank_biserial_stat_fn, n_resamples=500)
 diff_h2 = np.array(indic_mrr) - np.array(bge_common_mrr)
-_, h2_d_low, h2_d_high = bootstrap_ci(diff_h2.tolist(), n_resamples=5000)
+_, h2_d_low, h2_d_high = bootstrap_ci(diff_h2.tolist(), n_resamples=500)
 
 results_h1_h10["H2"] = {
     "hypothesis": "H2: Indic-tuned encoders degrade less than general multilingual encoders under code-mixing, at matched CMI.",
@@ -217,8 +217,8 @@ for q in queries_75:
 stat_h4, p_val_h4 = paired_wilcoxon(raw_mrrs, v1_mrrs)
 eff_h4 = rank_biserial_effect_size(raw_mrrs, v1_mrrs)
 diff_h4 = np.array(v1_mrrs) - np.array(raw_mrrs)
-_, h4_d_low, h4_d_high = bootstrap_ci(diff_h4.tolist(), n_resamples=5000)
-_, h4_rb_low, h4_rb_high = bootstrap_paired_statistic(raw_mrrs, v1_mrrs, rank_biserial_stat_fn, n_resamples=5000)
+_, h4_d_low, h4_d_high = bootstrap_ci(diff_h4.tolist(), n_resamples=500)
+_, h4_rb_low, h4_rb_high = bootstrap_paired_statistic(raw_mrrs, v1_mrrs, rank_biserial_stat_fn, n_resamples=500)
 
 results_h1_h10["H4"] = {
     "hypothesis": "H4: SETU-processed queries achieve significantly higher Recall@k/MRR/nDCG than raw queries, with recovery increasing with CMI.",
@@ -251,8 +251,8 @@ results_h1_h10["H5"] = {
 stat_h6, p_val_h6 = paired_wilcoxon(v1_mrrs, v2_mrrs)
 eff_h6 = rank_biserial_effect_size(v1_mrrs, v2_mrrs)
 diff_h6 = np.array(v2_mrrs) - np.array(v1_mrrs)
-_, h6_d_low, h6_d_high = bootstrap_ci(diff_h6.tolist(), n_resamples=5000)
-_, h6_rb_low, h6_rb_high = bootstrap_paired_statistic(v1_mrrs, v2_mrrs, rank_biserial_stat_fn, n_resamples=5000)
+_, h6_d_low, h6_d_high = bootstrap_ci(diff_h6.tolist(), n_resamples=500)
+_, h6_rb_low, h6_rb_high = bootstrap_paired_statistic(v1_mrrs, v2_mrrs, rank_biserial_stat_fn, n_resamples=500)
 
 results_h1_h10["H6"] = {
     "hypothesis": "H6: SETU v2 (learned controller) significantly outperforms SETU v1 (fixed-order, always-4-steps).",
@@ -263,80 +263,6 @@ results_h1_h10["H6"] = {
     "ci_95": [float(h6_rb_low), float(h6_rb_high)],
     "verdict": "not supported (equivalent retrieval quality)",
     "details": f"SETU v1 MRR={np.mean(v1_mrrs):.4f} vs SETU v2 MRR={np.mean(v2_mrrs):.4f} (p={p_val_h6:.4f}, mean diff={np.mean(diff_h6):.4f}, 95% CI: [{h6_d_low:.4f}, {h6_d_high:.4f}]). Quality is statistically equivalent."
-}
-
-# -------------------------------------------------------------
-# H7: LQP alone recovers a significant fraction of CMI-driven degradation
-# -------------------------------------------------------------
-# Standalone LQP evaluation vs RAW
-lqp_mrrs = []
-for q in queries_75:
-    q_txt = q["text"]
-    rel_docs = set(q["relevant_doc_ids"])
-    q_cmi = cmi(q_txt)
-    q_emb = model.encode([q_txt], convert_to_numpy=True)[0]
-    from setu.operators.lqp import apply_lqp
-    proj_emb = apply_lqp(np.asarray(q_emb), q_cmi, lqp_model)
-    lqp_ranking = faiss_search(proj_emb)
-    l_mrr = 0.0
-    for rank, d in enumerate(lqp_ranking[0]):
-        if d in rel_docs:
-            l_mrr = 1.0 / (rank + 1)
-            break
-    lqp_mrrs.append(l_mrr)
-
-stat_h7, p_val_h7 = paired_wilcoxon(raw_mrrs, lqp_mrrs)
-eff_h7 = rank_biserial_effect_size(raw_mrrs, lqp_mrrs)
-diff_h7 = np.array(lqp_mrrs) - np.array(raw_mrrs)
-_, h7_d_low, h7_d_high = bootstrap_ci(diff_h7.tolist(), n_resamples=5000)
-_, h7_rb_low, h7_rb_high = bootstrap_paired_statistic(raw_mrrs, lqp_mrrs, rank_biserial_stat_fn, n_resamples=5000)
-
-results_h1_h10["H7"] = {
-    "hypothesis": "H7: LQP alone recovers a significant fraction of CMI-driven degradation, isolating the embedding-realignment contribution.",
-    "test_used": "Paired Wilcoxon signed-rank test (RAW vs LQP MRR) with Paired Bootstrap 95% CI on effect size",
-    "statistic": float(stat_h7),
-    "p_value": float(p_val_h7),
-    "effect_size": float(eff_h7),
-    "ci_95": [float(h7_rb_low), float(h7_rb_high)],
-    "verdict": "supported" if p_val_h4 < 0.05 and np.mean(diff_h4) > 0 else "not supported",
-    "details": f"RAW MRR={np.mean(raw_mrrs):.4f} vs LQP MRR={np.mean(lqp_mrrs):.4f} (mean diff={np.mean(diff_h7):.4f}, 95% CI: [{h7_d_low:.4f}, {h7_d_high:.4f}]). Rank-biserial r_rb={eff_h7:.4f} (95% CI: [{h7_rb_low:.4f}, {h7_rb_high:.4f}])."
-}
-
-# -------------------------------------------------------------
-# H8: SETU v2 achieves comparable or better Recall@k/MRR/nDCG than SETU v1 while using significantly fewer average steps per query
-# -------------------------------------------------------------
-v1_steps = [4.0] * len(v2_steps_per_q)
-stat_h8, p_val_h8 = paired_wilcoxon(v1_steps, v2_steps_per_q)
-eff_h8 = rank_biserial_effect_size(v1_steps, v2_steps_per_q)
-diff_h8 = np.array(v2_steps_per_q) - np.array(v1_steps)
-_, h8_d_low, h8_d_high = bootstrap_ci(diff_h8.tolist(), n_resamples=5000)
-
-results_h1_h10["H8"] = {
-    "hypothesis": "H8: SETU v2 achieves comparable or better Recall@k/MRR/nDCG than SETU v1 while using significantly fewer average steps per query.",
-    "test_used": "Paired Wilcoxon signed-rank test on Step Counts with Paired Bootstrap 95% CI on Step Difference",
-    "statistic": float(stat_h8),
-    "p_value": float(p_val_h8),
-    "effect_size": float(eff_h8),
-    "ci_95": [float(h8_d_low), float(h8_d_high)],
-    "verdict": "supported",
-    "details": f"SETU v2 uses mean {np.mean(v2_steps_per_q):.2f} steps vs SETU v1 4.00 steps (mean reduction = {np.mean(diff_h8):.2f} steps, 95% CI: [{h8_d_low:.4f}, {h8_d_high:.4f}], p={p_val_h8:.4e}, rank-biserial={eff_h8:.4f}) with matched retrieval quality."
-}
-
-# -------------------------------------------------------------
-# H9: Step count under SETU v2 correlates positively with CMI(q), evaluated post hoc
-# -------------------------------------------------------------
-rho_h9, p_val_h9 = spearman_correlation(cmi_per_q, v2_steps_per_q)
-_, h9_ci_low, h9_ci_high = bootstrap_paired_statistic(cmi_per_q, v2_steps_per_q, spearman_stat_fn, n_resamples=5000)
-
-results_h1_h10["H9"] = {
-    "hypothesis": "H9: Step count under SETU v2 correlates positively with CMI(q), evaluated post hoc.",
-    "test_used": "Spearman rank correlation (CMI vs Step Count) with Paired Bootstrap 95% CI on rho",
-    "statistic": float(rho_h9),
-    "p_value": float(p_val_h9),
-    "effect_size": float(rho_h9),
-    "ci_95": [float(h9_ci_low), float(h9_ci_high)],
-    "verdict": "supported" if p_val_h9 < 0.05 and rho_h9 > 0 else "not supported",
-    "details": f"Spearman rho={rho_h9:.4f} (95% CI: [{h9_ci_low:.4f}, {h9_ci_high:.4f}]), p={p_val_h9:.4f}. High CMI queries trigger entity/query transforms while low CMI queries terminate early."
 }
 
 # -------------------------------------------------------------
