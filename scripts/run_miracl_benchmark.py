@@ -28,7 +28,7 @@ def main():
         queries_ds = [{"query_id": f"Q{i}", "query": f"dummy query {i}", "positive_passages": [{"docid": f"D{i}", "text": f"dummy doc {i}"}]} for i in range(100)]
         
     # We will sample 50 queries for speed on CPU
-    queries_ds = list(queries_ds)[:50]
+    queries_ds = list(queries_ds)
     
     # Collect relevant docs and some random docs to build a small corpus
     doc_map = {}
@@ -67,7 +67,7 @@ def main():
     
     # 2. Encode Corpus
     print("Loading BGE-M3 and encoding MIRACL subset corpus...")
-    model = SentenceTransformer("BAAI/bge-m3")
+    model = SentenceTransformer("BAAI/bge-m3", local_files_only=True)
     def embed_fn(texts):
         return model.encode(texts, convert_to_numpy=True)
         
