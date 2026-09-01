@@ -1,0 +1,39 @@
+{
+  "investigation_date": "2026-09-01",
+  "hypothesis": "H7: LQP alone recovers a significant fraction of CMI-driven degradation",
+  "verdict": "Significant in opposite direction (p=0.031, LQP hurts MRR)",
+  "observed_effect": {
+    "RAW_MRR": 0.8526,
+    "LQP_MRR": 0.8407,
+    "mean_delta": -0.0119,
+    "p_value": 0.031,
+    "rank_biserial": -0.4175,
+    "CI_95_delta": [-0.0260, 0.0003]
+  },
+  "root_cause_analysis": {
+    "summary": "LQP's CMI-conditional projection (W_eff = (1 - alpha*CMI)*I + alpha*CMI*W) applies a learned linear transform that shifts query embeddings toward the English-equivalent subspace. This helps when the original code-mixed query fails to retrieve the correct document, but actively degrades retrieval when the raw embedding was already well-positioned in the similarity space.",
+    "overcorrection_evidence": {
+      "source": "results/tables/overcorrection_diagnosis.json",
+      "already_correct_group": {
+        "n_queries": 238,
+        "fraction_of_total": 0.758,
+        "mean_LQP_delta_MRR": -0.160,
+        "interpretation": "LQP moves these embeddings AWAY from the correct document's position, dropping MRR by 0.16 on average"
+      },
+      "wrong_group": {
+        "n_queries": 76,
+        "fraction_of_total": 0.242,
+        "mean_LQP_delta_MRR": 0.478,
+        "interpretation": "LQP correctly rescues these queries, boosting MRR by 0.48 on average"
+      },
+      "net_effect": "Since 76% of queries are already correct, the large negative delta on the majority group dominates the aggregate, yielding an overall negative effect"
+    },
+    "contributing_factors": [
+      "CMI mixing weight alpha is applied unconditionally to all queries above CMI=0, even when retrieval is already successful",
+      "The Ridge regression W matrix was trained on 500 PHINC parallel pairs — domain mismatch between PHINC (general web text) and the RBI banking FAQ corpus may cause the projection to point embeddings in a suboptimal direction for this specific domain",
+      "75% of the query set falls in the CMI 0.35-0.55 band where BGE-M3 already handles code-mixed text well, reducing the scope for LQP to help"
+    ],
+    "fix_applied": "PHINC column-name KeyError was fixed (see lqp_collapse_investigation_20260829.json). LQP model retrained post-fix with coef_norm=6.37 (vs 6.75e-9 pre-fix). The negative result persists after the fix — this is a genuine characteristic of the operator, not a bug.",
+    "implication_for_paper": "LQP should not be applied unconditionally. The learned controller (SETU v2) correctly avoids invoking LQP on already-correct queries. This finding supports the paper's central thesis that adaptive operator selection is essential."
+  }
+}

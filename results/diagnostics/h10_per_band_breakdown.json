@@ -1,0 +1,34 @@
+{
+  "pooled": {
+    "n": 314,
+    "spearman_rho": -0.009119425320778703,
+    "p_value": 0.8721284531960141,
+    "verdict": "not supported"
+  },
+  "per_band": {
+    "low": {
+      "n": 14,
+      "spearman_rho": -0.27888667551135854,
+      "p_value": 0.3342678537855889,
+      "verdict": "not supported"
+    },
+    "medium": {
+      "n": 28,
+      "spearman_rho": 0.09560106518938596,
+      "p_value": 0.628442390341564,
+      "verdict": "not supported"
+    },
+    "high": {
+      "n": 237,
+      "spearman_rho": -0.006879915375959354,
+      "p_value": 0.9160931590301596,
+      "verdict": "not supported"
+    },
+    "very_high": {
+      "n": 35,
+      "spearman_rho": 0.1203558619323746,
+      "p_value": 0.4910211490072327,
+      "verdict": "not supported"
+    }
+  }
+}

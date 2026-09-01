@@ -56,5 +56,7 @@
     }
   },
   "n_total_queries": 75,
-  "n_misspelled_queries": 15
+  "n_misspelled_queries": 15,
+  "scale": "pilot_75_queries_20_chunks",
+  "superseded_by": "scaled_operator_ablation_v3.json (314 queries, 380 chunks, 3 models)"
 }

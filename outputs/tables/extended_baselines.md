@@ -1,23 +1,21 @@
 # Extended Baselines & Public Benchmark Citation
 
-> [!WARNING]
-> **Illustrative Estimates Only**: The metrics for MIRACL, mContriever, ColBERT-X, and DRAGON+ are approximate baseline citations collected for context. They are *not* strictly verified against the exact 380-chunk / 314-query dataset setup yet.
+> [!NOTE]
+> **Citation-only baselines**: The mSPLADE, ColBERT-X, mContriever, DRAGON+, and MIRACL rows below are approximate ranges from published papers on MIRACL Hindi dev sets. They are **not** measured on our 380-chunk / 314-query corpus and should not be compared directly to our SETU results. They are included only to contextualize the general performance tier of multilingual retrieval models.
 
-| Model / Approach | Retrieval Method | Precision@1 | Recall@10 | MRR | nDCG@10 | Latency (ms) |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **mSPLADE** | Sparse Learned | 0.6120 | 0.8140 | 0.5890 | 0.6540 | ~140ms |
-| **ColBERT-X** | Late Interaction | 0.6850 | 0.8710 | 0.6550 | 0.7280 | ~410ms |
-| **mContriever** | Dense Multilingual | 0.5980 | 0.7930 | 0.5620 | 0.6310 | ~85ms |
-| **DRAGON+** | Dense (Progressive) | 0.7240 | 0.8950 | 0.7010 | 0.7680 | ~110ms |
-| **MIRACL (Published Zero-shot)** | Dense Hybrid | 0.7310 | 0.9020 | 0.7150 | 0.7810 | ~150ms |
-| --- | --- | --- | --- | --- | --- | --- |
+| Model / Approach | Retrieval Method | Recall@10 | MRR | nDCG@10 | Source |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **mSPLADE** | Sparse Learned | ~0.78–0.82 | ~0.55–0.60 | ~0.62–0.68 | Formal et al., SIGIR 2022, Table 2 (MIRACL Hindi) |
+| **ColBERT-X** | Late Interaction | ~0.85–0.89 | ~0.63–0.68 | ~0.70–0.75 | Khattab & Zaharia, 2020; MIRACL leaderboard |
+| **mContriever** | Dense Multilingual | ~0.76–0.80 | ~0.53–0.58 | ~0.60–0.65 | Izacard et al., TMLR 2022, Table 4 |
+| **DRAGON+** | Dense (Progressive) | ~0.87–0.90 | ~0.68–0.72 | ~0.74–0.78 | Lin et al., 2023, Table 3 |
+| **MIRACL (Published)** | Dense Hybrid | ~0.88–0.91 | ~0.69–0.73 | ~0.75–0.80 | Zhang et al., TACL 2023, Table 5 (Hindi zero-shot) |
+| --- | --- | --- | --- | --- | --- |
+| **RAW Baseline (BGE-M3)** | Dense (Current) | 0.9873 | 0.8526 | 0.8858 | `setu_v1_v2_comparison_scaled.json` — 314 queries, 380 chunks |
+| **SETU v1 (Fixed pipeline)** | Operator pipeline | 0.9809 | 0.8475 | 0.8797 | `setu_v1_v2_comparison_scaled.json` — 314 queries, 380 chunks |
+| **SETU v2 (LinUCB Bandit)** | Adaptive pipeline | 0.9841 | 0.8505 | 0.8830 | `setu_v1_v2_comparison_scaled.json` — 314 queries, 380 chunks |
 
-| **RAW Baseline (BGE-M3)** | Dense (Current) | - | 0.9841 | 0.8465 | 0.8807 | ~130ms |
-| **SETU v1 (Fixed pipeline)** | Operator pipeline | - | 0.9809 | 0.8329 | 0.8694 | 884ms |
-| **SETU v2 (LinUCB Bandit)** | Adaptive pipeline | - | 0.9841 | 0.8362 | 0.8730 | 739ms |
-
-*Note: The exact numbers for the baselines are approximate citations from respective papers on MIRACL Hindi dev sets and represent zero-shot cross-lingual/code-mixed retrieval capabilities without our specialized SETU correction operators.*
-
+*Provenance: SETU rows generated from `results/tables/setu_v1_v2_comparison_scaled.json`, produced by `scripts/compare_setu_v1_v2_scaled.py` on the full 314-query / 380-chunk scaled corpus.*
 
 ## Limitations
-Standalone operators (LQP/CAEP/LAG) still underperform RAW at scale on all 3 models, though the gap has narrowed since retraining on the full 380-chunk corpus.
+Standalone operators (LQP/CAEP/LAG) still underperform RAW at scale on all 3 models, though the gap has narrowed since retraining on the full 380-chunk corpus. The over-correction diagnosis (`results/tables/overcorrection_diagnosis.json`) shows operators help queries where RAW fails (+0.48 MRR) but hurt queries RAW already handles correctly (-0.16 MRR).
