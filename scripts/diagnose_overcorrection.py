@@ -82,6 +82,32 @@ for i, q in enumerate(queries):
     caep_mrr = get_mrr(c_ranking, rel_docs)
     caep_deltas[group].append(caep_mrr - raw_mrr)
 
+results_dict = {
+    "group_sizes": {
+        "RAW_already_correct": len(lqp_deltas['correct']),
+        "RAW_got_it_wrong": len(lqp_deltas['wrong'])
+    },
+    "operator_deltas": {
+        "LQP": {
+            "Effect_on_Correct": float(np.mean(lqp_deltas['correct'])),
+            "Effect_on_Wrong": float(np.mean(lqp_deltas['wrong']))
+        },
+        "CAEP": {
+            "Effect_on_Correct": float(np.mean(caep_deltas['correct'])),
+            "Effect_on_Wrong": float(np.mean(caep_deltas['wrong']))
+        },
+        "LAG": {
+            "Effect_on_Correct": float(np.mean(lag_deltas['correct'])),
+            "Effect_on_Wrong": float(np.mean(lag_deltas['wrong']))
+        }
+    }
+}
+
+out_path = ROOT / 'results' / 'tables' / 'overcorrection_diagnosis.json'
+out_path.parent.mkdir(parents=True, exist_ok=True)
+with open(out_path, 'w', encoding='utf-8') as f:
+    json.dump(results_dict, f, indent=4)
+
 print("\n=== Over-Correction Diagnosis (Mean MRR Change vs RAW) ===")
 print(f"RAW already correct (MRR=1.0) group size: {len(lqp_deltas['correct'])}")
 print(f"RAW got it wrong  (MRR<1.0) group size: {len(lqp_deltas['wrong'])}")
@@ -91,3 +117,4 @@ print("----------------------------------------------")
 print(f"LQP      | {np.mean(lqp_deltas['correct']):+17.4f} | {np.mean(lqp_deltas['wrong']):+15.4f}")
 print(f"CAEP     | {np.mean(caep_deltas['correct']):+17.4f} | {np.mean(caep_deltas['wrong']):+15.4f}")
 print(f"LAG      | {np.mean(lag_deltas['correct']):+17.4f} | {np.mean(lag_deltas['wrong']):+15.4f}")
+print(f"\nSaved results to {out_path}")

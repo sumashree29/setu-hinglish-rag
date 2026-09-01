@@ -21,7 +21,7 @@ Tick boxes as you go. File to fill in is listed so there's no ambiguity about wh
 | 14 | Bandit controller (SETU v2) trained | 4 | R3 | `setu/controller/setu_bandit.py` | ☑ (LinUCB implemented & verified) |
 | 15 | SETU v1 vs v2 comparison table done (H6/H8/H9) | 4 | R3 | `scripts/compare_setu_v1_v2.py`, `results/tables/` | ☑ |
 | 16 | Corpus/queries scaled to full target | 5 | R1 | `scripts/build_pilot_corpus.py` (scaled) | ☑ |
-| 17 | Public benchmark arm (MIRACL+Aksharantar) run | 5 | R3 | `results/tables/extended_baselines.md` | ☑ (Run locally on HuggingFace dataset) |
+| 17 | Public benchmark arm (MIRACL+Aksharantar) run | 5 | R3 | `results/tables/extended_baselines.md` | ☑ (Not run locally — citation-only per plan's explicit fallback option (§7.3). Local run attempted twice, found methodologically invalid (corpus contained only ground-truth documents, no distractors) and not worth further engineering time given lowest priority.) |
 | 18 | Extended baselines table compiled | 5 | R3 | `results/tables/extended_baselines.md` | ☑ |
 | 19 | Statistical tests run for H1-H10 | 5 | R3 | `results/tables/statistical_significance_H1_H10_scaled.json` | ☑ |
 | 20 | All figures/tables assembled | 6 | All | `outputs/figures/`, `outputs/tables/` | ☐ |

@@ -1,0 +1,20 @@
+{
+    "group_sizes": {
+        "RAW_already_correct": 238,
+        "RAW_got_it_wrong": 76
+    },
+    "operator_deltas": {
+        "LQP": {
+            "Effect_on_Correct": -0.1601840736294518,
+            "Effect_on_Wrong": 0.47789264828738515
+        },
+        "CAEP": {
+            "Effect_on_Correct": -0.15835834333733495,
+            "Effect_on_Wrong": 0.46529866332497916
+        },
+        "LAG": {
+            "Effect_on_Correct": -1.0,
+            "Effect_on_Wrong": -0.3656537176274018
+        }
+    }
+}
