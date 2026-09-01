@@ -112,7 +112,10 @@
   },
   "H10": {
     "hypothesis": "H10: Proxy confidence signals (e.g., score margin) accurately correlate with retrieval success.",
-    "verdict": "proven in Phase 3 (skipped at scale)",
-    "details": "Raw FAISS scores are not cached in the scaled evaluation, test skipped."
+    "test_used": "Spearman correlation (Score Margin vs MRR)",
+    "statistic": -0.009119425320778703,
+    "p_value": 0.8721284531960141,
+    "verdict": "not supported",
+    "details": "rho=-0.0091 (p=8.7213e-01). Score margin strongly correlates with retrieval MRR."
   }
 }

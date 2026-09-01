@@ -18,3 +18,7 @@
 | **SETU v2 (LinUCB Bandit)** | Adaptive pipeline | - | 0.9841 | 0.8362 | 0.8730 | 739ms |
 
 *Note: The exact numbers for the baselines are approximate citations from respective papers on MIRACL Hindi dev sets and represent zero-shot cross-lingual/code-mixed retrieval capabilities without our specialized SETU correction operators.*
+
+
+## Limitations
+Standalone operators (LQP/CAEP/LAG) still underperform RAW at scale on all 3 models, though the gap has narrowed since retraining on the full 380-chunk corpus.
