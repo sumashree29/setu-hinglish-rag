@@ -11,7 +11,6 @@
 | **DRAGON+** | Dense (Progressive) | 0.7240 | 0.8950 | 0.7010 | 0.7680 | ~110ms |
 | **MIRACL (Published Zero-shot)** | Dense Hybrid | 0.7310 | 0.9020 | 0.7150 | 0.7810 | ~150ms |
 | --- | --- | --- | --- | --- | --- | --- |
-| **MIRACL (Our Run - SETU v2)** | Dense + SETU | - | - | 1.0000 | - | ~750ms |
 
 | **RAW Baseline (BGE-M3)** | Dense (Current) | - | 0.9841 | 0.8465 | 0.8807 | ~130ms |
 | **SETU v1 (Fixed pipeline)** | Operator pipeline | - | 0.9809 | 0.8329 | 0.8694 | 884ms |

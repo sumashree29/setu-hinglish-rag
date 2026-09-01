@@ -116,6 +116,6 @@
     "statistic": -0.009119425320778703,
     "p_value": 0.8721284531960141,
     "verdict": "not supported",
-    "details": "rho=-0.0091 (p=8.7213e-01). Score margin strongly correlates with retrieval MRR."
+    "details": "rho=-0.0091 (p=8.7213e-01). No significant correlation was found at scale between score margin and MRR, unlike the pilot-scale result."
   }
 }
