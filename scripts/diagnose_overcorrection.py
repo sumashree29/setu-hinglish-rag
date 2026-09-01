@@ -10,8 +10,10 @@ sys.path.append(str(ROOT))
 
 from setu.operators.lqp import apply_lqp
 from setu.operators.caep import apply_caep
-from setu.operators.lag import apply_lag
+from setu.operators.lag import apply_lag, entity_density, predict_strategy
 from setu.diagnosis.cmi import cmi
+from setu.diagnosis.lid_entropy import lid_entropy
+from setu.fusion.carf import rrf_baseline
 from sentence_transformers import SentenceTransformer
 
 print("Loading data...")
@@ -27,10 +29,12 @@ lag_model = pickle.load(open(ROOT / 'results' / 'models' / 'lag_model_v3.pkl', '
 print("Loading model for CAEP re-encoding...")
 model = SentenceTransformer("BAAI/bge-m3", local_files_only=True)
 
-from setu.operators.caep import extract_entity_list
+from setu.operators.caep import extract_entity_list, entity_frequencies
 corpus_lines = [json.loads(line) for line in open(ROOT / 'data' / 'processed' / 'corpus_chunks_v2.jsonl', encoding='utf-8')]
 docids = [d['chunk_id'] for d in corpus_lines]
-corpus_entities = extract_entity_list([d['text'] for d in corpus_lines])
+doc_texts = [d['text'] for d in corpus_lines]
+corpus_entities = extract_entity_list(doc_texts)
+entity_freq = entity_frequencies(doc_texts)
 
 index = faiss.IndexFlatIP(doc_emb.shape[1])
 index.add(doc_emb.astype(np.float32))
@@ -65,13 +69,42 @@ for i, q in enumerate(queries):
     lqp_deltas[group].append(lqp_mrr - raw_mrr)
     
     # LAG
-    b_ranking = [docids[d] for d in base_indices[i]]
-    scores_list = base_scores[i].tolist()
-    lag_ranking = apply_lag(q['text'], b_ranking, scores_list, lag_model)
+    q_ent = lid_entropy(q['text'])
+    q_dens = entity_density(q['text'], corpus_entities)
+    lag_strat = predict_strategy(q_cmi, q_ent, q_dens, lag_model)
+    
+    def embed_fn(texts):
+        return model.encode(texts, convert_to_numpy=True).astype("float32")
+        
+    lag_out = apply_lag(
+        q['text'],
+        lag_strat,
+        entities=corpus_entities,
+        embed_fn=embed_fn,
+        caep_gate=caep_gate,
+        entity_freq=entity_freq,
+    )
+    
+    def faiss_search(query_emb, k=10):
+        q_emb = np.asarray(query_emb, dtype="float32").reshape(1, -1)
+        _, indices = index.search(q_emb, k)
+        return [docids[i] for i in indices[0]]
+        
+    if isinstance(lag_out, list):
+        q1_emb = embed_fn([lag_out[0]])[0]
+        q2_emb = embed_fn([lag_out[1]])[0]
+        r1_ids = faiss_search(q1_emb)
+        r2_ids = faiss_search(q2_emb)
+        lag_ranking = rrf_baseline([r1_ids, r2_ids])
+    else:
+        lag_emb = embed_fn([lag_out])[0]
+        lag_ranking = faiss_search(lag_emb)
+        
     lag_mrr = get_mrr(lag_ranking, rel_docs)
     lag_deltas[group].append(lag_mrr - raw_mrr)
     
     # CAEP
+    b_ranking = [docids[d] for d in base_indices[i]]
     c_text = apply_caep(q['text'], corpus_entities, caep_gate)
     if c_text != q['text']:
         c_emb = model.encode([c_text], convert_to_numpy=True)[0]

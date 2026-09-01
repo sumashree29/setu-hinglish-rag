@@ -13,8 +13,8 @@
             "Effect_on_Wrong": 0.46529866332497916
         },
         "LAG": {
-            "Effect_on_Correct": -1.0,
-            "Effect_on_Wrong": -0.3656537176274018
+            "Effect_on_Correct": -0.15483360010670935,
+            "Effect_on_Wrong": 0.47942773600668337
         }
     }
 }
