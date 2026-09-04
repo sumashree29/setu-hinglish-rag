@@ -13,7 +13,7 @@ Code-mixed Hinglish queries degrade dense retrieval quality, and SETU's correcti
 
 2. **Indic-tuned models are dramatically WORSE, not better** (H2 significant in opposite direction, p=1e-16). Indic-SBERT (MRR=0.604) underperforms BGE-M3 (MRR=0.847) by a massive margin. The "Indic-tuned models handle code-mixing better" assumption is wrong for our domain.
 
-3. **Correction operators hurt aggregate performance** (H4 not supported, H7 significant in opposite direction). When applied unconditionally, LQP/CAEP/LAG each reduce MRR because they over-correct the 76% of queries where the base model already succeeds.
+3. **Correction operators hurt aggregate performance** (H4 not supported, H7 directionally negative but not significant after Holm correction). When applied unconditionally, LQP/CAEP/LAG each reduce MRR because they over-correct the 76% of queries where the base model already succeeds.
 
 4. **BUT operators massively help the 24% of failing queries** (overcorrection diagnosis). On queries where RAW fails (MRR<1.0), operators boost MRR by +0.48 on average. The problem is not the operators themselves — it's applying them indiscriminately.
 
@@ -44,7 +44,7 @@ Code-mixed Hinglish queries degrade dense retrieval quality, and SETU's correcti
 
 ### Results Sections to Write
 1. **§4.1 Degradation Hypothesis** — H1 (null), H2 (opposite direction)
-2. **§4.2 Operator Effectiveness** — H4 (null), H7 (opposite direction), over-correction diagnosis
+2. **§4.2 Operator Effectiveness** — H4 (null), H7 (not significant post-correction, directionally negative), over-correction diagnosis
 3. **§4.3 Adaptive Controller** — H6 (equivalent quality), H8 (fewer steps), H9 (null CMI-steps correlation)
 4. **§4.4 Confidence Calibration** — H10 (null at scale, null within each band)
 5. **§4.5 Limitations**: 
