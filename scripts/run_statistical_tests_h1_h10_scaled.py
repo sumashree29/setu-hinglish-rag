@@ -234,7 +234,8 @@ for q in queries_75:
     raw_mrrs.append(r_mrr)
     
     # LQP MRR
-    lqp_emb = lqp_model.predict(q_emb.reshape(1, -1))[0]
+    from setu.operators.lqp import apply_lqp
+    lqp_emb = apply_lqp(q_emb, q_cmi, lqp_model)
     lqp_ranking = faiss_search(lqp_emb)
     lqp_mrr = 0.0
     for rank, d in enumerate(lqp_ranking[0]):

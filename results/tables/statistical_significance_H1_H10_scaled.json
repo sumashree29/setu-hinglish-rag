@@ -6,11 +6,11 @@
     "p_value": 0.10824501486268585,
     "effect_size": 0.09081404925213138,
     "ci_95": [
-      -0.015299832115507585,
-      0.19306552118715758
+      -0.019080274183630782,
+      0.18970630090348925
     ],
     "verdict": "not supported",
-    "details": "Spearman rho=0.0908 (95% CI: [-0.0153, 0.1931]), p=0.1082 across 314 queries on BGE-M3.",
+    "details": "Spearman rho=0.0908 (95% CI: [-0.0191, 0.1897]), p=0.1082 across 314 queries on BGE-M3.",
     "confound_analysis": {
       "cmi_vs_overlap": "rho=0.1653, p=0.0033",
       "low_overlap_subset": "n=179, rho=0.2683, p=0.0003",
@@ -25,12 +25,12 @@
     "p_value": 1.0271073089690512e-16,
     "effect_size": -0.7181561376476631,
     "ci_95": [
-      -0.8217619353284814,
-      -0.6156613197992612
+      -0.8230345741387975,
+      -0.6059894964828552
     ],
     "verdict": "not supported",
-    "details": "Indic-SBERT mean MRR=0.6035 vs BGE-M3 mean MRR=0.8465 (mean diff=-0.2429, 95% CI: [-0.2955, -0.1928]). Rank-biserial r_rb=-0.7182 (95% CI: [-0.8218, -0.6157]).",
-    "p_value_corrected": 5.135536544845256e-16
+    "details": "Indic-SBERT mean MRR=0.6035 vs BGE-M3 mean MRR=0.8465 (mean diff=-0.2429, 95% CI: [-0.2868, -0.1849]). Rank-biserial r_rb=-0.7182 (95% CI: [-0.8230, -0.6060]).",
+    "p_value_corrected": 6.162643853814307e-16
   },
   "H3": {
     "hypothesis": "H3 (optional): Retrieval-stage degradation significantly predicts downstream answer-quality degradation.",
@@ -49,11 +49,11 @@
     "p_value": 0.4843703988045449,
     "effect_size": -0.15669515669515668,
     "ci_95": [
-      -0.629824074074074,
-      0.2695089186176142
+      -0.5764068627450978,
+      0.30544662309368154
     ],
     "verdict": "not supported",
-    "details": "RAW MRR=0.8526 vs SETU v1 MRR=0.8475 (mean diff=-0.0051, 95% CI: [-0.0163, 0.0065]). Rank-biserial r_rb=-0.1567 (95% CI: [-0.6298, 0.2695]).",
+    "details": "RAW MRR=0.8526 vs SETU v1 MRR=0.8475 (mean diff=-0.0051, 95% CI: [-0.0167, 0.0057]). Rank-biserial r_rb=-0.1567 (95% CI: [-0.5764, 0.3054]).",
     "p_value_corrected": 0.4843703988045449
   },
   "H5": {
@@ -73,11 +73,11 @@
     "p_value": 0.23165031660445612,
     "effect_size": 0.2678062678062678,
     "ci_95": [
-      -0.19463166144200617,
-      0.7034239130434781
+      -0.23394892144892127,
+      0.7080804597701149
     ],
     "verdict": "not supported (equivalent retrieval quality)",
-    "details": "SETU v1 MRR=0.8475 vs SETU v2 MRR=0.8505 (p=0.2317, mean diff=0.0030, 95% CI: [-0.0053, 0.0105]). Quality is statistically equivalent.",
+    "details": "SETU v1 MRR=0.8475 vs SETU v2 MRR=0.8505 (p=0.2317, mean diff=0.0030, 95% CI: [-0.0060, 0.0105]). Quality is statistically equivalent.",
     "p_value_corrected": 0.46330063320891224
   },
   "H10": {
@@ -88,12 +88,12 @@
   "H7": {
     "hypothesis": "H7: LQP alone recovers CMI-driven degradation.",
     "test_used": "Paired Wilcoxon signed-rank test (RAW vs LQP MRR)",
-    "statistic": 309.0,
-    "p_value": 9.998867655312977e-43,
-    "effect_size": -0.9812135214007782,
-    "verdict": "not supported / opposite",
-    "details": "RAW MRR=0.8526 vs LQP MRR=0.2832 (p=0.0000).",
-    "p_value_corrected": 5.999320593187786e-42
+    "statistic": 183.5,
+    "p_value": 0.03057651167415393,
+    "effect_size": -0.4174603174603175,
+    "verdict": "not supported (failed Holm correction)",
+    "details": "RAW MRR=0.8526 vs LQP MRR=0.8407 (p=0.0306).",
+    "p_value_corrected": 0.15288255837076967
   },
   "H8": {
     "hypothesis": "H8: SETU v2 matches quality with fewer steps than v1.",
