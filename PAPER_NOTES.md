@@ -2,7 +2,7 @@
 
 ## What the Evidence Actually Supports
 
-After rigorous Phase 1–5 evaluation on 314 queries and 380 corpus chunks across 3 embedding models, the evidence paints a clear picture that differs from the original hypotheses but is equally publishable:
+After rigorous Phase 1–5 pilot/domain-scale evaluation on 314 queries and 380 corpus chunks across 3 embedding models, the evidence paints a clear picture that differs from the original hypotheses but is equally publishable:
 
 ### The Original Hypothesis (what we expected)
 Code-mixed Hinglish queries degrade dense retrieval quality, and SETU's correction operators (LQP, CAEP, LAG) recover that degradation.
@@ -37,9 +37,9 @@ Code-mixed Hinglish queries degrade dense retrieval quality, and SETU's correcti
 > However, a stratified analysis reveals that operators provide a **+0.48 MRR boost** on the 24% of queries where the base model fails. We introduce a contextual bandit controller (LinUCB) that learns to selectively gate operator application, achieving matched retrieval quality with 70% fewer pipeline steps (1.2 vs 4.0 mean steps, p≈0). Our findings suggest that for code-mixed retrieval, **adaptive operator selection** is more important than operator design — the key challenge is knowing *when* to intervene, not *how*.
 
 ### Key Contributions (in order of strength)
-1. **Negative result with diagnostic value**: Code-mixing alone does not degrade BGE-M3 retrieval on a controlled FAQ corpus, contradicting the assumption underlying prior code-mixed-RAG correction work.
-2. **Over-correction diagnosis**: Formal demonstration that correction operators help failing queries (+0.48 MRR) but harm successful ones (-0.16 MRR), with the net effect depending on the base model's accuracy distribution.
-3. **Adaptive gating**: A LinUCB controller that learns to gate operators, resolving the over-correction problem and achieving 70% step reduction at matched quality.
+1. **Over-correction diagnosis**: Formal demonstration that correction operators help failing queries (+0.48 MRR) but harm successful ones (-0.16 MRR), with the net effect depending on the base model's accuracy distribution.
+2. **Adaptive gating**: A LinUCB controller that learns to gate operators, resolving the over-correction problem and achieving 70% step reduction at matched quality.
+3. **Negative result with diagnostic value**: Code-mixing alone does not degrade BGE-M3 retrieval on a controlled FAQ corpus, contradicting the assumption underlying prior code-mixed-RAG correction work.
 4. **Methodological contribution**: Open-source pipeline for diagnosis, operator training, and adaptive evaluation on code-mixed retrieval.
 
 ### Results Sections to Write
@@ -47,7 +47,12 @@ Code-mixed Hinglish queries degrade dense retrieval quality, and SETU's correcti
 2. **§4.2 Operator Effectiveness** — H4 (null), H7 (opposite direction), over-correction diagnosis
 3. **§4.3 Adaptive Controller** — H6 (equivalent quality), H8 (fewer steps), H9 (null CMI-steps correlation)
 4. **§4.4 Confidence Calibration** — H10 (null at scale, null within each band)
-5. **§4.5 Limitations** — CMI band imbalance, MIRACL not run locally, domain specificity
+5. **§4.5 Limitations**: 
+    - **Construct Validity of CMI**: The LID tagger relies on a hand-rolled lexicon, making CMI scores potentially noisy.
+    - **Pilot-Scale Corpus**: The corpus is limited to 380 chunks, restricting generalizability.
+    - **LAG In-sample Labeling**: LAG's training labels were derived from in-sample trajectory optimization rather than a strict hold-out fold.
+    - **Missing MIRACL Benchmark**: Evaluated only on the domain-specific corpus; MIRACL public benchmark arm was not completed due to data-loading issues.
+    - **CMI Band Imbalance**: Severe skew toward high CMI.
 
 ### What NOT to Claim
 - ❌ Do not claim SETU "corrects code-mixed retrieval degradation" — H1 shows degradation isn't reliably present

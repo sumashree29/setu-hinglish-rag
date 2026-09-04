@@ -1,6 +1,6 @@
 # RESULTS SUMMARY — SETU Hypothesis Testing (H1–H10)
 
-All results from the full-scale evaluation: **314 queries, 380 corpus chunks, BGE-M3 primary model**.
+All results from the pilot/domain-scale evaluation: **314 queries, 380 corpus chunks, BGE-M3 primary model**.
 Source: `results/tables/statistical_significance_H1_H10_scaled.json`
 
 ## Hypothesis Verdicts
@@ -44,6 +44,14 @@ Source: `results/tables/scaled_corpus_retrieval_v3.json`
 | **Indic-SBERT** | 0.5903 | 0.6476 | 0.8280 |
 
 mE5-large is the strongest model overall. Indic-SBERT substantially underperforms both general multilingual models, contradicting H2's premise.
+
+## Additional Limitations
+
+In addition to the CMI band distribution noted below, the following methodological limitations must be considered:
+1. **Pilot-Scale Corpus**: The evaluation corpus size (380 chunks) is pilot-scale. High recall numbers may be partially driven by lexical overlap confounds, limiting the generalizability of the H1 null finding.
+2. **Hand-rolled LID Tagger**: CMI scores rely on a placeholder lexicon tagger instead of the target IndicLID model, threatening construct validity and potentially making CMI scores noisy.
+3. **LAG In-sample Labeling**: The LAG operator's training labels were derived from trajectory optimization on the evaluation queries themselves, rather than a strict hold-out fold.
+4. **Missing MIRACL Benchmark**: Public benchmark evaluation (MIRACL/Aksharantar) was not completed.
 
 ## CMI Band Distribution (Limitation)
 

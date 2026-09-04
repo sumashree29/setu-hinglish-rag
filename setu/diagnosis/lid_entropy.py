@@ -6,18 +6,14 @@ This module also owns per-token language tagging (load_lid_model, token_lid_tags
 shared by cmi.py so tagging only happens once per query.
 
 CURRENT STATUS: token_lid_tags() uses a hand-curated lexicon + heuristic tagger
-(hi/en/other) as a placeholder. Fine for the 60-query pilot corpus, but per the
-SETU Implementation Plan §3.3/§3.5, this MUST be swapped for real IndicLID
-(https://github.com/AI4Bharat/IndicLID) before Phase 5 scaling or final numbers.
-Swapping only requires changing what's inside token_lid_tags() and
-load_lid_model() -- callers (cmi.py, etc.) won't need to change.
+(hi/en/other). While the original plan (§3.3/§3.5) mandated swapping this for
+real IndicLID (https://github.com/AI4Bharat/IndicLID) before Phase 5 scaling,
+we have opted to keep the lexicon tagger for the pilot-scale evaluation due to
+dependency constraints.
 
-TODO (R1, before Phase 5):
-    - Download IndicLID model files (indiclid-ftn, indiclid-ftr, indiclid-bert)
-      per https://github.com/AI4Bharat/IndicLID#download-indiclid-model
-    - pip install fasttext
-    - Replace load_lid_model()/token_lid_tags() internals with real IndicLID
-      calls (see Inference/ai4bharat/IndicLID.py in that repo for the exact API)
+LIMITATION: This hand-rolled tagger affects the construct validity of the CMI
+metric. The resulting CMI scores may be noisy. This limitation must be explicitly
+disclosed in the paper's limitation section.
 """
 import re
 import string

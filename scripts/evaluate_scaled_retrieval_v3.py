@@ -9,6 +9,7 @@ import faiss
 import matplotlib.pyplot as plt
 from sentence_transformers import SentenceTransformer
 from ranx import Qrels, Run, evaluate
+from rank_bm25 import BM25Okapi
 
 sys.stdout.reconfigure(encoding='utf-8')
 
@@ -53,6 +54,7 @@ MODELS = {
     "bge_m3": ("BAAI/bge-m3", False),
     "indic_sbert": ("l3cube-pune/indic-sentence-similarity-sbert", False),
     "me5_large": ("intfloat/multilingual-e5-large", True),
+    "mcontriever": ("nthakur/mcontriever-base-msmarco", False),
 }
 
 # 2. Embedding Generation & Caching (Re-generate queries, reuse docs if identical)
@@ -176,6 +178,60 @@ for model_key in MODELS.keys():
         "baseline_75_pilot_queries_20_chunks": metrics_pilot_on_20
     }
 
+print("\n==================================================")
+print("Evaluating Sparse Baseline (BM25)")
+print("==================================================")
+tokenized_corpus_v2 = [doc.lower().split() for doc in doc_texts_v2]
+bm25_v2 = BM25Okapi(tokenized_corpus_v2)
+
+tokenized_corpus_pilot = [doc.lower().split() for doc in doc_texts_pilot]
+bm25_pilot = BM25Okapi(tokenized_corpus_pilot)
+
+run_all_dict_bm25 = {}
+mrr_per_query["bm25"] = []
+for i, q_id in enumerate(query_ids_v3):
+    tokenized_query = query_texts_v3[i].lower().split()
+    doc_scores = bm25_v2.get_scores(tokenized_query)
+    top_indices = np.argsort(doc_scores)[::-1][:10]
+    run_all_dict_bm25[q_id] = {doc_ids_v2[idx]: float(doc_scores[idx]) for idx in top_indices}
+    
+    rel_set = set(queries_v3[i]["relevant_doc_ids"])
+    rr = 0.0
+    for rank_idx, idx in enumerate(np.argsort(doc_scores)[::-1]):
+        ret_doc = doc_ids_v2[idx]
+        if ret_doc in rel_set:
+            rr = 1.0 / (rank_idx + 1)
+            break
+    mrr_per_query["bm25"].append(rr)
+
+run_all_bm25 = Run(run_all_dict_bm25)
+metrics_all_bm25 = evaluate(qrels_all, run_all_bm25, metrics=METRICS)
+
+run_pilot_on_380_dict_bm25 = {qid: run_all_dict_bm25[qid] for qid in pilot_q_ids}
+run_pilot_on_380_bm25 = Run(run_pilot_on_380_dict_bm25)
+metrics_pilot_on_380_bm25 = evaluate(qrels_pilot, run_pilot_on_380_bm25, metrics=METRICS)
+
+run_auto_dict_bm25 = {qid: run_all_dict_bm25[qid] for qid in auto_q_ids}
+run_auto_bm25 = Run(run_auto_dict_bm25)
+metrics_auto_bm25 = evaluate(qrels_auto, run_auto_bm25, metrics=METRICS)
+
+run_pilot_20_dict_bm25 = {}
+for i, q_id in enumerate(query_ids_v3[:75]):
+    tokenized_query = query_texts_v3[i].lower().split()
+    doc_scores = bm25_pilot.get_scores(tokenized_query)
+    top_indices = np.argsort(doc_scores)[::-1][:10]
+    run_pilot_20_dict_bm25[q_id] = {doc_ids_pilot[idx]: float(doc_scores[idx]) for idx in top_indices}
+
+run_pilot_20_bm25 = Run(run_pilot_20_dict_bm25)
+metrics_pilot_on_20_bm25 = evaluate(qrels_pilot, run_pilot_20_bm25, metrics=METRICS)
+
+results_summary["bm25"] = {
+    "overall_314_queries_380_chunks": metrics_all_bm25,
+    "split_75_pilot_queries_380_chunks": metrics_pilot_on_380_bm25,
+    "split_239_auto_queries_380_chunks": metrics_auto_bm25,
+    "baseline_75_pilot_queries_20_chunks": metrics_pilot_on_20_bm25
+}
+
 # 4. Lexical Overlap Analysis
 STOPWORDS = {
     "a", "an", "the", "in", "on", "at", "to", "for", "of", "with", "by", "from", 
@@ -218,8 +274,8 @@ with open(out_table_file, "w", encoding="utf-8") as f:
 print(f"\nSaved scaled retrieval metrics table to: {out_table_file}")
 
 # 5. Generate Comparison Chart: Pilot vs Scaled on Pilot Queries
-models = list(MODELS.keys())
-model_labels = ["BGE-M3", "Indic-SBERT", "mE5-Large"]
+models = list(MODELS.keys()) + ["bm25"]
+model_labels = ["BGE-M3", "Indic-SBERT", "mE5-Large", "mContriever", "BM25"]
 
 fig, axes = plt.subplots(1, 4, figsize=(18, 4.5))
 metrics_to_plot = [("recall@5", "Recall@5"), ("recall@10", "Recall@10"), ("mrr", "MRR"), ("ndcg@10", "nDCG@10")]
@@ -270,7 +326,7 @@ print(f"Overlap Ratio (Auto / Pilot):       {np.mean(auto_overlaps) / np.mean(pi
 print("\n" + "="*85)
 print("OVERLAP VS MRR CORRELATION (All 314 Queries)")
 print("="*85)
-for m in MODELS:
+for m in models:
     r_val, p_r = stats.pearsonr(all_overlaps, mrr_per_query[m])
     rho_val, p_rho = stats.spearmanr(all_overlaps, mrr_per_query[m])
     print(f"{m:<15} | Pearson r = {r_val:.4f} (p={p_r:.4e}) | Spearman rho = {rho_val:.4f} (p={p_rho:.4e})")

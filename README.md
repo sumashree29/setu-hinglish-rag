@@ -46,3 +46,7 @@ tests/           one test file per module; write these as you fill in the TODOs
 Everything here is plain Python — works identically in Jupyter, Colab, or an IDE.
 Recommended: prototype in `notebooks/`, then once a function is stable, move its final
 version into the matching `setu/` module so the rest of the pipeline can import it.
+
+## Reproducibility
+For the bandit controller evaluation, we use a rigorous 5-fold out-of-fold cross validation.
+The splits are fully deterministic, based on sequential chunking of the sorted query IDs in `queries_v3_final.json`, eliminating random seed variance. All initializations of the LinUCB context weights start deterministically at zero, ensuring the evaluations in `test_phase4_integration.py` and `run_statistical_tests_h1_h10_scaled.py` are strictly reproducible.

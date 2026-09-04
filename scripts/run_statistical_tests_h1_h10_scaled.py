@@ -7,9 +7,11 @@ Outputs results/tables/statistical_significance_H1_H10.json.
 """
 import json
 import sys
+import re
 from pathlib import Path
 import numpy as np
 from scipy import stats
+from statsmodels.stats.multitest import multipletests
 
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 from setu.evaluation.stats import (
@@ -30,6 +32,27 @@ per_query = json.load(open(ROOT / "results" / "logs" / "per_query_metrics_v2.jso
 # Let's see what the inputs actually expect.
 retrieval = json.load(open(ROOT / "results" / "tables" / "setu_v1_v2_comparison_scaled.json", encoding="utf-8"))
 queries_75 = json.load(open(ROOT / "data" / "processed" / "queries_v3_final.json", encoding="utf-8"))
+chunks_v2 = [json.loads(line) for line in open(ROOT / "data" / "processed" / "corpus_chunks_v2.jsonl", encoding="utf-8") if line.strip()]
+chunks_v2_map = {c["chunk_id"]: c for c in chunks_v2}
+
+STOPWORDS = {
+    "a", "an", "the", "in", "on", "at", "to", "for", "of", "with", "by", "from", 
+    "is", "are", "was", "were", "be", "been", "being", "have", "has", "had", "do", "does", "did",
+    "will", "would", "should", "can", "could", "may", "might", "must",
+    "and", "or", "but", "if", "then", "else", "when", "where", "why", "how", "what", "which", "who", "whom",
+    "this", "that", "these", "those", "it", "its", "they", "them", "their", "we", "our", "you", "your", "i", "my",
+    "kya", "hai", "hain", "hota", "hoti", "hote", "ke", "ki", "ka", "ko", "se", "mein", "par", "bhi", "toh", "aur",
+    "ya", "nahi", "kar", "kare", "karna", "karte", "sakte", "sakta", "chahiye", "baare", "jaankari", "kitna", "kitni", "kitne"
+}
+
+def compute_overlap(q_text, chunk_text):
+    q_tokens = [w.lower() for w in re.findall(r"\b\w+\b", q_text)]
+    content_tokens = [w for w in q_tokens if w not in STOPWORDS and len(w) > 1]
+    if not content_tokens:
+        return 0.0
+    chunk_tokens_set = set(w.lower() for w in re.findall(r"\b\w+\b", chunk_text))
+    matched_tokens = [w for w in content_tokens if w in chunk_tokens_set]
+    return len(matched_tokens) / len(content_tokens)
 
 results_h1_h10 = {}
 
@@ -48,13 +71,34 @@ def rank_biserial_stat_fn(x, y):
 q_dict_75 = {q["query_id"]: q for q in queries_75}
 bge_mrr_60 = []
 cmi_60 = []
+overlaps = []
 for qid in per_query["bge_m3"]:
     if qid in q_dict_75:
+        q_obj = q_dict_75[qid]
         bge_mrr_60.append(per_query["bge_m3"][qid]["mrr"])
-        cmi_60.append(cmi(q_dict_75[qid]["text"]))
+        q_cmi = cmi(q_obj["text"])
+        cmi_60.append(q_cmi)
+        target_text = " ".join(chunks_v2_map[d]["text"] for d in q_obj["relevant_doc_ids"] if d in chunks_v2_map)
+        overlaps.append(compute_overlap(q_obj["text"], target_text))
 
 rho_h1, p_val_h1 = spearman_correlation(cmi_60, bge_mrr_60)
 _, h1_ci_low, h1_ci_high = bootstrap_paired_statistic(cmi_60, bge_mrr_60, spearman_stat_fn, n_resamples=500)
+
+overlap_cmi_rho, overlap_cmi_p = spearman_correlation(cmi_60, overlaps)
+median_overlap = np.median(overlaps)
+low_overlap_cmi, low_overlap_mrr = [], []
+high_overlap_cmi, high_overlap_mrr = [], []
+
+for c, m, o in zip(cmi_60, bge_mrr_60, overlaps):
+    if o <= median_overlap:
+        low_overlap_cmi.append(c)
+        low_overlap_mrr.append(m)
+    else:
+        high_overlap_cmi.append(c)
+        high_overlap_mrr.append(m)
+
+rho_low, p_low = spearman_correlation(low_overlap_cmi, low_overlap_mrr)
+rho_high, p_high = spearman_correlation(high_overlap_cmi, high_overlap_mrr)
 
 results_h1_h10["H1"] = {
     "hypothesis": "H1: Retrieval quality decreases significantly as CMI increases, on the same corpus/model.",
@@ -64,7 +108,12 @@ results_h1_h10["H1"] = {
     "effect_size": float(rho_h1),
     "ci_95": [float(h1_ci_low), float(h1_ci_high)],
     "verdict": "supported" if p_val_h1 < 0.05 else "not supported",
-    "details": f"Spearman rho={rho_h1:.4f} (95% CI: [{h1_ci_low:.4f}, {h1_ci_high:.4f}]), p={p_val_h1:.4f} across 314 queries on BGE-M3."
+    "details": f"Spearman rho={rho_h1:.4f} (95% CI: [{h1_ci_low:.4f}, {h1_ci_high:.4f}]), p={p_val_h1:.4f} across 314 queries on BGE-M3.",
+    "confound_analysis": {
+        "cmi_vs_overlap": f"rho={overlap_cmi_rho:.4f}, p={overlap_cmi_p:.4f}",
+        "low_overlap_subset": f"n={len(low_overlap_cmi)}, rho={rho_low:.4f}, p={p_low:.4f}",
+        "high_overlap_subset": f"n={len(high_overlap_cmi)}, rho={rho_high:.4f}, p={p_high:.4f}"
+    }
 }
 
 # -------------------------------------------------------------
@@ -134,7 +183,7 @@ caep_gate = pickle.load(open(ROOT / "results" / "models" / "caep_gate_bge_m3.pkl
 lqp_model = pickle.load(open(ROOT / "results" / "models" / "lqp_model_bge_m3.pkl", "rb"))
 lag_model = pickle.load(open(ROOT / "results" / "models" / "lag_model_v3.pkl", "rb"))
 
-raw_mrrs, v1_mrrs, v2_mrrs = [], [], []
+raw_mrrs, v1_mrrs, v2_mrrs, lqp_mrrs = [], [], [], []
 v2_steps_per_q, cmi_per_q = [], []
 
 # Load clean trajectories for 5-fold CV
@@ -183,6 +232,16 @@ for q in queries_75:
             r_mrr = 1.0 / (rank + 1)
             break
     raw_mrrs.append(r_mrr)
+    
+    # LQP MRR
+    lqp_emb = lqp_model.predict(q_emb.reshape(1, -1))[0]
+    lqp_ranking = faiss_search(lqp_emb)
+    lqp_mrr = 0.0
+    for rank, d in enumerate(lqp_ranking[0]):
+        if d in rel_docs:
+            lqp_mrr = 1.0 / (rank + 1)
+            break
+    lqp_mrrs.append(lqp_mrr)
     
     # SETU v1 MRR
     v1_res = setu_v1_fixed_order(
@@ -275,6 +334,71 @@ results_h1_h10["H10"] = {
     "verdict": "proven in Phase 3 (skipped at scale)",
     "details": "Raw FAISS scores are not cached in the scaled evaluation, test skipped."
 }
+
+# -------------------------------------------------------------
+# H7: LQP alone recovers CMI-driven degradation
+# -------------------------------------------------------------
+stat_h7, p_val_h7 = paired_wilcoxon(raw_mrrs, lqp_mrrs)
+eff_h7 = rank_biserial_effect_size(raw_mrrs, lqp_mrrs)
+
+results_h1_h10["H7"] = {
+    "hypothesis": "H7: LQP alone recovers CMI-driven degradation.",
+    "test_used": "Paired Wilcoxon signed-rank test (RAW vs LQP MRR)",
+    "statistic": float(stat_h7),
+    "p_value": float(p_val_h7),
+    "effect_size": float(eff_h7),
+    "verdict": "supported" if p_val_h7 < 0.05 and eff_h7 > 0 else "not supported / opposite",
+    "details": f"RAW MRR={np.mean(raw_mrrs):.4f} vs LQP MRR={np.mean(lqp_mrrs):.4f} (p={p_val_h7:.4f})."
+}
+
+# -------------------------------------------------------------
+# H8: SETU v2 matches quality with fewer steps than v1
+# -------------------------------------------------------------
+v1_steps = [4.0] * len(v2_steps_per_q)
+stat_h8, p_val_h8 = paired_wilcoxon(v1_steps, v2_steps_per_q)
+
+results_h1_h10["H8"] = {
+    "hypothesis": "H8: SETU v2 matches quality with fewer steps than v1.",
+    "test_used": "Paired Wilcoxon signed-rank test (v1 steps vs v2 steps)",
+    "statistic": float(stat_h8),
+    "p_value": float(p_val_h8),
+    "effect_size": float(rank_biserial_effect_size(v1_steps, v2_steps_per_q)),
+    "verdict": "supported" if p_val_h8 < 0.05 and np.mean(v2_steps_per_q) < 4.0 else "not supported",
+    "details": f"v1 mean steps = 4.0 vs v2 mean steps = {np.mean(v2_steps_per_q):.4f} (p={p_val_h8:.4f})."
+}
+
+# -------------------------------------------------------------
+# H9: v2 step count correlates positively with CMI
+# -------------------------------------------------------------
+rho_h9, p_val_h9 = spearman_correlation(cmi_per_q, v2_steps_per_q)
+
+results_h1_h10["H9"] = {
+    "hypothesis": "H9: v2 step count correlates positively with CMI.",
+    "test_used": "Spearman rank correlation (CMI vs steps)",
+    "statistic": float(rho_h9),
+    "p_value": float(p_val_h9),
+    "effect_size": float(rho_h9),
+    "verdict": "supported" if p_val_h9 < 0.05 and rho_h9 > 0 else "not supported",
+    "details": f"Spearman rho={rho_h9:.4f}, p={p_val_h9:.4f}."
+}
+
+# -------------------------------------------------------------
+# Multiple Comparison Correction (Holm-Bonferroni)
+# -------------------------------------------------------------
+keys_with_pvals = [k for k in results_h1_h10.keys() if results_h1_h10[k].get("p_value") is not None]
+raw_pvals = [results_h1_h10[k]["p_value"] for k in keys_with_pvals]
+
+if raw_pvals:
+    rejected, corrected_pvals, _, _ = multipletests(raw_pvals, alpha=0.05, method='holm')
+    for k, p_corr, is_rej in zip(keys_with_pvals, corrected_pvals, rejected):
+        results_h1_h10[k]["p_value_corrected"] = float(p_corr)
+        
+        old_verdict = results_h1_h10[k]["verdict"]
+        # Update verdict if it was supported but now failed correction
+        if "supported" in old_verdict and not "not supported" in old_verdict and not is_rej:
+            results_h1_h10[k]["verdict"] = "not supported (failed Holm correction)"
+        elif "opposite" in old_verdict and not is_rej:
+             results_h1_h10[k]["verdict"] = "not supported (failed Holm correction)"
 
 # Save output
 out_path = ROOT / "results" / "tables" / "statistical_significance_H1_H10_scaled.json"

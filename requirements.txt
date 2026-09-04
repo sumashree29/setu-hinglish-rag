@@ -6,10 +6,11 @@ scikit-learn
 tqdm
 
 # --- Embeddings / Retrieval (Phase 1, 5) ---
-sentence-transformers
-transformers
-faiss-cpu
-ranx
+sentence-transformers>=2.2.2
+transformers>=4.30.0
+faiss-cpu>=1.7.4
+ranx>=0.3.17
+rank_bm25>=0.2.2
 
 # --- Operators (Phase 2) ---
 lightgbm
