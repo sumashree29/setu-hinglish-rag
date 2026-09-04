@@ -185,6 +185,7 @@ lag_model = pickle.load(open(ROOT / "results" / "models" / "lag_model_v3.pkl", "
 
 raw_mrrs, v1_mrrs, v2_mrrs, lqp_mrrs = [], [], [], []
 v2_steps_per_q, cmi_per_q = [], []
+raw_margins = []
 
 # Load clean trajectories for 5-fold CV
 trajectories = [json.loads(line) for line in open(ROOT / "data" / "logs" / "trajectories.jsonl", encoding="utf-8") if line.strip()]
@@ -232,6 +233,7 @@ for q in queries_75:
             r_mrr = 1.0 / (rank + 1)
             break
     raw_mrrs.append(r_mrr)
+    raw_margins.append(confidence_proxy(raw_ranking[1], method="margin"))
     
     # LQP MRR
     from setu.operators.lqp import apply_lqp
@@ -328,12 +330,16 @@ results_h1_h10["H6"] = {
 # -------------------------------------------------------------
 # H10: Proxy confidence signals accurately correlate with retrieval success
 # -------------------------------------------------------------
-# In Phase 5, raw FAISS scores were not cached to disk for space efficiency.
-# H10 was already proven in Phase 3. We skip the test here to save compute.
+rho_h10, p_val_h10 = spearman_correlation(raw_margins, raw_mrrs)
+
 results_h1_h10["H10"] = {
     "hypothesis": "H10: Proxy confidence signals (e.g., score margin) accurately correlate with retrieval success.",
-    "verdict": "proven in Phase 3 (skipped at scale)",
-    "details": "Raw FAISS scores are not cached in the scaled evaluation, test skipped."
+    "test_used": "Spearman rank correlation (margin vs MRR)",
+    "statistic": float(rho_h10),
+    "p_value": float(p_val_h10),
+    "effect_size": float(rho_h10),
+    "verdict": "supported" if p_val_h10 < 0.05 and rho_h10 > 0 else "not supported",
+    "details": f"Spearman rho={rho_h10:.4f}, p={p_val_h10:.4f}."
 }
 
 # -------------------------------------------------------------

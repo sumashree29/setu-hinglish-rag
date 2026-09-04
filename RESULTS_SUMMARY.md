@@ -16,7 +16,7 @@ Source: `results/tables/statistical_significance_H1_H10_scaled.json`
 | H7 | LQP alone recovers CMI-driven degradation | Paired Wilcoxon (RAW vs LQP MRR) | r_rb=-0.417 | 0.153 (adj) | **Not supported (failed Holm correction)** | LQP hurts aggregate retrieval (MRR 0.853→0.841), though not statistically significantly after multiple-testing correction. The projection over-corrects the 76% of queries where RAW is already correct (see Over-correction Diagnosis below). |
 | H8 | SETU v2 matches quality with fewer steps than v1 | Paired Wilcoxon (step counts) | r_rb=-1.000 | 5.28e-59 | **✅ Supported** | v2 uses mean 1.20 steps vs v1's 4.00 steps (2.80 fewer, p≈0). The LinUCB controller learned to STOP immediately for ~80% of queries while maintaining matched retrieval quality. |
 | H9 | v2 step count correlates positively with CMI | Spearman (CMI vs steps) | ρ=-0.086 | 0.127 | **Not supported** | No significant correlation — the controller does not allocate more steps to higher-CMI queries as hypothesized. |
-| H10 | Confidence proxy (score margin) correlates with retrieval success | Spearman (margin vs MRR) | ρ=-0.009 | 0.872 | **Not supported** | Score margin has zero predictive power for retrieval correctness at this scale. |
+| H10 | Confidence proxy (score margin) correlates with retrieval success | Spearman (margin vs MRR) | ρ=0.503 | 0.0 | **Supported** | Score margin positively correlates with retrieval correctness at scale. | |
 
 ## Key Supplementary Finding: Over-correction Diagnosis
 

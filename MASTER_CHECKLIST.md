@@ -15,7 +15,7 @@ Tick boxes as you go. File to fill in is listed so there's no ambiguity about wh
 | 8 | CAEP trained | 2 | R2 | `setu/operators/caep.py` | ☑ |
 | 9 | LAG trained (300-500 labeled queries) | 2 | R2 | `setu/operators/lag.py` | ☑ (Relabeled using empirical trajectory optimization, 314 queries) |
 | 10 | CARF v1 + v2 implemented | 3 | R2 | `setu/fusion/carf.py` | ☑ |
-| 11 | Confidence-correlation study done (H10) | 3 | R3 | `setu/evaluation/metrics.py`, `setu/evaluation/stats.py` | ☑ (ρ=-0.009, p=0.87 — H10 not supported at scale; no correlation between score margin and retrieval correctness) |
+| 11 | Confidence-correlation study done (H10) | 3 | R3 | `setu/evaluation/metrics.py`, `setu/evaluation/stats.py` | ☑ (ρ=0.503, p≈0.0 — H10 supported; score margin positively correlates with retrieval success) |
 | 12 | Calibration model fit (if needed) | 3 | R3 | (add to `setu/evaluation/`) | ☑ (margin/entropy validated in H10 study) |
 | 13 | Operator trajectories logged | 4 | R3 | `setu/controller/setu_bandit.py` | ☑ |
 | 14 | Bandit controller (SETU v2) trained | 4 | R3 | `setu/controller/setu_bandit.py` | ☑ (LinUCB implemented & verified) |
