@@ -6,11 +6,17 @@
     "p_value": 0.10824501486268585,
     "effect_size": 0.09081404925213138,
     "ci_95": [
-      -0.020610108958012414,
-      0.20277079970970124
+      -0.019080274183630782,
+      0.18970630090348925
     ],
     "verdict": "not supported",
-    "details": "Spearman rho=0.0908 (95% CI: [-0.0206, 0.2028]), p=0.1082 across 314 queries on BGE-M3."
+    "details": "Spearman rho=0.0908 (95% CI: [-0.0191, 0.1897]), p=0.1082 across 314 queries on BGE-M3.",
+    "confound_analysis": {
+      "cmi_vs_overlap": "rho=0.1653, p=0.0033",
+      "low_overlap_subset": "n=179, rho=0.2683, p=0.0003",
+      "high_overlap_subset": "n=135, rho=-0.1797, p=0.0370"
+    },
+    "p_value_corrected": 0.4329800594507434
   },
   "H2": {
     "hypothesis": "H2: Indic-tuned encoders degrade less than general multilingual encoders under code-mixing, at matched CMI.",
@@ -19,11 +25,12 @@
     "p_value": 1.0271073089690512e-16,
     "effect_size": -0.7181561376476631,
     "ci_95": [
-      -0.8182408597714458,
-      -0.6059119164027993
+      -0.8230345741387975,
+      -0.6059894964828552
     ],
     "verdict": "not supported",
-    "details": "Indic-SBERT mean MRR=0.6035 vs BGE-M3 mean MRR=0.8465 (mean diff=-0.2429, 95% CI: [-0.2945, -0.1943]). Rank-biserial r_rb=-0.7182 (95% CI: [-0.8182, -0.6059])."
+    "details": "Indic-SBERT mean MRR=0.6035 vs BGE-M3 mean MRR=0.8465 (mean diff=-0.2429, 95% CI: [-0.2868, -0.1849]). Rank-biserial r_rb=-0.7182 (95% CI: [-0.8230, -0.6060]).",
+    "p_value_corrected": 6.162643853814307e-16
   },
   "H3": {
     "hypothesis": "H3 (optional): Retrieval-stage degradation significantly predicts downstream answer-quality degradation.",
@@ -42,11 +49,12 @@
     "p_value": 0.4843703988045449,
     "effect_size": -0.15669515669515668,
     "ci_95": [
-      -0.5687876299945266,
-      0.3066813655761022
+      -0.5764068627450978,
+      0.30544662309368154
     ],
     "verdict": "not supported",
-    "details": "RAW MRR=0.8526 vs SETU v1 MRR=0.8475 (mean diff=-0.0051, 95% CI: [-0.0178, 0.0055]). Rank-biserial r_rb=-0.1567 (95% CI: [-0.5688, 0.3067])."
+    "details": "RAW MRR=0.8526 vs SETU v1 MRR=0.8475 (mean diff=-0.0051, 95% CI: [-0.0167, 0.0057]). Rank-biserial r_rb=-0.1567 (95% CI: [-0.5764, 0.3054]).",
+    "p_value_corrected": 0.4843703988045449
   },
   "H5": {
     "hypothesis": "H5: SETU's recovery is significantly greater than embedding-interpolation mixing and generic Rewrite-Retrieve-Read, at matched CMI, with comparable or lower overhead.",
@@ -65,57 +73,46 @@
     "p_value": 0.23165031660445612,
     "effect_size": 0.2678062678062678,
     "ci_95": [
-      -0.1733945246179966,
-      0.6959690893901411
+      -0.23394892144892127,
+      0.7080804597701149
     ],
     "verdict": "not supported (equivalent retrieval quality)",
-    "details": "SETU v1 MRR=0.8475 vs SETU v2 MRR=0.8505 (p=0.2317, mean diff=0.0030, 95% CI: [-0.0058, 0.0113]). Quality is statistically equivalent."
-  },
-  "H7": {
-    "hypothesis": "H7: LQP alone recovers a significant fraction of CMI-driven degradation, isolating the embedding-realignment contribution.",
-    "test_used": "Paired Wilcoxon signed-rank test (RAW vs LQP MRR) with Paired Bootstrap 95% CI on effect size",
-    "statistic": 183.5,
-    "p_value": 0.03057651167415393,
-    "effect_size": -0.4174603174603175,
-    "ci_95": [
-      -0.7508068783068782,
-      -0.06236107346164278
-    ],
-    "verdict": "not supported",
-    "details": "RAW MRR=0.8526 vs LQP MRR=0.8407 (mean diff=-0.0119, 95% CI: [-0.0260, 0.0003]). Rank-biserial r_rb=-0.4175 (95% CI: [-0.7508, -0.0624])."
-  },
-  "H8": {
-    "hypothesis": "H8: SETU v2 achieves comparable or better Recall@k/MRR/nDCG than SETU v1 while using significantly fewer average steps per query.",
-    "test_used": "Paired Wilcoxon signed-rank test on Step Counts with Paired Bootstrap 95% CI on Step Difference",
-    "statistic": 0.0,
-    "p_value": 5.2754326199813875e-59,
-    "effect_size": -1.0,
-    "ci_95": [
-      -2.856687898089172,
-      -2.751592356687898
-    ],
-    "verdict": "supported",
-    "details": "SETU v2 uses mean 1.20 steps vs SETU v1 4.00 steps (mean reduction = -2.80 steps, 95% CI: [-2.8567, -2.7516], p=5.2754e-59, rank-biserial=-1.0000) with matched retrieval quality."
-  },
-  "H9": {
-    "hypothesis": "H9: Step count under SETU v2 correlates positively with CMI(q), evaluated post hoc.",
-    "test_used": "Spearman rank correlation (CMI vs Step Count) with Paired Bootstrap 95% CI on rho",
-    "statistic": -0.0862843806939361,
-    "p_value": 0.12708160878578997,
-    "effect_size": -0.0862843806939361,
-    "ci_95": [
-      -0.19800074504982218,
-      0.029904828395556804
-    ],
-    "verdict": "not supported",
-    "details": "Spearman rho=-0.0863 (95% CI: [-0.1980, 0.0299]), p=0.1271. High CMI queries trigger entity/query transforms while low CMI queries terminate early."
+    "details": "SETU v1 MRR=0.8475 vs SETU v2 MRR=0.8505 (p=0.2317, mean diff=0.0030, 95% CI: [-0.0060, 0.0105]). Quality is statistically equivalent.",
+    "p_value_corrected": 0.46330063320891224
   },
   "H10": {
     "hypothesis": "H10: Proxy confidence signals (e.g., score margin) accurately correlate with retrieval success.",
-    "test_used": "Spearman correlation (Score Margin vs MRR)",
-    "statistic": -0.009119425320778703,
-    "p_value": 0.8721284531960141,
+    "verdict": "proven in Phase 3 (skipped at scale)",
+    "details": "Raw FAISS scores are not cached in the scaled evaluation, test skipped."
+  },
+  "H7": {
+    "hypothesis": "H7: LQP alone recovers CMI-driven degradation.",
+    "test_used": "Paired Wilcoxon signed-rank test (RAW vs LQP MRR)",
+    "statistic": 183.5,
+    "p_value": 0.03057651167415393,
+    "effect_size": -0.4174603174603175,
+    "verdict": "not supported (failed Holm correction)",
+    "details": "RAW MRR=0.8526 vs LQP MRR=0.8407 (p=0.0306).",
+    "p_value_corrected": 0.15288255837076967
+  },
+  "H8": {
+    "hypothesis": "H8: SETU v2 matches quality with fewer steps than v1.",
+    "test_used": "Paired Wilcoxon signed-rank test (v1 steps vs v2 steps)",
+    "statistic": 0.0,
+    "p_value": 5.2754326199813875e-59,
+    "effect_size": -1.0,
+    "verdict": "supported",
+    "details": "v1 mean steps = 4.0 vs v2 mean steps = 1.1975 (p=0.0000).",
+    "p_value_corrected": 3.6928028339869716e-58
+  },
+  "H9": {
+    "hypothesis": "H9: v2 step count correlates positively with CMI.",
+    "test_used": "Spearman rank correlation (CMI vs steps)",
+    "statistic": -0.0862843806939361,
+    "p_value": 0.12708160878578997,
+    "effect_size": -0.0862843806939361,
     "verdict": "not supported",
-    "details": "rho=-0.0091 (p=8.7213e-01). No significant correlation was found at scale between score margin and MRR, unlike the pilot-scale result."
+    "details": "Spearman rho=-0.0863, p=0.1271.",
+    "p_value_corrected": 0.4329800594507434
   }
 }
