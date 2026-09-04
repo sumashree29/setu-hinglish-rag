@@ -6,11 +6,11 @@
     "p_value": 0.10824501486268585,
     "effect_size": 0.09081404925213138,
     "ci_95": [
-      -0.015489951540173762,
-      0.20628205920367967
+      -0.03273860434900738,
+      0.21162069039095913
     ],
     "verdict": "not supported",
-    "details": "Spearman rho=0.0908 (95% CI: [-0.0155, 0.2063]), p=0.1082 across 314 queries on BGE-M3.",
+    "details": "Spearman rho=0.0908 (95% CI: [-0.0327, 0.2116]), p=0.1082 across 314 queries on BGE-M3.",
     "confound_analysis": {
       "cmi_vs_overlap": "rho=0.1653, p=0.0033",
       "low_overlap_subset": "n=179, rho=0.2683, p=0.0003",
@@ -25,11 +25,11 @@
     "p_value": 1.0271073089690512e-16,
     "effect_size": -0.7181561376476631,
     "ci_95": [
-      -0.8127149929181627,
-      -0.5913515208966461
+      -0.8196052937321647,
+      -0.6108251688314853
     ],
     "verdict": "not supported",
-    "details": "Indic-SBERT mean MRR=0.6035 vs BGE-M3 mean MRR=0.8465 (mean diff=-0.2429, 95% CI: [-0.2963, -0.1945]). Rank-biserial r_rb=-0.7182 (95% CI: [-0.8127, -0.5914]).",
+    "details": "Indic-SBERT mean MRR=0.6035 vs BGE-M3 mean MRR=0.8465 (mean diff=-0.2429, 95% CI: [-0.3007, -0.1951]). Rank-biserial r_rb=-0.7182 (95% CI: [-0.8196, -0.6108]).",
     "p_value_corrected": 6.162643853814307e-16
   },
   "H3": {
@@ -49,11 +49,11 @@
     "p_value": 0.4843703988045449,
     "effect_size": -0.15669515669515668,
     "ci_95": [
-      -0.592342799188641,
-      0.27077453580901845
+      -0.5818495583717358,
+      0.25407692307692303
     ],
     "verdict": "not supported",
-    "details": "RAW MRR=0.8526 vs SETU v1 MRR=0.8475 (mean diff=-0.0051, 95% CI: [-0.0172, 0.0056]). Rank-biserial r_rb=-0.1567 (95% CI: [-0.5923, 0.2708]).",
+    "details": "RAW MRR=0.8526 vs SETU v1 MRR=0.8475 (mean diff=-0.0051, 95% CI: [-0.0172, 0.0039]). Rank-biserial r_rb=-0.1567 (95% CI: [-0.5818, 0.2541]).",
     "p_value_corrected": 0.4843703988045449
   },
   "H5": {
@@ -73,11 +73,11 @@
     "p_value": 0.23165031660445612,
     "effect_size": 0.2678062678062678,
     "ci_95": [
-      -0.22041593834419193,
-      0.7404619565217391
+      -0.11391188672438661,
+      0.6668091168091167
     ],
     "verdict": "not supported (equivalent retrieval quality)",
-    "details": "SETU v1 MRR=0.8475 vs SETU v2 MRR=0.8505 (p=0.2317, mean diff=0.0030, 95% CI: [-0.0060, 0.0116]). Quality is statistically equivalent.",
+    "details": "SETU v1 MRR=0.8475 vs SETU v2 MRR=0.8505 (p=0.2317, mean diff=0.0030, 95% CI: [-0.0060, 0.0094]). Quality is statistically equivalent.",
     "p_value_corrected": 0.46330063320891224
   },
   "H10": {

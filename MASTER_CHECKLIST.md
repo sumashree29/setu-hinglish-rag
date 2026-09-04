@@ -23,7 +23,7 @@ Tick boxes as you go. File to fill in is listed so there's no ambiguity about wh
 | 16 | Corpus/queries scaled to pilot/domain-scale (380/3,000–5,000 target); not full-scale | 5 | R1 | `scripts/build_pilot_corpus.py` (scaled) | ☑ |
 | 17 | Public benchmark arm (MIRACL+Aksharantar) run | 5 | R3 | `results/tables/extended_baselines.md` | ☑ (Not run locally — citation-only per plan's explicit fallback option (§7.3). Local run attempted twice, found methodologically invalid (corpus contained only ground-truth documents, no distractors) and not worth further engineering time given lowest priority.) |
 | 18 | Extended baselines table compiled | 5 | R3 | `results/tables/extended_baselines.md` | ☑ |
-| 19 | Statistical tests run for H1-H10 | 5 | R3 | `results/tables/statistical_significance_H1_H10_scaled.json` | ☑ (H8 supported; H1,H4,H6,H7,H9,H10 not supported; H2 significant in opposite direction; H3,H5 insufficient data — see RESULTS_SUMMARY.md) |
+| 19 | Statistical tests run for H1-H10 | 5 | R3 | `results/tables/statistical_significance_H1_H10_scaled.json` | ☑ (H8,H10 supported; H1,H4,H6,H7,H9 not supported; H2 significant in opposite direction; H3,H5 insufficient data — see RESULTS_SUMMARY.md) |
 | 20 | All figures/tables assembled | 6 | All | `outputs/figures/`, `outputs/tables/` | ☐ |
 | 21 | Paper drafted in IEEE format | 6 | All | (Overleaf, outside repo) | ☐ |
 | 22 | (Stretch) Online policy adaptation | 6 | R3 | `setu/controller/setu_bandit.py` | ☐ |

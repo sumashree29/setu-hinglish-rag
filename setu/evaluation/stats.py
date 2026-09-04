@@ -71,7 +71,8 @@ def bootstrap_ci(
             np.mean,
             confidence_level=confidence,
             n_resamples=min(n_resamples, 2000),
-            method='BCa'
+            method='BCa',
+            random_state=42
         )
         return point_estimate, float(res.confidence_interval.low), float(res.confidence_interval.high)
     except Exception:
@@ -80,7 +81,8 @@ def bootstrap_ci(
             np.mean,
             confidence_level=confidence,
             n_resamples=min(n_resamples, 2000),
-            method='percentile'
+            method='percentile',
+            random_state=42
         )
         return point_estimate, float(res.confidence_interval.low), float(res.confidence_interval.high)
 
@@ -124,6 +126,7 @@ def bootstrap_paired_statistic(
         paired=True,
         confidence_level=confidence,
         n_resamples=min(n_resamples, 5000),
-        method="percentile"
+        method="percentile",
+        random_state=42
     )
     return point_estimate, float(res.confidence_interval.low), float(res.confidence_interval.high)

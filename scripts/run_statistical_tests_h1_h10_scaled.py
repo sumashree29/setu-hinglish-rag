@@ -10,6 +10,7 @@ import sys
 import re
 from pathlib import Path
 import numpy as np
+np.random.seed(42)
 from scipy import stats
 from statsmodels.stats.multitest import multipletests
 
@@ -407,10 +408,16 @@ if raw_pvals:
         elif "opposite" in old_verdict and not is_rej:
              results_h1_h10[k]["verdict"] = "not supported (failed Holm correction)"
 
-# Save output
-out_path = ROOT / "results" / "tables" / "statistical_significance_H1_H10_scaled.json"
-out_path.parent.mkdir(parents=True, exist_ok=True)
-with open(out_path, "w", encoding="utf-8") as f:
+# Save output to both canonical results dir and final outputs dir to prevent drift
+out_path_results = ROOT / "results" / "tables" / "statistical_significance_H1_H10_scaled.json"
+out_path_outputs = ROOT / "outputs" / "tables" / "statistical_significance_H1_H10_scaled.json"
+
+out_path_results.parent.mkdir(parents=True, exist_ok=True)
+with open(out_path_results, "w", encoding="utf-8") as f:
     json.dump(results_h1_h10, f, indent=2)
 
-print(f"\nSaved complete, corrected statistical significance results to {out_path}")
+out_path_outputs.parent.mkdir(parents=True, exist_ok=True)
+with open(out_path_outputs, "w", encoding="utf-8") as f:
+    json.dump(results_h1_h10, f, indent=2)
+
+print(f"\nSaved complete, corrected statistical significance results to {out_path_results} and {out_path_outputs}")
