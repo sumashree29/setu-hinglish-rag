@@ -1,0 +1,150 @@
+{
+  "total_queries": 314,
+  "total_v2_failures_at_rank1": 72,
+  "band_counts": {
+    "low": 3,
+    "medium": 4,
+    "high": 59,
+    "very_high": 6
+  },
+  "category_breakdown_by_band": {
+    "low": {
+      "lag_wrong_substrategy": 2,
+      "base_retrieval_miss": 1
+    },
+    "medium": {
+      "lag_wrong_substrategy": 1,
+      "caep_undercorrect": 3
+    },
+    "high": {
+      "lag_wrong_substrategy": 10,
+      "caep_undercorrect": 46,
+      "caep_overcorrect": 3
+    },
+    "very_high": {
+      "lag_wrong_substrategy": 1,
+      "caep_undercorrect": 5
+    }
+  },
+  "examples": {
+    "lag_wrong_substrategy": [
+      {
+        "query": "Kya main ek hi bank mein do BSBDA khaata khol sakta hoon ya sirf ek hi milega",
+        "cmi": 0.235,
+        "ops_applied": [
+          "LAG"
+        ],
+        "raw_failed": true
+      },
+      {
+        "query": "BSBDA khaate mein mahine bhar mein kitni baar paisa nikalna free hota hai",
+        "cmi": 0.385,
+        "ops_applied": [
+          "LAG"
+        ],
+        "raw_failed": true
+      },
+      {
+        "query": "Does checking my balance at an ATM count as one of the free withdrawals",
+        "cmi": 0.143,
+        "ops_applied": [
+          "LAG"
+        ],
+        "raw_failed": true
+      },
+      {
+        "query": "Is there any age or income restriction for opening a BSBDA account",
+        "cmi": 0.083,
+        "ops_applied": [
+          "LAG"
+        ],
+        "raw_failed": true
+      },
+      {
+        "query": "BSBDA account kholne ke liye koi age ya income limit hai kya",
+        "cmi": 0.5,
+        "ops_applied": [
+          "LAG"
+        ],
+        "raw_failed": true
+      }
+    ],
+    "base_retrieval_miss": [
+      {
+        "query": "Can I open a small account using simplified kyc documentation",
+        "cmi": 0.0,
+        "ops_applied": [],
+        "raw_failed": true
+      }
+    ],
+    "caep_undercorrect": [
+      {
+        "query": "pmkisan payment aane ke liye aadhar link karwana mandatory hai kya",
+        "cmi": 0.455,
+        "ops_applied": [
+          "CAEP"
+        ],
+        "raw_failed": true
+      },
+      {
+        "query": "EEFC account opening ke liye yogyata aur criteria kya hoti hai",
+        "cmi": 0.364,
+        "ops_applied": [
+          "CAEP"
+        ],
+        "raw_failed": true
+      },
+      {
+        "query": "foreign exchange ki maximum seema aur charges kitne hote hain",
+        "cmi": 0.5,
+        "ops_applied": [
+          "LAG",
+          "CAEP"
+        ],
+        "raw_failed": true
+      },
+      {
+        "query": "kya foreign exchange allow kiya jata hai ya koi khaas rukawat hai",
+        "cmi": 0.417,
+        "ops_applied": [
+          "CAEP"
+        ],
+        "raw_failed": true
+      },
+      {
+        "query": "kya eefc account allow kiya jata hai ya koi khaas rukawat hai",
+        "cmi": 0.417,
+        "ops_applied": [
+          "CAEP"
+        ],
+        "raw_failed": true
+      }
+    ],
+    "caep_overcorrect": [
+      {
+        "query": "NEFT transaction tracking ka tareeqa aur step-by-step procedure kya hota hai",
+        "cmi": 0.545,
+        "ops_applied": [
+          "CAEP"
+        ],
+        "raw_failed": false
+      },
+      {
+        "query": "PSS Act regulations and enforcement ka arth aur details kya hain",
+        "cmi": 0.545,
+        "ops_applied": [
+          "CAEP"
+        ],
+        "raw_failed": false
+      },
+      {
+        "query": "security valuation guidelines ka arth aur details kya hain",
+        "cmi": 0.444,
+        "ops_applied": [
+          "CAEP"
+        ],
+        "raw_failed": false
+      }
+    ]
+  }
+}
