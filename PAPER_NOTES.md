@@ -19,23 +19,19 @@ Code-mixed Hinglish queries degrade dense retrieval quality, and SETU's correcti
 
 5. **The learned controller solves this** (H8 supported, p≈0). SETU v2 learns to STOP immediately for easy queries and only invokes operators when they're likely to help. This achieves v1-equivalent quality with 70% fewer steps and 40% lower latency.
 
-6. **The controller's efficiency win is NOT sophisticated sequencing** — it learned a simpler insight: most queries don't need correction. The "smart" thing is doing nothing most of the time.
-
 ---
 
 ## Recommended Paper Framing
 
-### Title Options
-- "When Not to Correct: Trusting Retriever Confidence in Domain-Specific RAG" (Drops code-mixed focus)
-- "When Not to Correct: Adaptive Gating for Code-Mixed Query Correction in Dense Retrieval"
-- "SETU: Why Code-Mixed Correction Operators Need Learned Gating, Not Better Algorithms"
-- "Negative Results and Adaptive Recovery: Testing the Code-Mixed Retrieval Degradation Hypothesis"
+### Final Title Decision
+- "When Not to Correct: Trusting Retriever Confidence in Domain-Specific RAG" 
+*(Note: Because we dropped the code-mixing focus from the title, we MUST include an explicit sentence early in the introduction stating: "We test this in a Hinglish domain, but our central finding — confidence-gated correction — is domain-general.")*
 
 ### Abstract Skeleton
 
 > We rigorously test the assumption that Hinglish code-mixing degrades dense retrieval quality in a domain-specific RAG system. Using a 380-chunk RBI banking FAQ corpus and 314 code-mixed queries across three embedding models, we find **no evidence of systematic CMI-driven degradation** (H1: ρ=0.09, p=0.11). Three purpose-built correction operators (LQP, CAEP, LAG) — designed to recover degradation via embedding projection, entity augmentation, and adaptive rewriting — each **hurt aggregate retrieval** when applied unconditionally, because they over-correct the 76% of queries the base model already handles correctly.
 >
-> However, a stratified analysis reveals that operators provide a **+0.48 MRR boost** on the 24% of queries where the base model fails. We introduce a contextual bandit controller (LinUCB) that learns to selectively gate operator application, achieving matched retrieval quality with 70% fewer pipeline steps (1.2 vs 4.0 mean steps, p≈0). Our findings suggest that for code-mixed retrieval, **adaptive operator selection** is more important than operator design — the key challenge is knowing *when* to intervene, not *how*.
+> However, a stratified analysis reveals that operators provide a **+0.48 MRR boost** on the 24% of queries where the base model fails. We introduce a contextual bandit controller (LinUCB) that learns to selectively gate operator application, achieving matched retrieval quality with 70% fewer pipeline steps (1.2 vs 4.0 mean steps, p≈0). The controller's efficiency win is not sophisticated sequencing — it learned a simpler insight: most queries don't need correction. The "smart" thing is doing nothing most of the time. Our findings suggest that for code-mixed retrieval, **adaptive operator selection** is more important than operator design — the key challenge is knowing *when* to intervene, not *how*.
 
 ### Key Contributions (in order of strength)
 1. **Over-correction diagnosis**: Formal demonstration that correction operators help failing queries (+0.48 MRR) but harm successful ones (-0.16 MRR), with the net effect depending on the base model's accuracy distribution.
@@ -53,7 +49,7 @@ Code-mixed Hinglish queries degrade dense retrieval quality, and SETU's correcti
     - **Pilot-Scale Corpus**: The corpus is limited to 380 chunks, restricting generalizability.
     - **LAG In-sample Labeling**: LAG's training labels were derived from in-sample trajectory optimization rather than a strict hold-out fold.
     - **Missing MIRACL Benchmark**: Evaluated only on the domain-specific corpus; MIRACL public benchmark arm was not completed due to data-loading issues.
-    - **CMI Band Imbalance**: Severe skew toward high CMI. The null result for H1 should not be read as evidence that CMI has no effect, only that this distribution could not detect one. This skew is disclosed rather than rebalanced.
+    - **CMI Band Imbalance**: Severe skew toward high CMI. The null result for H1 should not be read as evidence that CMI has no effect, only that this distribution could not detect one (e.g., our observed power for detecting a moderate correlation of ρ≥0.3 at n=14 in the low band is approximately 17.7%). This skew is disclosed rather than rebalanced.
 
 ### What NOT to Claim
 - ❌ Do not claim SETU "corrects code-mixed retrieval degradation" — H1 shows degradation isn't reliably present
