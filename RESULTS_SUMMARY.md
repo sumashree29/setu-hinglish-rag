@@ -8,7 +8,7 @@ Source: `results/tables/statistical_significance_H1_H10_scaled.json`
 | # | Hypothesis | Test | Statistic | p-value | Verdict | Plain-English Meaning |
 |---|-----------|------|-----------|---------|---------|----------------------|
 | H1 | Retrieval quality decreases as CMI increases | Spearman (CMI vs MRR) | ρ=0.091 | 0.108 | **Not supported** | No significant monotonic relationship between code-mixing intensity and retrieval degradation. Band imbalance (low=14, medium=28, high=237, very_high=35) limits statistical power. |
-| H2 | Indic-tuned encoders degrade less than general multilingual encoders | Paired Wilcoxon (Indic-SBERT vs BGE-M3) | r_rb=-0.718 | 1.03e-16 | **⚠️ Significant in OPPOSITE direction** | Indic-SBERT (MRR=0.604) performs dramatically *worse* than BGE-M3 (MRR=0.847), not better. The Indic-tuned model's smaller vocabulary and training data make it inferior to the general multilingual model on this corpus. |
+| H2 | Indic-tuned encoders degrade less than general multilingual encoders | Paired Wilcoxon (Indic-SBERT vs BGE-M3) | r_rb=-0.718 | 1.03e-16 | **⚠️ Significant in OPPOSITE direction** | Indic-SBERT (MRR=0.604) performs dramatically *worse* than BGE-M3 (MRR=0.847), not better. We hypothesize this is due to a capacity deficit (vocabulary and pretraining corpus size), but did not empirically verify this as the root cause. |
 | H3 | Retrieval degradation predicts answer-quality degradation | — | — | — | **Insufficient data** | Deferred to Phase 6 (downstream LLM generation evaluation not yet implemented). |
 | H4 | SETU-processed queries achieve higher Recall/MRR/nDCG than raw | Paired Wilcoxon (RAW vs SETU v1 MRR) | r_rb=-0.157 | 0.484 | **Not supported** | SETU v1 (fixed pipeline) does not significantly improve over RAW. Mean MRR diff = -0.005 (slight decrease). |
 | H5 | SETU's recovery exceeds generic baselines (interpolation, Rewrite-Retrieve-Read) | — | — | — | **Insufficient data** | External comparison baselines not implemented. |
@@ -62,4 +62,4 @@ In addition to the CMI band distribution noted below, the following methodologic
 | High | 0.35–0.55 | 237 | 75.5% |
 | Very High | 0.55–1.00 | 35 | 11.1% |
 
-The severe skew toward the "high" band limits statistical power for H1 (degradation hypothesis) and H9 (step-CMI correlation). The 239 auto-generated queries cluster in the 0.35–0.55 CMI range because the code-mixed query generation strategy naturally produces queries in this band.
+The severe skew toward the "high" band limits statistical power for H1 (degradation hypothesis) and H9 (step-CMI correlation). The 239 auto-generated queries cluster in the 0.35–0.55 CMI range because the code-mixed query generation strategy naturally produces queries in this band. The null result for H1 should not be read as evidence that CMI has no effect, only that this distribution could not detect one. We are proceeding by disclosing this skew as a formal limitation rather than rebalancing the dataset.

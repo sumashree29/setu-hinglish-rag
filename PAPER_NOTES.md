@@ -11,7 +11,7 @@ Code-mixed Hinglish queries degrade dense retrieval quality, and SETU's correcti
 
 1. **Code-mixing does NOT reliably degrade retrieval** (H1 not supported, ρ=0.09, p=0.11). BGE-M3 handles code-mixed queries about as well as monolingual ones on this domain corpus. The presumption of degradation — the entire motivation for building correction operators — is not supported by our data.
 
-2. **Indic-tuned models are dramatically WORSE, not better** (H2 significant in opposite direction, p=1e-16). Indic-SBERT (MRR=0.604) underperforms BGE-M3 (MRR=0.847) by a massive margin. The "Indic-tuned models handle code-mixing better" assumption is wrong for our domain.
+2. **Indic-tuned models are dramatically WORSE, not better** (H2 significant in opposite direction, p=1e-16). Indic-SBERT (MRR=0.604) underperforms BGE-M3 (MRR=0.847) by a massive margin. We hypothesize this is due to BGE-M3's massively larger capacity (vocabulary and pretraining data), but we did not empirically verify this mechanism as the root cause. The "Indic-tuned models handle code-mixing better" assumption is wrong for our domain.
 
 3. **Correction operators hurt aggregate performance** (H4 not supported, H7 directionally negative but not significant after Holm correction). When applied unconditionally, LQP/CAEP/LAG each reduce MRR because they over-correct the 76% of queries where the base model already succeeds.
 
@@ -26,6 +26,7 @@ Code-mixed Hinglish queries degrade dense retrieval quality, and SETU's correcti
 ## Recommended Paper Framing
 
 ### Title Options
+- "When Not to Correct: Trusting Retriever Confidence in Domain-Specific RAG" (Drops code-mixed focus)
 - "When Not to Correct: Adaptive Gating for Code-Mixed Query Correction in Dense Retrieval"
 - "SETU: Why Code-Mixed Correction Operators Need Learned Gating, Not Better Algorithms"
 - "Negative Results and Adaptive Recovery: Testing the Code-Mixed Retrieval Degradation Hypothesis"
@@ -52,7 +53,7 @@ Code-mixed Hinglish queries degrade dense retrieval quality, and SETU's correcti
     - **Pilot-Scale Corpus**: The corpus is limited to 380 chunks, restricting generalizability.
     - **LAG In-sample Labeling**: LAG's training labels were derived from in-sample trajectory optimization rather than a strict hold-out fold.
     - **Missing MIRACL Benchmark**: Evaluated only on the domain-specific corpus; MIRACL public benchmark arm was not completed due to data-loading issues.
-    - **CMI Band Imbalance**: Severe skew toward high CMI.
+    - **CMI Band Imbalance**: Severe skew toward high CMI. The null result for H1 should not be read as evidence that CMI has no effect, only that this distribution could not detect one. This skew is disclosed rather than rebalanced.
 
 ### What NOT to Claim
 - ❌ Do not claim SETU "corrects code-mixed retrieval degradation" — H1 shows degradation isn't reliably present
