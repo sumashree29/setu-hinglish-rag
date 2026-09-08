@@ -1,0 +1,26 @@
+{
+  "dataset": {
+    "total_queries": 314,
+    "corpus_chunks": 380,
+    "embedding_models": 3
+  },
+  "effect_of_correction": {
+    "queries_already_correct_mrr_change": -0.16,
+    "queries_that_were_wrong_mrr_change": 0.48
+  },
+  "efficiency": {
+    "base_mean_steps": 4.0,
+    "setu_mean_steps": 1.2,
+    "base_latency_ms": 576,
+    "setu_latency_ms": 349,
+    "p_value_steps": 0.0
+  },
+  "statistical_significance": {
+    "h1": {
+      "hypothesis": "Code-mixing degrades search accuracy",
+      "supported": false,
+      "rho": 0.09,
+      "p_value": 0.11
+    }
+  }
+}

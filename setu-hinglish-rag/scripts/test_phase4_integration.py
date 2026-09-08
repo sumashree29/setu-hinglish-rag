@@ -1,0 +1,121 @@
+"""
+Phase 4 Task 5 -- integration test: run setu_v1_fixed_order() and
+setu_v2_run() end-to-end against REAL pilot corpus (20 atomic chunks, 75 queries)
++ real fitted CAEP gate (caep_gate.pkl) and real fitted LQP model (lqp_model.pkl).
+"""
+import json
+import pickle
+import sys
+from pathlib import Path
+
+import numpy as np
+import faiss
+from sentence_transformers import SentenceTransformer
+
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+
+from setu.operators.caep import extract_entity_list, entity_frequencies
+from setu.controller.setu_bandit import setu_v1_fixed_order, setu_v2_run, EpsilonGreedyController
+from setu.evaluation.metrics import confidence_proxy
+
+# --- Load real pilot corpus ---
+chunks = []
+with open("data/processed/corpus_chunks.jsonl", encoding="utf-8") as f:
+    for line in f:
+        chunks.append(json.loads(line))
+doc_ids = [c["chunk_id"] for c in chunks]
+doc_texts = [c["text"] for c in chunks]
+
+queries = json.load(open("data/processed/queries_remapped.json", encoding="utf-8"))
+
+# --- Embedding function (BGE-M3, matches fitted LQP model dim 1024) ---
+print("Loading embedding model (BGE-M3)...")
+model = SentenceTransformer("BAAI/bge-m3")
+
+
+def embed_fn(texts):
+    return model.encode(texts, convert_to_numpy=True)
+
+
+# --- FAISS index over real corpus ---
+doc_embeddings = embed_fn(doc_texts).astype("float32")
+faiss.normalize_L2(doc_embeddings)
+index = faiss.IndexFlatIP(doc_embeddings.shape[1])
+index.add(doc_embeddings)
+
+
+def faiss_search_fn(query_embedding, k=10):
+    q = np.asarray(query_embedding, dtype="float32").reshape(1, -1)
+    faiss.normalize_L2(q)
+    scores, indices = index.search(q, k)
+    ranked_doc_ids = [doc_ids[i] for i in indices[0]]
+    ranked_scores = [float(s) for s in scores[0]]
+    return ranked_doc_ids, ranked_scores
+
+
+# --- Entities + real fitted models ---
+entities = extract_entity_list(doc_texts)
+entity_freq = entity_frequencies(doc_texts)
+print(f"Extracted {len(entities)} entities from real corpus: {entities[:10]}")
+
+print("Loading real fitted CAEP gate and LQP model from results/models/...")
+with open("results/models/caep_gate.pkl", "rb") as f:
+    caep_gate = pickle.load(f)
+with open("results/models/lqp_model.pkl", "rb") as f:
+    lqp_model = pickle.load(f)
+print("Loaded caep_gate.pkl and lqp_model.pkl (trained on real corpus/PHINC data)\n")
+
+# --- Run v1 baseline on a few real queries ---
+print("=== SETU v1 (fixed order) on 3 real queries ===")
+high_cmi_queries = sorted(queries, key=lambda q: -abs(0.5 - 0))[:0]  # placeholder, replaced below
+from setu.diagnosis.cmi import cmi as _cmi_fn
+queries_with_cmi = [(q, _cmi_fn(q["text"])) for q in queries]
+high_cmi_queries = [q for q, c in sorted(queries_with_cmi, key=lambda x: -x[1])[:3]]
+for q in high_cmi_queries:
+    query_text = q["text"]
+    query_emb = embed_fn([query_text])[0]
+    raw_ranking = faiss_search_fn(query_emb)
+
+    result = setu_v1_fixed_order(
+        query=query_text,
+        raw_ranking=raw_ranking,
+        embed_fn=embed_fn,
+        entities=entities,
+        entity_freq=entity_freq,
+        caep_gate=caep_gate,
+        lqp_model=lqp_model,
+        faiss_search_fn=faiss_search_fn,
+    )
+    print(f"\nQuery: {query_text}")
+    print(f"  expected: {q['relevant_doc_ids']}")
+    print(f"  RAW (uncorrected) top2:  {raw_ranking[0][:2]}")
+    print(f"  CORRECTED (v1) top2:     {result['final_ranking'][:2]}")
+# --- Run v2 (epsilon-greedy) on the same queries ---
+print("\n=== SETU v2 (epsilon-greedy) on 3 real queries ===")
+controller = EpsilonGreedyController(epsilon=0.2)
+high_cmi_queries = sorted(queries, key=lambda q: -abs(0.5 - 0))[:0]  # placeholder, replaced below
+from setu.diagnosis.cmi import cmi as _cmi_fn
+queries_with_cmi = [(q, _cmi_fn(q["text"])) for q in queries]
+high_cmi_queries = [q for q, c in sorted(queries_with_cmi, key=lambda x: -x[1])[:3]]
+for q in high_cmi_queries:
+    query_text = q["text"]
+    query_emb = embed_fn([query_text])[0]
+    raw_ranking = faiss_search_fn(query_emb)
+
+    ops, conf_trace, v2_ranking = setu_v2_run(
+        query=query_text,
+        controller=controller,
+        raw_ranking=raw_ranking,
+        embed_fn=embed_fn,
+        entities=entities,
+        entity_freq=entity_freq,
+        caep_gate=caep_gate,
+        lqp_model=lqp_model,
+        faiss_search_fn=faiss_search_fn,
+        confidence_fn=confidence_proxy,
+    )
+    print(f"\nQuery: {query_text}")
+    print(f"  operators used: {ops}")
+    print(f"  confidence trace: {[round(c,3) for c in conf_trace]}")
+
+print("\nIntegration test complete.")

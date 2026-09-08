@@ -1,0 +1,350 @@
+{
+  "trace_date": "2026-08-29",
+  "description": "Per-query diagnostic trace for Q73, Q61, Q21, Q18, Q58, Q63, Q71 covering RAW baseline, LQP standalone, CAEP standalone, and LAG standalone, including gate feature checks and token replacement flags.",
+  "queries": [
+    {
+      "query_id": "Q73",
+      "raw_query_text": "pmkisan payment aane ke liye aadhar link karwana mandatory hai kya",
+      "expected_relevant_docs": [
+        "D15"
+      ],
+      "cmi": 0.4545,
+      "alpha": 0.4545,
+      "raw_top5": [
+        "D16",
+        "D15",
+        "D11",
+        "D07",
+        "D05"
+      ],
+      "lqp_top5": [
+        "D15",
+        "D16",
+        "D11",
+        "D07",
+        "D05"
+      ],
+      "caep_corrected_query": "KISAN payment aane ke liye Aadhaar link karwana mandatory hai kya",
+      "caep_top5": [
+        "D15",
+        "D16",
+        "D11",
+        "D12",
+        "D07"
+      ],
+      "lag_predicted_strategy": "full_rewrite",
+      "lag_top5": [
+        "D15",
+        "D16",
+        "D11",
+        "D12",
+        "D07"
+      ],
+      "gate_checks": [
+        {
+          "candidate_token": "aadhar",
+          "matched_entity": "Aadhaar",
+          "features": [
+            92.3076923076923,
+            0.7543155550956726,
+            2.0
+          ],
+          "predicted_class_pre_fix": 0,
+          "predicted_class_post_fix": 1,
+          "probability_post_fix": [
+            0.2817092203326742,
+            0.7182907796673258
+          ],
+          "substituted_in_text": true
+        }
+      ],
+      "flags": [
+        "Q73 token 'aadhar' was successfully substituted by 'Aadhaar' (predicted_class=1, p=0.718), promoting target D15 from rank #2 to #1.",
+        "Note on token granularity: 'pmkisan' was substituted with 'KISAN' rather than 'PM-KISAN' due to single-token word split matching."
+      ]
+    },
+    {
+      "query_id": "Q61",
+      "raw_query_text": "What is a bsbda account, is there any minimum balance requirement",
+      "expected_relevant_docs": [
+        "D01"
+      ],
+      "cmi": 0.0,
+      "alpha": 0.0,
+      "raw_top5": [
+        "D01",
+        "D08",
+        "D10",
+        "D07",
+        "D02"
+      ],
+      "lqp_top5": [
+        "D01",
+        "D08",
+        "D10",
+        "D07",
+        "D02"
+      ],
+      "caep_corrected_query": "What is a BSBDA Account, is There Any minimum Balance requirement",
+      "caep_top5": [
+        "D01",
+        "D08",
+        "D10",
+        "D07",
+        "D02"
+      ],
+      "lag_predicted_strategy": "full_rewrite",
+      "lag_top5": [
+        "D01",
+        "D10",
+        "D08",
+        "D07",
+        "D02"
+      ],
+      "gate_checks": [],
+      "flags": []
+    },
+    {
+      "query_id": "Q21",
+      "raw_query_text": "Is there any age or income restriction for opening a BSBDA account",
+      "expected_relevant_docs": [
+        "D06"
+      ],
+      "cmi": 0.0833,
+      "alpha": 0.0833,
+      "raw_top5": [
+        "D01",
+        "D08",
+        "D06",
+        "D02",
+        "D07"
+      ],
+      "lqp_top5": [
+        "D01",
+        "D08",
+        "D02",
+        "D06",
+        "D10"
+      ],
+      "caep_corrected_query": "Is There Any age or income Registration for opening a BSBDA Account",
+      "caep_top5": [
+        "D01",
+        "D08",
+        "D07",
+        "D06",
+        "D10"
+      ],
+      "lag_predicted_strategy": "light_normalize",
+      "lag_top5": [
+        "D01",
+        "D08",
+        "D06",
+        "D02",
+        "D07"
+      ],
+      "gate_checks": [],
+      "flags": []
+    },
+    {
+      "query_id": "Q18",
+      "raw_query_text": "BSBDA account ke saath ATM card free milta hai kya",
+      "expected_relevant_docs": [
+        "D05"
+      ],
+      "cmi": 0.6,
+      "alpha": 0.6,
+      "raw_top5": [
+        "D05",
+        "D07",
+        "D03",
+        "D01",
+        "D04"
+      ],
+      "lqp_top5": [
+        "D05",
+        "D03",
+        "D07",
+        "D01",
+        "D04"
+      ],
+      "caep_corrected_query": "BSBDA Account ke saath ATM card free milta hai kya",
+      "caep_top5": [
+        "D05",
+        "D07",
+        "D03",
+        "D01",
+        "D04"
+      ],
+      "lag_predicted_strategy": "dual_variant",
+      "lag_top5": [
+        "D05",
+        "D07",
+        "D03",
+        "D01",
+        "D04"
+      ],
+      "gate_checks": [],
+      "flags": []
+    },
+    {
+      "query_id": "Q58",
+      "raw_query_text": "PM-KISAN ke liye online apply kaise karein ya CSC se kaise karein",
+      "expected_relevant_docs": [
+        "D19",
+        "D20"
+      ],
+      "cmi": 0.5,
+      "alpha": 0.5,
+      "raw_top5": [
+        "D20",
+        "D19",
+        "D11",
+        "D12",
+        "D16"
+      ],
+      "lqp_top5": [
+        "D20",
+        "D19",
+        "D11",
+        "D12",
+        "D16"
+      ],
+      "caep_corrected_query": "PM-KISAN ke liye online apply kaise karein ya CSC se kaise karein",
+      "caep_top5": [
+        "D20",
+        "D19",
+        "D11",
+        "D12",
+        "D16"
+      ],
+      "lag_predicted_strategy": "dual_variant",
+      "lag_top5": [
+        "D20",
+        "D19",
+        "D11",
+        "D12",
+        "D16"
+      ],
+      "gate_checks": [],
+      "flags": []
+    },
+    {
+      "query_id": "Q63",
+      "raw_query_text": "Kya ek hi bank mein do bsbdaa account open kar sakte hain",
+      "expected_relevant_docs": [
+        "D02"
+      ],
+      "cmi": 0.4167,
+      "alpha": 0.4167,
+      "raw_top5": [
+        "D02",
+        "D01",
+        "D08",
+        "D07",
+        "D10"
+      ],
+      "lqp_top5": [
+        "D02",
+        "D01",
+        "D08",
+        "D10",
+        "D07"
+      ],
+      "caep_corrected_query": "Kya ek hi Bank mein do BSBDA Account open kar sakte hain",
+      "caep_top5": [
+        "D02",
+        "D01",
+        "D07",
+        "D08",
+        "D10"
+      ],
+      "lag_predicted_strategy": "full_rewrite",
+      "lag_top5": [
+        "D02",
+        "D01",
+        "D08",
+        "D07",
+        "D10"
+      ],
+      "gate_checks": [
+        {
+          "candidate_token": "bsbdaa",
+          "matched_entity": "BSBDA",
+          "features": [
+            90.9090909090909,
+            0.8650195002555847,
+            7.0
+          ],
+          "predicted_class_pre_fix": 0,
+          "predicted_class_post_fix": 1,
+          "probability_post_fix": [
+            0.444092904978301,
+            0.555907095021699
+          ],
+          "substituted_in_text": true
+        }
+      ],
+      "flags": []
+    },
+    {
+      "query_id": "Q71",
+      "raw_query_text": "pm-kisaan yojana ka labh lene ke liye farmer family ki eligibility sharte kya hain",
+      "expected_relevant_docs": [
+        "D12"
+      ],
+      "cmi": 0.3571,
+      "alpha": 0.3571,
+      "raw_top5": [
+        "D12",
+        "D11",
+        "D17",
+        "D14",
+        "D19"
+      ],
+      "lqp_top5": [
+        "D12",
+        "D11",
+        "D17",
+        "D14",
+        "D19"
+      ],
+      "caep_corrected_query": "pm-kisaan yojana ka labh lene ke liye Farmer family ki eligibility sharte kya hain",
+      "caep_top5": [
+        "D12",
+        "D11",
+        "D17",
+        "D19",
+        "D14"
+      ],
+      "lag_predicted_strategy": "full_rewrite",
+      "lag_top5": [
+        "D12",
+        "D11",
+        "D17",
+        "D19",
+        "D14"
+      ],
+      "gate_checks": [
+        {
+          "candidate_token": "pm-kisaan",
+          "matched_entity": "PM-KISAN",
+          "features": [
+            94.11764705882352,
+            0.8615962266921997,
+            0.0
+          ],
+          "predicted_class_pre_fix": 0,
+          "predicted_class_post_fix": 1,
+          "probability_post_fix": [
+            0.3571620894235017,
+            0.6428379105764983
+          ],
+          "substituted_in_text": false
+        }
+      ],
+      "flags": [
+        "Inconsistency flag: The standalone gate check for candidate token 'pm-kisaan' against 'PM-KISAN' outputs predicted_class=1 (prob=[0.357, 0.643]), but inside apply_caep loop, clean_word matched 'pm-kisaan' against 'KISAN' (fuzzy score 76.9 vs 71.4) causing the gate to evaluate against 'KISAN' where pred was 0, leaving 'pm-kisaan' unreplaced in the actual corrected query text."
+      ]
+    }
+  ]
+}

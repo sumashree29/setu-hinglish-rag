@@ -1,0 +1,74 @@
+[
+  {
+    "query": "What is BSBDA account, minimum balance rakhna padta hai kya",
+    "cmi": 0.5,
+    "ops_applied": [
+      "STOP"
+    ],
+    "doc_rank_before": 1,
+    "doc_rank_after": 1,
+    "doc_title": "",
+    "doc_text": "A Basic Savings Bank Deposit Account (BSBDA) is a zero-balance savings account that every bank must offer to individual customers, with no minimum balance requirement at any time....",
+    "modified_query": "What is BSBDA account, minimum balance rakhna padta hai kya"
+  },
+  {
+    "query": "BSBDA account kya hota hai, minimum balance ki zarurat hai kya",
+    "cmi": 0.4545,
+    "ops_applied": [
+      "STOP"
+    ],
+    "doc_rank_before": 1,
+    "doc_rank_after": 1,
+    "doc_title": "",
+    "doc_text": "A Basic Savings Bank Deposit Account (BSBDA) is a zero-balance savings account that every bank must offer to individual customers, with no minimum balance requirement at any time....",
+    "modified_query": "BSBDA account kya hota hai, minimum balance ki zarurat hai kya"
+  },
+  {
+    "query": "BSBDA khaate mein minimum balance rakhna padta hai ya yeh zero balance account hota hai",
+    "cmi": 0.4,
+    "ops_applied": [
+      "STOP"
+    ],
+    "doc_rank_before": 1,
+    "doc_rank_after": 1,
+    "doc_title": "",
+    "doc_text": "A Basic Savings Bank Deposit Account (BSBDA) is a zero-balance savings account that every bank must offer to individual customers, with no minimum balance requirement at any time....",
+    "modified_query": "BSBDA khaate mein minimum balance rakhna padta hai ya yeh zero balance account hota hai"
+  },
+  {
+    "query": "BSBDA account kholne ke liye koi age ya income limit hai kya",
+    "cmi": 0.5,
+    "ops_applied": [
+      "LAG"
+    ],
+    "doc_rank_before": 3,
+    "doc_rank_after": 2,
+    "doc_title": "",
+    "doc_text": "There is no age or income eligibility restriction for opening a Basic Savings Bank Deposit Account. It is meant to be available to every individual as a standard banking product, not only to economica...",
+    "modified_query": "Is there any age or income limit to open a BSBDA account?"
+  },
+  {
+    "query": "Kya mera purana savings account BSBDA mein badla ja sakta hai",
+    "cmi": 0.4545,
+    "ops_applied": [
+      "LQP"
+    ],
+    "doc_rank_before": 2,
+    "doc_rank_after": 1,
+    "doc_title": "",
+    "doc_text": "A regular savings bank account can be converted into a BSBDA at the customer's request, as long as the customer gives written consent and is informed about the reduced facilities compared to a normal ...",
+    "modified_query": "[Latent Query Projection Applied - Embedding Space Modified]"
+  },
+  {
+    "query": "Sarkari naukri wale ya pension paane wale kisan PM-KISAN ka labh le sakte hain kya",
+    "cmi": 0.4,
+    "ops_applied": [
+      "LAG"
+    ],
+    "doc_rank_before": 2,
+    "doc_rank_after": 1,
+    "doc_title": "",
+    "doc_text": "Certain higher-income categories are excluded from PM-KISAN even if they own farmland, including current and former holders of constitutional posts, elected representatives such as MPs and MLAs, retir...",
+    "modified_query": "Can government employees or pensioners get PM-KISAN scheme benefits?"
+  }
+]

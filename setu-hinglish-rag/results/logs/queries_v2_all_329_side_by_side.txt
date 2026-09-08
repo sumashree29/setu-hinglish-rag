@@ -1,0 +1,1315 @@
+[001] Query ID: Q076 | Doc ID: C021
+      Source FAQ:      "Q 1. What is an EEFC Account and what are its benefits"
+      Generated Query: "EEFC kya hota hai aur iska purpose kya hai"
+
+[002] Query ID: Q077 | Doc ID: C022
+      Source FAQ:      "Q 2. Who can open an EEFC account"
+      Generated Query: "EEFC ke liye documents aur eligibility kya chahiye"
+
+[003] Query ID: Q078 | Doc ID: C023
+      Source FAQ:      "Q 3. What are the different types of EEFC accounts"
+      Generated Query: "what is EEFC accounts and how does it work"
+
+[004] Query ID: Q079 | Doc ID: C024
+      Source FAQ:      "Q 4. How much of one’s foreign exchange earnings can be credited into an EEFC account"
+      Generated Query: "foreign exchange earnings mein kitna limit aur penalty hota hai"
+
+[005] Query ID: Q080 | Doc ID: C025
+      Source FAQ:      "Q 5. Whether EEFC Account can be opened by Special Economic Zone (SEZ) Units"
+      Generated Query: "kya Special Economic Zone SEZ ke liye eligible hone ki koi specific criteria hai"
+
+[006] Query ID: Q081 | Doc ID: C027
+      Source FAQ:      "Q 7. What are the permissible credits into this account"
+      Generated Query: "permissible credits ke baare mein jaankari chahiye"
+
+[007] Query ID: Q082 | Doc ID: C028
+      Source FAQ:      "Q 8. Can foreign exchange earnings received through an international credit card be credited to the EEFC account"
+      Generated Query: "EEFC kya hota hai"
+
+[008] Query ID: Q083 | Doc ID: C029
+      Source FAQ:      "Q 9. What are the permissible debits into this account"
+      Generated Query: "permissible debits kya hota hai aur iska purpose kya hai"
+
+[009] Query ID: Q084 | Doc ID: C030
+      Source FAQ:      "Q 10. Is there any restriction on withdrawal in rupees of funds held in an EEFC account"
+      Generated Query: "who can apply for EEFC and what are the requirements"
+
+[010] Query ID: Q085 | Doc ID: C031
+      Source FAQ:      "Q. 11. Whether the EEFC balances can be covered against exchange risk"
+      Generated Query: "kya senior citizens ko exchange risk par special benefit milta hai"
+
+[011] Query ID: Q086 | Doc ID: C032
+      Source FAQ:      "Q. 12. Whether EEFC Account is permitted to be held jointly with a resident relative"
+      Generated Query: "resident relative ke liye documents aur eligibility kya chahiye"
+
+[012] Query ID: Q087 | Doc ID: C033
+      Source FAQ:      "Q1. What is meant by Remittance of Assets"
+      Generated Query: "what is Remittance Assets and how does it work"
+
+[013] Query ID: Q088 | Doc ID: C034
+      Source FAQ:      "Q.3 Who is a Resident"
+      Generated Query: "Resident ke baare mein jaankari chahiye"
+
+[014] Query ID: Q089 | Doc ID: C035
+      Source FAQ:      "Q.4 What is meant by ‘not permanently resident’"
+      Generated Query: "permanently resident kya hota hai"
+
+[015] Query ID: Q090 | Doc ID: C036
+      Source FAQ:      "Q5. Which are the cases related to Remittance of Assets for which prior approval of RBI is to be sought for effecting the remittance"
+      Generated Query: "Remittance Assets kya hota hai aur iska purpose kya hai"
+
+[016] Query ID: Q091 | Doc ID: C037
+      Source FAQ:      "Q6. What are the Tax implications in respect of remittance of assets"
+      Generated Query: "what is Tax implications respect remittance and how does it work"
+
+[017] Query ID: Q092 | Doc ID: C040
+      Source FAQ:      "3. What would be the amount offered for non-competitive bidding"
+      Generated Query: "amount offered non-competitive bidding ka interest rate aur tenure kitna hai"
+
+[018] Query ID: Q093 | Doc ID: C041
+      Source FAQ:      "4. How can the eligible investors participate in the auctions"
+      Generated Query: "auctions ke baare mein jaankari chahiye"
+
+[019] Query ID: Q094 | Doc ID: C042
+      Source FAQ:      "5. Who is an aggregator or facilitator"
+      Generated Query: "aggregator facilitator kya hota hai"
+
+[020] Query ID: Q095 | Doc ID: C043
+      Source FAQ:      "6. What is the minimum/ maximum bidding amount"
+      Generated Query: "kya minimum maximum bidding amount ke liye minimum balance ya charge lagta hai"
+
+[021] Query ID: Q096 | Doc ID: C046
+      Source FAQ:      "9. How will the investor make payment for the security"
+      Generated Query: "investor make payment security kya hota hai aur iska purpose kya hai"
+
+[022] Query ID: Q097 | Doc ID: C048
+      Source FAQ:      "11. How will the non-competitive bidder know the modalities of payment"
+      Generated Query: "what is modalities payment and how does it work"
+
+[023] Query ID: Q098 | Doc ID: C050
+      Source FAQ:      "13. How will the RBI allot the bids to non-competitive bidder"
+      Generated Query: "RBI allot bids ke baare mein jaankari chahiye"
+
+[024] Query ID: Q099 | Doc ID: C053
+      Source FAQ:      "16. And if the amount bid through non-competitive bidding is less than the reserved amount"
+      Generated Query: "what is the maximum and minimum limit for amount through non-competitive bidding"
+
+[025] Query ID: Q100 | Doc ID: C054
+      Source FAQ:      "17. How will the aggregator or facilitator make partial allotment"
+      Generated Query: "partial allotment kya hota hai"
+
+[026] Query ID: Q101 | Doc ID: C055
+      Source FAQ:      "18. What if the payment for the securities is made to the aggregator or facilitator after the date of issue of the security"
+      Generated Query: "payment securities made aggregator kya hota hai aur iska purpose kya hai"
+
+[027] Query ID: Q102 | Doc ID: C056
+      Source FAQ:      "19. In how many days will the investor receive the security"
+      Generated Query: "security mein kitna limit aur penalty hota hai"
+
+[028] Query ID: Q103 | Doc ID: C057
+      Source FAQ:      "Q1. Who is an NRI"
+      Generated Query: "what is NRI and how does it work"
+
+[029] Query ID: Q104 | Doc ID: C058
+      Source FAQ:      "Q2. Who is a PIO"
+      Generated Query: "PIO ke baare mein jaankari chahiye"
+
+[030] Query ID: Q105 | Doc ID: C059
+      Source FAQ:      "Q3. What are the major accounts that can be opened in India by a non-resident"
+      Generated Query: "major accounts opened India kya hota hai"
+
+[031] Query ID: Q106 | Doc ID: C060
+      Source FAQ:      "Q4. Can a Bangladeshi/ Pakistani national or an entity owned/ controlled from Bangladesh/ Pakistan have an account in India"
+      Generated Query: "kya Bangladeshi Pakistani national entity ke liye eligible hone ki koi specific criteria hai"
+
+[032] Query ID: Q107 | Doc ID: C061
+      Source FAQ:      "Q5. What are the accounts that a tourist visiting India can open"
+      Generated Query: "accounts tourist visiting India kya hota hai aur iska purpose kya hai"
+
+[033] Query ID: Q108 | Doc ID: C062
+      Source FAQ:      "Q6. What is an SNRR account"
+      Generated Query: "what is SNRR and how does it work"
+
+[034] Query ID: Q109 | Doc ID: C063
+      Source FAQ:      "Q 7. What are the deposits that foreign Diplomatic missions/ personnel and their family members in India can hold"
+      Generated Query: "deposits foreign Diplomatic missions ke baare mein jaankari chahiye"
+
+[035] Query ID: Q110 | Doc ID: C064
+      Source FAQ:      "Q8. Can persons resident in Nepal and Bhutan have accounts in India"
+      Generated Query: "persons resident Nepal Bhutan kya hota hai"
+
+[036] Query ID: Q111 | Doc ID: C066
+      Source FAQ:      "Q10. Can an Indian company accept deposits from non-residents in compliance with section 160 of the Companies Act, 2013"
+      Generated Query: "who can apply for ndian company accept deposits and what are the requirements"
+
+[037] Query ID: Q112 | Doc ID: C067
+      Source FAQ:      "Q11. Can a Foreign Portfolio Investor or a Foreign Venture Capital Investor open a foreign currency account in India"
+      Generated Query: "kya senior citizens ko Foreign Portfolio Investor Foreign par special benefit milta hai"
+
+[038] Query ID: Q113 | Doc ID: C068
+      Source FAQ:      "Q12. Who can open an Escrow Account in India and for what purpose"
+      Generated Query: "Escrow ke liye documents aur eligibility kya chahiye"
+
+[039] Query ID: Q114 | Doc ID: C069
+      Source FAQ:      "1. Who are Authorised Persons under Foreign Exchange Management Act, 1999 (“FEMA”)"
+      Generated Query: "Authorised Persons Foreign Exchange kya hota hai aur iska purpose kya hai"
+
+[040] Query ID: Q115 | Doc ID: C070
+      Source FAQ:      "2. What is the objective behind allowing FFMCs to do business"
+      Generated Query: "what is objective behind allowing FFMCs and how does it work"
+
+[041] Query ID: Q116 | Doc ID: C071
+      Source FAQ:      "3. Whether a licence is mandatory for carrying out money changing business"
+      Generated Query: "licence mandatory carrying money ke baare mein jaankari chahiye"
+
+[042] Query ID: Q117 | Doc ID: C072
+      Source FAQ:      "4. Who can apply for an FFMC licence"
+      Generated Query: "kya FFMC licence ke liye eligible hone ki koi specific criteria hai"
+
+[043] Query ID: Q118 | Doc ID: C073
+      Source FAQ:      "5. Where can one submit the application for an FFMC licence"
+      Generated Query: "who can apply for FFMC licence and what are the requirements"
+
+[044] Query ID: Q119 | Doc ID: C074
+      Source FAQ:      "6. How to calculate Net Owned Funds (NOF)"
+      Generated Query: "how to apply for calculate Owned Funds online or offline"
+
+[045] Query ID: Q120 | Doc ID: C075
+      Source FAQ:      "7. Is NOF required to be maintained on an ongoing basis"
+      Generated Query: "required maintained ongoing basis kya hota hai"
+
+[046] Query ID: Q121 | Doc ID: C076
+      Source FAQ:      "8. What is the time frame within which a newly licensed FFMC should commence operations"
+      Generated Query: "time frame within newly kya hota hai aur iska purpose kya hai"
+
+[047] Query ID: Q122 | Doc ID: C077
+      Source FAQ:      "9. When should an application for licence renewal be made"
+      Generated Query: "what is application licence renewal and how does it work"
+
+[048] Query ID: Q123 | Doc ID: C078
+      Source FAQ:      "10. Under what circumstances can Reserve Bank revoke an FFMC licence"
+      Generated Query: "what is the process for FFMC licence cancellation or closure"
+
+[049] Query ID: Q124 | Doc ID: C079
+      Source FAQ:      "11. What are the money changing facilities presently available in India"
+      Generated Query: "money changing facilities presently ke baare mein jaankari chahiye"
+
+[050] Query ID: Q125 | Doc ID: C080
+      Source FAQ:      "12. What is the objective of the Scheme for appointing Franchisees by AD Category Banks, ADs Category-II and FFMCs for undertaking restricted money changing activities"
+      Generated Query: "objective Scheme appointing Franchisees kya hota hai"
+
+[051] Query ID: Q126 | Doc ID: C081
+      Source FAQ:      "13. What are the salient features of Franchisee Agreement"
+      Generated Query: "salient features Franchisee Agreement kya hota hai aur iska purpose kya hai"
+
+[052] Query ID: Q127 | Doc ID: C082
+      Source FAQ:      "14. What is the procedure for submission of application by AD Category – I bank/ AD Category - II/ FFMC to the Reserve Bank for appointment of franchisees"
+      Generated Query: "procedure submission application AD ka process aur step-by-step procedure kya hai"
+
+[053] Query ID: Q128 | Doc ID: C083
+      Source FAQ:      "15. What are the checks to be ensured by AD Category-I banks/ADs Category-II/FFMCs while conducting due diligence of Franchisees before appointing them"
+      Generated Query: "what is checks ensured AD Category-I and how does it work"
+
+[054] Query ID: Q129 | Doc ID: C084
+      Source FAQ:      "16. What are the criteria for selection of centres"
+      Generated Query: "criteria selection centres ke baare mein jaankari chahiye"
+
+[055] Query ID: Q130 | Doc ID: C085
+      Source FAQ:      "17. What are the guidelines on provision for training of franchisees"
+      Generated Query: "guidelines provision training franchisees ke rules aur guidelines kya hain"
+
+[056] Query ID: Q131 | Doc ID: C086
+      Source FAQ:      "18. What are the guidelines in respect of Reporting, Audit and Inspection of franchisees"
+      Generated Query: "kya guidelines respect Reporting Audit par koi restriction ya special condition lagti hai"
+
+[057] Query ID: Q132 | Doc ID: C087
+      Source FAQ:      "19. Does a franchisee need to adhere to KYC/AML/CFT Guidelines"
+      Generated Query: "franchisee need adhere KYCAMLCFT update karwane ke liye bank branch jana padega kya"
+
+[058] Query ID: Q133 | Doc ID: C088
+      Source FAQ:      "20. Can Authorised Dealers Category-II issue forex pre-paid cards"
+      Generated Query: "Authorised Dealers Category-II issue kya hota hai"
+
+[059] Query ID: Q134 | Doc ID: C089
+      Source FAQ:      "21. Can forex pre-paid cards be used at Duty Free Shops located at International Airports in India"
+      Generated Query: "forex pre-paid cards used kya hota hai aur iska purpose kya hai"
+
+[060] Query ID: Q135 | Doc ID: C090
+      Source FAQ:      "22. What is the position of Papua New Guinea Paper Banknotes"
+      Generated Query: "what is position Papua Guinea Paper and how does it work"
+
+[061] Query ID: Q136 | Doc ID: C091
+      Source FAQ:      "23. What is the position of old generation ‘1000 shillings (Ksh)’ banknotes in Kenya"
+      Generated Query: "position generation 1000 shillings ke baare mein jaankari chahiye"
+
+[062] Query ID: Q137 | Doc ID: C092
+      Source FAQ:      "1. What is National Electronic Funds Transfer system"
+      Generated Query: "National Electronic Funds Transfer kya hota hai"
+
+[063] Query ID: Q138 | Doc ID: C093
+      Source FAQ:      "2. What are the advantages of using NEFT system"
+      Generated Query: "advantages using NEFT system kya hota hai aur iska purpose kya hai"
+
+[064] Query ID: Q139 | Doc ID: C094
+      Source FAQ:      "3. How does the NEFT system operate"
+      Generated Query: "what is NEFT system operate and how does it work"
+
+[065] Query ID: Q140 | Doc ID: C095
+      Source FAQ:      "4. What is Indian Financial System Code"
+      Generated Query: "ndian Financial System Code ke baare mein jaankari chahiye"
+
+[066] Query ID: Q141 | Doc ID: C096
+      Source FAQ:      "5. How can I find the IFSC of a bank-branch"
+      Generated Query: "kya senior citizens ko find IFSC bank-branch par special benefit milta hai"
+
+[067] Query ID: Q142 | Doc ID: C097
+      Source FAQ:      "6. Who can avail NEFT system for fund transfer / receipt"
+      Generated Query: "avail NEFT system fund ke liye documents aur eligibility kya chahiye"
+
+[068] Query ID: Q143 | Doc ID: C098
+      Source FAQ:      "7. Is there any limit on funds / amount to be remitted through NEFT system"
+      Generated Query: "limit funds amount remitted ka interest rate aur tenure kitna hai"
+
+[069] Query ID: Q144 | Doc ID: C099
+      Source FAQ:      "8. Can the NEFT system be used for remitting funds even by those who do not have a bank account"
+      Generated Query: "NEFT system used kya hota hai"
+
+[070] Query ID: Q145 | Doc ID: C100
+      Source FAQ:      "9. Can I send funds to my relative / friend residing abroad through NEFT system"
+      Generated Query: "kya NEFT system ke liye eligible hone ki koi specific criteria hai"
+
+[071] Query ID: Q146 | Doc ID: C101
+      Source FAQ:      "10. What are the operating hours of NEFT"
+      Generated Query: "operating hours NEFT kya hota hai aur iska purpose kya hai"
+
+[072] Query ID: Q147 | Doc ID: C102
+      Source FAQ:      "11. What are the essential details required for remitting funds through NEFT system"
+      Generated Query: "what is remitting funds through NEFT and how does it work"
+
+[073] Query ID: Q148 | Doc ID: C103
+      Source FAQ:      "12. What are the customer charges levied by bank for NEFT transactions"
+      Generated Query: "customer charges levied NEFT ke baare mein jaankari chahiye"
+
+[074] Query ID: Q149 | Doc ID: C104
+      Source FAQ:      "13. Can I use NEFT to transfer funds from / to NRE and NRO accounts"
+      Generated Query: "who can apply for NRE NRO accounts and what are the requirements"
+
+[075] Query ID: Q150 | Doc ID: C105
+      Source FAQ:      "14. Can I originate a NEFT transaction to draw / receive funds from another account"
+      Generated Query: "kya senior citizens ko originate NEFT transaction draw par special benefit milta hai"
+
+[076] Query ID: Q151 | Doc ID: C106
+      Source FAQ:      "15. How can I track status of NEFT transactions initiated"
+      Generated Query: "track status NEFT transactions ke liye documents aur eligibility kya chahiye"
+
+[077] Query ID: Q152 | Doc ID: C107
+      Source FAQ:      "16. Which details of source of a NEFT transaction should be provided by a bank to its customer"
+      Generated Query: "details source NEFT transaction kya hota hai"
+
+[078] Query ID: Q153 | Doc ID: C108
+      Source FAQ:      "17. What is the Help Desk / Contact point at the RBI"
+      Generated Query: "Help Desk Contact point kya hota hai aur iska purpose kya hai"
+
+[079] Query ID: Q154 | Doc ID: C109
+      Source FAQ:      "18. How much time should I expect for receipt of funds by beneficiary"
+      Generated Query: "kya time expect receipt funds ke liye minimum balance ya charge lagta hai"
+
+[080] Query ID: Q155 | Doc ID: C110
+      Source FAQ:      "19. What happens if funds are not credited to the beneficiary"
+      Generated Query: "what is happens funds credited beneficiary and how does it work"
+
+[081] Query ID: Q156 | Doc ID: C111
+      Source FAQ:      "20. What are the penalties / compensation for delayed credit or return of funds by beneficiary bank"
+      Generated Query: "what is the maximum and minimum limit for penalties compensation delayed credit"
+
+[082] Query ID: Q157 | Doc ID: C112
+      Source FAQ:      "21. What happens if I write wrong account number of beneficiary"
+      Generated Query: "happens write wrong number ke baare mein jaankari chahiye"
+
+[083] Query ID: Q158 | Doc ID: C113
+      Source FAQ:      "22. Whom should I approach for raising dispute / complaint related to NEFT transaction"
+      Generated Query: "NEFT transaction mein dispute ya delay hone par redressal kaise milega"
+
+[084] Query ID: Q159 | Doc ID: C114
+      Source FAQ:      "23. How can I file complaint under the RB-IOS 2021"
+      Generated Query: "whom to approach for file complaint RB-IOS 2021 complaint or grievance"
+
+[085] Query ID: Q160 | Doc ID: C115
+      Source FAQ:      "24. What are the practices which should be adopted by a customer for safe and secure digital payments"
+      Generated Query: "practices adopted customer safe kya hota hai"
+
+[086] Query ID: Q161 | Doc ID: C116
+      Source FAQ:      "25. What is Legal Entity Identifier and how is it relevant in case of large value NEFT transactions"
+      Generated Query: "Legal Entity Identifier relevant kya hota hai aur iska purpose kya hai"
+
+[087] Query ID: Q162 | Doc ID: C117
+      Source FAQ:      "1. What is RBI's role with regard to conduct of Government's banking transaction"
+      Generated Query: "what is RBI role regard conduct and how does it work"
+
+[088] Query ID: Q163 | Doc ID: C118
+      Source FAQ:      "2. How does Reserve Bank of India discharge its statutory obligation of being 'Banker to Government'"
+      Generated Query: "Reserve India discharge statutory ke baare mein jaankari chahiye"
+
+[089] Query ID: Q164 | Doc ID: C119
+      Source FAQ:      "3. How payment into government account is made"
+      Generated Query: "payment government made kya hota hai"
+
+[090] Query ID: Q165 | Doc ID: C120
+      Source FAQ:      "4. When is the receipted challan for payment made into government account made available"
+      Generated Query: "receipted challan payment made kya hota hai aur iska purpose kya hai"
+
+[091] Query ID: Q166 | Doc ID: C121
+      Source FAQ:      "5. What if the paper token is misplaced / lost"
+      Generated Query: "what is paper token misplaced lost and how does it work"
+
+[092] Query ID: Q167 | Doc ID: C122
+      Source FAQ:      "6. What if the Receipted Challan is misplaced"
+      Generated Query: "Receipted Challan misplaced ke baare mein jaankari chahiye"
+
+[093] Query ID: Q168 | Doc ID: C123
+      Source FAQ:      "7. Are agency banks compensated for conduct of Central/State Government banking"
+      Generated Query: "agency banks compensated conduct kya hota hai"
+
+[094] Query ID: Q169 | Doc ID: C124
+      Source FAQ:      "8. What is RBI’s role in Goods and Service Tax regime"
+      Generated Query: "RBI role Goods Service kya hota hai aur iska purpose kya hai"
+
+[095] Query ID: Q170 | Doc ID: C125
+      Source FAQ:      "1. Which banks are insured by the DICGC"
+      Generated Query: "what is nsured DICGC and how does it work"
+
+[096] Query ID: Q171 | Doc ID: C126
+      Source FAQ:      "2. What does the DICGC insure"
+      Generated Query: "DICGC insure ke baare mein jaankari chahiye"
+
+[097] Query ID: Q172 | Doc ID: C127
+      Source FAQ:      "3. What is the maximum deposit amount insured by the DICGC"
+      Generated Query: "maximum deposit amount insured mein kitna limit aur penalty hota hai"
+
+[098] Query ID: Q173 | Doc ID: C128
+      Source FAQ:      "4. How will you know whether your bank is insured by the DICGC or not"
+      Generated Query: "insured DICGC kya hota hai"
+
+[099] Query ID: Q174 | Doc ID: C129
+      Source FAQ:      "5. What is the ceiling on amount of Insured deposits kept by one person in different branches of a bank"
+      Generated Query: "ceiling amount Insured deposits ka interest rate aur tenure kitna hai"
+
+[100] Query ID: Q175 | Doc ID: C130
+      Source FAQ:      "6. Does the DICGC insure just the principal on an account or both principal and accrued interest"
+      Generated Query: "DICGC insure just principal kya hota hai aur iska purpose kya hai"
+
+[101] Query ID: Q176 | Doc ID: C131
+      Source FAQ:      "7. Can deposit insurance be increased by depositing funds into several different accounts all at the same bank"
+      Generated Query: "what is several different accounts same and how does it work"
+
+[102] Query ID: Q177 | Doc ID: C132
+      Source FAQ:      "8. Are deposits in different banks separately insured"
+      Generated Query: "deposits different banks separately ke baare mein jaankari chahiye"
+
+[103] Query ID: Q178 | Doc ID: C134
+      Source FAQ:      "10. What is the meaning of deposits held in the same capacity and same right; and deposits held in different capacity and different right"
+      Generated Query: "deposits held same capacity kya hota hai"
+
+[104] Query ID: Q179 | Doc ID: C136
+      Source FAQ:      "12. Who pays the cost of deposits insurance"
+      Generated Query: "kya pays cost deposits insurance ke liye minimum balance ya charge lagta hai"
+
+[105] Query ID: Q180 | Doc ID: C138
+      Source FAQ:      "14. Does the the DICGC directly deal with the depositors of failed banks"
+      Generated Query: "DICGC directly deal depositors kya hota hai aur iska purpose kya hai"
+
+[106] Query ID: Q181 | Doc ID: C139
+      Source FAQ:      "15. Can any insured bank withdraw from the DICGC coverage"
+      Generated Query: "what is insured withdraw DICGC coverage and how does it work"
+
+[107] Query ID: Q182 | Doc ID: C141
+      Source FAQ:      "17. What will be the Corporation's liability to the banks on de-registration."
+      Generated Query: "Corporation liability banks de-registration ke baare mein jaankari chahiye"
+
+[108] Query ID: Q183 | Doc ID: C142
+      Source FAQ:      "1. What does RTGS stand for"
+      Generated Query: "RTGS stand kya hota hai"
+
+[109] Query ID: Q184 | Doc ID: C143
+      Source FAQ:      "2. Are the payments under RTGS final and irrevocable"
+      Generated Query: "payments RTGS final irrevocable kya hota hai aur iska purpose kya hai"
+
+[110] Query ID: Q185 | Doc ID: C144
+      Source FAQ:      "3. What are the benefits of using RTGS"
+      Generated Query: "what is benefits using RTGS and how does it work"
+
+[111] Query ID: Q186 | Doc ID: C145
+      Source FAQ:      "4. How is the processing of RTGS different from that of National Electronic Funds Transfer (NEFT) System"
+      Generated Query: "processing RTGS different National ke baare mein jaankari chahiye"
+
+[112] Query ID: Q187 | Doc ID: C146
+      Source FAQ:      "5. Is RTGS a 24x7 system or are there some timings applicable"
+      Generated Query: "timings applicable kya hota hai"
+
+[113] Query ID: Q188 | Doc ID: C147
+      Source FAQ:      "6. Is there any minimum / maximum amount stipulation for RTGS transactions"
+      Generated Query: "what is the maximum and minimum limit for minimum maximum amount stipulation"
+
+[114] Query ID: Q189 | Doc ID: C148
+      Source FAQ:      "7. What about processing charges / service charges for RTGS transactions"
+      Generated Query: "about processing charges service kya hota hai aur iska purpose kya hai"
+
+[115] Query ID: Q190 | Doc ID: C149
+      Source FAQ:      "8. What is the essential information that the remitting customer needs to furnish to the bank for making a remittance"
+      Generated Query: "what is essential information remitting customer and how does it work"
+
+[116] Query ID: Q191 | Doc ID: C151
+      Source FAQ:      "10. Do all bank branches in India provide RTGS service"
+      Generated Query: "branches India provide RTGS ke baare mein jaankari chahiye"
+
+[117] Query ID: Q192 | Doc ID: C152
+      Source FAQ:      "11. What care should be taken while originating an RTGS transaction"
+      Generated Query: "care taken while originating kya hota hai"
+
+[118] Query ID: Q193 | Doc ID: C153
+      Source FAQ:      "12. In RTGS, why is credit to the beneficiary given solely based on account number"
+      Generated Query: "RTGS credit beneficiary given kya hota hai aur iska purpose kya hai"
+
+[119] Query ID: Q194 | Doc ID: C154
+      Source FAQ:      "13. What is the time taken for effecting funds transfer from one account to another through RTGS"
+      Generated Query: "what is time taken effecting funds and how does it work"
+
+[120] Query ID: Q195 | Doc ID: C155
+      Source FAQ:      "14. Can a remitting customer initiate a transaction for a future date"
+      Generated Query: "kya transaction future date ke liye eligible hone ki koi specific criteria hai"
+
+[121] Query ID: Q196 | Doc ID: C158
+      Source FAQ:      "17. Would the remitting customer get back the money if it is not credited to the beneficiary's account"
+      Generated Query: "remitting customer back money ke baare mein jaankari chahiye"
+
+[122] Query ID: Q197 | Doc ID: C159
+      Source FAQ:      "18. Is a customer eligible to get compensation for delay in returning the payment"
+      Generated Query: "customer eligible compensation delay mein kitna limit aur penalty hota hai"
+
+[123] Query ID: Q198 | Doc ID: C160
+      Source FAQ:      "19. Whom can a customer contact, in case of non-credit or delay in credit to the beneficiary account"
+      Generated Query: "mera non-credit delay credit beneficiary transaction fail ho gaya toh complain kahan kare"
+
+[124] Query ID: Q199 | Doc ID: C161
+      Source FAQ:      "20. What is UTR number"
+      Generated Query: "UTR number kya hota hai"
+
+[125] Query ID: Q200 | Doc ID: C162
+      Source FAQ:      "21. What is the Help Desk / Contact point at the RBI"
+      Generated Query: "Help Desk Contact point kya hota hai aur iska purpose kya hai"
+
+[126] Query ID: Q201 | Doc ID: C163
+      Source FAQ:      "22. Whom should I approach for raising dispute/complaint related to RTGS transaction"
+      Generated Query: "RTGS transaction issue solve na ho toh ombudsman ko complain kaise kare"
+
+[127] Query ID: Q202 | Doc ID: C164
+      Source FAQ:      "23. How can I file complaint under the RB-IOS 2021"
+      Generated Query: "file complaint RB-IOS 2021 mein dispute ya delay hone par redressal kaise milega"
+
+[128] Query ID: Q203 | Doc ID: C165
+      Source FAQ:      "24. What is Legal Entity Identifier and how is it relevant in case of RTGS transactions"
+      Generated Query: "what is Legal Entity Identifier relevant and how does it work"
+
+[129] Query ID: Q204 | Doc ID: C166
+      Source FAQ:      "Q 1. Who is an Authorized Dealer (AD)"
+      Generated Query: "Authorized Dealer AD ke baare mein jaankari chahiye"
+
+[130] Query ID: Q205 | Doc ID: C167
+      Source FAQ:      "Q 2. Who are authorized by the Reserve Bank to sell foreign exchange for travel purposes"
+      Generated Query: "authorized Reserve sell foreign kya hota hai"
+
+[131] Query ID: Q206 | Doc ID: C168
+      Source FAQ:      "Q 3. How much foreign currency can be carried in cash for travel abroad"
+      Generated Query: "foreign currency carried cash ka interest rate aur tenure kitna hai"
+
+[132] Query ID: Q207 | Doc ID: C169
+      Source FAQ:      "Q 4. How much Indian currency can be brought in while coming into India"
+      Generated Query: "kya ndian currency brought ke liye minimum balance ya charge lagta hai"
+
+[133] Query ID: Q208 | Doc ID: C170
+      Source FAQ:      "Q 5. How much foreign exchange can be brought in while visiting India"
+      Generated Query: "what is the maximum and minimum limit for foreign exchange brought while"
+
+[134] Query ID: Q209 | Doc ID: C171
+      Source FAQ:      "Q 6. Can one pay by cash full rupee equivalent of foreign exchange being purchased for travel abroad"
+      Generated Query: "who can apply for foreign exchange and what are the requirements"
+
+[135] Query ID: Q210 | Doc ID: C172
+      Source FAQ:      "Q 7. Is there any time-frame for a traveller who has returned to India to surrender foreign exchange"
+      Generated Query: "time-frame traveller returned India close ya surrender karne ka procedure kya hai"
+
+[136] Query ID: Q211 | Doc ID: C173
+      Source FAQ:      "Q 8. Should foreign coins be surrendered to an Authorised Dealer on return from abroad"
+      Generated Query: "foreign coins surrendered Authorised kya hota hai aur iska purpose kya hai"
+
+[137] Query ID: Q212 | Doc ID: C174
+      Source FAQ:      "Q 9. Is there any category of visit which requires prior approval from the Reserve Bank or the Government of India"
+      Generated Query: "what is category visit requires prior and how does it work"
+
+[138] Query ID: Q213 | Doc ID: C175
+      Source FAQ:      "Q 10. Whether permission is required for receiving grant/donation from abroad under the Foreign Contribution Regulation Act, 1976"
+      Generated Query: "permission required receiving grantdonation ke baare mein jaankari chahiye"
+
+[139] Query ID: Q214 | Doc ID: C176
+      Source FAQ:      "Q 11. Who is permitted to hold International Credit Card (ICC) and International Debit Card (IDC) for undertaking foreign exchange transactions"
+      Generated Query: "permitted hold International Credit kya hota hai"
+
+[140] Query ID: Q215 | Doc ID: C177
+      Source FAQ:      "Q 12. How much jewellery can be carried while going abroad"
+      Generated Query: "jewellery carried while going mein kitna limit aur penalty hota hai"
+
+[141] Query ID: Q216 | Doc ID: C178
+      Source FAQ:      "Q 13. Can a resident extend local hospitality to a non-resident"
+      Generated Query: "kya senior citizens ko resident extend local hospitality par special benefit milta hai"
+
+[142] Query ID: Q217 | Doc ID: C179
+      Source FAQ:      "Q 14. Can residents purchase air tickets in India for their travel not touching India"
+      Generated Query: "residents purchase tickets India kya hota hai aur iska purpose kya hai"
+
+[143] Query ID: Q218 | Doc ID: C180
+      Source FAQ:      "Q 15. Is meeting of medical expenses of a NRI close relative, in India, by Resident Individuals permitted"
+      Generated Query: "what is the process for meeting medical expenses NRI cancellation or closure"
+
+[144] Query ID: Q219 | Doc ID: C181
+      Source FAQ:      "Q 16. Can a person resident in India hold assets outside India"
+      Generated Query: "assets ke liye documents aur eligibility kya chahiye"
+
+[145] Query ID: Q220 | Doc ID: C182
+      Source FAQ:      "1. What is Indo-Nepal Remittance Facility Scheme under NEFT ecosystem"
+      Generated Query: "what is ndo-Nepal Remittance Facility Scheme and how does it work"
+
+[146] Query ID: Q221 | Doc ID: C183
+      Source FAQ:      "2. What are the salient features of INRF Scheme"
+      Generated Query: "salient features INRF Scheme ke baare mein jaankari chahiye"
+
+[147] Query ID: Q222 | Doc ID: C184
+      Source FAQ:      "3. Is there any limit on number of such transactions"
+      Generated Query: "limit number transactions ka interest rate aur tenure kitna hai"
+
+[148] Query ID: Q223 | Doc ID: C185
+      Source FAQ:      "4. Does the beneficiary need to maintain an account with a bank branch in Nepal"
+      Generated Query: "beneficiary need maintain branch kya hota hai"
+
+[149] Query ID: Q224 | Doc ID: C186
+      Source FAQ:      "5. What are the documents required to be presented by the remitter"
+      Generated Query: "documents required presented remitter kya hota hai aur iska purpose kya hai"
+
+[150] Query ID: Q225 | Doc ID: C187
+      Source FAQ:      "6. How do the transactions flow from India to Nepal and what are the timelines for completion of the transactions"
+      Generated Query: "what is transactions flow India Nepal and how does it work"
+
+[151] Query ID: Q226 | Doc ID: C188
+      Source FAQ:      "7. How does the remitting customer in India know about the branches of NSBL and the outlets of Prabhu Money Transfer"
+      Generated Query: "remitting customer India know ke baare mein jaankari chahiye"
+
+[152] Query ID: Q227 | Doc ID: C189
+      Source FAQ:      "8. How does the remitter get back money if it is not delivered to the beneficiary"
+      Generated Query: "remitter back money delivered kya hota hai"
+
+[153] Query ID: Q228 | Doc ID: C190
+      Source FAQ:      "9. What are the charges for availing the remittance facility"
+      Generated Query: "charges availing remittance facility kya hota hai aur iska purpose kya hai"
+
+[154] Query ID: Q229 | Doc ID: C191
+      Source FAQ:      "10. Who can be contacted for redressal of grievances under the Scheme"
+      Generated Query: "whom to approach for contacted redressal grievances Scheme complaint or grievance"
+
+[155] Query ID: Q230 | Doc ID: C192
+      Source FAQ:      "11. Are bi-lateral arrangements between bank / non-banks in India and those in Nepal covered under INRF Scheme"
+      Generated Query: "what is bi-lateral arrangements between non-banks and how does it work"
+
+[156] Query ID: Q231 | Doc ID: C193
+      Source FAQ:      "Scheme for Payment of Pension to Government Pensioners by Authorised Banks (ABs)"
+      Generated Query: "Scheme Payment Pension Government ke baare mein jaankari chahiye"
+
+[157] Query ID: Q232 | Doc ID: C194
+      Source FAQ:      "1. Whether a Joint Account can be continued for family pension after death of a pensioner"
+      Generated Query: "kya Joint continued family pension ke liye eligible hone ki koi specific criteria hai"
+
+[158] Query ID: Q233 | Doc ID: C196
+      Source FAQ:      "3. Can the pension paying bank recover the excess amount credited to the pensioner’s account"
+      Generated Query: "kya pension paying recover excess ke liye minimum balance ya charge lagta hai"
+
+[159] Query ID: Q234 | Doc ID: C197
+      Source FAQ:      "4. Should acknowledgement be given by pension paying banks while accepting Life Certificates from pensioners"
+      Generated Query: "Life Certificates pensioners kya hota hai"
+
+[160] Query ID: Q235 | Doc ID: C198
+      Source FAQ:      "5. Is it possible to submit life certificates without visiting the branch"
+      Generated Query: "possible submit life certificates kya hota hai aur iska purpose kya hai"
+
+[161] Query ID: Q236 | Doc ID: C199
+      Source FAQ:      "6. Can a pensioner withdraw pension from his/ her account when he/she is not able to sign or put thumb/toe impression or unable to be present in the bank"
+      Generated Query: "who can apply for pensioner withdraw pension heshe and what are the requirements"
+
+[162] Query ID: Q237 | Doc ID: C200
+      Source FAQ:      "Withdrawal of pension by old/ sick/ disabled/ incapacitated pensioners"
+      Generated Query: "what is Withdrawal pension sick disabled and how does it work"
+
+[163] Query ID: Q238 | Doc ID: C201
+      Source FAQ:      "7. How the payment of DR at revised rate is to be paid to the pensioners"
+      Generated Query: "payment revised rate paid ke baare mein jaankari chahiye"
+
+[164] Query ID: Q239 | Doc ID: C202
+      Source FAQ:      "8. Whether a pensioner is entitled for any compensation from the ABs for delayed credit of pension/ arrears of pension"
+      Generated Query: "what is the maximum and minimum limit for delayed credit pension arrears"
+
+[165] Query ID: Q240 | Doc ID: C204
+      Source FAQ:      "Q2. What is a foreign currency account"
+      Generated Query: "foreign currency kya hota hai"
+
+[166] Query ID: Q241 | Doc ID: C205
+      Source FAQ:      "Q3. What are the major foreign currency accounts that can be opened in India by a resident individual"
+      Generated Query: "major foreign currency accounts kya hota hai aur iska purpose kya hai"
+
+[167] Query ID: Q242 | Doc ID: C206
+      Source FAQ:      "Q4. In what form can a foreign currency account in India be opened"
+      Generated Query: "kya senior citizens ko India par special benefit milta hai"
+
+[168] Query ID: Q243 | Doc ID: C208
+      Source FAQ:      "Q6. Can a resident continue to maintain an account outside India which was opened by him when he was a non-resident"
+      Generated Query: "resident continue maintain outside ke liye documents aur eligibility kya chahiye"
+
+[169] Query ID: Q244 | Doc ID: C209
+      Source FAQ:      "Q7. What is the status of the account held outside India on the demise of the account holder"
+      Generated Query: "what is status held outside India and how does it work"
+
+[170] Query ID: Q245 | Doc ID: C211
+      Source FAQ:      "Q 1. When did Payment and Settlement Systems Act, 2007 (PSS Act, 2007) came into effect"
+      Generated Query: "Payment Settlement Systems 2007 ke baare mein jaankari chahiye"
+
+[171] Query ID: Q246 | Doc ID: C212
+      Source FAQ:      "Q 2. What is the objective of the PSS Act, 2007"
+      Generated Query: "objective PSS 2007 kya hota hai"
+
+[172] Query ID: Q247 | Doc ID: C213
+      Source FAQ:      "Q 3. What are the Regulations made under the PSS Act, 2007 and when did they come into force"
+      Generated Query: "what are the RBI guidelines and regulations for Regulations made PSS 2007"
+
+[173] Query ID: Q248 | Doc ID: C215
+      Source FAQ:      "Q 5. Does the PSS Act, 2007 define what is a “payment obligation”, “payment instruction”, “payment system” and other commonly used terms like “electronic fund transfer”, “gross settlement system”, “netting”, “settlement”, “systemic risk”, “system participant” and “system provider”"
+      Generated Query: "payment obligation payment instruction kya hota hai aur iska purpose kya hai"
+
+[174] Query ID: Q249 | Doc ID: C216
+      Source FAQ:      "Q 6. What is a “Payment Obligation”"
+      Generated Query: "what is Payment Obligation and how does it work"
+
+[175] Query ID: Q250 | Doc ID: C217
+      Source FAQ:      "Q 7. What is a “Payment Instruction”"
+      Generated Query: "Payment Instruction ke baare mein jaankari chahiye"
+
+[176] Query ID: Q251 | Doc ID: C218
+      Source FAQ:      "Q 8. What is a “Settlement”"
+      Generated Query: "Settlement kya hota hai"
+
+[177] Query ID: Q252 | Doc ID: C219
+      Source FAQ:      "Q 9. What is a “Payment System” under the PSS Act, 2007"
+      Generated Query: "Payment System PSS 2007 kya hota hai aur iska purpose kya hai"
+
+[178] Query ID: Q253 | Doc ID: C220
+      Source FAQ:      "Q 10. Are entities operating a payment system or intending to operate a payment system required to get a license, approval or authorization for the purpose"
+      Generated Query: "what is entities operating payment system and how does it work"
+
+[179] Query ID: Q254 | Doc ID: C221
+      Source FAQ:      "Q 11. Is there any application fee to be submitted along with the application for authorization"
+      Generated Query: "application fee submitted along mein kitna limit aur penalty hota hai"
+
+[180] Query ID: Q255 | Doc ID: C222
+      Source FAQ:      "Q 12. Are foreign entities allowed to operate a payment system in India"
+      Generated Query: "foreign entities allowed operate ke baare mein jaankari chahiye"
+
+[181] Query ID: Q256 | Doc ID: C223
+      Source FAQ:      "Q 13. Are foreign entities required to get a license or approval or authorization from Reserve Bank before commencing operations"
+      Generated Query: "foreign entities required license kya hota hai"
+
+[182] Query ID: Q257 | Doc ID: C224
+      Source FAQ:      "Q 14. What are Financial Market Infrastructures"
+      Generated Query: "Financial Market Infrastructures kya hota hai aur iska purpose kya hai"
+
+[183] Query ID: Q258 | Doc ID: C225
+      Source FAQ:      "Q 15. Can a foreign Financial Market Infrastructure (FMI) start operations in India"
+      Generated Query: "kya foreign Financial Market Infrastructure ke liye eligible hone ki koi specific criteria hai"
+
+[184] Query ID: Q259 | Doc ID: C226
+      Source FAQ:      "Q 16. What are the services which a foreign entity can provide"
+      Generated Query: "what is services foreign entity provide and how does it work"
+
+[185] Query ID: Q260 | Doc ID: C227
+      Source FAQ:      "Q 17. What are the factors which the Reserve Bank will consider while deciding on an application submitted for authorization"
+      Generated Query: "factors Reserve consider while ke baare mein jaankari chahiye"
+
+[186] Query ID: Q261 | Doc ID: C228
+      Source FAQ:      "Q 18. What are the parameters taken into consideration for giving authorisation to the applicants"
+      Generated Query: "parameters taken consideration giving kya hota hai"
+
+[187] Query ID: Q262 | Doc ID: C229
+      Source FAQ:      "Q 19. Can the Reserve Bank refuse to grant authorization to commence or operate a payment system"
+      Generated Query: "Reserve refuse grant authorization kya hota hai aur iska purpose kya hai"
+
+[188] Query ID: Q263 | Doc ID: C230
+      Source FAQ:      "Q 20. Can the Reserve Bank revoke authorization granted under the PSS Act 2007"
+      Generated Query: "Reserve revoke authorization granted close ya surrender karne ka procedure kya hai"
+
+[189] Query ID: Q264 | Doc ID: C231
+      Source FAQ:      "Q 21. Is there any appellate authority to whom an aggrieved applicant whose application for authorization is refused or a system provider whose authorization is revoked, can appeal"
+      Generated Query: "what is appellate authority whom aggrieved and how does it work"
+
+[190] Query ID: Q265 | Doc ID: C232
+      Source FAQ:      "Q 22. Can the Reserve Bank collect any authorisation fees and direct the applicant to furnish a security deposit"
+      Generated Query: "Reserve collect authorisation fees ke baare mein jaankari chahiye"
+
+[191] Query ID: Q266 | Doc ID: C233
+      Source FAQ:      "Q 23. Does the Reserve Bank have powers to lay down any standards"
+      Generated Query: "Reserve powers down standards kya hota hai"
+
+[192] Query ID: Q267 | Doc ID: C234
+      Source FAQ:      "Q 24. Whether the Reserve Bank can call for returns, information etc., from the system provider with regard to the operation of the payment system"
+      Generated Query: "who can apply for Reserve call returns information and what are the requirements"
+
+[193] Query ID: Q268 | Doc ID: C235
+      Source FAQ:      "Q 25. Whether the Reserve Bank can share such information as received above with other regulators, etc."
+      Generated Query: "kya senior citizens ko regulators par special benefit milta hai"
+
+[194] Query ID: Q269 | Doc ID: C236
+      Source FAQ:      "Q 26. Can the Reserve Bank inspect the premises of the system provider"
+      Generated Query: "Reserve inspect premises system kya hota hai aur iska purpose kya hai"
+
+[195] Query ID: Q270 | Doc ID: C237
+      Source FAQ:      "Q 27. Can Reserve Bank conduct inspection of foreign entities authorized by it but located in foreign jurisdictions"
+      Generated Query: "what is foreign entities and how does it work"
+
+[196] Query ID: Q271 | Doc ID: C238
+      Source FAQ:      "Q 28. Can the Reserve Bank issue directions to the system provider"
+      Generated Query: "Reserve issue directions system ke baare mein jaankari chahiye"
+
+[197] Query ID: Q272 | Doc ID: C239
+      Source FAQ:      "Q 29. Does the PSS Act 2007 deal with netting and settlement finality"
+      Generated Query: "PSS 2007 deal netting kya hota hai"
+
+[198] Query ID: Q273 | Doc ID: C240
+      Source FAQ:      "Q 30. What are the duties of a system provider under the PSS Act, 2007"
+      Generated Query: "duties system provider PSS kya hota hai aur iska purpose kya hai"
+
+[199] Query ID: Q274 | Doc ID: C241
+      Source FAQ:      "Q 31. What is the mechanism for settlement of disputes under the PSS Act, 2007"
+      Generated Query: "what is mechanism settlement disputes PSS and how does it work"
+
+[200] Query ID: Q275 | Doc ID: C242
+      Source FAQ:      "Q 32. What are the consequences of dishonour of electronic fund transfer under the PSS Act, 2007"
+      Generated Query: "consequences dishonour electronic fund ke baare mein jaankari chahiye"
+
+[201] Query ID: Q276 | Doc ID: C243
+      Source FAQ:      "Q 33. Are there any penalties or punitive action laid down under the PSS Act, 2007"
+      Generated Query: "penalties punitive action laid kya hota hai"
+
+[202] Query ID: Q277 | Doc ID: C244
+      Source FAQ:      "1. What is an Automated Teller Machine (ATM)"
+      Generated Query: "Automated Teller Machine ATM kya hota hai aur iska purpose kya hai"
+
+[203] Query ID: Q278 | Doc ID: C245
+      Source FAQ:      "2. What are White Label ATMs (WLAs)"
+      Generated Query: "what is White Label ATMs WLAs and how does it work"
+
+[204] Query ID: Q279 | Doc ID: C246
+      Source FAQ:      "3. As a customer, is there any difference in facilities available at a bank ATM and a WLA"
+      Generated Query: "customer difference facilities available ke baare mein jaankari chahiye"
+
+[205] Query ID: Q280 | Doc ID: C247
+      Source FAQ:      "4. What has been the rationale for allowing non-bank entities to set up WLAs"
+      Generated Query: "rationale allowing non-bank entities kya hota hai"
+
+[206] Query ID: Q281 | Doc ID: C248
+      Source FAQ:      "5. What are the services / facilities available at ATMs / WLAs"
+      Generated Query: "services facilities available ATMs kya hota hai aur iska purpose kya hai"
+
+[207] Query ID: Q282 | Doc ID: C249
+      Source FAQ:      "6. What types of cards can be used at an ATM / WLA"
+      Generated Query: "what is types cards used ATM and how does it work"
+
+[208] Query ID: Q283 | Doc ID: C250
+      Source FAQ:      "7. What are the pre-requisites for transacting at an ATM / WLA"
+      Generated Query: "transacting ATM WLA ke baare mein jaankari chahiye"
+
+[209] Query ID: Q284 | Doc ID: C251
+      Source FAQ:      "8. What is Personal Identification Number (PIN)"
+      Generated Query: "Personal Identification Number kya hota hai"
+
+[210] Query ID: Q285 | Doc ID: C252
+      Source FAQ:      "9. Can cards issued by a bank in India be used at any ATM / WLA in the country"
+      Generated Query: "cards issued India used kya hota hai aur iska purpose kya hai"
+
+[211] Query ID: Q286 | Doc ID: C253
+      Source FAQ:      "10. What is an On-Us and Off-Us transaction"
+      Generated Query: "what is On-Us Off-Us transaction and how does it work"
+
+[212] Query ID: Q287 | Doc ID: C254
+      Source FAQ:      "11. Are customers entitled to any free transactions at ATMs"
+      Generated Query: "customers entitled free transactions ke baare mein jaankari chahiye"
+
+[213] Query ID: Q288 | Doc ID: C255
+      Source FAQ:      "12. Can a bank offer more number of free transactions at ATMs"
+      Generated Query: "offer number free transactions ke liye documents aur eligibility kya chahiye"
+
+[214] Query ID: Q289 | Doc ID: C256
+      Source FAQ:      "13. Is the above prescription of free transactions applicable to a Basic Savings Bank Deposit Account (BSBDA) also"
+      Generated Query: "Basic Savings Deposit BSBDA ke rules aur guidelines kya hain"
+
+[215] Query ID: Q290 | Doc ID: C257
+      Source FAQ:      "14. Are there any type of transactions that are not to be counted under free transactions"
+      Generated Query: "type transactions counted free kya hota hai"
+
+[216] Query ID: Q291 | Doc ID: C258
+      Source FAQ:      "15. How can one know if the ATM location is metro or non-metro"
+      Generated Query: "kya ATM location metro non-metro ke liye eligible hone ki koi specific criteria hai"
+
+[217] Query ID: Q292 | Doc ID: C259
+      Source FAQ:      "16. Are customers charged for transactions at ATMs"
+      Generated Query: "customers charged transactions ATMs kya hota hai aur iska purpose kya hai"
+
+[218] Query ID: Q293 | Doc ID: C260
+      Source FAQ:      "17. What are the charges prescribed by RBI for use of credit cards at ATMs and for withdrawal at ATM located abroad"
+      Generated Query: "what is charges prescribed RBI credit and how does it work"
+
+[219] Query ID: Q294 | Doc ID: C261
+      Source FAQ:      "18. What steps should a customer take in case of a failed ATM transaction when his / her account is debited"
+      Generated Query: "steps customer take failed ke baare mein jaankari chahiye"
+
+[220] Query ID: Q295 | Doc ID: C262
+      Source FAQ:      "19. From where the customer can get the contact numbers for lodging a complaint"
+      Generated Query: "mera customer contact numbers lodging transaction fail ho gaya toh complain kahan kare"
+
+[221] Query ID: Q296 | Doc ID: C263
+      Source FAQ:      "20. Is there any time limit for the card issuing bank to recredit the customer’s account for a failed ATM / WLA transaction indicated under Q. No. 18"
+      Generated Query: "time limit card issuing ka interest rate aur tenure kitna hai"
+
+[222] Query ID: Q297 | Doc ID: C264
+      Source FAQ:      "21. Are the customers eligible for compensation for delays beyond days of a failed transaction"
+      Generated Query: "kya customers eligible compensation delays ke liye minimum balance ya charge lagta hai"
+
+[223] Query ID: Q298 | Doc ID: C265
+      Source FAQ:      "22. What is the course of action for the customer if the reversal and compensation are not carried by the bank"
+      Generated Query: "what is the maximum and minimum limit for course action customer reversal"
+
+[224] Query ID: Q299 | Doc ID: C266
+      Source FAQ:      "23. What should be done to the ATM card when its validity has expired or the underlying account is closed"
+      Generated Query: "done ATM card validity kya hota hai"
+
+[225] Query ID: Q300 | Doc ID: C267
+      Source FAQ:      "24. How should the customer keep his / her ATM / WLA transaction secure"
+      Generated Query: "customer keep ATM WLA kya hota hai aur iska purpose kya hai"
+
+[226] Query ID: Q301 | Doc ID: C268
+      Source FAQ:      "25. What should be done if card is lost / stolen"
+      Generated Query: "what is done card lost stolen and how does it work"
+
+[227] Query ID: Q302 | Doc ID: C269
+      Source FAQ:      "26. What are Magnetic Stripe cards and EMV Chip & PIN cards"
+      Generated Query: "Magnetic Stripe cards Chip ke baare mein jaankari chahiye"
+
+[228] Query ID: Q303 | Doc ID: C270
+      Source FAQ:      "27. What is the mandate for banks for issuing Magnetic Stripe cards or EMV Chip & PIN cards"
+      Generated Query: "kya mandate banks issuing Magnetic par koi restriction ya special condition lagti hai"
+
+[229] Query ID: Q304 | Doc ID: C271
+      Source FAQ:      "1. I have received a cheque denominated in US Dollars. How does such a cheque differ from the usual Rupee cheques as an instrument of payment"
+      Generated Query: "received cheque denominated Dollars kya hota hai"
+
+[230] Query ID: Q305 | Doc ID: C272
+      Source FAQ:      "2. RBI has advised banks to frame their own Cheque Collection Policy covering various aspects relating to collection of Rupee cheques. Are there similar guidelines for collection of foreign currency cheques as well"
+      Generated Query: "RBI advised banks frame update karwane ke liye bank branch jana padega kya"
+
+[231] Query ID: Q306 | Doc ID: C273
+      Source FAQ:      "3. It is now clear that USD cheques are payable in USA and are required to be sent there for realisation. But are there different modes of collecting such cheques"
+      Generated Query: "clear cheques payable required kya hota hai aur iska purpose kya hai"
+
+[232] Query ID: Q307 | Doc ID: C274
+      Source FAQ:      "4. What is a Nostro Account"
+      Generated Query: "what is Nostro and how does it work"
+
+[233] Query ID: Q308 | Doc ID: C275
+      Source FAQ:      "5. What are the charges levied for the collection of these USD denominated cheques"
+      Generated Query: "charges levied collection denominated ke baare mein jaankari chahiye"
+
+[234] Query ID: Q309 | Doc ID: C276
+      Source FAQ:      "6. Are US regulations applicable to USD cheque collection"
+      Generated Query: "what are the RBI guidelines and regulations for regulations applicable cheque collection"
+
+[235] Query ID: Q310 | Doc ID: C277
+      Source FAQ:      "7. Can the customer choose the mode for collecting USD cheques"
+      Generated Query: "customer choose mode collecting kya hota hai"
+
+[236] Query ID: Q311 | Doc ID: C278
+      Source FAQ:      "8. Just as RBI has mandated a timeframe for collection of Rupee cheques, is any timeframe stipulated for collection of USD cheques too"
+      Generated Query: "Just RBI mandated timeframe kya hota hai aur iska purpose kya hai"
+
+[237] Query ID: Q312 | Doc ID: C280
+      Source FAQ:      "10. Are customers given credit and allowed to use the funds after sight of credit in the Nostro accounts of banks"
+      Generated Query: "what is customers given credit allowed and how does it work"
+
+[238] Query ID: Q313 | Doc ID: C281
+      Source FAQ:      "11. Funds are credited to the customers’ accounts after the cooling period though funds are resting in the Nostro accounts of collecting banks during the period. Is there any compensation for customers"
+      Generated Query: "Funds credited customers accounts mein kitna limit aur penalty hota hai"
+
+[239] Query ID: Q314 | Doc ID: C282
+      Source FAQ:      "12. Will the customer be compensated for delay in collection beyond the collection period indicated in the Cheque Collection Policy of the bank"
+      Generated Query: "customer compensated delay collection ke baare mein jaankari chahiye"
+
+[240] Query ID: Q315 | Doc ID: C283
+      Source FAQ:      "13. What are the instructions for facilitating customer awareness and redressing customer complaints"
+      Generated Query: "nstructions facilitating customer awareness kya hota hai"
+
+[241] Query ID: Q316 | Doc ID: C284
+      Source FAQ:      "14. Are there any other instructions to banks in this regard"
+      Generated Query: "instructions banks regard kya hota hai aur iska purpose kya hai"
+
+[242] Query ID: Q317 | Doc ID: C285
+      Source FAQ:      "1. What is a Bond"
+      Generated Query: "what is Bond and how does it work"
+
+[243] Query ID: Q318 | Doc ID: C286
+      Source FAQ:      "What is a Government Security (G-Sec)"
+      Generated Query: "Government Security G-Sec ke baare mein jaankari chahiye"
+
+[244] Query ID: Q319 | Doc ID: C287
+      Source FAQ:      "a. Treasury Bills (T-bills)"
+      Generated Query: "Treasury Bills T-bills kya hota hai"
+
+[245] Query ID: Q320 | Doc ID: C288
+      Source FAQ:      "b. Cash Management Bills (CMBs)"
+      Generated Query: "Cash Management Bills CMBs kya hota hai aur iska purpose kya hai"
+
+[246] Query ID: Q321 | Doc ID: C289
+      Source FAQ:      "c. Dated G-Secs"
+      Generated Query: "what is Dated G-Secs and how does it work"
+
+[247] Query ID: Q322 | Doc ID: C290
+      Source FAQ:      "d. State Development Loans (SDLs)"
+      Generated Query: "State Development Loans SDLs ke baare mein jaankari chahiye"
+
+[248] Query ID: Q323 | Doc ID: C291
+      Source FAQ:      "2. Why should one invest in G-Secs"
+      Generated Query: "invest G-Secs kya hota hai"
+
+[249] Query ID: Q324 | Doc ID: C292
+      Source FAQ:      "A. Primary (Urban) Co-operative Banks (UCBs)"
+      Generated Query: "Primary Urban Co-operative Banks kya hota hai aur iska purpose kya hai"
+
+[250] Query ID: Q325 | Doc ID: C293
+      Source FAQ:      "B. Rural Co-operative Banks"
+      Generated Query: "what is Rural Co-operative Banks and how does it work"
+
+[251] Query ID: Q326 | Doc ID: C294
+      Source FAQ:      "C. Regional Rural Banks (RRBs)"
+      Generated Query: "Regional Rural Banks RRBs ke baare mein jaankari chahiye"
+
+[252] Query ID: Q327 | Doc ID: C295
+      Source FAQ:      "D. Provident funds and other entities"
+      Generated Query: "Provident funds entities kya hota hai"
+
+[253] Query ID: Q328 | Doc ID: C296
+      Source FAQ:      "3. How are the G-Secs issued"
+      Generated Query: "G-Secs issued kya hota hai aur iska purpose kya hai"
+
+[254] Query ID: Q329 | Doc ID: C297
+      Source FAQ:      "3.5 Floatation of State Government Loans (State Development Loans)"
+      Generated Query: "what is Floatation State Government Loans and how does it work"
+
+[255] Query ID: Q330 | Doc ID: C298
+      Source FAQ:      "4. What are the different types of auctions used for issue of securities"
+      Generated Query: "auctions used issue securities ke baare mein jaankari chahiye"
+
+[256] Query ID: Q331 | Doc ID: C299
+      Source FAQ:      "Yield based auction of a new security"
+      Generated Query: "Yield based auction security kya hota hai"
+
+[257] Query ID: Q332 | Doc ID: C301
+      Source FAQ:      "Non-Competitive Bidding (NCB):"
+      Generated Query: "Non-Competitive Bidding kya hota hai aur iska purpose kya hai"
+
+[258] Query ID: Q333 | Doc ID: C302
+      Source FAQ:      "Conversion (Switch) of Government of India Securities through auction"
+      Generated Query: "what is Conversion Switch Government India and how does it work"
+
+[259] Query ID: Q334 | Doc ID: C303
+      Source FAQ:      "5. What are Open Market Operations (OMOs)"
+      Generated Query: "Open Market Operations OMOs ke baare mein jaankari chahiye"
+
+[260] Query ID: Q335 | Doc ID: C304
+      Source FAQ:      "5 (b) What is meant by repurchase (buyback) of G-Secs"
+      Generated Query: "repurchase buyback G-Secs kya hota hai"
+
+[261] Query ID: Q336 | Doc ID: C305
+      Source FAQ:      "6. What is Liquidity Adjustment Facility (LAF) and whether Re-repo in Government Securities Market is allowed"
+      Generated Query: "Liquidity Adjustment Facility LAF kya hota hai aur iska purpose kya hai"
+
+[262] Query ID: Q337 | Doc ID: C306
+      Source FAQ:      "7. How and in what form can G-Secs be held"
+      Generated Query: "what is G-Secs and how does it work"
+
+[263] Query ID: Q338 | Doc ID: C307
+      Source FAQ:      "8. How does the trading in G-Secs take place and what regulations are applicable to prevent abuse"
+      Generated Query: "trading G-Secs take place ke rules aur guidelines kya hain"
+
+[264] Query ID: Q339 | Doc ID: C308
+      Source FAQ:      "ii. Over the Counter (OTC)/ Telephone Market"
+      Generated Query: "Over Counter OTC Telephone ke baare mein jaankari chahiye"
+
+[265] Query ID: Q340 | Doc ID: C309
+      Source FAQ:      "iii. NDS-OM-Web"
+      Generated Query: "NDS-OM-Web kya hota hai"
+
+[266] Query ID: Q341 | Doc ID: C310
+      Source FAQ:      "iv. Stock Exchanges"
+      Generated Query: "Stock Exchanges kya hota hai aur iska purpose kya hai"
+
+[267] Query ID: Q342 | Doc ID: C311
+      Source FAQ:      "v. Regulations applicable to prevent abuse"
+      Generated Query: "kya Regulations applicable prevent abuse par koi restriction ya special condition lagti hai"
+
+[268] Query ID: Q343 | Doc ID: C312
+      Source FAQ:      "vi. Guidelines for Value free transfer (VFT) of Government Securities"
+      Generated Query: "Guidelines Value free transfer update karwane ke liye bank branch jana padega kya"
+
+[269] Query ID: Q344 | Doc ID: C313
+      Source FAQ:      "9. Who are the major players in the G-Secs market"
+      Generated Query: "what is major players G-Secs market and how does it work"
+
+[270] Query ID: Q345 | Doc ID: C314
+      Source FAQ:      "10. What are the Do's and Don’ts prescribed by RBI for the Co-operative banks dealing in G-Secs"
+      Generated Query: "prescribed RBI Co-operative banks ke baare mein jaankari chahiye"
+
+[271] Query ID: Q346 | Doc ID: C315
+      Source FAQ:      "11. How are the dealing transactions recorded by the dealing desk"
+      Generated Query: "dealing transactions recorded dealing kya hota hai"
+
+[272] Query ID: Q347 | Doc ID: C316
+      Source FAQ:      "12. What are the important considerations while undertaking security transactions"
+      Generated Query: "what are the RBI guidelines and regulations for undertaking security transactions"
+
+[273] Query ID: Q348 | Doc ID: C317
+      Source FAQ:      "13. Why does the price of G-Sec change"
+      Generated Query: "price G-Sec change kya hota hai aur iska purpose kya hai"
+
+[274] Query ID: Q349 | Doc ID: C318
+      Source FAQ:      "14. How does one get information about the price of a G-Sec"
+      Generated Query: "what is information about price G-Sec and how does it work"
+
+[275] Query ID: Q350 | Doc ID: C319
+      Source FAQ:      "NDS-OM Market"
+      Generated Query: "NDS-OM Market ke baare mein jaankari chahiye"
+
+[276] Query ID: Q351 | Doc ID: C320
+      Source FAQ:      "15. How are the G-Secs transactions reported"
+      Generated Query: "G-Secs transactions reported kya hota hai"
+
+[277] Query ID: Q352 | Doc ID: C321
+      Source FAQ:      "Primary Market"
+      Generated Query: "Primary Market kya hota hai aur iska purpose kya hai"
+
+[278] Query ID: Q353 | Doc ID: C322
+      Source FAQ:      "Secondary Market"
+      Generated Query: "what is Secondary Market and how does it work"
+
+[279] Query ID: Q354 | Doc ID: C323
+      Source FAQ:      "17. What is shut period"
+      Generated Query: "what is the process for shut period cancellation or closure"
+
+[280] Query ID: Q355 | Doc ID: C324
+      Source FAQ:      "18. What is Delivery versus Payment (DvP) Settlement"
+      Generated Query: "Delivery versus Payment DvP ke baare mein jaankari chahiye"
+
+[281] Query ID: Q356 | Doc ID: C325
+      Source FAQ:      "19. What is the role of the Clearing Corporation of India Limited (CCIL)"
+      Generated Query: "role Clearing Corporation India kya hota hai"
+
+[282] Query ID: Q357 | Doc ID: C326
+      Source FAQ:      "20. What is the ‘When Issued’ market and “Short Sale”"
+      Generated Query: "Issued market Short Sale kya hota hai aur iska purpose kya hai"
+
+[283] Query ID: Q358 | Doc ID: C327
+      Source FAQ:      "21. What are the basic mathematical concepts one should know for calculations involved in bond prices and yields"
+      Generated Query: "what is basic mathematical concepts know and how does it work"
+
+[284] Query ID: Q359 | Doc ID: C328
+      Source FAQ:      "Time Value of Money"
+      Generated Query: "Time Value Money ke baare mein jaankari chahiye"
+
+[285] Query ID: Q360 | Doc ID: C330
+      Source FAQ:      "Net Present Value (NPV)"
+      Generated Query: "Present Value NPV kya hota hai"
+
+[286] Query ID: Q361 | Doc ID: C331
+      Source FAQ:      "22. How is the Price of a bond calculated"
+      Generated Query: "Price bond calculated kya hota hai aur iska purpose kya hai"
+
+[287] Query ID: Q362 | Doc ID: C332
+      Source FAQ:      "23. What is the relationship between yield and price of a bond"
+      Generated Query: "what is relationship between yield price and how does it work"
+
+[288] Query ID: Q363 | Doc ID: C333
+      Source FAQ:      "24. How is the yield of a bond calculated"
+      Generated Query: "yield bond calculated ke baare mein jaankari chahiye"
+
+[289] Query ID: Q364 | Doc ID: C334
+      Source FAQ:      "i) Coupon Yield"
+      Generated Query: "Coupon Yield kya hota hai"
+
+[290] Query ID: Q365 | Doc ID: C336
+      Source FAQ:      "ii) Current Yield"
+      Generated Query: "Current Yield kya hota hai aur iska purpose kya hai"
+
+[291] Query ID: Q366 | Doc ID: C338
+      Source FAQ:      "iii) Yield to Maturity"
+      Generated Query: "what is Yield Maturity and how does it work"
+
+[292] Query ID: Q367 | Doc ID: C339
+      Source FAQ:      "YTM Calculation"
+      Generated Query: "YTM Calculation ke baare mein jaankari chahiye"
+
+[293] Query ID: Q368 | Doc ID: C340
+      Source FAQ:      "Manual (Trial and Error) Method"
+      Generated Query: "Manual Trial Error Method kya hota hai"
+
+[294] Query ID: Q369 | Doc ID: C341
+      Source FAQ:      "Spread Sheet Method using MS Excel"
+      Generated Query: "Spread Sheet Method using kya hota hai aur iska purpose kya hai"
+
+[295] Query ID: Q370 | Doc ID: C342
+      Source FAQ:      "25. What are the day count conventions used in calculating bond yields"
+      Generated Query: "what is day count conventions and how does it work"
+
+[296] Query ID: Q371 | Doc ID: C343
+      Source FAQ:      "26. How is the yield of a T- Bill calculated"
+      Generated Query: "yield Bill calculated ke baare mein jaankari chahiye"
+
+[297] Query ID: Q372 | Doc ID: C344
+      Source FAQ:      "27. What is Duration"
+      Generated Query: "Duration kya hota hai"
+
+[298] Query ID: Q373 | Doc ID: C345
+      Source FAQ:      "Calculation for Duration"
+      Generated Query: "Calculation Duration kya hota hai aur iska purpose kya hai"
+
+[299] Query ID: Q374 | Doc ID: C347
+      Source FAQ:      "What is Modified Duration"
+      Generated Query: "what is Modified Duration and how does it work"
+
+[300] Query ID: Q375 | Doc ID: C351
+      Source FAQ:      "What is Convexity"
+      Generated Query: "Convexity ke baare mein jaankari chahiye"
+
+[301] Query ID: Q376 | Doc ID: C352
+      Source FAQ:      "28. What are the important guidelines for valuation of securities"
+      Generated Query: "aluation securities ke rules aur guidelines kya hain"
+
+[302] Query ID: Q377 | Doc ID: C353
+      Source FAQ:      "29. What are the risks involved in holding G-Secs"
+      Generated Query: "risks involved kya hota hai"
+
+[303] Query ID: Q378 | Doc ID: C354
+      Source FAQ:      "Risk Mitigation"
+      Generated Query: "Risk Mitigation kya hota hai aur iska purpose kya hai"
+
+[304] Query ID: Q379 | Doc ID: C355
+      Source FAQ:      "30. What is Money Market"
+      Generated Query: "what is Money Market and how does it work"
+
+[305] Query ID: Q380 | Doc ID: C356
+      Source FAQ:      "What are the different money market instruments"
+      Generated Query: "different money market instruments ke baare mein jaankari chahiye"
+
+[306] Query ID: Q381 | Doc ID: C357
+      Source FAQ:      "Call money market"
+      Generated Query: "Call money market kya hota hai"
+
+[307] Query ID: Q382 | Doc ID: C358
+      Source FAQ:      "Repo market"
+      Generated Query: "Repo market kya hota hai aur iska purpose kya hai"
+
+[308] Query ID: Q383 | Doc ID: C359
+      Source FAQ:      "Triparty Repo"
+      Generated Query: "what is Triparty Repo and how does it work"
+
+[309] Query ID: Q384 | Doc ID: C360
+      Source FAQ:      "Commercial Paper (CP)"
+      Generated Query: "Commercial Paper ke baare mein jaankari chahiye"
+
+[310] Query ID: Q385 | Doc ID: C361
+      Source FAQ:      "Certificate of Deposit (CD)"
+      Generated Query: "Certificate Deposit kya hota hai"
+
+[311] Query ID: Q386 | Doc ID: C362
+      Source FAQ:      "31. What are the role and functions of FIMMDA & FBIL"
+      Generated Query: "role functions FIMMDA FBIL kya hota hai aur iska purpose kya hai"
+
+[312] Query ID: Q387 | Doc ID: C363
+      Source FAQ:      "32. What are the various websites that give information on G-Secs"
+      Generated Query: "what is websites give information G-Secs and how does it work"
+
+[313] Query ID: Q388 | Doc ID: C364
+      Source FAQ:      "Accrued Interest"
+      Generated Query: "Accrued Interest ke baare mein jaankari chahiye"
+
+[314] Query ID: Q389 | Doc ID: C365
+      Source FAQ:      "Auction –Multiple price and Uniform Price"
+      Generated Query: "Auction Multiple price Uniform kya hota hai"
+
+[315] Query ID: Q390 | Doc ID: C366
+      Source FAQ:      "Bid Price/ Yield"
+      Generated Query: "Price Yield kya hota hai aur iska purpose kya hai"
+
+[316] Query ID: Q391 | Doc ID: C367
+      Source FAQ:      "Big Figure"
+      Generated Query: "what is Big Figure and how does it work"
+
+[317] Query ID: Q392 | Doc ID: C368
+      Source FAQ:      "Competitive Bid"
+      Generated Query: "Competitive ke baare mein jaankari chahiye"
+
+[318] Query ID: Q393 | Doc ID: C369
+      Source FAQ:      "Coupon Frequency"
+      Generated Query: "Coupon Frequency kya hota hai"
+
+[319] Query ID: Q394 | Doc ID: C370
+      Source FAQ:      "Duration (Macaulay Duration)"
+      Generated Query: "Duration Macaulay Duration kya hota hai aur iska purpose kya hai"
+
+[320] Query ID: Q395 | Doc ID: C371
+      Source FAQ:      "Face Value"
+      Generated Query: "what is Face Value and how does it work"
+
+[321] Query ID: Q396 | Doc ID: C372
+      Source FAQ:      "Floating-Rate Bond"
+      Generated Query: "Floating-Rate Bond ke baare mein jaankari chahiye"
+
+[322] Query ID: Q397 | Doc ID: C373
+      Source FAQ:      "Gilt/ G-Secs"
+      Generated Query: "Gilt G-Secs kya hota hai"
+
+[323] Query ID: Q398 | Doc ID: C374
+      Source FAQ:      "Market Lot"
+      Generated Query: "Market kya hota hai aur iska purpose kya hai"
+
+[324] Query ID: Q399 | Doc ID: C375
+      Source FAQ:      "Maturity Date"
+      Generated Query: "what is Maturity Date and how does it work"
+
+[325] Query ID: Q400 | Doc ID: C376
+      Source FAQ:      "Non-Competitive Bid"
+      Generated Query: "Non-Competitive ke baare mein jaankari chahiye"
+
+[326] Query ID: Q401 | Doc ID: C377
+      Source FAQ:      "Primary Dealers"
+      Generated Query: "Primary Dealers kya hota hai"
+
+[327] Query ID: Q402 | Doc ID: C378
+      Source FAQ:      "Real Time Gross Settlement (RTGS) system"
+      Generated Query: "Real Time Gross Settlement kya hota hai aur iska purpose kya hai"
+
+[328] Query ID: Q403 | Doc ID: C379
+      Source FAQ:      "Repo/Reverse Repo"
+      Generated Query: "what is RepoReverse Repo and how does it work"
+
+[329] Query ID: Q404 | Doc ID: C380
+      Source FAQ:      "Residual Maturity"
+      Generated Query: "Residual Maturity ke baare mein jaankari chahiye"

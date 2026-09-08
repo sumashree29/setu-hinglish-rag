@@ -1,0 +1,30 @@
+{
+  "trace_date": "YYYY-MM-DD",
+  "description": "Per-query diagnostic trace across individual and combined operators",
+  "queries": [
+    {
+      "query_id": "string",
+      "raw_query_text": "string",
+      "expected_relevant_docs": [],
+      "cmi": 0.0,
+      "alpha": 0.0,
+      "raw_top5": [],
+      "lqp_top5": [],
+      "caep_corrected_query": "string",
+      "caep_top5": [],
+      "lag_predicted_strategy": "string",
+      "lag_top5": [],
+      "gate_checks": [
+        {
+          "candidate_token": "string",
+          "matched_entity": "string",
+          "features": [],
+          "predicted_class": 0,
+          "probability": [],
+          "substituted_in_text": false
+        }
+      ],
+      "flags": []
+    }
+  ]
+}

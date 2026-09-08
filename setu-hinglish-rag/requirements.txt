@@ -1,0 +1,29 @@
+# --- Core ---
+numpy
+pandas
+scipy
+scikit-learn
+tqdm
+
+# --- Embeddings / Retrieval (Phase 1, 5) ---
+sentence-transformers>=2.2.2
+transformers>=4.30.0
+faiss-cpu>=1.7.4
+ranx>=0.3.17
+rank_bm25>=0.2.2
+
+# --- Operators (Phase 2) ---
+lightgbm
+
+# --- Fusion / Stats (Phase 3, 5) ---
+statsmodels
+
+# --- Visualization ---
+matplotlib
+seaborn
+
+# --- Utilities / Data acquisition ---
+rapidfuzz
+requests
+beautifulsoup4
+datasets

@@ -1,0 +1,872 @@
+{
+  "total_queries": 75,
+  "v1_vs_v2_diff_count": 32,
+  "v1_vs_v2_diff_query_ids": [
+    "Q02",
+    "Q05",
+    "Q06",
+    "Q11",
+    "Q12",
+    "Q15",
+    "Q16",
+    "Q18",
+    "Q20",
+    "Q22",
+    "Q23",
+    "Q24",
+    "Q26",
+    "Q27",
+    "Q28",
+    "Q32",
+    "Q36",
+    "Q38",
+    "Q39",
+    "Q42",
+    "Q44",
+    "Q50",
+    "Q51",
+    "Q52",
+    "Q55",
+    "Q58",
+    "Q59",
+    "Q60",
+    "Q65",
+    "Q69",
+    "Q72",
+    "Q73"
+  ],
+  "raw_vs_v1_diff_count": 38,
+  "raw_vs_v1_diff_query_ids": [
+    "Q02",
+    "Q03",
+    "Q04",
+    "Q06",
+    "Q11",
+    "Q14",
+    "Q15",
+    "Q16",
+    "Q18",
+    "Q21",
+    "Q22",
+    "Q23",
+    "Q24",
+    "Q26",
+    "Q27",
+    "Q28",
+    "Q30",
+    "Q32",
+    "Q38",
+    "Q39",
+    "Q42",
+    "Q44",
+    "Q47",
+    "Q50",
+    "Q51",
+    "Q52",
+    "Q55",
+    "Q56",
+    "Q58",
+    "Q59",
+    "Q60",
+    "Q62",
+    "Q65",
+    "Q67",
+    "Q69",
+    "Q72",
+    "Q73",
+    "Q75"
+  ],
+  "raw_vs_v2_diff_count": 27,
+  "raw_vs_v2_diff_query_ids": [
+    "Q03",
+    "Q04",
+    "Q05",
+    "Q11",
+    "Q12",
+    "Q14",
+    "Q15",
+    "Q20",
+    "Q21",
+    "Q23",
+    "Q27",
+    "Q28",
+    "Q30",
+    "Q36",
+    "Q44",
+    "Q47",
+    "Q51",
+    "Q52",
+    "Q56",
+    "Q60",
+    "Q62",
+    "Q65",
+    "Q67",
+    "Q69",
+    "Q72",
+    "Q73",
+    "Q75"
+  ],
+  "detailed_diffs": [
+    {
+      "query_id": "Q02",
+      "query_text": "What is BSBDA account, minimum balance rakhna padta hai kya",
+      "v2_actions_taken": [
+        "STOP"
+      ],
+      "raw_top3": [
+        "D01",
+        "D08",
+        "D07"
+      ],
+      "v1_top3": [
+        "D01",
+        "D08",
+        "D07"
+      ],
+      "v2_top3": [
+        "D01",
+        "D08",
+        "D07"
+      ]
+    },
+    {
+      "query_id": "Q05",
+      "query_text": "Can I open more than one Basic Savings Bank Deposit Account in the same bank",
+      "v2_actions_taken": [
+        "LAG",
+        "STOP"
+      ],
+      "raw_top3": [
+        "D02",
+        "D06",
+        "D04"
+      ],
+      "v1_top3": [
+        "D02",
+        "D06",
+        "D04"
+      ],
+      "v2_top3": [
+        "D02",
+        "D06",
+        "D04"
+      ]
+    },
+    {
+      "query_id": "Q06",
+      "query_text": "Can I ek se zyada BSBDA account same bank mein khol sakta hoon",
+      "v2_actions_taken": [
+        "LAG",
+        "STOP"
+      ],
+      "raw_top3": [
+        "D02",
+        "D10",
+        "D08"
+      ],
+      "v1_top3": [
+        "D02",
+        "D10",
+        "D08"
+      ],
+      "v2_top3": [
+        "D02",
+        "D10",
+        "D08"
+      ]
+    },
+    {
+      "query_id": "Q11",
+      "query_text": "Ek mahine mein BSBDA se kitni baar free withdrawal kar sakte hain",
+      "v2_actions_taken": [
+        "LQP",
+        "STOP"
+      ],
+      "raw_top3": [
+        "D03",
+        "D05",
+        "D07"
+      ],
+      "v1_top3": [
+        "D03",
+        "D05",
+        "D07"
+      ],
+      "v2_top3": [
+        "D03",
+        "D05",
+        "D07"
+      ]
+    },
+    {
+      "query_id": "Q12",
+      "query_text": "BSBDA khaate mein mahine bhar mein kitni baar paisa nikalna free hota hai",
+      "v2_actions_taken": [
+        "LAG",
+        "CAEP",
+        "CAEP",
+        "LAG"
+      ],
+      "raw_top3": [
+        "D07",
+        "D05",
+        "D03"
+      ],
+      "v1_top3": [
+        "D07",
+        "D05",
+        "D03"
+      ],
+      "v2_top3": [
+        "D07",
+        "D05",
+        "D03"
+      ]
+    },
+    {
+      "query_id": "Q15",
+      "query_text": "ATM se balance check karne par kya woh withdrawal limit mein aata hai",
+      "v2_actions_taken": [
+        "LAG",
+        "LQP",
+        "STOP"
+      ],
+      "raw_top3": [
+        "D04",
+        "D03",
+        "D05"
+      ],
+      "v1_top3": [
+        "D04",
+        "D03",
+        "D05"
+      ],
+      "v2_top3": [
+        "D04",
+        "D03",
+        "D05"
+      ]
+    },
+    {
+      "query_id": "Q16",
+      "query_text": "Agar main ATM mein sirf balance dekhta hoon to kya woh withdrawal ginti mein aata hai",
+      "v2_actions_taken": [
+        "STOP"
+      ],
+      "raw_top3": [
+        "D04",
+        "D03",
+        "D16"
+      ],
+      "v1_top3": [
+        "D04",
+        "D03",
+        "D16"
+      ],
+      "v2_top3": [
+        "D04",
+        "D03",
+        "D16"
+      ]
+    },
+    {
+      "query_id": "Q18",
+      "query_text": "BSBDA account ke saath ATM card free milta hai kya",
+      "v2_actions_taken": [
+        "LAG",
+        "CAEP",
+        "LAG",
+        "LAG"
+      ],
+      "raw_top3": [
+        "D05",
+        "D07",
+        "D03"
+      ],
+      "v1_top3": [
+        "D05",
+        "D03",
+        "D07"
+      ],
+      "v2_top3": [
+        "D05",
+        "D07",
+        "D03"
+      ]
+    },
+    {
+      "query_id": "Q20",
+      "query_text": "BSBDA khulwane par ATM card free milega ya uske liye alag se paisa dena hoga",
+      "v2_actions_taken": [
+        "LAG",
+        "LAG",
+        "STOP"
+      ],
+      "raw_top3": [
+        "D05",
+        "D07",
+        "D03"
+      ],
+      "v1_top3": [
+        "D05",
+        "D07",
+        "D03"
+      ],
+      "v2_top3": [
+        "D05",
+        "D07",
+        "D03"
+      ]
+    },
+    {
+      "query_id": "Q22",
+      "query_text": "BSBDA account kholne ke liye koi age ya income limit hai kya",
+      "v2_actions_taken": [
+        "LAG",
+        "LAG",
+        "LAG",
+        "STOP"
+      ],
+      "raw_top3": [
+        "D08",
+        "D02",
+        "D06"
+      ],
+      "v1_top3": [
+        "D08",
+        "D02",
+        "D06"
+      ],
+      "v2_top3": [
+        "D08",
+        "D02",
+        "D06"
+      ]
+    },
+    {
+      "query_id": "Q23",
+      "query_text": "Kya BSBDA khaata kholne ke liye age ya income ki koi shart hoti hai",
+      "v2_actions_taken": [
+        "LAG",
+        "LAG",
+        "LQP",
+        "LQP"
+      ],
+      "raw_top3": [
+        "D07",
+        "D05",
+        "D01"
+      ],
+      "v1_top3": [
+        "D07",
+        "D05",
+        "D01"
+      ],
+      "v2_top3": [
+        "D07",
+        "D05",
+        "D01"
+      ]
+    },
+    {
+      "query_id": "Q24",
+      "query_text": "BSBDA khulwane ke liye kya koi umar ya kamai ki seema hoti hai",
+      "v2_actions_taken": [
+        "STOP"
+      ],
+      "raw_top3": [
+        "D05",
+        "D07",
+        "D10"
+      ],
+      "v1_top3": [
+        "D05",
+        "D07",
+        "D10"
+      ],
+      "v2_top3": [
+        "D05",
+        "D07",
+        "D10"
+      ]
+    },
+    {
+      "query_id": "Q26",
+      "query_text": "Simplified KYC wala BSBDA small account kitne time ke liye valid hota hai",
+      "v2_actions_taken": [
+        "LAG",
+        "STOP"
+      ],
+      "raw_top3": [
+        "D09",
+        "D08",
+        "D02"
+      ],
+      "v1_top3": [
+        "D09",
+        "D08",
+        "D02"
+      ],
+      "v2_top3": [
+        "D09",
+        "D08",
+        "D02"
+      ]
+    },
+    {
+      "query_id": "Q27",
+      "query_text": "Small account jo simplified KYC se khulta hai woh kitne saal tak valid rehta hai",
+      "v2_actions_taken": [
+        "LAG",
+        "LAG",
+        "LAG",
+        "CAEP"
+      ],
+      "raw_top3": [
+        "D09",
+        "D08",
+        "D10"
+      ],
+      "v1_top3": [
+        "D09",
+        "D08",
+        "D10"
+      ],
+      "v2_top3": [
+        "D09",
+        "D08",
+        "D10"
+      ]
+    },
+    {
+      "query_id": "Q28",
+      "query_text": "Simplified KYC se khula hua small account kitne mahine tak chalta hai aur extend ho sakta hai kya",
+      "v2_actions_taken": [
+        "LAG",
+        "STOP"
+      ],
+      "raw_top3": [
+        "D09",
+        "D08",
+        "D10"
+      ],
+      "v1_top3": [
+        "D09",
+        "D08",
+        "D10"
+      ],
+      "v2_top3": [
+        "D09",
+        "D08",
+        "D10"
+      ]
+    },
+    {
+      "query_id": "Q32",
+      "query_text": "Mera jo pehle se savings khaata hai use BSBDA mein tabdeel karwa sakta hoon kya",
+      "v2_actions_taken": [
+        "LAG",
+        "STOP"
+      ],
+      "raw_top3": [
+        "D10",
+        "D01",
+        "D07"
+      ],
+      "v1_top3": [
+        "D01",
+        "D10",
+        "D07"
+      ],
+      "v2_top3": [
+        "D10",
+        "D01",
+        "D07"
+      ]
+    },
+    {
+      "query_id": "Q36",
+      "query_text": "PM-KISAN yojana mein kisan parivar ko ek saal mein kitna paisa milta hai aur kitni kisto mein milta hai",
+      "v2_actions_taken": [
+        "LAG",
+        "LQP",
+        "LAG",
+        "LAG"
+      ],
+      "raw_top3": [
+        "D11",
+        "D12",
+        "D16"
+      ],
+      "v1_top3": [
+        "D11",
+        "D12",
+        "D16"
+      ],
+      "v2_top3": [
+        "D11",
+        "D12",
+        "D16"
+      ]
+    },
+    {
+      "query_id": "Q38",
+      "query_text": "PM-KISAN ke liye eligibility criteria kya hai farmer family ke liye",
+      "v2_actions_taken": [
+        "LAG",
+        "STOP"
+      ],
+      "raw_top3": [
+        "D12",
+        "D11",
+        "D17"
+      ],
+      "v1_top3": [
+        "D12",
+        "D11",
+        "D17"
+      ],
+      "v2_top3": [
+        "D12",
+        "D11",
+        "D17"
+      ]
+    },
+    {
+      "query_id": "Q39",
+      "query_text": "PM-KISAN yojana ke liye kisan parivar ko kya sharte poori karni padti hain",
+      "v2_actions_taken": [
+        "LQP",
+        "LAG",
+        "LAG",
+        "STOP"
+      ],
+      "raw_top3": [
+        "D11",
+        "D12",
+        "D16"
+      ],
+      "v1_top3": [
+        "D11",
+        "D12",
+        "D16"
+      ],
+      "v2_top3": [
+        "D11",
+        "D12",
+        "D16"
+      ]
+    },
+    {
+      "query_id": "Q42",
+      "query_text": "Institutional landholders PM-KISAN ke liye eligible hain kya",
+      "v2_actions_taken": [
+        "LAG",
+        "LAG",
+        "LAG",
+        "LAG"
+      ],
+      "raw_top3": [
+        "D13",
+        "D12",
+        "D17"
+      ],
+      "v1_top3": [
+        "D13",
+        "D12",
+        "D17"
+      ],
+      "v2_top3": [
+        "D13",
+        "D12",
+        "D17"
+      ]
+    },
+    {
+      "query_id": "Q44",
+      "query_text": "Agar zameen kisi sanstha ke naam par hai to kya PM-KISAN ka labh milega",
+      "v2_actions_taken": [
+        "LAG",
+        "LAG",
+        "STOP"
+      ],
+      "raw_top3": [
+        "D11",
+        "D12",
+        "D16"
+      ],
+      "v1_top3": [
+        "D11",
+        "D16",
+        "D12"
+      ],
+      "v2_top3": [
+        "D11",
+        "D16",
+        "D12"
+      ]
+    },
+    {
+      "query_id": "Q50",
+      "query_text": "PM-KISAN payment ke liye Aadhaar link hona mandatory hai kya",
+      "v2_actions_taken": [
+        "LAG",
+        "STOP"
+      ],
+      "raw_top3": [
+        "D15",
+        "D16",
+        "D11"
+      ],
+      "v1_top3": [
+        "D15",
+        "D16",
+        "D11"
+      ],
+      "v2_top3": [
+        "D15",
+        "D16",
+        "D11"
+      ]
+    },
+    {
+      "query_id": "Q51",
+      "query_text": "Kya PM-KISAN ka paisa lene ke liye Aadhaar link karna zaroori hai",
+      "v2_actions_taken": [
+        "LAG",
+        "LAG",
+        "LAG",
+        "CAEP"
+      ],
+      "raw_top3": [
+        "D15",
+        "D16",
+        "D12"
+      ],
+      "v1_top3": [
+        "D15",
+        "D16",
+        "D12"
+      ],
+      "v2_top3": [
+        "D15",
+        "D16",
+        "D12"
+      ]
+    },
+    {
+      "query_id": "Q52",
+      "query_text": "PM-KISAN ki kisht paane ke liye Aadhaar seeding zaroori hai kya aur mismatch hone par kya hota hai",
+      "v2_actions_taken": [
+        "LAG",
+        "LAG",
+        "STOP"
+      ],
+      "raw_top3": [
+        "D15",
+        "D11",
+        "D12"
+      ],
+      "v1_top3": [
+        "D15",
+        "D11",
+        "D20"
+      ],
+      "v2_top3": [
+        "D15",
+        "D11",
+        "D12"
+      ]
+    },
+    {
+      "query_id": "Q55",
+      "query_text": "Shehri ilaake mein kheti ki zameen ho to kya PM-KISAN ka labh milta hai",
+      "v2_actions_taken": [
+        "LAG",
+        "LAG",
+        "STOP"
+      ],
+      "raw_top3": [
+        "D11",
+        "D12",
+        "D16"
+      ],
+      "v1_top3": [
+        "D11",
+        "D12",
+        "D16"
+      ],
+      "v2_top3": [
+        "D11",
+        "D12",
+        "D16"
+      ]
+    },
+    {
+      "query_id": "Q58",
+      "query_text": "PM-KISAN ke liye online apply kaise karein ya CSC se kaise karein",
+      "v2_actions_taken": [
+        "LAG",
+        "STOP"
+      ],
+      "raw_top3": [
+        "D20",
+        "D19",
+        "D11"
+      ],
+      "v1_top3": [
+        "D20",
+        "D19",
+        "D11"
+      ],
+      "v2_top3": [
+        "D20",
+        "D19",
+        "D11"
+      ]
+    },
+    {
+      "query_id": "Q59",
+      "query_text": "Kisan PM-KISAN ke liye registration online kaise kare ya CSC jaakar kaise kare",
+      "v2_actions_taken": [
+        "LAG",
+        "STOP"
+      ],
+      "raw_top3": [
+        "D20",
+        "D19",
+        "D11"
+      ],
+      "v1_top3": [
+        "D20",
+        "D19",
+        "D16"
+      ],
+      "v2_top3": [
+        "D20",
+        "D19",
+        "D11"
+      ]
+    },
+    {
+      "query_id": "Q60",
+      "query_text": "PM-KISAN mein naye kisan ka registration khud portal par karein ya CSC centre jaakar karwayein, dono tarike kaise hain",
+      "v2_actions_taken": [
+        "LAG",
+        "STOP"
+      ],
+      "raw_top3": [
+        "D20",
+        "D19",
+        "D16"
+      ],
+      "v1_top3": [
+        "D20",
+        "D19",
+        "D16"
+      ],
+      "v2_top3": [
+        "D20",
+        "D19",
+        "D16"
+      ]
+    },
+    {
+      "query_id": "Q65",
+      "query_text": "atm me balance enquiry karne par monthly limit cut hoti hai kya",
+      "v2_actions_taken": [
+        "LAG",
+        "LAG",
+        "LAG",
+        "LAG"
+      ],
+      "raw_top3": [
+        "D04",
+        "D03",
+        "D09"
+      ],
+      "v1_top3": [
+        "D04",
+        "D03",
+        "D09"
+      ],
+      "v2_top3": [
+        "D04",
+        "D03",
+        "D09"
+      ]
+    },
+    {
+      "query_id": "Q69",
+      "query_text": "simplified kyc wala small acount kitne months tak valid rehta hai",
+      "v2_actions_taken": [
+        "LAG",
+        "STOP"
+      ],
+      "raw_top3": [
+        "D09",
+        "D08",
+        "D02"
+      ],
+      "v1_top3": [
+        "D09",
+        "D08",
+        "D02"
+      ],
+      "v2_top3": [
+        "D09",
+        "D08",
+        "D02"
+      ]
+    },
+    {
+      "query_id": "Q72",
+      "query_text": "kya institutional landholder ko pmkisan scheme ka fayda milta hai",
+      "v2_actions_taken": [
+        "LAG",
+        "LAG",
+        "STOP"
+      ],
+      "raw_top3": [
+        "D13",
+        "D11",
+        "D16"
+      ],
+      "v1_top3": [
+        "D13",
+        "D11",
+        "D16"
+      ],
+      "v2_top3": [
+        "D13",
+        "D11",
+        "D16"
+      ]
+    },
+    {
+      "query_id": "Q73",
+      "query_text": "pmkisan payment aane ke liye aadhar link karwana mandatory hai kya",
+      "v2_actions_taken": [
+        "LAG",
+        "CAEP",
+        "LAG",
+        "LAG"
+      ],
+      "raw_top3": [
+        "D16",
+        "D15",
+        "D11"
+      ],
+      "v1_top3": [
+        "D16",
+        "D15",
+        "D11"
+      ],
+      "v2_top3": [
+        "D16",
+        "D15",
+        "D11"
+      ]
+    }
+  ]
+}
