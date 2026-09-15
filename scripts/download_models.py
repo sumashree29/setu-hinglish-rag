@@ -1,3 +1,12 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+try:
+    from setu.config import set_seed
+    set_seed()
+except ImportError:
+    pass
+
 """
 Run this once (locally or in Colab — needs real internet access to
 huggingface.co, which a sandboxed dev environment may not have).

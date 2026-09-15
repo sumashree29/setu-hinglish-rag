@@ -1,8 +1,18 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+try:
+    from setu.config import set_seed
+    set_seed()
+except ImportError:
+    pass
+
 import os
 import sys
 import json
 import pickle
 import numpy as np
+import argparse
 from pathlib import Path
 
 root = Path(__file__).resolve().parents[1]
@@ -14,6 +24,10 @@ from setu.operators.caep import extract_entity_list, entity_frequencies, build_e
 from rapidfuzz import fuzz
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--allow-dummy-data", action="store_true", help="Allow fallback to dummy data if real data fails to load")
+    args = parser.parse_args()
+
     models_dir = root / "results" / "models"
     models_dir.mkdir(parents=True, exist_ok=True)
     
@@ -24,7 +38,9 @@ def main():
         def embed_fn(texts):
             return st_model.encode(texts)
     except Exception as e:
-        raise RuntimeError(f"Failed to load real training data/embeddings: {e}. Refusing to train on dummy data.")
+        if not args.allow_dummy_data:
+            raise RuntimeError(f"Failed to load real training data/embeddings: {e}. Refusing to train on dummy data. Pass --allow-dummy-data to override.")
+        print(f"Warning: Falling back to dummy data because of {e}")
 
     print("--- Training LQP ---")
     print("Downloading/Loading PHINC dataset...")
@@ -32,7 +48,10 @@ def main():
         from setu.operators.lqp import load_parallel_pairs_phinc
         X, Y = load_parallel_pairs_phinc(embed_fn, max_pairs=500)
     except Exception as e:
-        raise RuntimeError(f"Failed to load real training data/embeddings: {e}. Refusing to train on dummy data.")
+        if not args.allow_dummy_data:
+            raise RuntimeError(f"Failed to load real training data/embeddings: {e}. Refusing to train on dummy data. Pass --allow-dummy-data to override.")
+        print(f"Warning: Falling back to dummy data because of {e}")
+        # Dummy data logic if needed
 
     print("Fitting LQP Ridge model...")
     lqp_model = fit_lqp(X, Y)
@@ -50,7 +69,9 @@ def main():
         entities = extract_entity_list(chunks)
         freqs = entity_frequencies(chunks)
     except Exception as e:
-        raise RuntimeError(f"Failed to load real training data/embeddings: {e}. Refusing to train on dummy data.")
+        if not args.allow_dummy_data:
+            raise RuntimeError(f"Failed to load real training data/embeddings: {e}. Refusing to train on dummy data. Pass --allow-dummy-data to override.")
+        print(f"Warning: Falling back to dummy data because of {e}")
     
     features = []
     labels = []

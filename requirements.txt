@@ -1,29 +1,29 @@
 # --- Core ---
-numpy
-pandas
-scipy
-scikit-learn
-tqdm
+numpy==2.2.0
+pandas==3.0.3
+scipy==1.15.0
+scikit-learn==1.8.0
+tqdm==4.67.3
 
 # --- Embeddings / Retrieval (Phase 1, 5) ---
-sentence-transformers>=2.2.2
-transformers>=4.30.0
-faiss-cpu>=1.7.4
-ranx>=0.3.17
-rank_bm25>=0.2.2
+sentence-transformers==3.3.1
+transformers==4.57.6
+faiss-cpu==1.14.3
+ranx==0.3.21
+rank-bm25==0.2.2
 
 # --- Operators (Phase 2) ---
-lightgbm
+lightgbm==4.7.0
 
 # --- Fusion / Stats (Phase 3, 5) ---
-statsmodels
+statsmodels==0.15.0
 
 # --- Visualization ---
-matplotlib
-seaborn
+matplotlib==3.11.1
+seaborn==0.13.2
 
 # --- Utilities / Data acquisition ---
-rapidfuzz
-requests
-beautifulsoup4
-datasets
+rapidfuzz==3.14.5
+requests==2.32.5
+beautifulsoup4==4.15.0
+datasets==3.6.0

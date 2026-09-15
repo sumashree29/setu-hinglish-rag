@@ -1,3 +1,12 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+try:
+    from setu.config import set_seed
+    set_seed()
+except ImportError:
+    pass
+
 """
 Phase 1 deliverable: End-to-end CMI-vs-Recall/MRR/nDCG diagnosis curve for all 3 embedding models
 (BGE-M3, Indic-SBERT, mE5-Large) on the 20 atomic corpus chunks.

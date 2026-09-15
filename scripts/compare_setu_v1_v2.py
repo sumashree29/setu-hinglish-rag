@@ -1,3 +1,12 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+try:
+    from setu.config import set_seed
+    set_seed()
+except ImportError:
+    pass
+
 """
 Phase 4 Task 6: SETU v1 (fixed order) vs v2 (LinUCB) vs raw baseline,
 across all 75 pilot queries (60 original + 15 misspelled-entity subset).

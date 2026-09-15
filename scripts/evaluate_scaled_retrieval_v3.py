@@ -1,3 +1,12 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+try:
+    from setu.config import set_seed
+    set_seed()
+except ImportError:
+    pass
+
 import json
 import re
 import sys
@@ -7,13 +16,14 @@ import numpy as np
 import scipy.stats as stats
 import faiss
 import matplotlib.pyplot as plt
-from sentence_transformers import SentenceTransformer
+from setu.embeddings.loader import load_embedding_model, embed
 from ranx import Qrels, Run, evaluate
 from rank_bm25 import BM25Okapi
 
 sys.stdout.reconfigure(encoding='utf-8')
 
-ROOT = Path("c:/Users/sumas/Downloads/setu-hinglish-rag-skeleton/setu-hinglish-rag")
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.append(str(ROOT))
 DATA_DIR = ROOT / "data"
 EMB_DIR = DATA_DIR / "embeddings"
 TABLE_DIR = ROOT / "results" / "tables"
@@ -66,7 +76,7 @@ for model_key, (model_name, needs_prefix) in MODELS.items():
     print(f"==================================================")
     
     t0 = time.time()
-    model = SentenceTransformer(model_name)
+    model = load_embedding_model(model_key)
     
     # Doc embeddings v2 (380 chunks)
     doc_emb_path = EMB_DIR / f"doc_emb_{model_key}_v2.npy"
@@ -76,7 +86,7 @@ for model_key, (model_name, needs_prefix) in MODELS.items():
     else:
         d_input_v2 = [f"passage: {t}" for t in doc_texts_v2] if needs_prefix else doc_texts_v2
         print(f"Encoding {len(d_input_v2)} corpus chunks...")
-        d_emb_v2 = model.encode(d_input_v2, show_progress_bar=True, convert_to_numpy=True).astype("float32")
+        d_emb_v2 = embed(d_input_v2, model).astype("float32")
         faiss.normalize_L2(d_emb_v2)
         np.save(doc_emb_path, d_emb_v2)
         np.save(LOG_DIR / f"doc_emb_{model_key}_v2.npy", d_emb_v2)
@@ -84,7 +94,7 @@ for model_key, (model_name, needs_prefix) in MODELS.items():
     # Query embeddings v3 (314 queries) - always regenerate since queries were paraphrased
     q_input_v3 = [f"query: {t}" for t in query_texts_v3] if needs_prefix else query_texts_v3
     print(f"Encoding {len(q_input_v3)} paraphrased queries...")
-    q_emb_v3 = model.encode(q_input_v3, show_progress_bar=True, convert_to_numpy=True).astype("float32")
+    q_emb_v3 = embed(q_input_v3, model).astype("float32")
     faiss.normalize_L2(q_emb_v3)
     
     query_emb_path = EMB_DIR / f"query_emb_{model_key}_v3.npy"

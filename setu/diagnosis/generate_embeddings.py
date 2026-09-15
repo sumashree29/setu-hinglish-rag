@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 import numpy as np
-from sentence_transformers import SentenceTransformer
+from setu.embeddings.loader import load_embedding_model, embed
 
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 import config
@@ -36,7 +36,7 @@ MODELS = {
 
 for model_key, (model_name, needs_prefix) in MODELS.items():
     print(f"\n=== Embedding with {model_key} ({model_name}) ===")
-    model = SentenceTransformer(model_name)
+    model = load_embedding_model(model_key)
 
     if needs_prefix:
         q_input = [f"query: {t}" for t in query_texts]
@@ -46,9 +46,9 @@ for model_key, (model_name, needs_prefix) in MODELS.items():
         d_input = doc_texts
 
     print("Encoding queries...")
-    q_emb = model.encode(q_input, show_progress_bar=True, convert_to_numpy=True)
+    q_emb = embed(q_input, model)
     print("Encoding docs...")
-    d_emb = model.encode(d_input, show_progress_bar=True, convert_to_numpy=True)
+    d_emb = embed(d_input, model)
 
     np.save(OUT_DIR / f"query_emb_{model_key}.npy", q_emb)
     np.save(OUT_DIR / f"doc_emb_{model_key}.npy", d_emb)

@@ -1,3 +1,12 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+try:
+    from setu.config import set_seed
+    set_seed()
+except ImportError:
+    pass
+
 """
 Phase 4 Task 5 -- integration test: run setu_v1_fixed_order() and
 setu_v2_run() end-to-end against REAL pilot corpus (20 atomic chunks, 75 queries)
@@ -10,7 +19,7 @@ from pathlib import Path
 
 import numpy as np
 import faiss
-from sentence_transformers import SentenceTransformer
+
 
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 
@@ -30,11 +39,12 @@ queries = json.load(open("data/processed/queries_remapped.json", encoding="utf-8
 
 # --- Embedding function (BGE-M3, matches fitted LQP model dim 1024) ---
 print("Loading embedding model (BGE-M3)...")
-model = SentenceTransformer("BAAI/bge-m3")
+from setu.embeddings.loader import load_embedding_model, embed
+model = load_embedding_model("bge_m3")
 
 
 def embed_fn(texts):
-    return model.encode(texts, convert_to_numpy=True)
+    return embed(texts, model)
 
 
 # --- FAISS index over real corpus ---

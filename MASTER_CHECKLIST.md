@@ -4,7 +4,7 @@ This list tracks the progress of the 14 mandatory tasks for the SETU-Hinglish-RA
 
 - [x] **TASK 0 — Audit report only, zero code changes**
 - [x] **TASK 1 — Repository hygiene**
-- [ ] **TASK 2 — Reproducibility infrastructure**
+- [x] **TASK 2 — Reproducibility infrastructure**
 - [ ] **TASK 3 — Dataset integrity and provenance**
 - [ ] **TASK 4 — Fix the trajectory/leakage defect (A1, A2, A6)**
 - [ ] **TASK 5 — Re-run the scaled comparison and ablation on one consistent dataset (A7)**

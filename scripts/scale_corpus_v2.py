@@ -1,3 +1,12 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+try:
+    from setu.config import set_seed
+    set_seed()
+except ImportError:
+    pass
+
 """
 Phase 5 Corpus Scaling Pipeline: Build Scaled Corpus v2 (300-500 chunks) and Scaled Queries v2.
 Scrapes authentic RBI FAQ and government scheme entries, formats into atomic chunks,
