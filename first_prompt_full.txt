@@ -1,0 +1,645 @@
+<USER_REQUEST>
+# SETU — IEEE Submission Hardening: Master Agent Prompt
+
+You are working in the repository `setu-hinglish-rag` (local path `C:\Projects\acqr`, remote
+`https://github.com/sumashree29/setu-hinglish-rag`, current head `f8406a4`).
+
+This prompt was written after an independent audit of `main @ f8406a4`. The findings below are
+**verified facts about the current code**, not guesses. Do not re-litigate them; fix them.
+
+---
+
+## 0. GROUND RULES (read before every task)
+
+1. **Never fabricate.** No invented numbers, citations, page/table references, datasets, or
+   results. If you cannot verify a number against a real source, delete the row instead of
+   approximating it.
+2. **Never silently substitute your own implementation** for one that is specified. If you
+   disagree with an instruction, implement it as specified and write your objection into
+   `AUDIT_NOTES.md`.
+3. **Every claim in the paper must trace to a committed artifact** — a JSON in
+   `results/tables/`, a figure in `results/figures/`, or a log. If it isn't persisted, it
+   doesn't exist.
+4. **One task = one branch = one PR = one commit message that names the task number.**
+   Do not batch tasks. Stop after each task and print a short report:
+   - what changed (file paths + line numbers)
+   - what the acceptance criteria said
+   - whether each criterion passed, with the evidence (command output, JSON snippet)
+   - anything you could not do and why
+5. **Distinguish four categories in every report and every paper sentence:**
+   `existing result` / `newly generated result` / `literature result` / `interpretation`.
+   Never promote an interpretation into an experimental fact.
+6. **Run the tests after every task**: `python -m pytest tests/ -q`. If a test that passed
+   before now fails, fix it or explain it; do not delete or `pass` it.
+7. **Do not change any number in `RESULTS_SUMMARY.md` or `PAPER_NOTES.md` by hand.**
+   Those files are regenerated from artifacts, never edited to match a desired story.
+
+---
+
+## 1. VERIFIED AUDIT FINDINGS (as of `f8406a4`)
+
+### A. Blocking scientific defects
+
+**A1 — The controller behind the headline result is trained on a stale, mismatched log.**
+`data/logs/trajectories.jsonl` contains 692 rows spanning only **76 unique query strings**, all
+from the retired 75-query pilot set. `scripts/compare_setu_v1_v2_scaled.py` evaluates SETU v2 on
+**314** queries from `data/processed/queries_v3_final.json`. For ~238 of the 314 evaluation
+queries, the 5-fold "out-of-fold" filter is a no-op, because those queries never appear in the
+trajectory log at all. The reported policy is therefore trained on a 4× smaller, different
+distribution than the one it is evaluated on.
+
+**A2 — The STOP arm has never been trained; its value is a structural zero.**
+Action counts in the trajectory log: `LAG 232, LQP 231, CAEP 229, STOP 0`. `log_trajectory()` is
+only called for operator invocations. Consequently `b["STOP"]` stays the zero vector,
+`theta_STOP = A⁻¹b = 0`, and with `alpha=0.0` the UCB score of STOP is *exactly* `0.0` for every
+context. STOP is selected whenever every operator's predicted Δconfidence is negative. This may
+still be a valid and interesting result, but it cannot be described as "the controller learned
+when to stop." It is "STOP is the zero-valued default action, and operators are predicted to have
+negative value on most queries."
+
+**A3 — The deployed policy is not LinUCB.**
+`scripts/compare_setu_v1_v2_scaled.py` line ~117: `LinUCBController(context_dim=7, alpha=0.0)`.
+With `alpha=0`, the exploration bonus `alpha * sqrt(xᵀA⁻¹x)` vanishes and the policy is a greedy
+linear reward-argmax (ridge regression). Evaluating greedily is defensible; calling the
+*evaluated* policy "LinUCB" without stating `alpha=0` is not.
+
+**A4 — `mean_steps` conflates learned stopping with forced termination.**
+`setu/controller/setu_bandit.py`, in `setu_v2_run`:
+```python
+if action == "STOP" or (action in tried and tried[action] == 1.0):
+    ...
+    operator_sequence.append("STOP")
+    break
+```
+Selecting an already-used action forces termination and is *recorded as a STOP*. The reported
+`mean_steps = 1.197` therefore mixes three distinct stop causes. There is currently no way to
+tell them apart from any artifact in the repo.
+
+**A5 — Step counting is asymmetric between v1 and v2.**
+v2: `len([o for o in ops if o != "STOP"])`, measured. v1: `4.00`, asserted by construction and
+never measured in the script (`v1_metrics` has no `mean_steps` key). The claimed "70.1% fewer
+steps" compares a measured quantity against an assumed constant.
+
+**A6 — The fold split leaks on duplicate query text.**
+The OOF filter uses `set(q_by_id[qid]["text"] for qid in test_qids)`. There are 314 queries but
+only **310 unique texts**, so 4 queries can appear in both the training trajectories and the
+held-out fold. Split on `query_id`, not text.
+
+**A7 — Table IV and Table V are computed on different datasets.**
+`outputs/tables/operator_ablation.json` is `n_total_queries: 75`, RAW MRR `0.8666`, RAW nDCG@10
+`0.8960`. `outputs/tables/setu_v1_v2_comparison_scaled.json` is `n_total_queries: 314`, RAW MRR
+`0.8526`, RAW nDCG@10 `0.8858`. The correct 314-query ablation exists at
+`results/tables/scaled_operator_ablation_v3.json`. The stale 75-query file must not reach the
+paper.
+
+**A8 — The extended-baselines table contains citations that do not check out.**
+`results/tables/extended_baselines.md` attributes ColBERT-X to "Khattab & Zaharia, 2020"
+(that paper is ColBERT; ColBERT-X is Nair et al., ECIR 2022), and attributes MIRACL-Hindi numbers
+to "Formal et al., SIGIR 2022, Table 2" (MIRACL is Zhang et al., TACL 2023; the SPLADE papers do
+not report MIRACL Hindi). All values are vague ranges (`~0.78–0.82`). Under IEEE author-ethics
+rules this is a fabrication risk, not a formatting issue.
+
+**A9 — 76% of the evaluation set is unreviewed machine-generated text.**
+`data/processed/queries_v3_final.json`: 239 of 314 queries carry
+`"review_status": "auto_generated_v3_paraphrased"`; none is marked verified. The planned
+three-person human review never happened. This is the single easiest thing for a reviewer to
+reject the paper on.
+
+**A10 — Latency measurement is not defensible as reported.**
+In `compare_setu_v1_v2_scaled.py`: no warm-up, a single run per query, mean only (no median, SD,
+or CI), RAW is never timed at all inside this script, and v1 and v2 are timed in different loops
+under different cache states. No hardware, OS, thread count, or BLAS configuration is recorded
+anywhere in the repo.
+
+**A11 — Reward contains no intervention cost.**
+`reward = confidence_after - confidence_before` (a margin proxy), and STOP is hardcoded to
+`reward=0.0`. Nothing in the objective trades quality against steps or latency. Step reduction is
+therefore an *emergent consequence* of operators having negative predicted value — not something
+the controller was optimizing. Do not write "the controller balances quality against cost."
+
+**A12 — No seeding in the comparison script.**
+`scripts/run_statistical_tests_h1_h10_scaled.py` sets `np.random.seed(42)`.
+`scripts/compare_setu_v1_v2_scaled.py` sets no seed, and `EpsilonGreedyController` calls the
+bare `random` module.
+
+**A13 — Model loading is not reproducible.**
+`SentenceTransformer("BAAI/bge-m3", local_files_only=True)` — requires a pre-populated local
+cache and pins no HF revision. A clean machine cannot reproduce the results.
+
+**A14 — Measurement validity of CMI is unestablished.**
+`setu/diagnosis/lid_entropy.py` uses a hand-rolled lexicon/heuristic tagger, not IndicLID. CMI
+feeds both H1 (null result) and the controller's context vector. A null result from an
+unvalidated instrument is the weakest possible null result.
+
+**A15 — LAG's classifier is circular.**
+LAG labels were derived from a deterministic heuristic rule (entity corruption + CMI threshold),
+then a LightGBM model was fit on those labels, reaching ~100% training accuracy. The model
+re-derives the rule; it does not generalize. Either report it as the rule it is, or disclose the
+circularity explicitly.
+
+### B. Repository hygiene defects
+
+**B1** — `setu-hinglish-rag/` is a **byte-identical 28 MB duplicate of the entire project nested
+inside itself** (150 files; `diff -rq setu setu-hinglish-rag/setu` is empty). Introduced by
+commit `f8406a4` "Convert submodules to monorepo".
+**B2** — Unrelated files committed to the research repo: `smarttrack_comprehensive_documentation.md`,
+`admin_portal_screenshots.md`, `scripts/indexx.html`.
+**B3** — `results/tables/` and `outputs/tables/` hold divergent copies of the same filenames
+(`operator_ablation.json`, `setu_v1_v2_comparison_scaled.json`, `error_analysis_v2.json`,
+`statistical_significance_H1_H10_scaled.json`). No canonical directory is declared.
+**B4** — `requirements.txt` is almost entirely unpinned (`numpy`, `pandas`, `scipy`,
+`scikit-learn`, `lightgbm`, `statsmodels`, `matplotlib` have no versions at all).
+**B5** — `setu/embeddings/loader.py` still raises `NotImplementedError`, and
+`scripts/download_models.py` imports it — that script cannot run.
+**B6** — `MASTER_CHECKLIST.md` contains zero checkbox rows (`[x]` count 0, `[ ]` count 0) despite
+its stated purpose being "the first unchecked row tells you where to resume."
+**B7** — `scripts/train_operators.py` silently falls back to random/dummy embeddings and dummy
+PHINC pairs on a network error, printing only a warning. A run can produce a real-looking but
+garbage model with no hard failure.
+**B8** — `setu-web-app/` (a Next.js demo site) lives in the research repo with its own
+`package-lock.json` and `CLAUDE.md`/`AGENTS.md`.
+
+---
+
+## 2. THE CLAIM CONTRACT
+
+**You may claim** (if and only if the regenerated artifacts still support it):
+- Modern multilingual dense retrievers (BGE-M3, mE5-large) are already strong on this
+  domain-specific Hinglish corpus; correction is not needed for most queries.
+- Retrieval correction has **conditional** value: strongly positive on queries RAW gets wrong,
+  negative on queries RAW already gets right.
+- An adaptive controller can preserve retrieval quality while reducing correction steps and
+  latency relative to a fixed-order pipeline.
+- Retrieval score margin is positively associated with per-query MRR on this corpus.
+
+**You may not claim** (any of these is an automatic reject if written):
+- "SETU improves retrieval performance overall." (H4: p≈0.484)
+- "Code-mixing significantly degrades retrieval." (H1: null, and the instrument is unvalidated)
+- "SETU v2 significantly improves MRR over v1." (H6: p≈0.232)
+- "SETU beats mE5-large."
+- "LinUCB discovers sophisticated correction sequences." (the log shows no such thing)
+- "The controller learned to stop." (see A2 — STOP was never trained)
+- "The controller balances quality against computational cost." (see A11 — no cost in reward)
+- Any direct comparison of literature numbers to measured numbers without an explicit
+  different-corpus/different-protocol caveat attached to the same table.
+
+---
+
+## 3. TASKS — DO THESE STRICTLY IN ORDER
+
+### TASK 0 — Audit report only, zero code changes
+Branch: `audit/phase0`
+Produce `AUDIT_NOTES.md` answering each of these **from the code, with file:line citations**:
+1. What LQP does (input, transform, output) — `setu/operators/lqp.py`
+2. What CAEP does — `setu/operators/caep.py`
+3. What LAG does, including every sub-strategy in `apply_lag()` — `setu/operators/lag.py`
+4. What CARF does and where it is invoked — `setu/fusion/carf.py`
+5. SETU v1's exact sequence and termination — `setu_v1_fixed_order`
+6. SETU v2's exact loop, including every `break` path — `setu_v2_run`
+7. The exact 7 context features, their ranges, and whether they are normalised
+8. The exact action space and how STOP is reached (all three ways)
+9. The exact reward definition, its scale, and what it does *not* include
+10. The definition of one "step" for v1 and for v2, separately
+11. How relevance labels were produced for each of the 75 pilot and 239 generated queries
+12. Whether controller training and evaluation data overlap, query-by-query
+13. Exactly what is inside and outside each `time.perf_counter()` window
+14. Every place a random number is drawn and whether it is seeded
+
+Acceptance: every one of the 14 has a `path:line` citation. No file outside `AUDIT_NOTES.md`
+changes. Commit: `task0: repository and code audit, no functional changes`.
+
+---
+
+### TASK 1 — Repository hygiene
+Branch: `chore/repo-hygiene`
+1. `git rm -r --cached setu-hinglish-rag/` and delete the directory (B1). Confirm first that
+   `diff -rq setu setu-hinglish-rag/setu` is empty and that nothing imports from it.
+2. Delete `smarttrack_comprehensive_documentation.md`, `admin_portal_screenshots.md`,
+   `scripts/indexx.html` (B2).
+3. Declare `results/` the canonical artifact directory. Delete `outputs/tables/` and
+   `outputs/figures/` after confirming every file there is either identical to, or superseded
+   by, its `results/` counterpart. Record in `AUDIT_NOTES.md` which files differed and which
+   version you kept and why (B3).
+4. Move `setu-web-app/` out of this repo, or — if it must stay — add it to a top-level
+   `demo/` folder and state in `README.md` that it is not part of the experimental pipeline (B8).
+5. Rebuild `MASTER_CHECKLIST.md` as a real checkbox list mirroring the tasks in this prompt,
+   with every row honestly checked or unchecked (B6).
+
+Acceptance: `du -sh .` drops by ~28 MB; `python -m pytest tests/ -q` still passes; no import
+anywhere resolves into a deleted path (`grep -rn "setu-hinglish-rag" --include=*.py .` is empty).
+Commit: `task1: remove duplicated tree, unrelated files, and consolidate artifact dirs`.
+
+---
+
+### TASK 2 — Reproducibility infrastructure
+Branch: `chore/reproducibility`
+1. Pin every dependency in `requirements.txt` to the exact version currently installed
+   (`pip freeze` → curated list). No bare package names (B4).
+2. Add `setu/config.py`-level constants for `RANDOM_SEED = 42` and pinned HuggingFace model
+   revisions (commit SHAs) for `BAAI/bge-m3`, `intfloat/multilingual-e5-large`,
+   `facebook/mcontriever-msmarco`, and the Indic-SBERT checkpoint. Look up the real revision
+   SHAs; do not invent them (A13).
+3. Implement `setu/embeddings/loader.py::load_embedding_model()` / `embed()` as the single
+   source of truth for model name, revision, batch size, and normalisation. Replace the
+   duplicated inline `SentenceTransformer(...)` calls in `scripts/generate_embeddings.py`,
+   `scripts/compare_setu_v1_v2_scaled.py`, `scripts/evaluate_scaled_retrieval_v3.py`, and
+   `scripts/test_phase4_integration.py` with calls to it. Remove `local_files_only=True` or
+   make it an env-controlled flag that defaults to False (B5, A13).
+4. Seed `random`, `numpy`, and any sklearn/LightGBM randomness at the top of every script under
+   `scripts/` (A12).
+5. In `scripts/train_operators.py`, convert every silent dummy-data fallback into a hard
+   `RuntimeError` unless an explicit `--allow-dummy-data` flag is passed (B7).
+6. Create `ENVIRONMENT.md` recording: CPU model, core count, RAM, OS + version, Python version,
+   BLAS/threading env vars, and whether any GPU was used (answer: no). This file is required by
+   Task 7 and by the paper's Experimental Setup section.
+
+Acceptance: a clean `pip install -r requirements.txt` in a fresh venv, followed by
+`python scripts/evaluate_scaled_retrieval_v3.py`, reproduces
+`results/tables/scaled_corpus_retrieval_v3.json` to 6 decimal places. Record the diff if it does
+not, and investigate before proceeding.
+Commit: `task2: pin deps, seed all randomness, centralise model loading, record environment`.
+
+---
+
+### TASK 3 — Dataset integrity and provenance
+Branch: `data/provenance-and-review`
+1. Write `scripts/build_dataset_stats.py` producing `results/tables/dataset_statistics.json`
+   and a markdown rendering, containing: number of source documents, number of chunks, chunk
+   length distribution (mean/median/min/max tokens), number of queries by `variant`, number by
+   `review_status`, CMI distribution and band counts, LID-entropy distribution, number of
+   relevant docs per query, and the number of queries with more than one relevant doc.
+2. Write `DATA_PROVENANCE.md` with one row per external source: name, URL, date accessed,
+   license, what was extracted, what preprocessing was applied, and which script did it. Cover
+   the RBI BSBDA FAQ, PM-KISAN/myScheme content, PHINC, and HinGE. If a licence cannot be
+   confirmed, say "licence not confirmed" — do not guess (A9 context).
+3. **Human review of generated queries (A9).** Draw a stratified random sample of **90** of the
+   239 `auto_generated_v3_paraphrased` queries (stratified by CMI band), seeded at 42, and write
+   it to `data/review/review_batch_{1,2,3}.json` — 30 per reviewer. Each reviewer marks:
+   `is_fluent_hinglish` (y/n), `is_answerable_from_corpus` (y/n),
+   `gold_doc_is_correct` (y/n), and optionally a corrected `relevant_doc_ids`.
+   Have **at least 20 queries overlap across two reviewers** so inter-annotator agreement can be
+   computed. Write `scripts/merge_query_review.py` to merge the returned files back into
+   `queries_v3_final.json` (setting `review_status: "human_verified"`), and to compute and store
+   Cohen's kappa on the overlap into `results/tables/query_review_agreement.json`.
+   *Do not fabricate reviewer judgements.* Generate the batch files and stop; the humans fill
+   them in, and you re-run the merge afterwards.
+4. Document the relevance-label construction procedure explicitly: each query has exactly one
+   gold chunk inherited from its `source_question`'s parent chunk; labels are binary, not graded;
+   no pooling was performed. State the consequence: `Recall@10 = 0.987` is near-saturation, so
+   Recall is uninformative on this corpus and **MRR / nDCG@10 / Hit@1 must be the primary
+   metrics**.
+
+Acceptance: `dataset_statistics.json` exists and its query count matches
+`len(queries_v3_final.json)` exactly; `DATA_PROVENANCE.md` has no blank cells; the three review
+batch files exist with the stratification and overlap verified by an assertion in the script.
+Commit: `task3: dataset statistics, provenance, and human query-review harness`.
+
+---
+
+### TASK 4 — Fix the trajectory/leakage defect (A1, A2, A6)
+Branch: `fix/trajectory-regeneration`
+This is the most important task in the list. Do not skip any part.
+
+1. In `setu/controller/setu_bandit.py`, make `log_trajectory()` record **STOP actions too**, with
+   an explicit, documented reward for STOP. Choose and document one convention — the simplest
+   defensible one is `reward_STOP = 0.0`, meaning "no change in confidence," which makes STOP the
+   value-neutral baseline. Whatever you choose, it must be written into the docstring and into
+   `AUDIT_NOTES.md` as a modelling decision, not buried.
+2. Add a `stop_reason` field to every trajectory row and to `setu_v2_run`'s return value, with
+   values `explicit_stop` / `repeat_action_forced` / `max_steps_reached` (A4).
+3. Write `scripts/generate_trajectories_scaled.py` that runs `setu_v2_run(train=True)` over
+   **all 314 queries** of `queries_v3_final.json` against the 380-chunk corpus, with an
+   exploring controller (`alpha > 0`, e.g. 1.0, seeded), and writes a **fresh**
+   `data/logs/trajectories_v3.jsonl`. Keep the old file as
+   `data/logs/trajectories_pilot75_DEPRECATED.jsonl` and stop reading it anywhere.
+4. In `scripts/compare_setu_v1_v2_scaled.py`, change the OOF split to partition on
+   **`query_id`**, not query text, and assert that the intersection of train and test IDs is
+   empty for every fold (A6).
+5. Make the inference-time `alpha` an explicit named constant with a comment stating that
+   `alpha = 0` disables exploration and that the evaluated policy is therefore greedy-linear,
+   not UCB (A3). Report both the training alpha and the inference alpha in the output JSON.
+6. Measure v1's steps the same way v2's are measured, instead of assuming 4.00 (A5).
+7. Emit per-query records into `results/logs/setu_v2_per_query_v3.json`: query_id, action
+   sequence, stop_reason, n_steps, confidence trace, final ranking, latency.
+
+Acceptance:
+- `trajectories_v3.jsonl` contains ≥ 314 unique queries and a non-zero STOP count.
+- The script prints, and the output JSON stores, the distribution of `stop_reason`.
+- A fold-disjointness assertion passes for all 5 folds.
+- `python -m pytest tests/test_setu_bandit.py -q` passes, with **new tests** covering:
+  STOP logging, `stop_reason` correctness on a forced repeat, and fold disjointness.
+Commit: `task4: regenerate trajectories at scale, log STOP, fix ID-based OOF split`.
+
+---
+
+### TASK 5 — Re-run the scaled comparison and ablation on one consistent dataset (A7)
+Branch: `exp/rerun-scaled`
+1. Re-run `scripts/compare_setu_v1_v2_scaled.py` with the Task 4 fixes. Overwrite
+   `results/tables/setu_v1_v2_comparison_scaled.json`, keeping the previous version as
+   `..._PRE_TASK4_BACKUP.json`.
+2. Re-run `scripts/train_and_ablate_operators_v2.py` / `scripts/evaluate_operators_standalone.py`
+   on the **314-query, 380-chunk** setting only. Delete the stale 75-query
+   `operator_ablation.json` entirely (A7).
+3. Add a **controller ablation** arm, which is the arm a reviewer will demand: `SETU v2 —
+   fixed-STOP oracle`, i.e. always STOP at step 0 (equivalent to RAW), and `SETU v2 — random
+   policy` with the same step budget, seeded. Without these, "adaptive decision-making adds
+   value" is untestable. Report them in the same table.
+4. Regenerate `results/tables/overcorrection_diagnosis.json` (238 already-correct vs 76
+   initially-incorrect split) **from the new per-query records**, not from the old file. Verify
+   the −0.16 / +0.47 ΔMRR numbers reproduce; if they move, the paper uses the new ones.
+
+Acceptance: every table in `results/tables/` that the paper will cite reports the same
+`n_queries: 314` and the same RAW row (`mrr`, `ndcg@10`, `recall@5`, `recall@10`) to 6 decimal
+places. Write a script `scripts/check_table_consistency.py` that asserts this across all result
+JSONs and add it to the test suite.
+Commit: `task5: single-dataset rerun of ablation + SETU comparison, add controller ablations`.
+
+---
+
+### TASK 6 — Defensible latency protocol (A10)
+Branch: `exp/latency-protocol`
+1. Write `scripts/measure_latency.py` that, for each of RAW / LQP / CAEP / LAG / SETU v1 /
+   SETU v2: performs 10 warm-up queries (discarded), then **3 full repeats** over all 314
+   queries, and records per-query wall time.
+2. Report, per arm: mean, median, SD, p95, and a 95% bootstrap CI of the mean, plus the
+   between-repeat variation. Write to `results/tables/latency_v3.json`.
+3. State explicitly in the JSON what is inside the timer: query embedding, operator execution,
+   FAISS search, fusion — and what is outside: model load, corpus embedding, index construction.
+4. Embed the `ENVIRONMENT.md` hardware block into the JSON so the numbers are never quoted
+   without their machine.
+5. In the paper, report latency only as *relative* (v2 vs v1 on identical hardware), never as an
+   absolute claim about deployment cost.
+
+Acceptance: the three repeats agree within a stated tolerance; `latency_v3.json` contains the
+hardware block; no latency number anywhere in the repo lacks a median and a spread.
+Commit: `task6: repeated, warmed-up latency measurement with dispersion and hardware record`.
+
+---
+
+### TASK 7 — Measurement validity of CMI and LID (A14)
+Branch: `exp/lid-validation`
+Do **one** of these, in this order of preference:
+- **(a)** Swap `setu/diagnosis/lid_entropy.py` to real IndicLID, re-compute CMI for all 314
+  queries, and re-run H1 and H9. Report both the old and new rho side by side.
+- **(b)** If IndicLID cannot be installed offline: validate the existing tagger. Hand-label the
+  tokens of a random 100-query sample (seeded), compute token-level accuracy and Cohen's kappa
+  against the heuristic tagger, and store it in `results/tables/lid_validation.json`.
+
+Either way, produce a sentence for the Limitations section of the form: "CMI was computed with
+X; agreement with Y on a sample of N is Z; the null result for H1 is conditional on this
+measurement." A null result from an unvalidated instrument is not publishable as a finding.
+
+Acceptance: `lid_validation.json` exists with a real agreement number.
+Commit: `task7: validate (or replace) the language-identification tagger behind CMI`.
+
+---
+
+### TASK 8 — Re-run the full statistical battery on the new numbers
+Branch: `exp/rerun-stats`
+1. Re-run `scripts/run_statistical_tests_h1_h10_scaled.py` against the Task 5 artifacts.
+2. Keep what is already right: paired Wilcoxon, Spearman, bootstrap 95% CIs, Holm correction
+   across the family, `np.random.seed(42)`. Increase `n_resamples` from 500 to **10,000** —
+   500 is too few for a stable CI and a reviewer will say so.
+3. Report for every hypothesis: test, statistic, raw p, Holm-corrected p, effect size, 95% CI,
+   n, and verdict. Add the **rank-biserial CI** everywhere an effect size is claimed.
+4. For the two null results that carry the paper's narrative (H1, H6), add an explicit **power
+   or equivalence** statement: given n=314 and the observed variance, what effect size could
+   have been detected at 80% power? A null without a power statement is not evidence of absence.
+5. Add H8 (steps) recomputed with the *measured* v1 steps from Task 4.6, not the assumed 4.0.
+
+Acceptance: `results/tables/statistical_significance_H1_H10_scaled.json` regenerated; every
+entry has `n`, `p_value`, `p_value_corrected`, `effect_size`, `ci_95`, and `verdict`; the
+minimum-detectable-effect figure is present for H1 and H6.
+Commit: `task8: rerun H1–H10 at 10k resamples with power statements for null results`.
+
+---
+
+### TASK 9 — Conditional and error analysis (the paper's actual contribution)
+Branch: `exp/error-analysis`
+1. Regenerate the conditional-operator table from new per-query data:
+   | condition | n | LQP ΔMRR | CAEP ΔMRR | LAG ΔMRR | with bootstrap CIs on each Δ.
+2. Cross-tabulate `stop_reason` against outcome: for queries where RAW was already correct, how
+   often did v2 stop at step 0? For queries where RAW was wrong, how often did v2 intervene, and
+   did it help? This 2×2 is the core evidence for the adaptive-intervention story and it does
+   not exist yet.
+3. Select and write up **7 qualitative examples** into `results/tables/error_analysis_v3.json`,
+   one per category: RAW-correct-and-correction-hurts; RAW-wrong-and-correction-helps;
+   v2-correctly-stops; v2-correctly-intervenes; a hard code-mixed query; a misspelled-entity
+   query; a case where SETU still fails. Each with: query text, CMI, LID-entropy, RAW top-1,
+   corrected top-1, gold doc, action sequence, stop_reason, and outcome.
+4. Investigate the Indic-SBERT deficit (H2) *or* label it explicitly as an unverified
+   hypothesis. If investigating: compare vocabulary coverage / OOV rate on the query set across
+   the encoders and report it. Do not assert "capacity deficit" without a measurement.
+
+Acceptance: the 2×2 stop-vs-outcome table exists; all 7 examples are real rows from the eval
+set, quoted verbatim, with their query_ids.
+Commit: `task9: conditional effect table, stop-reason outcome analysis, qualitative examples`.
+
+---
+
+### TASK 10 — Citations and baselines cleanup (A8)
+Branch: `docs/citations`
+1. **Delete every row of `results/tables/extended_baselines.md` whose number you cannot verify
+   by opening the cited paper and finding that exact number in that exact table.** Approximate
+   ranges are not citations. This is an IEEE author-ethics requirement, not a style preference.
+2. Rebuild the table with two clearly separated blocks:
+   - *Measured on our corpus (314 queries / 380 chunks)*: BM25, mContriever, Indic-SBERT,
+     BGE-M3, mE5-large — these already exist in
+     `results/tables/scaled_corpus_retrieval_v3.json` and are legitimate.
+   - *Reported in prior work; different corpora and protocols; not comparable* — only if you can
+     verify each number exactly. If you cannot, omit this block entirely. The paper loses
+     nothing: the measured block is the defensible one.
+3. Note in the text that the measured mContriever (Recall@10 ≈ 0.920) and the published
+   MIRACL-Hindi figures differ by a large margin, and that this difference is itself the reason
+   literature numbers are not placed in the same comparison.
+4. Build `references.bib` with verified entries only. For each, confirm: authors, exact title,
+   venue, year, DOI or arXiv ID. **Verify every one of the following before use** — this list
+   is a starting point, not a citation:
+   - BM25 / probabilistic relevance: Robertson & Zaragoza, *The Probabilistic Relevance
+     Framework: BM25 and Beyond*, FnTIR 2009.
+   - Contriever / mContriever: Izacard et al., *Unsupervised Dense Information Retrieval with
+     Contrastive Learning*, TMLR 2022 (arXiv:2112.09118).
+   - BGE-M3: Chen et al., *BGE M3-Embedding*, 2024 (arXiv:2402.03216).
+   - Multilingual E5: Wang et al., *Multilingual E5 Text Embeddings*, 2024 (arXiv:2402.05672).
+   - LinUCB: Li, Chu, Langford & Schapire, *A Contextual-Bandit Approach to Personalized News
+     Article Recommendation*, WWW 2010 (arXiv:1003.0146).
+   - MIRACL: Zhang et al., TACL 2023 (arXiv:2210.09984).
+   - BEIR: Thakur et al., NeurIPS 2021 Datasets & Benchmarks (arXiv:2104.08663).
+   - Code-Mixing Index: Das & Gambäck, 2014.
+   - Adaptive-RAG: Jeong et al., NAACL 2024 (arXiv:2403.14403).
+   - Self-RAG: Asai et al., ICLR 2024 (arXiv:2310.11511).
+   - Corrective RAG: Yan et al., 2024 (arXiv:2401.15884).
+   - Query rewriting for retrieval-augmented LLMs: Ma et al., EMNLP 2023 (arXiv:2305.14283).
+   - HyDE: Gao et al., ACL 2023 (arXiv:2212.10496).
+   - ColBERT: Khattab & Zaharia, SIGIR 2020. ColBERT-X: Nair et al., ECIR 2022 — *these are
+     different papers; the current table conflates them.*
+   - SPLADE v2: Formal et al., 2021 (arXiv:2109.10086).
+   - MuRIL: Khanuja et al., 2021 (arXiv:2103.10730).
+   - IndicLID / IndicBERT: Madhani et al., 2023 — verify the exact venue.
+   - PHINC and HinGE: Srivastava & Singh — verify years and venues separately.
+   Prioritise ACL Anthology, IEEE Xplore, ACM DL, and Springer over arXiv where a published
+   version exists. Never cite a blog.
+5. Add a differentiation table: SETU vs Adaptive-RAG vs Self-RAG vs CRAG vs TARG — on what
+   decision is being made, at what granularity, with what signal, and trained how. Your
+   professor and Reviewer #1 will both ask for this.
+
+Acceptance: every `.bib` entry has a DOI or arXiv ID that resolves; no unverified number remains
+in any markdown table.
+Commit: `task10: verified bibliography, honest baseline separation, related-work differentiation`.
+
+---
+
+### TASK 11 — Figures and tables, IEEE-ready
+Branch: `docs/figures`
+Produce, in `results/figures/`, at 300 dpi, readable at single-column width, greyscale-safe:
+- Fig 1: SETU architecture (retriever → controller → operators → fusion), with the action space
+  and the three stop paths drawn explicitly.
+- Fig 2: the conditional-correction result — ΔMRR for each operator, split by
+  RAW-correct vs RAW-incorrect, with CIs. **This is the paper's money figure.**
+- Fig 3: step-count distribution, v1 vs v2, annotated by `stop_reason`.
+- Fig 4: CMI-band degradation curve (regenerate with the Task 7 tagger).
+- Tables I–VI exactly as specified in the project brief, generated by
+  `scripts/assemble_figures.py` from the JSON artifacts, never typed by hand.
+
+Acceptance: every figure and table regenerates from `results/tables/*.json` with one command.
+Commit: `task11: regenerate all IEEE figures and tables from artifacts`.
+
+---
+
+### TASK 12 — Draft the paper
+Branch: `docs/paper`
+Use the IEEE conference template. Structure: I Introduction · II Related Work · III Problem
+Formulation · IV SETU Framework · V Experimental Setup · VI Results · VII Ablation and Error
+Analysis · VIII Limitations · IX Conclusion.
+
+Hard requirements:
+- Abstract ≤ 250 words, 3–5 keywords.
+- Section IV must state, in formal notation: the context vector and its 7 components, the action
+  set, the reward function **including the fact that it contains no cost term**, the update rule,
+  the value of alpha at training and at inference, and all three termination conditions.
+- Section V must state the hardware from `ENVIRONMENT.md`, the seeds, the model revisions, and
+  the exact train/test protocol (5-fold OOF on query_id).
+- Section VIII must contain, at minimum: corpus scale (380 chunks, one domain); 239/314 queries
+  machine-generated with human verification only on a sample of 90; binary single-positive
+  labels with no pooling; Recall saturation; CMI band skew (75.5% high) with the
+  minimum-detectable-effect number from Task 8; the LID tagger's validation status from Task 7;
+  LAG's circular label derivation (A15); the STOP arm's zero-initialisation (A2); alpha=0 at
+  inference (A3); and single-hardware latency.
+- Every claim traces to a table or figure number.
+
+Commit: `task12: full IEEE draft with claim-to-artifact traceability`.
+
+---
+
+### TASK 13 — Adversarial self-review
+Branch: `docs/review`
+Write `SIMULATED_REVIEW.md` containing three independent reviewer reports. Reviewer #2 must be
+hostile and must specifically attack: the 380-chunk corpus, the machine-generated queries, the
+STOP arm, `alpha=0`, the forced-repeat step counting, the circular LAG labels, and the
+single-machine latency claim. Score novelty, technical contribution, experimental validity,
+dataset quality, baselines, statistics, ablation, reproducibility, writing, generalisation, and
+ethics. Then list the likely rejection reasons and the exact fix for each.
+
+If any weakness has no fix and no honest disclosure in Section VIII, go back and add it.
+
+---
+
+### TASK 14 — Submission checklist
+Verify: IEEE template; abstract ≤ 250 words; 3–5 keywords; figures readable in greyscale at
+print size; every reference resolves; no unsupported claim; no fabricated result; no
+simultaneous submission; author list and affiliations correct; dataset and model papers cited;
+reproducibility statement present with the repo URL; page limit and scope of the target
+conference checked against its current CFP.
+
+Consult, and follow, the official IEEE guidance:
+- Peer review: https://conferences.ieeeauthorcenter.ieee.org/understand-peer-review/
+- Author ethics: https://conferences.ieeeauthorcenter.ieee.org/author-ethics/ethical-requirements/
+- Reproducibility: https://conferences.ieeeauthorcenter.ieee.org/write-your-paper/research-reproducibility/
+- Paper structure: https://conferences.ieeeauthorcenter.ieee.org/write-your-paper/structure-your-paper/
+- Templates: https://conferences.ieeeauthorcenter.ieee.org/write-your-paper/authoring-tools-and-templates/
+- Submission policies: https://conferences.ieeeauthorcenter.ieee.org/author-ethics/guidelines-and-policies/submission-policies/
+
+---
+
+## 4. WHAT TO REPORT BACK AFTER EACH TASK
+
+```
+TASK <n> — <name>
+Branch: <branch>   Commit: <sha>
+Files changed: <path:line ranges>
+Acceptance criteria:
+  [PASS/FAIL] <criterion> — <evidence: command output or JSON snippet>
+Numbers that changed vs before: <old → new, with the artifact path>
+Blocked / not done: <what and why>
+Objections to the instructions: <if any>
+```
+
+Push after each task. Do not proceed to task *n+1* until task *n*'s report is reviewed.
+
+
+how long will it take to do all these tasks 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-15T19:28:55+05:30.
+
+The user's current state is as follows:
+Active Document: c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\data\processed\corpus_chunks_v2.jsonl (LANGUAGE_JSON)
+Cursor is on line: 1
+Other open documents:
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\setu-hinglish-rag\RESULTS_SUMMARY.md (LANGUAGE_MARKDOWN)
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\setu-hinglish-rag\scripts\run_diagnosis_curve_v2.py (LANGUAGE_PYTHON)
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\data\processed\corpus_chunks_v2.jsonl (LANGUAGE_JSON)
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\setu-hinglish-rag\data\pilot_corpus\queries.json (LANGUAGE_JSON)
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\setu-hinglish-rag\scripts\train_operators.py (LANGUAGE_PYTHON)
+</ADDITIONAL_METADATA>
+<USER_SETTINGS_CHANGE>
+The user changed setting `Model Selection` from None to Gemini 3.1 Pro (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.
+</USER_SETTINGS_CHANGE><USER_REQUEST>
+DO THESE STRICTLY IN ORDER
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-15T19:30:06+05:30.
+
+The user's current state is as follows:
+Active Document: c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\data\processed\corpus_chunks_v2.jsonl (LANGUAGE_JSON)
+Cursor is on line: 1
+Other open documents:
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\setu-hinglish-rag\scripts\test_phase4_integration.py (LANGUAGE_PYTHON)
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\setu-hinglish-rag\run_final_pipeline.ps1 (LANGUAGE_POWERSHELL)
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\data\pilot_corpus\documents.json (LANGUAGE_JSON)
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\setu-hinglish-rag\tests\test_carf.py (LANGUAGE_PYTHON)
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\setu-hinglish-rag\scripts\run_statistical_tests_h1_h10_scaled.py (LANGUAGE_PYTHON)
+</ADDITIONAL_METADATA><USER_REQUEST>
+proceed 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-15T19:33:37+05:30.
+
+The user's current state is as follows:
+Active Document: c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\data\processed\corpus_chunks_v2.jsonl (LANGUAGE_JSON)
+Cursor is on line: 1
+Other open documents:
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\data\processed\corpus_chunks_v2.jsonl (LANGUAGE_JSON)
+</ADDITIONAL_METADATA><USER_REQUEST>
+procedd
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-15T19:45:15+05:30.
+
+The user's current state is as follows:
+Active Document: c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\data\processed\corpus_chunks_v2.jsonl (LANGUAGE_JSON)
+Cursor is on line: 1
+Other open documents:
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\data\processed\corpus_chunks_v2.jsonl (LANGUAGE_JSON)
+</ADDITIONAL_METADATA><USER_REQUEST>
+proceed
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-15T19:54:14+05:30.
+
+The user's current state is as follows:
+Active Document: c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\data\processed\corpus_chunks_v2.jsonl (LANGUAGE_JSON)
+Cursor is on line: 1
+Other open documents:
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\data\processed\corpus_chunks_v2.jsonl (LANGUAGE_JSON)
+</ADDITIONAL_METADATA>

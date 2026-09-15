@@ -1,9 +1,19 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+try:
+    from setu.config import set_seed
+    set_seed()
+except ImportError:
+    pass
+
 import json
 import os
 import pickle
 import re
 import sys
 import time
+import argparse
 from pathlib import Path
 import numpy as np
 import scipy.stats as stats
@@ -33,6 +43,10 @@ DATA_DIR = ROOT / "data"
 
 MODELS_DIR.mkdir(parents=True, exist_ok=True)
 TABLE_DIR.mkdir(parents=True, exist_ok=True)
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--allow-dummy-data", action="store_true", help="Allow fallback to dummy data if real data fails to load")
+args = parser.parse_args()
 
 # 1. Load Data
 corpus_v2_file = DATA_DIR / "processed" / "corpus_chunks_v2.jsonl"
@@ -106,6 +120,8 @@ try:
     english_sents = [row[english_col] for row in phinc_ds]
     print(f"Loaded {len(hinglish_sents)} parallel pairs from PHINC.")
 except Exception as e:
+    if not args.allow_dummy_data:
+        raise RuntimeError(f"Failed to load PHINC dataset directly: {e}. Refusing to train on dummy data. Pass --allow-dummy-data to override.")
     print(f"Warning: Could not download PHINC dataset directly ({e}). Falling back to local pairs.")
     hinglish_sents = ["BSBDA account kaise open kare", "ATM se paise nikalne ki limit kya hai", "KYC documents kya chahiye"] * 100
     english_sents = ["How to open BSBDA account", "What is ATM cash withdrawal limit", "What KYC documents are required"] * 100
@@ -127,6 +143,8 @@ for model_key, (model_name, needs_prefix) in EMBEDDING_MODELS.items():
         with open(MODELS_DIR / f"lqp_model_{model_key}.pkl", "rb") as f:
             lqp_model = pickle.load(f)
     except Exception as e:
+        if not args.allow_dummy_data:
+            raise RuntimeError(f"LQP model load failed: {e}. Refusing to train on dummy data. Pass --allow-dummy-data to override.")
         print(f"Warning: LQP model load failed: {e}")
         # fallback if somehow missing, though it shouldn't be
         X_phinc = embed_fn(hinglish_sents)
@@ -140,6 +158,8 @@ for model_key, (model_name, needs_prefix) in EMBEDDING_MODELS.items():
         with open(MODELS_DIR / f"caep_gate_{model_key}.pkl", "rb") as f:
             caep_gate = pickle.load(f)
     except Exception as e:
+        if not args.allow_dummy_data:
+            raise RuntimeError(f"CAEP gate load failed: {e}. Refusing to train on dummy data. Pass --allow-dummy-data to override.")
         print(f"Warning: CAEP gate load failed, falling back to dummy gate: {e}")
         from setu.operators.caep import CAEPGate
         caep_gate = CAEPGate(0.85)

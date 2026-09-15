@@ -16,6 +16,13 @@ EMBEDDING_MODELS = {
     "bge_m3": "BAAI/bge-m3",
     "indic_sbert": "l3cube-pune/indic-sentence-similarity-sbert",
     "me5_large": "intfloat/multilingual-e5-large",
+    "mcontriever": "facebook/mcontriever-msmarco",
+}
+MODEL_REVISIONS = {
+    "BAAI/bge-m3": "5617a9f61b028005a4858fdac845db406aefb181",
+    "l3cube-pune/indic-sentence-similarity-sbert": "b07ef91a96390f3e35ce94ddb42340861519bf07",
+    "intfloat/multilingual-e5-large": "3d7cfbdacd47fdda877c5cd8a79fbcc4f2a574f3",
+    "facebook/mcontriever-msmarco": "9ff6abed2c2fdf32bbbd8b4e98fb10160e317375",
 }
 
 # --- CMI / LID ---
@@ -40,3 +47,9 @@ BANDIT_EPSILON = 0.1
 
 # --- Reproducibility ---
 RANDOM_SEED = 42
+
+def set_seed(seed: int = RANDOM_SEED):
+    import random
+    import numpy as np
+    random.seed(seed)
+    np.random.seed(seed)

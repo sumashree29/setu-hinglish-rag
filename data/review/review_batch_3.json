@@ -1,0 +1,362 @@
+[
+  {
+    "query_id": "Q178",
+    "text": "RTGS remittance required details ka arth aur details kya hain",
+    "source_question": "8. What is the essential information that the remitting customer needs to furnish to the bank for making a remittance?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C149"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q085",
+    "text": "kya any restriction on withdrawal allow kiya jata hai ya koi khaas rukawat hai",
+    "source_question": "Q 10. Is there any restriction on withdrawal in rupees of funds held in an EEFC account?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C030"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q186",
+    "text": "RB-IOS complaint filing ka tareeqa aur step-by-step procedure kya hota hai",
+    "source_question": "23. How can I file complaint under the RB-IOS 2021?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C164"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q188",
+    "text": "Authorized Dealer AD ki pehchaan aur role kya hai",
+    "source_question": "Q 1. Who is an Authorized Dealer (AD)?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C166"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q181",
+    "text": "kya originate transaction to draw funds allow kiya jata hai ya koi khaas rukawat hai",
+    "source_question": "15. Can a transaction be originated to draw (receive) funds from another account?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C156"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q272",
+    "text": "remedy for non-reversal of failed ATM transaction ka arth aur details kya hain",
+    "source_question": "22. What is the course of action for the customer if the reversal and compensation are not carried by the bank?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C265"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q133",
+    "text": "NEFT system ka arth aur details kya hain",
+    "source_question": "1. What is National Electronic Funds Transfer system?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C092"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q286",
+    "text": "Open Market Operations OMO ka arth aur details kya hain",
+    "source_question": "5. What are Open Market Operations (OMOs)?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C303"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q300",
+    "text": "bond price calculation formula ka tareeqa aur step-by-step procedure kya hota hai",
+    "source_question": "22. How is the Price of a bond calculated?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C331"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q172",
+    "text": "kya DICGC coverage cancellation allow kiya jata hai ya koi khaas rukawat hai",
+    "source_question": "16. Can the DICGC withdraw deposit insurance coverage from any bank?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C140"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q103",
+    "text": "pio ki pehchaan aur role kya hai",
+    "source_question": "Q2. Who is a PIO?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C058"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q224",
+    "text": "kya retaining foreign account after returning to India allow kiya jata hai ya koi khaas rukawat hai",
+    "source_question": "Q6. Can a resident continue to maintain an account outside India which was opened by him when he was a non-resident?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C208"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q308",
+    "text": "convexity ka arth aur details kya hain",
+    "source_question": "What is Convexity?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C351"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q087",
+    "text": "kya eefc account allow kiya jata hai ya koi khaas rukawat hai",
+    "source_question": "Q. 12. Whether EEFC Account is permitted to be held jointly with a resident relative?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C032"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q290",
+    "text": "G-Sec guidelines for co-operative banks ka arth aur details kya hain",
+    "source_question": "10. What are the Do's and Don\u2019ts prescribed by RBI for the Co-operative banks dealing in G-Secs?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C314"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q185",
+    "text": "RBI helpdesk contact ka arth aur details kya hain",
+    "source_question": "21. What is the Help Desk / Contact point at the RBI?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C162"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q184",
+    "text": "UTR number ka arth aur details kya hain",
+    "source_question": "20. What is UTR number?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C161"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q193",
+    "text": "kya cash payment for forex purchase allow kiya jata hai ya koi khaas rukawat hai",
+    "source_question": "Q 6. Can one pay by cash full rupee equivalent of foreign exchange being purchased for travel abroad?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C171"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q222",
+    "text": "foreign currency account ka arth aur details kya hain",
+    "source_question": "Q2. What is a foreign currency account?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C204"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q140",
+    "text": "kya NEFT without bank account allow kiya jata hai ya koi khaas rukawat hai",
+    "source_question": "8. Can the NEFT system be used for remitting funds even by those who do not have a bank account?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C099"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q189",
+    "text": "entities authorized to sell forex ki pehchaan aur role kya hai",
+    "source_question": "Q 2. Who are authorized by the Reserve Bank to sell foreign exchange for travel purposes?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C167"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q079",
+    "text": "foreign exchange ki maximum seema aur charges kitne hote hain",
+    "source_question": "Q 4. How much of one\u2019s foreign exchange earnings can be credited into an EEFC account?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C024"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q131",
+    "text": "Papua New Guinea banknotes rule ka arth aur details kya hain",
+    "source_question": "22. What is the position of Papua New Guinea Paper Banknotes?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C090"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q283",
+    "text": "Government Security G-Sec ka arth aur details kya hain",
+    "source_question": "What is a Government Security (G-Sec)?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C286"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q153",
+    "text": "LEI in large NEFT transfers ka arth aur details kya hain",
+    "source_question": "25. What is Legal Entity Identifier and how is it relevant in case of large value NEFT transactions?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C116"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q256",
+    "text": "Automated Teller Machine ATM ka arth aur details kya hain",
+    "source_question": "1. What is an Automated Teller Machine (ATM)?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C244"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q162",
+    "text": "DICGC insurance maximum limit ka arth aur details kya hain",
+    "source_question": "3. What is the maximum deposit amount insured by the DICGC?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C127"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q136",
+    "text": "IFSC code ka arth aur details kya hain",
+    "source_question": "4. What is Indian Financial System Code?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C095"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q123",
+    "text": "franchisee agreement features ka arth aur details kya hain",
+    "source_question": "13. What are the salient features of Franchisee Agreement?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C081"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q157",
+    "text": "agar lost paper token procedure toh aise case mein kya niyam lagta hai",
+    "source_question": "5. What if the paper token is misplaced / lost?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C121"
+    ],
+    "corrected_relevant_doc_ids": []
+  }
+]

@@ -1,0 +1,48 @@
+{
+  "num_source_documents": 1,
+  "num_chunks": 380,
+  "chunk_length_distribution": {
+    "mean": 110.61315789473684,
+    "median": 84.5,
+    "min": 17,
+    "max": 304
+  },
+  "num_queries_by_variant": {
+    "en": 15,
+    "low": 15,
+    "medium": 15,
+    "high": 15,
+    "misspelled": 15,
+    "hi-en": 239
+  },
+  "num_queries_by_review_status": {
+    "unreviewed": 75,
+    "auto_generated_v3_paraphrased": 239
+  },
+  "cmi_distribution": {
+    "mean": 0.4296455414012739,
+    "median": 0.4444,
+    "min": 0.0,
+    "max": 0.6429
+  },
+  "cmi_band_counts": {
+    "low": 14,
+    "high": 237,
+    "medium": 28,
+    "very_high": 35
+  },
+  "lid_entropy_distribution": {
+    "mean": 1.1584509554140128,
+    "median": 1.231,
+    "min": 0.0,
+    "max": 1.5774
+  },
+  "num_relevant_docs_per_query": {
+    "mean": 1.0254777070063694,
+    "median": 1.0,
+    "min": 1,
+    "max": 2
+  },
+  "num_queries_with_more_than_one_relevant_doc": 8,
+  "total_queries": 314
+}

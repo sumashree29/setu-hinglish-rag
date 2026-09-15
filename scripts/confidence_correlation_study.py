@@ -1,3 +1,12 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+try:
+    from setu.config import set_seed
+    set_seed()
+except ImportError:
+    pass
+
 """
 Phase 3.2 — Confidence-signal correlation study (plan §5.2, H10).
 OWNER: R3

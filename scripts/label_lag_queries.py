@@ -1,3 +1,12 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+try:
+    from setu.config import set_seed
+    set_seed()
+except ImportError:
+    pass
+
 """
 Label pilot queries with LAG sub-strategies based on empirical results.
 

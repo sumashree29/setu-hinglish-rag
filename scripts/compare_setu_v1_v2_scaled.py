@@ -1,3 +1,12 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+try:
+    from setu.config import set_seed
+    set_seed()
+except ImportError:
+    pass
+
 """
 Phase 4 Task 6: SETU v1 (fixed order) vs v2 (LinUCB) vs raw baseline,
 across all 75 pilot queries (60 original + 15 misspelled-entity subset).
@@ -15,7 +24,7 @@ from pathlib import Path
 
 import numpy as np
 import faiss
-from sentence_transformers import SentenceTransformer
+
 from ranx import Qrels, Run, evaluate
 
 sys.path.append(str(Path(__file__).resolve().parents[1]))
@@ -35,11 +44,12 @@ queries = json.load(open("data/processed/queries_v3_final.json", encoding="utf-8
 
 # --- Embedding + FAISS setup (BGE-M3, matches fitted LQP model dim 1024) ---
 print("Loading embedding model (BGE-M3)...")
-model = SentenceTransformer("BAAI/bge-m3", local_files_only=True)
+from setu.embeddings.loader import load_embedding_model, embed
+model = load_embedding_model("bge_m3")
 
 
 def embed_fn(texts):
-    return model.encode(texts, convert_to_numpy=True)
+    return embed(texts, model)
 
 
 doc_embeddings = embed_fn(doc_texts).astype("float32")

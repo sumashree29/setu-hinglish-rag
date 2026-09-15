@@ -1,3 +1,12 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+try:
+    from setu.config import set_seed
+    set_seed()
+except ImportError:
+    pass
+
 """
 Phase 2 Standalone Operator Ablation:
 Evaluates LQP alone, CAEP alone, and LAG alone in isolation against the raw-query

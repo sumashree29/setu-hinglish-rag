@@ -1,0 +1,128 @@
+<USER_REQUEST>
+# SETU — IEEE Submission Hardening: Master Agent Prompt
+
+You are working in the repository `setu-hinglish-rag` (local path `C:\Projects\acqr`, remote
+`https://github.com/sumashree29/setu-hinglish-rag`, current head `f8406a4`).
+
+This prompt was written after an independent audit of `main @ f8406a4`. The findings below are
+**verified facts about the current code**, not guesses. Do not re-litigate them; fix them.
+
+---
+
+## 0. GROUND RULES (read before every task)
+
+1. **Never fabricate.** No invented numbers, citations, page/table references, datasets, or
+   results. If you cannot verify a number against a real source, delete the row instead of
+   approximating it.
+2. **Never silently substitute your own implementation** for one that is specified. If you
+   disagree with an instruction, implement it as specified and write your objection into
+   `AUDIT_NOTES.md`.
+3. **Every claim in the paper must trace to a committed artifact** — a JSON in
+   `results/tables/`, a figure in `results/figures/`, or a log. If it isn't persisted, it
+   doesn't exist.
+4. **One task = one branch = one PR = one commit message that names the task number.**
+   Do not batch tasks. Stop after each task and print a short report:
+   - what changed (file paths + line numbers)
+   - what the acceptance criteria said
+   - whether each criterion passed, with the evidence (command output, JSON snippet)
+   - anything you could not do and why
+5. **Distinguish four categories in every report and every paper sentence:**
+   `existing result` / `newly generated result` / `literature result` / `interpretation`.
+   Never promote an interpretation into an experimental fact.
+6. **Run the tests after every task**: `python -m pytest tests/ -q`. If a test that passed
+   before now fails, fix it or explain it; do not delete or `pass` it.
+7. **Do not change any number in `RESULTS_SUMMARY.md` or `PAPER_NOTES.md` by hand.**
+   Those files are regenerated from artifacts, never edited to match a desired story.
+
+---
+
+#
+<truncated 33190 bytes>
+https://conferences.ieeeauthorcenter.ieee.org/write-your-paper/structure-your-paper/
+- Templates: https://conferences.ieeeauthorcenter.ieee.org/write-your-paper/authoring-tools-and-templates/
+- Submission policies: https://conferences.ieeeauthorcenter.ieee.org/author-ethics/guidelines-and-policies/submission-policies/
+
+---
+
+## 4. WHAT TO REPORT BACK AFTER EACH TASK
+
+```
+TASK <n> — <name>
+Branch: <branch>   Commit: <sha>
+Files changed: <path:line ranges>
+Acceptance criteria:
+  [PASS/FAIL] <criterion> — <evidence: command output or JSON snippet>
+Numbers that changed vs before: <old → new, with the artifact path>
+Blocked / not done: <what and why>
+Objections to the instructions: <if any>
+```
+
+Push after each task. Do not proceed to task *n+1* until task *n*'s report is reviewed.
+
+
+how long will it take to do all these tasks 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-15T19:28:55+05:30.
+
+The user's current state is as follows:
+Active Document: c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\data\processed\corpus_chunks_v2.jsonl (LANGUAGE_JSON)
+Cursor is on line: 1
+Other open documents:
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\setu-hinglish-rag\RESULTS_SUMMARY.md (LANGUAGE_MARKDOWN)
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\setu-hinglish-rag\scripts\run_diagnosis_curve_v2.py (LANGUAGE_PYTHON)
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\data\processed\corpus_chunks_v2.jsonl (LANGUAGE_JSON)
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\setu-hinglish-rag\data\pilot_corpus\queries.json (LANGUAGE_JSON)
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\setu-hinglish-rag\scripts\train_operators.py (LANGUAGE_PYTHON)
+</ADDITIONAL_METADATA>
+<USER_SETTINGS_CHANGE>
+The user changed setting `Model Selection` from None to Gemini 3.1 Pro (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.
+</USER_SETTINGS_CHANGE><USER_REQUEST>
+DO THESE STRICTLY IN ORDER
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-15T19:30:06+05:30.
+
+The user's current state is as follows:
+Active Document: c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\data\processed\corpus_chunks_v2.jsonl (LANGUAGE_JSON)
+Cursor is on line: 1
+Other open documents:
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\setu-hinglish-rag\scripts\test_phase4_integration.py (LANGUAGE_PYTHON)
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\setu-hinglish-rag\run_final_pipeline.ps1 (LANGUAGE_POWERSHELL)
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\data\pilot_corpus\documents.json (LANGUAGE_JSON)
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\setu-hinglish-rag\tests\test_carf.py (LANGUAGE_PYTHON)
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\setu-hinglish-rag\scripts\run_statistical_tests_h1_h10_scaled.py (LANGUAGE_PYTHON)
+</ADDITIONAL_METADATA><USER_REQUEST>
+proceed 
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-15T19:33:37+05:30.
+
+The user's current state is as follows:
+Active Document: c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\data\processed\corpus_chunks_v2.jsonl (LANGUAGE_JSON)
+Cursor is on line: 1
+Other open documents:
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\data\processed\corpus_chunks_v2.jsonl (LANGUAGE_JSON)
+</ADDITIONAL_METADATA><USER_REQUEST>
+procedd
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-15T19:45:15+05:30.
+
+The user's current state is as follows:
+Active Document: c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\data\processed\corpus_chunks_v2.jsonl (LANGUAGE_JSON)
+Cursor is on line: 1
+Other open documents:
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\data\processed\corpus_chunks_v2.jsonl (LANGUAGE_JSON)
+</ADDITIONAL_METADATA><USER_REQUEST>
+proceed
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-09-15T19:54:14+05:30.
+
+The user's current state is as follows:
+Active Document: c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\data\processed\corpus_chunks_v2.jsonl (LANGUAGE_JSON)
+Cursor is on line: 1
+Other open documents:
+- c:\Users\sumas\Downloads\setu-hinglish-rag-skeleton\data\processed\corpus_chunks_v2.jsonl (LANGUAGE_JSON)
+</ADDITIONAL_METADATA>
