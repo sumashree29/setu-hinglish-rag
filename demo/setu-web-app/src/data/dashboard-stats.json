@@ -1,0 +1,80 @@
+{
+  "dataset": {
+    "total_queries": 314,
+    "corpus_chunks": 380,
+    "embedding_models": 3
+  },
+  "effect_of_correction": {
+    "queries_already_correct_mrr_change": -0.16,
+    "queries_that_were_wrong_mrr_change": 0.48
+  },
+  "efficiency": {
+    "base_mean_steps": 4.0,
+    "setu_mean_steps": 1.2,
+    "base_latency_ms": 576,
+    "setu_latency_ms": 349,
+    "p_value_steps": 0.0
+  },
+  "statistical_significance": {
+    "h1": {
+      "hypothesis": "Code-mixing degrades baseline search accuracy",
+      "supported": true,
+      "rho": 0.45,
+      "p_value": 0.001
+    },
+    "h2": {
+      "hypothesis": "LLM translation (LAG) improves MRR on heavily mixed queries",
+      "supported": true,
+      "rho": 0.62,
+      "p_value": 0.002
+    },
+    "h3": {
+      "hypothesis": "CAEP reduces latency compared to LAG on entity-dense queries",
+      "supported": true,
+      "rho": 0.38,
+      "p_value": 0.015
+    },
+    "h4": {
+      "hypothesis": "LQP projection retains semantic meaning equivalent to full translation",
+      "supported": true,
+      "rho": 0.51,
+      "p_value": 0.008
+    },
+    "h5": {
+      "hypothesis": "Bandit routing is more cost-effective than unconditional LAG",
+      "supported": true,
+      "rho": 0.73,
+      "p_value": 0.0001
+    },
+    "h6": {
+      "hypothesis": "Base retrieval succeeds when Code-Mixing Index (CMI) < 0.2",
+      "supported": true,
+      "rho": 0.41,
+      "p_value": 0.02
+    },
+    "h7": {
+      "hypothesis": "Correction operators always degrade accuracy if base retrieval was already correct",
+      "supported": false,
+      "rho": -0.16,
+      "p_value": 0.08
+    },
+    "h8": {
+      "hypothesis": "LQP underperforms on queries with no clear semantic anchor",
+      "supported": true,
+      "rho": 0.29,
+      "p_value": 0.04
+    },
+    "h9": {
+      "hypothesis": "Higher linguistic entropy strictly correlates with base retrieval failure",
+      "supported": false,
+      "rho": 0.12,
+      "p_value": 0.35
+    },
+    "h10": {
+      "hypothesis": "SETU framework generalizes across multiple embedding models",
+      "supported": true,
+      "rho": 0.68,
+      "p_value": 0.005
+    }
+  }
+}

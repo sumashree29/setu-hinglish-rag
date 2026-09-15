@@ -30,7 +30,9 @@ setu/
 scripts/         one script per pipeline stage — the thing you actually run
 notebooks/       exploratory work per phase; graduate stable code into setu/ once it's solid
 data/            raw/ (downloaded corpora), processed/ (built pilot corpus), embeddings/ (cached vectors), logs/ (operator trajectories)
-outputs/         figures/ and tables/ for the paper — one subfolder per phase is fine
+outputs/         (REMOVED: consolidated into results/)
+results/         canonical artifact directory (tables, figures, logs, models)
+demo/            setu-web-app demo site (Note: NOT part of the experimental pipeline)
 tests/           one test file per module; write these as you fill in the TODOs
 ```
 
