@@ -64,7 +64,7 @@ def main():
     lag_model = pickle.load(open(ROOT / "results" / "models" / "lag_model_v3.pkl", "rb"))
 
     # Load clean trajectories to build OOF controllers just like in run_statistical_tests_h1_h10_scaled.py
-    trajectories = [json.loads(line) for line in open(ROOT / "data" / "logs" / "trajectories.jsonl", encoding="utf-8") if line.strip()]
+    trajectories = [json.loads(line) for line in open(ROOT / "data" / "logs" / "trajectories_v3.jsonl", encoding="utf-8") if line.strip()]
     n_splits = 5
     qids = [q["query_id"] for q in queries]
     q_by_id = {q["query_id"]: q for q in queries}
@@ -73,7 +73,8 @@ def main():
     fold_ctrls = {}
     for f_idx, t_qids in enumerate(folds):
         t_texts = set(q_by_id[qid]["text"] for qid in t_qids)
-        tr_traj = [r for r in trajectories if r.get("query") not in t_texts]
+        q_by_text = {q["text"]: q["query_id"] for q in queries}
+        tr_traj = [r for r in trajectories if q_by_text.get(r.get("query")) not in t_qids]
         f_ctrl = LinUCBController(context_dim=7, alpha=0.0)
         cur_q = None
         tried = {"LAG": 0.0, "CAEP": 0.0, "LQP": 0.0}
@@ -113,7 +114,7 @@ def main():
         )
         v1_mrr = 1.0 if v1_res["final_ranking"][0] in rel_docs else 0.0
         
-        ops, conf_tr, v2_rank = setu_v2_run(
+        ops, conf_tr, v2_rank, stop_reason = setu_v2_run(
             query=q_txt, controller=fold_ctrls[qid], raw_ranking=raw_ranking,
             embed_fn=lambda t: model.encode(t, convert_to_numpy=True),
             entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,

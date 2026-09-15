@@ -20,14 +20,15 @@ import numpy as np
 
 ACTIONS = ["LAG", "CAEP", "LQP", "STOP"]
 
-TRAJECTORY_LOG_PATH = Path("data/logs/trajectories.jsonl")
+TRAJECTORY_LOG_PATH = Path("data/logs/trajectories_v3.jsonl")
 
 
-def log_trajectory(query: str, state: Dict, action: str, confidence_before: float, confidence_after: float) -> Dict:
+def log_trajectory(query: str, state: Dict, action: str, confidence_before: float, confidence_after: float, stop_reason: str = None) -> Dict:
     """
     One row of the trajectory log = this controller's training data.
-    Appends to data/logs/trajectories.jsonl (append-only, per plan §6.1 alt #2).
+    Appends to data/logs/trajectories_v3.jsonl (append-only, per plan §6.1 alt #2).
     State should include (CMI, LID-entropy, confidence, step t).
+    Reward for STOP is strictly 0.0 (value-neutral, no change in confidence).
     """
     TRAJECTORY_LOG_PATH.parent.mkdir(parents=True, exist_ok=True)
 
@@ -35,9 +36,10 @@ def log_trajectory(query: str, state: Dict, action: str, confidence_before: floa
         "query": query,
         "state": state,
         "action": action,
+        "stop_reason": stop_reason,
         "confidence_before": confidence_before,
         "confidence_after": confidence_after,
-        "reward": confidence_after - confidence_before,
+        "reward": confidence_after - confidence_before if action != "STOP" else 0.0,
     }
 
     with open(TRAJECTORY_LOG_PATH, "a", encoding="utf-8") as f:
@@ -300,11 +302,11 @@ def setu_v2_run(
     max_steps: int = 4,
     lag_model=None,
     train: bool = True,
-) -> Tuple[List[str], List[float], List[str]]:
+) -> Tuple[List[str], List[float], List[str], str]:
     """
     Run the learned controller end to end on one query: repeatedly select an
     action, apply the corresponding operator, update confidence, until STOP
-    or a max-step cap is hit. Returns (operator sequence used, confidence trace).
+    or a max-step cap is hit. Returns (operator sequence used, confidence trace, fused ranking, stop_reason).
 
     Args:
         raw_ranking: (ranked_doc_ids, scores) for the *unmodified* query
@@ -335,15 +337,33 @@ def setu_v2_run(
     confidence_trace = [confidence]
     tried = {"LAG": 0.0, "CAEP": 0.0, "LQP": 0.0}
 
+    stop_reason = "max_steps_reached"
+
     for step in range(max_steps):
         context = np.array([
             cmi_score, entropy_score, confidence, step,
             tried["LAG"], tried["CAEP"], tried["LQP"],
         ], dtype=float)
         action = controller.select_action(context)
-        if action == "STOP" or (action in tried and tried[action] == 1.0):
-            if train and action == "STOP":
+        
+        is_repeat = action in tried and tried[action] == 1.0
+        if action == "STOP" or is_repeat:
+            if is_repeat:
+                stop_reason = "repeat_action_forced"
+                action = "STOP"
+            else:
+                stop_reason = "explicit_stop"
+                
+            if train:
                 controller.update(context, "STOP", reward=0.0)
+                log_trajectory(
+                    query=query,
+                    state={"cmi": cmi_score, "lid_entropy": entropy_score, "confidence": confidence, "step": step},
+                    action="STOP",
+                    confidence_before=confidence,
+                    confidence_after=confidence,
+                    stop_reason=stop_reason,
+                )
             operator_sequence.append("STOP")
             break
 
@@ -400,6 +420,7 @@ def setu_v2_run(
                 action=action,
                 confidence_before=confidence_before,
                 confidence_after=confidence,
+                stop_reason=None,
             )
 
         operator_sequence.append(action)
@@ -407,4 +428,4 @@ def setu_v2_run(
 
     fused_ranking = carf_v1(raw_ranking[0], current_ranking, cmi_score=cmi_score, cmi_max=1.0)
 
-    return operator_sequence, confidence_trace, fused_ranking
+    return operator_sequence, confidence_trace, fused_ranking, stop_reason

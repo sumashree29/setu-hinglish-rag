@@ -18,7 +18,7 @@ from setu.controller.setu_bandit import LinUCBController
 # 1. Reward distribution
 rewards = []
 actions = []
-with open("data/logs/trajectories.jsonl", "r", encoding="utf-8") as f:
+with open("data/logs/trajectories_v3.jsonl", "r", encoding="utf-8") as f:
     for line in f:
         if line.strip():
             row = json.loads(line)
@@ -44,7 +44,7 @@ for act in sorted(set(actions)):
 
 # 2. Compare Fold 0 vs Fold 1 Theta
 queries = json.load(open("data/processed/queries_remapped.json", encoding="utf-8"))
-trajectories = [json.loads(line) for line in open("data/logs/trajectories.jsonl", encoding="utf-8") if line.strip()]
+trajectories = [json.loads(line) for line in open("data/logs/trajectories_v3.jsonl", encoding="utf-8") if line.strip()]
 
 n_splits = 5
 qids = [q["query_id"] for q in queries]

@@ -125,7 +125,7 @@ def main():
         raw_mrr.append(r_mrr)
         
         # SETU v2 MRR
-        ops, conf_trace, v2_ranking = setu_v2_run(
+        ops, conf_trace, v2_ranking, stop_reason = setu_v2_run(
             query=q_noisy,
             controller=controller,
             raw_ranking=(raw_ranking, raw_scores),

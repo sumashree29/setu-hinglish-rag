@@ -198,16 +198,17 @@ v2_steps_per_q, cmi_per_q = [], []
 raw_margins = []
 
 # Load clean trajectories for 5-fold CV
-trajectories = [json.loads(line) for line in open(ROOT / "data" / "logs" / "trajectories.jsonl", encoding="utf-8") if line.strip()]
+trajectories = [json.loads(line) for line in open(ROOT / "data" / "logs" / "trajectories_v3.jsonl", encoding="utf-8") if line.strip()]
 n_splits = 5
 qids = [q["query_id"] for q in queries_75]
 q_by_id = {q["query_id"]: q for q in queries_75}
+q_by_text = {q["text"]: q["query_id"] for q in queries}
 folds = np.array_split(qids, n_splits)
 
 fold_ctrls = {}
 for f_idx, t_qids in enumerate(folds):
     t_texts = set(q_by_id[qid]["text"] for qid in t_qids)
-    tr_traj = [r for r in trajectories if r.get("query") not in t_texts]
+    tr_traj = [r for r in trajectories if q_by_text.get(r.get("query")) not in t_qids]
     f_ctrl = LinUCBController(context_dim=7, alpha=0.0)
     cur_q = None
     tried = {"LAG": 0.0, "CAEP": 0.0, "LQP": 0.0}
@@ -270,7 +271,7 @@ for q in queries_75:
     v1_mrrs.append(v1_mrr)
     
     # SETU v2 MRR
-    ops, conf_tr, v2_rank = setu_v2_run(
+    ops, conf_tr, v2_rank, stop_reason = setu_v2_run(
         query=q_txt, controller=fold_ctrls[qid], raw_ranking=raw_ranking,
         embed_fn=lambda t: model.encode(t, convert_to_numpy=True),
         entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
