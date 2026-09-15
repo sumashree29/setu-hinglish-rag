@@ -1,0 +1,362 @@
+[
+  {
+    "query_id": "Q165",
+    "text": "kya insurance increase via multiple accounts allow kiya jata hai ya koi khaas rukawat hai",
+    "source_question": "7. Can deposit insurance be increased by depositing funds into several different accounts all at the same bank?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C131"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q252",
+    "text": "duties of payment system provider ka arth aur details kya hain",
+    "source_question": "Q 30. What are the duties of a system provider under the PSS Act, 2007?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C240"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q086",
+    "text": "kya the eefc balances allow kiya jata hai ya koi khaas rukawat hai",
+    "source_question": "Q. 11. Whether the EEFC balances can be covered against exchange risk?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C031"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q192",
+    "text": "forex import limits into India ki maximum seema aur charges kitne hote hain",
+    "source_question": "Q 5. How much foreign exchange can be brought in while visiting India?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C170"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q266",
+    "text": "kya transactions excluded from free ATM count allow kiya jata hai ya koi khaas rukawat hai",
+    "source_question": "14. Are there any type of transactions that are not to be counted under free transactions?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C257"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q284",
+    "text": "G-Sec issuance process ka tareeqa aur step-by-step procedure kya hota hai",
+    "source_question": "3. How are the G-Secs issued?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C296"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q161",
+    "text": "the dicgc kis cheez ko insure karta hai",
+    "source_question": "2. What does the DICGC insure?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C126"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q121",
+    "text": "money changing facilities ka arth aur details kya hain",
+    "source_question": "11. What are the money changing facilities presently available in India?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C079"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q261",
+    "text": "kya using debit card at any ATM allow kiya jata hai ya koi khaas rukawat hai",
+    "source_question": "9. Can cards issued by a bank in India be used at any ATM / WLA in the country?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C252"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q143",
+    "text": "NEFT transfer required details ka arth aur details kya hain",
+    "source_question": "11. What are the essential details required for remitting funds through NEFT system?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C102"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q278",
+    "text": "kya choice of USD cheque collection mode allow kiya jata hai ya koi khaas rukawat hai",
+    "source_question": "7. Can the customer choose the mode for collecting USD cheques?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C277"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q265",
+    "text": "kya free ATM transactions for BSBDA accounts allow kiya jata hai ya koi khaas rukawat hai",
+    "source_question": "13. Is the above prescription of free transactions applicable to a Basic Savings Bank Deposit Account (BSBDA) also?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C256"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q311",
+    "text": "money market ka arth aur details kya hain",
+    "source_question": "30. What is Money Market?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C355"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q090",
+    "text": "scheme participation ke liye yogyata aur criteria kya hoti hai",
+    "source_question": "1. Who can participate in the Scheme?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C038"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q101",
+    "text": "agar aggregator facilitator toh aise case mein kya niyam lagta hai",
+    "source_question": "18. What if the payment for the securities is made to the aggregator or facilitator after the date of issue of the security?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C055"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q250",
+    "text": "kya RBI inspection of overseas entities allow kiya jata hai ya koi khaas rukawat hai",
+    "source_question": "Q 27. Can Reserve Bank conduct inspection of foreign entities authorized by it but located in foreign jurisdictions?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C237"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q089",
+    "text": "asset remittance ka arth aur details kya hain",
+    "source_question": "Q6. What are the Tax implications in respect of remittance of assets?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C037"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q117",
+    "text": "FFMC licence application ke liye yogyata aur criteria kya hoti hai",
+    "source_question": "4. Who can apply for an FFMC licence?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C072"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q084",
+    "text": "permissible debits ka arth aur details kya hain",
+    "source_question": "Q 9. What are the permissible debits into this account?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C029"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q221",
+    "text": "person resident ki pehchaan aur role kya hai",
+    "source_question": "Q1. Who is a person resident in India?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C203"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q240",
+    "text": "services permitted for foreign entities ka arth aur details kya hain",
+    "source_question": "Q 16. What are the services which a foreign entity can provide?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C226"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q096",
+    "text": "security payment ka tareeqa aur step-by-step procedure kya hota hai",
+    "source_question": "9. How will the investor make payment for the security?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C046"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q281",
+    "text": "kya additional instructions for banks allow kiya jata hai ya koi khaas rukawat hai",
+    "source_question": "14. Are there any other instructions to banks in this regard?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C284"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q141",
+    "text": "kya NEFT transfer abroad allow kiya jata hai ya koi khaas rukawat hai",
+    "source_question": "9. Can I send funds to my relative / friend residing abroad through NEFT system?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C100"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q180",
+    "text": "kya future date RTGS transfer allow kiya jata hai ya koi khaas rukawat hai",
+    "source_question": "14. Can a remitting customer initiate a transaction for a future date?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C155"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q296",
+    "text": "Delivery vs Payment DvP settlement ka arth aur details kya hain",
+    "source_question": "18. What is Delivery versus Payment (DvP) Settlement?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C324"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q298",
+    "text": "When Issued market and short selling ka arth aur details kya hain",
+    "source_question": "20. What is the \u2018When Issued\u2019 market and \u201cShort Sale\u201d?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C326"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q279",
+    "text": "kya credit availability on Nostro sight allow kiya jata hai ya koi khaas rukawat hai",
+    "source_question": "10. Are customers given credit and allowed to use the funds after sight of credit in the Nostro accounts of banks?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C280"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q254",
+    "text": "electronic fund transfer dishonour consequences ka arth aur details kya hain",
+    "source_question": "Q 32. What are the consequences of dishonour of electronic fund transfer under the PSS Act, 2007?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C242"
+    ],
+    "corrected_relevant_doc_ids": []
+  },
+  {
+    "query_id": "Q177",
+    "text": "kya RTGS minimum maximum limits allow kiya jata hai ya koi khaas rukawat hai",
+    "source_question": "6. Is there any minimum / maximum amount stipulation for RTGS transactions?",
+    "is_fluent_hinglish": "",
+    "is_answerable_from_corpus": "",
+    "gold_doc_is_correct": "",
+    "relevant_doc_ids": [
+      "C147"
+    ],
+    "corrected_relevant_doc_ids": []
+  }
+]
