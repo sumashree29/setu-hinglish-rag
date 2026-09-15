@@ -12,7 +12,7 @@ import time
 from pathlib import Path
 import numpy as np
 import faiss
-from sentence_transformers import SentenceTransformer
+from setu.embeddings.loader import load_embedding_model, embed
 from datasets import load_dataset
 import sys
 import pickle
@@ -76,9 +76,9 @@ def main():
     
     # 2. Encode Corpus
     print("Loading BGE-M3 and encoding MIRACL subset corpus...")
-    model = SentenceTransformer("BAAI/bge-m3", local_files_only=True)
+    model = load_embedding_model("bge_m3")
     def embed_fn(texts):
-        return model.encode(texts, convert_to_numpy=True)
+        return embed(texts, model).astype("float32")
         
     doc_embeddings = embed_fn(doc_texts).astype("float32")
     faiss.normalize_L2(doc_embeddings)

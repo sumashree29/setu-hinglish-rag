@@ -168,15 +168,15 @@ results_h1_h10["H3"] = {
 # H4: SETU-processed queries achieve significantly higher Recall@k/MRR/nDCG than raw queries
 # -------------------------------------------------------------
 import faiss, pickle
-from sentence_transformers import SentenceTransformer
+from setu.embeddings.loader import load_embedding_model, embed
 from setu.operators.caep import extract_entity_list, entity_frequencies
 from setu.controller.setu_bandit import setu_v1_fixed_order, setu_v2_run, LinUCBController
 
 chunks = [json.loads(line) for line in open(ROOT / "data" / "processed" / "corpus_chunks_v2.jsonl", encoding="utf-8")]
 doc_ids = [c["chunk_id"] for c in chunks]
 doc_texts = [c["text"] for c in chunks]
-model = SentenceTransformer("BAAI/bge-m3", local_files_only=True)
-doc_emb = model.encode(doc_texts, convert_to_numpy=True).astype("float32")
+model = load_embedding_model("bge_m3")
+doc_emb = embed(doc_texts, model).astype("float32")
 faiss.normalize_L2(doc_emb)
 idx = faiss.IndexFlatIP(doc_emb.shape[1])
 idx.add(doc_emb)
@@ -233,7 +233,7 @@ for q in queries_75:
     q_cmi = cmi(q_txt)
     cmi_per_q.append(q_cmi)
     
-    q_emb = model.encode([q_txt], convert_to_numpy=True)[0]
+    q_emb = embed([q_txt], model)[0]
     raw_ranking = faiss_search(q_emb)
     
     # RAW MRR
@@ -258,7 +258,7 @@ for q in queries_75:
     
     # SETU v1 MRR
     v1_res = setu_v1_fixed_order(
-        query=q_txt, raw_ranking=raw_ranking, embed_fn=lambda t: model.encode(t, convert_to_numpy=True),
+        query=q_txt, raw_ranking=raw_ranking, embed_fn=lambda t: embed(t, model),
         entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
         lqp_model=lqp_model, faiss_search_fn=faiss_search, lag_model=lag_model,
     )
@@ -272,7 +272,7 @@ for q in queries_75:
     # SETU v2 MRR
     ops, conf_tr, v2_rank = setu_v2_run(
         query=q_txt, controller=fold_ctrls[qid], raw_ranking=raw_ranking,
-        embed_fn=lambda t: model.encode(t, convert_to_numpy=True),
+        embed_fn=lambda t: embed(t, model),
         entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
         lqp_model=lqp_model, faiss_search_fn=faiss_search, confidence_fn=confidence_proxy,
         lag_model=lag_model, train=False,

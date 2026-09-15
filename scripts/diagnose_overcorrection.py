@@ -23,7 +23,7 @@ from setu.operators.lag import apply_lag, entity_density, predict_strategy
 from setu.diagnosis.cmi import cmi
 from setu.diagnosis.lid_entropy import lid_entropy
 from setu.fusion.carf import rrf_baseline
-from sentence_transformers import SentenceTransformer
+from setu.embeddings.loader import load_embedding_model, embed
 
 print("Loading data...")
 queries = json.load(open(ROOT / 'data' / 'processed' / 'queries_v3_final.json', encoding='utf-8'))
@@ -36,7 +36,7 @@ caep_gate = pickle.load(open(ROOT / 'results' / 'models' / 'caep_gate_bge_m3.pkl
 lag_model = pickle.load(open(ROOT / 'results' / 'models' / 'lag_model_v3.pkl', 'rb'))
 
 print("Loading model for CAEP re-encoding...")
-model = SentenceTransformer("BAAI/bge-m3", local_files_only=True)
+model = load_embedding_model("bge_m3")
 
 from setu.operators.caep import extract_entity_list, entity_frequencies
 corpus_lines = [json.loads(line) for line in open(ROOT / 'data' / 'processed' / 'corpus_chunks_v2.jsonl', encoding='utf-8')]
@@ -83,7 +83,7 @@ for i, q in enumerate(queries):
     lag_strat = predict_strategy(q_cmi, q_ent, q_dens, lag_model)
     
     def embed_fn(texts):
-        return model.encode(texts, convert_to_numpy=True).astype("float32")
+        return embed(texts, model).astype("float32")
         
     lag_out = apply_lag(
         q['text'],
@@ -116,7 +116,7 @@ for i, q in enumerate(queries):
     b_ranking = [docids[d] for d in base_indices[i]]
     c_text = apply_caep(q['text'], corpus_entities, caep_gate)
     if c_text != q['text']:
-        c_emb = model.encode([c_text], convert_to_numpy=True)[0]
+        c_emb = embed([c_text], model)[0]
         _, c_idx = index.search(np.array([c_emb]).astype(np.float32), 10)
         c_ranking = [docids[d] for d in c_idx[0]]
     else:

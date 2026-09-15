@@ -16,7 +16,7 @@ import pickle
 import faiss
 import numpy as np
 from pathlib import Path
-from sentence_transformers import SentenceTransformer
+from setu.embeddings.loader import load_embedding_model, embed
 
 # Set seed for reproducibility
 np.random.seed(42)
@@ -44,8 +44,8 @@ def main():
     doc_ids = [c["chunk_id"] for c in chunks]
     doc_texts = [c["text"] for c in chunks]
     
-    model = SentenceTransformer("BAAI/bge-m3", local_files_only=True)
-    doc_emb = model.encode(doc_texts, convert_to_numpy=True).astype("float32")
+    model = load_embedding_model("bge_m3")
+    doc_emb = embed(doc_texts, model).astype("float32")
     faiss.normalize_L2(doc_emb)
     idx = faiss.IndexFlatIP(doc_emb.shape[1])
     idx.add(doc_emb)
@@ -102,12 +102,12 @@ def main():
         q_cmi = cmi(q_txt)
         q_band = cmi_band(q_cmi, CMI_BANDS)
         
-        q_emb = model.encode([q_txt], convert_to_numpy=True)[0]
+        q_emb = embed([q_txt], model)[0]
         raw_ranking = faiss_search(q_emb)
         raw_mrr = 1.0 if raw_ranking[0][0] in rel_docs else 0.0
         
         v1_res = setu_v1_fixed_order(
-            query=q_txt, raw_ranking=raw_ranking, embed_fn=lambda t: model.encode(t, convert_to_numpy=True),
+            query=q_txt, raw_ranking=raw_ranking, embed_fn=lambda t: embed(t, model),
             entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
             lqp_model=lqp_model, faiss_search_fn=faiss_search, lag_model=lag_model,
         )
@@ -115,7 +115,7 @@ def main():
         
         ops, conf_tr, v2_rank = setu_v2_run(
             query=q_txt, controller=fold_ctrls[qid], raw_ranking=raw_ranking,
-            embed_fn=lambda t: model.encode(t, convert_to_numpy=True),
+            embed_fn=lambda t: embed(t, model),
             entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
             lqp_model=lqp_model, faiss_search_fn=faiss_search, confidence_fn=confidence_proxy,
             lag_model=lag_model, train=False,
