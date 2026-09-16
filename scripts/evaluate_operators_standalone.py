@@ -43,19 +43,20 @@ def main():
 
     # 1. Load real pilot corpus + queries
     chunks = []
-    with open(root / "data" / "processed" / "corpus_chunks.jsonl", encoding="utf-8") as f:
+    with open(root / "data" / "processed" / "corpus_chunks_v2.jsonl", encoding="utf-8") as f:
         for line in f:
             chunks.append(json.loads(line))
     doc_ids = [c["chunk_id"] for c in chunks]
     doc_texts = [c["text"] for c in chunks]
-    queries = json.load(open(root / "data" / "processed" / "queries_remapped.json", encoding="utf-8"))
+    queries = json.load(open(root / "data" / "processed" / "queries_v3_final.json", encoding="utf-8"))
 
     # 2. Embedding + FAISS setup (BGE-M3)
     print("Loading embedding model (BGE-M3)...")
-    model = SentenceTransformer("BAAI/bge-m3")
+    from setu.embeddings.loader import load_embedding_model, embed
+    model = load_embedding_model("bge_m3")
 
     def embed_fn(texts):
-        return model.encode(texts, convert_to_numpy=True)
+        return embed(texts, model)
 
     doc_embeddings = embed_fn(doc_texts).astype("float32")
     faiss.normalize_L2(doc_embeddings)
@@ -158,7 +159,7 @@ def main():
     results_full["LAG_alone"]["mean_latency_ms"] = float(np.mean(lag_latencies) * 1000)
 
     # 6. Evaluate Misspelled Entity Subset (Q61-Q75)
-    subset_qids = [q["query_id"] for q in queries if int(q["query_id"].replace("Q", "")) >= 61]
+    subset_qids = [q["query_id"] for q in queries if 61 <= int(q["query_id"].replace("Q", "")) <= 75]
     results_misspelled = {}
     if subset_qids:
         qrels_sub = Qrels({qid: qrels_dict[qid] for qid in subset_qids})

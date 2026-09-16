@@ -21,6 +21,22 @@
             "recall@10": 0.9872611464968153,
             "mean_steps": 2.5955414012738856,
             "mean_latency_ms": 336.9363085979449
+        },
+        "SETU_v2_fixed_stop": {
+            "ndcg@10": 0.885773838611957,
+            "mrr": 0.8526071681326458,
+            "recall@5": 0.9554140127388535,
+            "recall@10": 0.9872611464968153,
+            "mean_steps": 0.0,
+            "mean_latency_ms": 1.0667863050935444
+        },
+        "SETU_v2_random": {
+            "ndcg@10": 0.8833178969785251,
+            "mrr": 0.8492897583661915,
+            "recall@5": 0.9554140127388535,
+            "recall@10": 0.9872611464968153,
+            "mean_steps": 1.2484076433121019,
+            "mean_latency_ms": 1038.8725506374242
         }
     },
     "misspelled_subset": {
@@ -41,6 +57,18 @@
             "mrr": 0.9333333333333333,
             "recall@5": 1.0,
             "recall@10": 1.0
+        },
+        "SETU_v2_fixed_stop": {
+            "ndcg@10": 0.9507906338095277,
+            "mrr": 0.9333333333333333,
+            "recall@5": 1.0,
+            "recall@10": 1.0
+        },
+        "SETU_v2_random": {
+            "ndcg@10": 0.9507906338095277,
+            "mrr": 0.9333333333333333,
+            "recall@5": 1.0,
+            "recall@10": 1.0
         }
     },
     "n_total_queries": 314,
@@ -52,5 +80,26 @@
     "stop_reason_distribution": {
         "repeat_action_forced": 302,
         "explicit_stop": 12
+    },
+    "random_policy_diversity": {
+        "n_distinct_patterns": 16,
+        "top_patterns": {
+            "('STOP',)": 77,
+            "('CAEP', 'STOP')": 43,
+            "('LAG', 'STOP')": 36,
+            "('LQP', 'STOP')": 36,
+            "('LAG', 'CAEP', 'STOP')": 19,
+            "('LQP', 'CAEP', 'STOP')": 16,
+            "('CAEP', 'LQP', 'STOP')": 16,
+            "('LQP', 'LAG', 'STOP')": 14,
+            "('LAG', 'LQP', 'STOP')": 13,
+            "('CAEP', 'LAG', 'STOP')": 11,
+            "('LQP', 'LAG', 'CAEP', 'STOP')": 9,
+            "('LAG', 'CAEP', 'LQP', 'STOP')": 8,
+            "('LQP', 'CAEP', 'LAG', 'STOP')": 6,
+            "('LAG', 'LQP', 'CAEP', 'STOP')": 4,
+            "('CAEP', 'LAG', 'LQP', 'STOP')": 4,
+            "('CAEP', 'LQP', 'LAG', 'STOP')": 2
+        }
     }
 }

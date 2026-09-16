@@ -63,11 +63,10 @@ lag_deltas = {'correct': [], 'wrong': []}
 
 for i, q in enumerate(queries):
     qid = q['query_id']
-    if qid not in per_query: continue
-    
-    raw_mrr = per_query[qid]['mrr']
-    group = 'correct' if raw_mrr == 1.0 else 'wrong'
     rel_docs = set(q['relevant_doc_ids'])
+    b_ranking = [docids[d] for d in base_indices[i]]
+    raw_mrr = get_mrr(b_ranking, rel_docs)
+    group = 'correct' if raw_mrr == 1.0 else 'wrong'
     
     # LQP
     q_cmi = cmi(q['text'])
