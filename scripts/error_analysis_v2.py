@@ -96,6 +96,13 @@ def main():
     print("Running evaluation...")
     failures = []
     
+    # Read all outcomes for 2x2 cross-tab
+    crosstab = {
+        "repeat_action_forced": {"success": 0, "failure": 0},
+        "explicit_stop": {"success": 0, "failure": 0},
+        "max_steps_reached": {"success": 0, "failure": 0}
+    }
+    
     for q in queries:
         qid = q["query_id"]
         q_txt = q["text"]
@@ -124,10 +131,12 @@ def main():
         
         v2_mrr = 1.0 if v2_rank[0] in rel_docs else 0.0
         
+        if stop_reason in crosstab:
+             crosstab[stop_reason]["success" if v2_mrr == 1.0 else "failure"] += 1
+        
         if v2_mrr < 1.0:
+            # Failure categorization logic
             ops_no_stop = [o for o in ops if o != "STOP"]
-            
-            # Categorize
             category = "unexplained"
             if raw_mrr < 1.0 and not ops_no_stop:
                 category = "base_retrieval_miss"
@@ -148,10 +157,11 @@ def main():
                 "ops": ops_no_stop,
                 "raw_failed": raw_mrr < 1.0,
                 "v1_failed": v1_mrr < 1.0,
-                "category": category
+                "category": category,
+                "stop_reason": stop_reason,
+                "sequence": " -> ".join(ops)
             })
 
-    # Aggregation
     band_counts = {b[2]: 0 for b in CMI_BANDS}
     category_by_band = {b[2]: {} for b in CMI_BANDS}
     
@@ -164,6 +174,7 @@ def main():
     output = {
         "total_queries": len(queries),
         "total_v2_failures_at_rank1": len(failures),
+        "outcome_by_termination_cause_crosstab": crosstab,
         "band_counts": band_counts,
         "category_breakdown_by_band": category_by_band,
         "examples": {}
@@ -171,6 +182,31 @@ def main():
     
     # 3-5 examples per category
     examples_by_cat = {}
+    examples_by_pattern = {"LQP -> LAG -> STOP": [], "LQP -> STOP": [], "STOP": []}
+    
+    for f in failures:
+        seq = f["sequence"]
+        if seq in examples_by_pattern and len(examples_by_pattern[seq]) < 3:
+             examples_by_pattern[seq].append(f)
+             
+    # In Task 9, we need exactly 7 qualitative examples drawn across the 3 patterns.
+    # We will pick 3 from pattern 1, 2 from pattern 2, and 2 from pattern 3.
+    qualitative_examples = []
+    for p, items in examples_by_pattern.items():
+        for it in items:
+            qualitative_examples.append({
+                "query": it["text"],
+                "pattern": p,
+                "cmi": round(it["cmi"], 3),
+                "category": it["category"],
+                "raw_failed": it["raw_failed"]
+            })
+            if len(qualitative_examples) == 7:
+                break
+        if len(qualitative_examples) == 7:
+             break
+             
+    output["qualitative_examples_7_diverse"] = qualitative_examples
     for f in failures:
         c = f["category"]
         if c not in examples_by_cat:
