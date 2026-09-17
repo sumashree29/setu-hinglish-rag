@@ -93,26 +93,29 @@ print(f"Loaded {len(trajectories)} offline exploration trajectory transitions.")
 qrels_dict = {q["query_id"]: {d: 1 for d in q["relevant_doc_ids"]} for q in queries}
 
 raw_run, v1_run, v2_run = {}, {}, {}
-v1_latencies, v2_latencies = [], []
+raw_latencies, v1_latencies, v2_latencies = [], [], []
 v1_results_list = []
 v2_step_counts = []
 
 print(f"Running RAW baseline and SETU v1 across all {len(queries)} queries...")
 for i, q in enumerate(queries):
     qid, query_text = q["query_id"], q["text"]
+    t0_raw = time.perf_counter()
     query_emb = embed_fn([query_text])[0]
     raw_ranking = faiss_search_fn(query_emb)
+    raw_time = time.perf_counter() - t0_raw
+    raw_latencies.append(raw_time)
 
     raw_run[qid] = {doc: score for doc, score in zip(raw_ranking[0], raw_ranking[1])}
 
-    t0 = time.perf_counter()
+    t0_v1 = time.perf_counter()
     v1_result = setu_v1_fixed_order(
         query=query_text, raw_ranking=raw_ranking, embed_fn=embed_fn,
         entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
         lqp_model=lqp_model, faiss_search_fn=faiss_search_fn, lag_model=lag_model,
     )
     v1_results_list.append(v1_result)
-    v1_latencies.append(time.perf_counter() - t0)
+    v1_latencies.append(raw_time + (time.perf_counter() - t0_v1))
     v1_ranking = v1_result["final_ranking"]
     v1_run[qid] = {doc: (len(v1_ranking) - rank) for rank, doc in enumerate(v1_ranking)}
 
@@ -161,10 +164,12 @@ for fold_idx, test_qids in enumerate(folds):
     for qid in test_qids:
         q = q_by_id[qid]
         query_text = q["text"]
+        t0_raw = time.perf_counter()
         query_emb = embed_fn([query_text])[0]
         raw_ranking = faiss_search_fn(query_emb)
+        raw_time = time.perf_counter() - t0_raw
 
-        t0 = time.perf_counter()
+        t0_v2 = time.perf_counter()
         ops, conf_trace, v2_ranking, stop_reason = setu_v2_run(
             query=query_text, controller=fold_controller, raw_ranking=raw_ranking, embed_fn=embed_fn,
             entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
@@ -173,7 +178,7 @@ for fold_idx, test_qids in enumerate(folds):
             train=False,
         )
 
-        v2_latencies.append(time.perf_counter() - t0)
+        v2_latencies.append(raw_time + (time.perf_counter() - t0_v2))
         v2_step_counts.append(len(ops))
         v2_run[qid] = {doc: (len(v2_ranking) - rank) for rank, doc in enumerate(v2_ranking)}
         v2_stop_reasons.append(stop_reason)
@@ -197,6 +202,7 @@ qrels = Qrels(qrels_dict)
 METRICS = ["ndcg@10", "mrr", "recall@5", "recall@10"]
 
 raw_metrics = {k: float(v) for k, v in evaluate(qrels, Run(raw_run), METRICS).items()}
+raw_metrics["mean_latency_ms"] = float(np.mean(raw_latencies) * 1000)
 v1_metrics = {k: float(v) for k, v in evaluate(qrels, Run(v1_run), METRICS).items()}
 v1_metrics["mean_latency_ms"] = float(np.mean(v1_latencies) * 1000)
 v2_metrics = {k: float(v) for k, v in evaluate(qrels, Run(v2_run), METRICS).items()}
@@ -210,6 +216,7 @@ print(f"=== FULL DATASET ({len(queries)} Queries) ===")
 print(f"==================================================")
 print("=== RAW baseline ===")
 print(raw_metrics)
+print(f"Mean latency: {raw_metrics['mean_latency_ms']:.2f} ms")
 
 print("\n=== SETU v1 (fixed order) ===")
 print(v1_metrics)
