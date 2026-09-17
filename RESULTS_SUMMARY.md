@@ -48,6 +48,7 @@ mE5-large is the strongest model overall. Indic-SBERT substantially underperform
 ## Additional Limitations
 
 In addition to the CMI band distribution noted below, the following methodological limitations must be considered:
+* **Construct Validity of CMI (Task 7):** CMI was computed using a lexicon-based heuristic rather than a deep learning LID tagger. The planned IndicLID-FTN token-level integration failed construct validity because the FastText model collapsed Hinglish tokens to "other", nullifying all CMI variance (Cohen's Kappa = 0.0868 between heuristic and IndicLID). Therefore, the lexicon heuristic was retained.
 1. **Pilot-Scale Corpus**: The evaluation corpus size (380 chunks) is pilot-scale. High recall numbers may be partially driven by lexical overlap confounds, limiting the generalizability of the H1 null finding.
 2. **Hand-rolled LID Tagger**: CMI scores rely on a placeholder lexicon tagger instead of the target IndicLID model, threatening construct validity and potentially making CMI scores noisy.
 3. **LAG In-sample Labeling**: The LAG operator's training labels were derived from trajectory optimization on the evaluation queries themselves, rather than a strict hold-out fold.
@@ -63,3 +64,17 @@ In addition to the CMI band distribution noted below, the following methodologic
 | Very High | 0.55–1.00 | 35 | 11.1% |
 
 The severe skew toward the "high" band limits statistical power for H1 (degradation hypothesis) and H9 (step-CMI correlation). The 239 auto-generated queries cluster in the 0.35–0.55 CMI range because the code-mixed query generation strategy naturally produces queries in this band. The null result for H1 should not be read as evidence that CMI has no effect, only that this distribution could not detect one (e.g., our observed power for detecting a moderate correlation of ρ≥0.3 at n=14 in the low band is approximately 17.7%). We are proceeding by disclosing this skew as a formal limitation rather than rebalancing the dataset.
+
+## Formal Citations and External Baselines (Placeholders)
+
+As specified in the evaluation plan, formal benchmarking against external baselines has been deferred to Phase 5. However, we note the methodology and intended citations for the baselines that will be used for H5:
+
+1. **Rewrite-Retrieve-Read (RRR):** A baseline pipeline that employs a large language model to rewrite the code-mixed query into a standardized English query before retrieval.
+   * *Citation Placeholder:* Ma, X., Gong, P., He, P., Zhao, H., & Chen, W. (2023). Query Rewriting for Retrieval-Augmented Large Language Models. *arXiv preprint arXiv:2305.14283*.
+   * *Placeholder Metric:* RRR MRR (BGE-M3): [TBD - Pending execution]
+2. **Embedding-Interpolation Mixing:** A dense retrieval baseline that interpolates embeddings from monolingual sub-queries (e.g., separating Hinglish into Hindi and English components).
+   * *Citation Placeholder:* Litschko, R., Glavaš, G., Ponzetto, S. P., & Vulić, I. (2022). Evaluating multilingual text encoders for unsupervised cross-lingual retrieval. *Advances in Information Retrieval: 44th European Conference on IR Research*.
+   * *Placeholder Metric:* Interpolated MRR (BGE-M3): [TBD - Pending execution]
+3. **Public Benchmark (MIRACL/Aksharantar):** Testing generalization to out-of-domain code-mixed datasets.
+   * *Citation Placeholder:* Zhang, X., et al. (2023). MIRACL: A Multilingual Retrieval Dataset Covering 18 Diverse Languages. *Transactions of the Association for Computational Linguistics*.
+   * *Placeholder Metric:* MIRACL nDCG@10: [TBD - Pending execution]
