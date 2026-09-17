@@ -33,6 +33,8 @@ from setu.operators.caep import extract_entity_list, entity_frequencies
 from setu.controller.setu_bandit import setu_v1_fixed_order, setu_v2_run, LinUCBController, EpsilonGreedyController
 from setu.evaluation.metrics import confidence_proxy
 
+INFERENCE_ALPHA = 0.0  # Disables exploration to evaluate a greedy-linear policy
+
 # --- Load real pilot corpus + queries ---
 chunks = []
 with open("data/processed/corpus_chunks_v2.jsonl", encoding="utf-8") as f:
@@ -81,7 +83,7 @@ print("Loaded caep_gate.pkl, lqp_model.pkl, and lag_model.pkl (trained on real c
 
 # --- Load offline trajectories for cross-validation ---
 trajectories = []
-with open("data/logs/trajectories.jsonl", "r", encoding="utf-8") as f:
+with open("data/logs/trajectories_v3.jsonl", "r", encoding="utf-8") as f:
     for line in f:
         if line.strip():
             trajectories.append(json.loads(line))
@@ -91,24 +93,29 @@ print(f"Loaded {len(trajectories)} offline exploration trajectory transitions.")
 qrels_dict = {q["query_id"]: {d: 1 for d in q["relevant_doc_ids"]} for q in queries}
 
 raw_run, v1_run, v2_run = {}, {}, {}
-v1_latencies, v2_latencies = [], []
+raw_latencies, v1_latencies, v2_latencies = [], [], []
+v1_results_list = []
 v2_step_counts = []
 
 print(f"Running RAW baseline and SETU v1 across all {len(queries)} queries...")
 for i, q in enumerate(queries):
     qid, query_text = q["query_id"], q["text"]
+    t0_raw = time.perf_counter()
     query_emb = embed_fn([query_text])[0]
     raw_ranking = faiss_search_fn(query_emb)
+    raw_time = time.perf_counter() - t0_raw
+    raw_latencies.append(raw_time)
 
     raw_run[qid] = {doc: score for doc, score in zip(raw_ranking[0], raw_ranking[1])}
 
-    t0 = time.perf_counter()
+    t0_v1 = time.perf_counter()
     v1_result = setu_v1_fixed_order(
         query=query_text, raw_ranking=raw_ranking, embed_fn=embed_fn,
         entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
         lqp_model=lqp_model, faiss_search_fn=faiss_search_fn, lag_model=lag_model,
     )
-    v1_latencies.append(time.perf_counter() - t0)
+    v1_results_list.append(v1_result)
+    v1_latencies.append(raw_time + (time.perf_counter() - t0_v1))
     v1_ranking = v1_result["final_ranking"]
     v1_run[qid] = {doc: (len(v1_ranking) - rank) for rank, doc in enumerate(v1_ranking)}
 
@@ -117,14 +124,20 @@ print(f"\nRunning SETU v2 (LinUCB) via 5-Fold Out-of-Fold (OOF) Cross-Validation
 n_splits = 5
 qids = [q["query_id"] for q in queries]
 q_by_id = {q["query_id"]: q for q in queries}
+q_by_text = {q["text"]: q["query_id"] for q in queries}
 folds = np.array_split(qids, n_splits)
+
+v2_stop_reasons = []
+per_query_logs = []
 
 for fold_idx, test_qids in enumerate(folds):
     test_query_texts = set(q_by_id[qid]["text"] for qid in test_qids)
-    train_traj = [r for r in trajectories if r.get("query") not in test_query_texts]
+    train_qids = [qid for qid in qids if qid not in test_qids]
+    assert len(set(train_qids).intersection(set(test_qids))) == 0, f"Fold {fold_idx+1} leak: overlapping IDs"
+    train_traj = [r for r in trajectories if q_by_text.get(r.get("query")) not in test_qids]
 
     # Pre-train fold controller strictly on out-of-fold training queries
-    fold_controller = LinUCBController(context_dim=7, alpha=0.0)
+    fold_controller = LinUCBController(context_dim=7, alpha=INFERENCE_ALPHA)
     current_query = None
     tried = {"LAG": 0.0, "CAEP": 0.0, "LQP": 0.0}
     for row in train_traj:
@@ -151,11 +164,13 @@ for fold_idx, test_qids in enumerate(folds):
     for qid in test_qids:
         q = q_by_id[qid]
         query_text = q["text"]
+        t0_raw = time.perf_counter()
         query_emb = embed_fn([query_text])[0]
         raw_ranking = faiss_search_fn(query_emb)
+        raw_time = time.perf_counter() - t0_raw
 
-        t0 = time.perf_counter()
-        ops, conf_trace, v2_ranking = setu_v2_run(
+        t0_v2 = time.perf_counter()
+        ops, conf_trace, v2_ranking, stop_reason = setu_v2_run(
             query=query_text, controller=fold_controller, raw_ranking=raw_ranking, embed_fn=embed_fn,
             entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
             lqp_model=lqp_model, faiss_search_fn=faiss_search_fn, confidence_fn=confidence_proxy,
@@ -163,9 +178,20 @@ for fold_idx, test_qids in enumerate(folds):
             train=False,
         )
 
-        v2_latencies.append(time.perf_counter() - t0)
-        v2_step_counts.append(len([o for o in ops if o != "STOP"]))
+        v2_latencies.append(raw_time + (time.perf_counter() - t0_v2))
+        v2_step_counts.append(len(ops))
         v2_run[qid] = {doc: (len(v2_ranking) - rank) for rank, doc in enumerate(v2_ranking)}
+        v2_stop_reasons.append(stop_reason)
+        
+        per_query_logs.append({
+            "query_id": qid,
+            "action_sequence": ops,
+            "stop_reason": stop_reason,
+            "n_steps": len(ops),
+            "confidence_trace": conf_trace,
+            "final_ranking": v2_ranking,
+            "latency": v2_latencies[-1]
+        })
 
     print(f"  Fold {fold_idx + 1}/{n_splits} evaluated ({len(test_qids)} held-out queries).")
 
@@ -176,20 +202,25 @@ qrels = Qrels(qrels_dict)
 METRICS = ["ndcg@10", "mrr", "recall@5", "recall@10"]
 
 raw_metrics = {k: float(v) for k, v in evaluate(qrels, Run(raw_run), METRICS).items()}
+raw_metrics["mean_latency_ms"] = float(np.mean(raw_latencies) * 1000)
 v1_metrics = {k: float(v) for k, v in evaluate(qrels, Run(v1_run), METRICS).items()}
 v1_metrics["mean_latency_ms"] = float(np.mean(v1_latencies) * 1000)
 v2_metrics = {k: float(v) for k, v in evaluate(qrels, Run(v2_run), METRICS).items()}
 v2_metrics["mean_steps"] = float(np.mean(v2_step_counts))
 v2_metrics["mean_latency_ms"] = float(np.mean(v2_latencies) * 1000)
+v1_step_counts = [len(run["trajectory"]) for run in v1_results_list]
+v1_metrics["mean_steps"] = float(np.mean(v1_step_counts))
 
 print(f"==================================================")
 print(f"=== FULL DATASET ({len(queries)} Queries) ===")
 print(f"==================================================")
 print("=== RAW baseline ===")
 print(raw_metrics)
+print(f"Mean latency: {raw_metrics['mean_latency_ms']:.2f} ms")
 
 print("\n=== SETU v1 (fixed order) ===")
 print(v1_metrics)
+print(f"Mean steps taken: {v1_metrics['mean_steps']:.2f}")
 print(f"Mean latency: {v1_metrics['mean_latency_ms']:.2f} ms")
 
 print("\n=== SETU v2 (LinUCB) ===")
@@ -240,9 +271,20 @@ comparison_out = {
     "misspelled_subset": subset_results,
     "n_total_queries": len(queries),
     "n_misspelled_queries": len(subset_qids),
+    "alphas": {
+        "training_alpha": 1.0,
+        "inference_alpha": INFERENCE_ALPHA
+    },
+    "stop_reason_distribution": {k: v2_stop_reasons.count(k) for k in set(v2_stop_reasons)}
 }
 comparison_path = tables_dir / "setu_v1_v2_comparison_scaled.json"
 with open(comparison_path, "w", encoding="utf-8") as f:
     json.dump(comparison_out, f, indent=4)
 print(f"\nSaved aggregate comparison to {tables_dir / 'setu_v1_v2_comparison_scaled.json'}")
-print(f"Saved per-query MRR metrics to {logs_dir / 'setu_v1_v2_per_query_scaled.json'}")
+print(f"Stop reason distribution: {comparison_out['stop_reason_distribution']}")
+
+logs_dir = Path(__file__).resolve().parents[1] / "results" / "logs"
+logs_dir.mkdir(parents=True, exist_ok=True)
+with open(logs_dir / "setu_v2_per_query_v3.json", "w", encoding="utf-8") as f:
+    json.dump(per_query_logs, f, indent=4)
+print(f"Saved per-query logs to {logs_dir / 'setu_v2_per_query_v3.json'}")

@@ -112,7 +112,7 @@ for q in high_cmi_queries:
     query_emb = embed_fn([query_text])[0]
     raw_ranking = faiss_search_fn(query_emb)
 
-    ops, conf_trace, v2_ranking = setu_v2_run(
+    ops, conf_trace, v2_ranking, stop_reason = setu_v2_run(
         query=query_text,
         controller=controller,
         raw_ranking=raw_ranking,

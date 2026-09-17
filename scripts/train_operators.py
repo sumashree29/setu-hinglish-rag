@@ -163,7 +163,7 @@ def main():
     print(f"Saved LAG model to {lag_path}")
 
     print("\n--- Training LinUCB Policy ---")
-    traj_path = root / "data" / "logs" / "trajectories.jsonl"
+    traj_path = root / "data" / "logs" / "trajectories_v3.jsonl"
     if traj_path.exists():
         from setu.controller.setu_bandit import LinUCBController
         print(f"Pre-training LinUCB policy on offline trajectories ({traj_path})...")
