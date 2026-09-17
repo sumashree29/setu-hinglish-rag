@@ -30,6 +30,7 @@ from setu.evaluation.stats import (
     bootstrap_ci,
     spearman_correlation,
     bootstrap_paired_statistic,
+    calculate_mde_power,
 )
 from setu.diagnosis.cmi import cmi
 from setu.diagnosis.lid_entropy import lid_entropy
@@ -92,7 +93,8 @@ for qid in per_query["bge_m3"]:
         overlaps.append(compute_overlap(q_obj["text"], target_text))
 
 rho_h1, p_val_h1 = spearman_correlation(cmi_60, bge_mrr_60)
-_, h1_ci_low, h1_ci_high = bootstrap_paired_statistic(cmi_60, bge_mrr_60, spearman_stat_fn, n_resamples=500)
+_, h1_ci_low, h1_ci_high = bootstrap_paired_statistic(cmi_60, bge_mrr_60, spearman_stat_fn, n_resamples=10000)
+mde_h1 = calculate_mde_power(len(cmi_60), test_type="spearman")
 
 overlap_cmi_rho, overlap_cmi_p = spearman_correlation(cmi_60, overlaps)
 median_overlap = np.median(overlaps)
@@ -119,6 +121,7 @@ results_h1_h10["H1"] = {
     "ci_95": [float(h1_ci_low), float(h1_ci_high)],
     "verdict": "supported" if p_val_h1 < 0.05 else "not supported",
     "details": f"Spearman rho={rho_h1:.4f} (95% CI: [{h1_ci_low:.4f}, {h1_ci_high:.4f}]), p={p_val_h1:.4f} across 314 queries on BGE-M3.",
+    "power_analysis": f"With n={len(cmi_60)}, 80% power at alpha=0.05 can detect a minimum correlation of rho={mde_h1:.4f}.",
     "confound_analysis": {
         "cmi_vs_overlap": f"rho={overlap_cmi_rho:.4f}, p={overlap_cmi_p:.4f}",
         "low_overlap_subset": f"n={len(low_overlap_cmi)}, rho={rho_low:.4f}, p={p_low:.4f}",
@@ -135,9 +138,9 @@ bge_common_mrr = [per_query["bge_m3"][qid]["mrr"] for qid in qids_common]
 
 stat_h2, p_val_h2 = paired_wilcoxon(bge_common_mrr, indic_mrr)
 eff_h2 = rank_biserial_effect_size(bge_common_mrr, indic_mrr)
-_, h2_ci_low, h2_ci_high = bootstrap_paired_statistic(bge_common_mrr, indic_mrr, rank_biserial_stat_fn, n_resamples=500)
+_, h2_ci_low, h2_ci_high = bootstrap_paired_statistic(bge_common_mrr, indic_mrr, rank_biserial_stat_fn, n_resamples=10000)
 diff_h2 = np.array(indic_mrr) - np.array(bge_common_mrr)
-_, h2_d_low, h2_d_high = bootstrap_ci(diff_h2.tolist(), n_resamples=500)
+_, h2_d_low, h2_d_high = bootstrap_ci(diff_h2.tolist(), n_resamples=10000)
 
 results_h1_h10["H2"] = {
     "hypothesis": "H2: Indic-tuned encoders degrade less than general multilingual encoders under code-mixing, at matched CMI.",
@@ -194,7 +197,7 @@ lqp_model = pickle.load(open(ROOT / "results" / "models" / "lqp_model_bge_m3.pkl
 lag_model = pickle.load(open(ROOT / "results" / "models" / "lag_model_v3.pkl", "rb"))
 
 raw_mrrs, v1_mrrs, v2_mrrs, lqp_mrrs = [], [], [], []
-v2_steps_per_q, cmi_per_q = [], []
+v1_steps_per_q, v2_steps_per_q, cmi_per_q = [], [], []
 raw_margins = []
 
 # Load clean trajectories for 5-fold CV
@@ -202,7 +205,7 @@ trajectories = [json.loads(line) for line in open(ROOT / "data" / "logs" / "traj
 n_splits = 5
 qids = [q["query_id"] for q in queries_75]
 q_by_id = {q["query_id"]: q for q in queries_75}
-q_by_text = {q["text"]: q["query_id"] for q in queries}
+q_by_text = {q["text"]: q["query_id"] for q in queries_75}
 folds = np.array_split(qids, n_splits)
 
 fold_ctrls = {}
@@ -269,6 +272,7 @@ for q in queries_75:
             v1_mrr = 1.0 / (rank + 1)
             break
     v1_mrrs.append(v1_mrr)
+    v1_steps_per_q.append(float(len(v1_res["trajectory"])))
     
     # SETU v2 MRR
     ops, conf_tr, v2_rank, stop_reason = setu_v2_run(
@@ -290,8 +294,8 @@ for q in queries_75:
 stat_h4, p_val_h4 = paired_wilcoxon(raw_mrrs, v1_mrrs)
 eff_h4 = rank_biserial_effect_size(raw_mrrs, v1_mrrs)
 diff_h4 = np.array(v1_mrrs) - np.array(raw_mrrs)
-_, h4_d_low, h4_d_high = bootstrap_ci(diff_h4.tolist(), n_resamples=500)
-_, h4_rb_low, h4_rb_high = bootstrap_paired_statistic(raw_mrrs, v1_mrrs, rank_biserial_stat_fn, n_resamples=500)
+_, h4_d_low, h4_d_high = bootstrap_ci(diff_h4.tolist(), n_resamples=10000)
+_, h4_rb_low, h4_rb_high = bootstrap_paired_statistic(raw_mrrs, v1_mrrs, rank_biserial_stat_fn, n_resamples=10000)
 
 results_h1_h10["H4"] = {
     "hypothesis": "H4: SETU-processed queries achieve significantly higher Recall@k/MRR/nDCG than raw queries, with recovery increasing with CMI.",
@@ -324,8 +328,9 @@ results_h1_h10["H5"] = {
 stat_h6, p_val_h6 = paired_wilcoxon(v1_mrrs, v2_mrrs)
 eff_h6 = rank_biserial_effect_size(v1_mrrs, v2_mrrs)
 diff_h6 = np.array(v2_mrrs) - np.array(v1_mrrs)
-_, h6_d_low, h6_d_high = bootstrap_ci(diff_h6.tolist(), n_resamples=500)
-_, h6_rb_low, h6_rb_high = bootstrap_paired_statistic(v1_mrrs, v2_mrrs, rank_biserial_stat_fn, n_resamples=500)
+_, h6_d_low, h6_d_high = bootstrap_ci(diff_h6.tolist(), n_resamples=10000)
+_, h6_rb_low, h6_rb_high = bootstrap_paired_statistic(v1_mrrs, v2_mrrs, rank_biserial_stat_fn, n_resamples=10000)
+mde_h6 = calculate_mde_power(len(v1_mrrs), test_type="wilcoxon")
 
 results_h1_h10["H6"] = {
     "hypothesis": "H6: SETU v2 (learned controller) significantly outperforms SETU v1 (fixed-order, always-4-steps).",
@@ -335,7 +340,8 @@ results_h1_h10["H6"] = {
     "effect_size": float(eff_h6),
     "ci_95": [float(h6_rb_low), float(h6_rb_high)],
     "verdict": "not supported (equivalent retrieval quality)",
-    "details": f"SETU v1 MRR={np.mean(v1_mrrs):.4f} vs SETU v2 MRR={np.mean(v2_mrrs):.4f} (p={p_val_h6:.4f}, mean diff={np.mean(diff_h6):.4f}, 95% CI: [{h6_d_low:.4f}, {h6_d_high:.4f}]). Quality is statistically equivalent."
+    "details": f"SETU v1 MRR={np.mean(v1_mrrs):.4f} vs SETU v2 MRR={np.mean(v2_mrrs):.4f} (p={p_val_h6:.4f}, mean diff={np.mean(diff_h6):.4f}, 95% CI: [{h6_d_low:.4f}, {h6_d_high:.4f}]). Quality is statistically equivalent.",
+    "power_analysis": f"With n={len(v1_mrrs)}, 80% power at alpha=0.05 can detect a minimum effect size of d={mde_h6:.4f}."
 }
 
 # -------------------------------------------------------------
@@ -358,6 +364,7 @@ results_h1_h10["H10"] = {
 # -------------------------------------------------------------
 stat_h7, p_val_h7 = paired_wilcoxon(raw_mrrs, lqp_mrrs)
 eff_h7 = rank_biserial_effect_size(raw_mrrs, lqp_mrrs)
+_, h7_rb_low, h7_rb_high = bootstrap_paired_statistic(raw_mrrs, lqp_mrrs, rank_biserial_stat_fn, n_resamples=10000)
 
 results_h1_h10["H7"] = {
     "hypothesis": "H7: LQP alone recovers CMI-driven degradation.",
@@ -365,24 +372,27 @@ results_h1_h10["H7"] = {
     "statistic": float(stat_h7),
     "p_value": float(p_val_h7),
     "effect_size": float(eff_h7),
+    "ci_95": [float(h7_rb_low), float(h7_rb_high)],
     "verdict": "supported" if p_val_h7 < 0.05 and eff_h7 > 0 else "not supported / opposite",
-    "details": f"RAW MRR={np.mean(raw_mrrs):.4f} vs LQP MRR={np.mean(lqp_mrrs):.4f} (p={p_val_h7:.4f})."
+    "details": f"RAW MRR={np.mean(raw_mrrs):.4f} vs LQP MRR={np.mean(lqp_mrrs):.4f} (p={p_val_h7:.4f}). Rank-biserial r_rb={eff_h7:.4f} (95% CI: [{h7_rb_low:.4f}, {h7_rb_high:.4f}])."
 }
 
 # -------------------------------------------------------------
 # H8: SETU v2 matches quality with fewer steps than v1
 # -------------------------------------------------------------
-v1_steps = [4.0] * len(v2_steps_per_q)
-stat_h8, p_val_h8 = paired_wilcoxon(v1_steps, v2_steps_per_q)
+stat_h8, p_val_h8 = paired_wilcoxon(v1_steps_per_q, v2_steps_per_q)
+eff_h8 = rank_biserial_effect_size(v1_steps_per_q, v2_steps_per_q)
+_, h8_rb_low, h8_rb_high = bootstrap_paired_statistic(v1_steps_per_q, v2_steps_per_q, rank_biserial_stat_fn, n_resamples=10000)
 
 results_h1_h10["H8"] = {
     "hypothesis": "H8: SETU v2 matches quality with fewer steps than v1.",
     "test_used": "Paired Wilcoxon signed-rank test (v1 steps vs v2 steps)",
     "statistic": float(stat_h8),
     "p_value": float(p_val_h8),
-    "effect_size": float(rank_biserial_effect_size(v1_steps, v2_steps_per_q)),
-    "verdict": "supported" if p_val_h8 < 0.05 and np.mean(v2_steps_per_q) < 4.0 else "not supported",
-    "details": f"v1 mean steps = 4.0 vs v2 mean steps = {np.mean(v2_steps_per_q):.4f} (p={p_val_h8:.4f})."
+    "effect_size": float(eff_h8),
+    "ci_95": [float(h8_rb_low), float(h8_rb_high)],
+    "verdict": "supported" if p_val_h8 < 0.05 and np.mean(v2_steps_per_q) < np.mean(v1_steps_per_q) else "not supported",
+    "details": f"v1 mean steps = {np.mean(v1_steps_per_q):.4f} vs v2 mean steps = {np.mean(v2_steps_per_q):.4f} (p={p_val_h8:.4f}). Rank-biserial r_rb={eff_h8:.4f} (95% CI: [{h8_rb_low:.4f}, {h8_rb_high:.4f}])."
 }
 
 # -------------------------------------------------------------

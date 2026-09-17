@@ -70,7 +70,7 @@ def bootstrap_ci(
             (arr,),
             np.mean,
             confidence_level=confidence,
-            n_resamples=min(n_resamples, 2000),
+            n_resamples=n_resamples,
             method='BCa',
             random_state=42
         )
@@ -80,7 +80,7 @@ def bootstrap_ci(
             (arr,),
             np.mean,
             confidence_level=confidence,
-            n_resamples=min(n_resamples, 2000),
+            n_resamples=n_resamples,
             method='percentile',
             random_state=42
         )
@@ -100,7 +100,7 @@ def bootstrap_paired_statistic(
     x: List[float],
     y: List[float],
     stat_func,
-    n_resamples: int = 5000,
+    n_resamples: int = 10000,
     confidence: float = 0.95
 ) -> Tuple[float, float, float]:
     """
@@ -125,8 +125,37 @@ def bootstrap_paired_statistic(
         statistic=vectorized_stat,
         paired=True,
         confidence_level=confidence,
-        n_resamples=min(n_resamples, 5000),
+        n_resamples=n_resamples,
         method="percentile",
         random_state=42
     )
     return point_estimate, float(res.confidence_interval.low), float(res.confidence_interval.high)
+
+def calculate_mde_power(n: int, test_type: str = "wilcoxon", alpha: float = 0.05, power: float = 0.80) -> float:
+    """
+    Calculate the Minimum Detectable Effect (MDE) given n, alpha, and power.
+    For Wilcoxon, we approximate using the asymptotic relative efficiency vs t-test.
+    For Spearman, we use Fisher's z-transformation.
+    """
+    import scipy.stats as st
+    
+    if n < 3:
+        return 0.0
+        
+    z_alpha = st.norm.ppf(1 - alpha / 2)
+    z_power = st.norm.ppf(power)
+    
+    if test_type == "wilcoxon":
+        # Approximate Cohen's d MDE for paired t-test
+        mde_d = (z_alpha + z_power) / np.sqrt(n)
+        # Convert Cohen's d to rank-biserial approx or just report d
+        return float(mde_d)
+        
+    elif test_type == "spearman":
+        # Fisher's z approximation for correlation MDE
+        se = 1.0 / np.sqrt(n - 3)
+        z_mde = (z_alpha + z_power) * se
+        mde_rho = (np.exp(2 * z_mde) - 1) / (np.exp(2 * z_mde) + 1)
+        return float(mde_rho)
+    
+    return 0.0
