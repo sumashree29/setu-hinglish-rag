@@ -35,6 +35,22 @@ from setu.evaluation.metrics import confidence_proxy
 
 INFERENCE_ALPHA = 0.0  # Disables exploration to evaluate a greedy-linear policy
 
+def split_trajectories_by_fold(trajectories, train_ids, test_ids):
+    train_ids = set(train_ids)
+    test_ids = set(test_ids)
+    assert train_ids.isdisjoint(test_ids), "fold overlap detected"
+    
+    train_traj = [r for r in trajectories if r.get("query_id") in train_ids]
+    test_traj = [r for r in trajectories if r.get("query_id") in test_ids]
+    
+    train_traj_query_ids = set(r.get("query_id") for r in train_traj)
+    test_traj_query_ids = set(r.get("query_id") for r in test_traj)
+    
+    assert all(qid in train_ids for qid in train_traj_query_ids), "train leakage"
+    assert all(qid in test_ids for qid in test_traj_query_ids), "test leakage"
+    
+    return train_traj, test_traj
+
 # --- Load real pilot corpus + queries ---
 chunks = []
 with open("data/processed/corpus_chunks_v2.jsonl", encoding="utf-8") as f:
@@ -133,16 +149,8 @@ per_query_logs = []
 for fold_idx, test_qids in enumerate(folds):
     train_ids = set(qid for qid in qids if qid not in test_qids)
     test_ids = set(test_qids)
-    assert train_ids.isdisjoint(test_ids), "fold overlap detected"
     
-    train_traj = [r for r in trajectories if r.get("query_id") in train_ids]
-    test_traj = [r for r in trajectories if r.get("query_id") in test_ids]
-    
-    train_traj_query_ids = set(r.get("query_id") for r in train_traj)
-    test_traj_query_ids = set(r.get("query_id") for r in test_traj)
-    
-    assert all(qid in train_ids for qid in train_traj_query_ids), "train leakage"
-    assert all(qid in test_ids for qid in test_traj_query_ids), "test leakage"
+    train_traj, test_traj = split_trajectories_by_fold(trajectories, train_ids, test_ids)
 
     # Pre-train fold controller strictly on out-of-fold training queries
     fold_controller = LinUCBController(context_dim=7, alpha=INFERENCE_ALPHA)

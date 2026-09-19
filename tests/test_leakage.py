@@ -1,5 +1,9 @@
 import pytest
 import numpy as np
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+from scripts.compare_setu_v1_v2_scaled import split_trajectories_by_fold
 
 def test_oof_leakage():
     # Synthetic dataset where two queries have the IDENTICAL text but different IDs.
@@ -41,18 +45,10 @@ def test_oof_leakage():
         # Q2's text is "how to open an account", so Q2 would be INCORRECTLY EXCLUDED from training.
         
         # For Fold 2 (test_qids = Q2, Q4):
-        # Q1's text is "how to open an account", so Q1 would be INCORRECTLY EXCLUDED from training.
+        # 1. Fold Disjointness check (handled inside the function)
         
         # New, fixed ID-based logic:
-        train_traj = [r for r in trajectories if r.get("query_id") in train_ids]
-        test_traj = [r for r in trajectories if r.get("query_id") in test_ids]
-        
-        train_traj_query_ids = set(r.get("query_id") for r in train_traj)
-        test_traj_query_ids = set(r.get("query_id") for r in test_traj)
-        
-        # 2. Leakage Assertions
-        assert all(qid in train_ids for qid in train_traj_query_ids), "train leakage"
-        assert all(qid in test_ids for qid in test_traj_query_ids), "test leakage"
+        train_traj, test_traj = split_trajectories_by_fold(trajectories, train_ids, test_ids)
         
         # Verify no valid training trajectories were dropped (which text-filtering did!)
         assert len(train_traj) == 2
