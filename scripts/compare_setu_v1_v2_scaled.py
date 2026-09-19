@@ -32,6 +32,7 @@ sys.path.append(str(Path(__file__).resolve().parents[1]))
 from setu.operators.caep import extract_entity_list, entity_frequencies
 from setu.controller.setu_bandit import setu_v1_fixed_order, setu_v2_run, LinUCBController, EpsilonGreedyController
 from setu.evaluation.metrics import confidence_proxy
+from setu.operators.lag import fit_lag_v2
 
 INFERENCE_ALPHA = 0.0  # Disables exploration to evaluate a greedy-linear policy
 
@@ -92,10 +93,11 @@ with open("results/models/caep_gate_bge_m3.pkl", "rb") as f:
     caep_gate = pickle.load(f)
 with open("results/models/lqp_model_bge_m3.pkl", "rb") as f:
     lqp_model = pickle.load(f)
-with open("results/models/lag_model_v3.pkl", "rb") as f:
-    lag_model = pickle.load(f)
 
-print("Loaded caep_gate.pkl, lqp_model.pkl, and lag_model.pkl (trained on real corpus/PHINC/pilot labels)\n")
+with open("data/processed/lag_labels_v3.json", "r", encoding="utf-8") as f:
+    lag_labels_data = json.load(f)
+
+print("Loaded caep_gate.pkl, lqp_model.pkl, and lag_labels_v3.json\n")
 
 # --- Load offline trajectories for cross-validation ---
 trajectories = []
@@ -105,7 +107,7 @@ with open("data/logs/trajectories_v3.jsonl", "r", encoding="utf-8") as f:
             trajectories.append(json.loads(line))
 print(f"Loaded {len(trajectories)} offline exploration trajectory transitions.")
 
-# --- Run RAW and SETU v1 across all queries ---
+# --- Run Models via 5-Fold Out-of-Fold (OOF) Cross-Validation ---
 qrels_dict = {q["query_id"]: {d: 1 for d in q["relevant_doc_ids"]} for q in queries}
 
 raw_run, v1_run, v2_run = {}, {}, {}
@@ -113,30 +115,7 @@ raw_latencies, v1_latencies, v2_latencies = [], [], []
 v1_results_list = []
 v2_step_counts = []
 
-print(f"Running RAW baseline and SETU v1 across all {len(queries)} queries...")
-for i, q in enumerate(queries):
-    qid, query_text = q["query_id"], q["text"]
-    t0_raw = time.perf_counter()
-    query_emb = embed_fn([query_text])[0]
-    raw_ranking = faiss_search_fn(query_emb)
-    raw_time = time.perf_counter() - t0_raw
-    raw_latencies.append(raw_time)
-
-    raw_run[qid] = {doc: score for doc, score in zip(raw_ranking[0], raw_ranking[1])}
-
-    t0_v1 = time.perf_counter()
-    v1_result = setu_v1_fixed_order(
-        query=query_text, raw_ranking=raw_ranking, embed_fn=embed_fn,
-        entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
-        lqp_model=lqp_model, faiss_search_fn=faiss_search_fn, lag_model=lag_model,
-    )
-    v1_results_list.append(v1_result)
-    v1_latencies.append(raw_time + (time.perf_counter() - t0_v1))
-    v1_ranking = v1_result["final_ranking"]
-    v1_run[qid] = {doc: (len(v1_ranking) - rank) for rank, doc in enumerate(v1_ranking)}
-
-# --- Run SETU v2 via 5-Fold Out-of-Fold (OOF) Cross-Validation ---
-print(f"\nRunning SETU v2 (LinUCB) via 5-Fold Out-of-Fold (OOF) Cross-Validation...")
+print(f"Running SETU evaluation via 5-Fold Out-of-Fold (OOF) Cross-Validation across {len(queries)} queries...")
 n_splits = 5
 qids = [q["query_id"] for q in queries]
 q_by_id = {q["query_id"]: q for q in queries}
@@ -151,6 +130,12 @@ for fold_idx, test_qids in enumerate(folds):
     test_ids = set(test_qids)
     
     train_traj, test_traj = split_trajectories_by_fold(trajectories, train_ids, test_ids)
+    
+    # Pre-train fold LAG model strictly on out-of-fold training queries
+    fold_lag_data = [d for d in lag_labels_data if d["query_id"] in train_ids]
+    X_lag = np.array([[d["cmi"], d["lid_entropy"], d["entity_density"]] for d in fold_lag_data])
+    y_lag = np.array([d["label"] for d in fold_lag_data])
+    fold_lag_model = fit_lag_v2(X_lag, y_lag)
 
     # Pre-train fold controller strictly on out-of-fold training queries
     fold_controller = LinUCBController(context_dim=7, alpha=INFERENCE_ALPHA)
@@ -184,13 +169,28 @@ for fold_idx, test_qids in enumerate(folds):
         query_emb = embed_fn([query_text])[0]
         raw_ranking = faiss_search_fn(query_emb)
         raw_time = time.perf_counter() - t0_raw
+        raw_latencies.append(raw_time)
+        raw_run[qid] = {doc: score for doc, score in zip(raw_ranking[0], raw_ranking[1])}
 
+        # v1 execution
+        t0_v1 = time.perf_counter()
+        v1_result = setu_v1_fixed_order(
+            query=query_text, raw_ranking=raw_ranking, embed_fn=embed_fn,
+            entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
+            lqp_model=lqp_model, faiss_search_fn=faiss_search_fn, lag_model=fold_lag_model,
+        )
+        v1_results_list.append(v1_result)
+        v1_latencies.append(raw_time + (time.perf_counter() - t0_v1))
+        v1_ranking = v1_result["final_ranking"]
+        v1_run[qid] = {doc: (len(v1_ranking) - rank) for rank, doc in enumerate(v1_ranking)}
+
+        # v2 execution
         t0_v2 = time.perf_counter()
         ops, conf_trace, v2_ranking, stop_reason = setu_v2_run(
             query=query_text, query_id=qid, controller=fold_controller, raw_ranking=raw_ranking, embed_fn=embed_fn,
             entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
             lqp_model=lqp_model, faiss_search_fn=faiss_search_fn, confidence_fn=confidence_proxy,
-            lag_model=lag_model,
+            lag_model=fold_lag_model,
             train=False,
         )
 
@@ -222,9 +222,9 @@ raw_metrics["mean_latency_ms"] = float(np.mean(raw_latencies) * 1000)
 v1_metrics = {k: float(v) for k, v in evaluate(qrels, Run(v1_run), METRICS).items()}
 v1_metrics["mean_latency_ms"] = float(np.mean(v1_latencies) * 1000)
 v2_metrics = {k: float(v) for k, v in evaluate(qrels, Run(v2_run), METRICS).items()}
-v2_metrics["mean_steps"] = float(np.mean(v2_step_counts))
+v2_metrics["mean_steps"] = float(np.mean([len([o for o in r["action_sequence"] if o != "STOP"]) for r in per_query_logs]))
 v2_metrics["mean_latency_ms"] = float(np.mean(v2_latencies) * 1000)
-v1_step_counts = [len(run["trajectory"]) for run in v1_results_list]
+v1_step_counts = [len([o for o in run["trajectory"] if o != "STOP"]) for run in v1_results_list]
 v1_metrics["mean_steps"] = float(np.mean(v1_step_counts))
 
 print(f"==================================================")

@@ -16,6 +16,12 @@ from setu.operators.caep import extract_entity_list, entity_frequencies
 from setu.controller.setu_bandit import setu_v2_run, ACTIONS
 from setu.evaluation.metrics import confidence_proxy
 from setu.embeddings.loader import load_embedding_model, embed
+from setu.config import set_seed
+
+set_seed()
+from setu.controller.setu_bandit import setu_v2_run, ACTIONS
+from setu.evaluation.metrics import confidence_proxy
+from setu.embeddings.loader import load_embedding_model, embed
 
 class FixedStopController:
     def select_action(self, context):
@@ -97,7 +103,7 @@ def main():
         # --- FIXED STOP ORACLE ---
         t0 = time.perf_counter()
         ops_fs, _, ranking_fs, _ = setu_v2_run(
-            query=query_text, controller=controller_fs, raw_ranking=raw_ranking, embed_fn=embed_fn,
+            query=query_text, query_id=qid, controller=controller_fs, raw_ranking=raw_ranking, embed_fn=embed_fn,
             entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
             lqp_model=lqp_model, faiss_search_fn=faiss_search_fn, confidence_fn=confidence_proxy,
             lag_model=lag_model, train=False
@@ -109,7 +115,7 @@ def main():
         # --- RANDOM POLICY ---
         t0 = time.perf_counter()
         ops_rd, _, ranking_rd, _ = setu_v2_run(
-            query=query_text, controller=controller_rd, raw_ranking=raw_ranking, embed_fn=embed_fn,
+            query=query_text, query_id=qid, controller=controller_rd, raw_ranking=raw_ranking, embed_fn=embed_fn,
             entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
             lqp_model=lqp_model, faiss_search_fn=faiss_search_fn, confidence_fn=confidence_proxy,
             lag_model=lag_model, train=False

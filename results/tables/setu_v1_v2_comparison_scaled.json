@@ -5,23 +5,23 @@
             "mrr": 0.8526071681326458,
             "recall@5": 0.9554140127388535,
             "recall@10": 0.9872611464968153,
-            "mean_latency_ms": 240.68656337601695
+            "mean_latency_ms": 162.38357293030995
         },
         "SETU_v1": {
-            "ndcg@10": 0.8796916251528599,
-            "mrr": 0.8474714157038998,
+            "ndcg@10": 0.8801085988903488,
+            "mrr": 0.8480022012665325,
             "recall@5": 0.9522292993630573,
             "recall@10": 0.9808917197452229,
-            "mean_latency_ms": 1378.9078003174852,
+            "mean_latency_ms": 940.1941207003229,
             "mean_steps": 4.0
         },
         "SETU_v2": {
-            "ndcg@10": 0.884053973383859,
-            "mrr": 0.8503185862262295,
+            "ndcg@10": 0.8832766582681363,
+            "mrr": 0.8493631722134908,
             "recall@5": 0.9585987261146497,
             "recall@10": 0.9872611464968153,
-            "mean_steps": 2.5955414012738856,
-            "mean_latency_ms": 827.1275767539316
+            "mean_steps": 1.697452229299363,
+            "mean_latency_ms": 483.34756496942236
         }
     },
     "misspelled_subset": {
@@ -51,7 +51,7 @@
         "inference_alpha": 0.0
     },
     "stop_reason_distribution": {
-        "repeat_action_forced": 302,
-        "explicit_stop": 12
+        "explicit_stop": 14,
+        "repeat_action_forced": 300
     }
 }
