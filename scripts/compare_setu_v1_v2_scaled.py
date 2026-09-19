@@ -35,6 +35,22 @@ from setu.evaluation.metrics import confidence_proxy
 
 INFERENCE_ALPHA = 0.0  # Disables exploration to evaluate a greedy-linear policy
 
+def split_trajectories_by_fold(trajectories, train_ids, test_ids):
+    train_ids = set(train_ids)
+    test_ids = set(test_ids)
+    assert train_ids.isdisjoint(test_ids), "fold overlap detected"
+    
+    train_traj = [r for r in trajectories if r.get("query_id") in train_ids]
+    test_traj = [r for r in trajectories if r.get("query_id") in test_ids]
+    
+    train_traj_query_ids = set(r.get("query_id") for r in train_traj)
+    test_traj_query_ids = set(r.get("query_id") for r in test_traj)
+    
+    assert all(qid in train_ids for qid in train_traj_query_ids), "train leakage"
+    assert all(qid in test_ids for qid in test_traj_query_ids), "test leakage"
+    
+    return train_traj, test_traj
+
 # --- Load real pilot corpus + queries ---
 chunks = []
 with open("data/processed/corpus_chunks_v2.jsonl", encoding="utf-8") as f:
@@ -131,20 +147,20 @@ v2_stop_reasons = []
 per_query_logs = []
 
 for fold_idx, test_qids in enumerate(folds):
-    test_query_texts = set(q_by_id[qid]["text"] for qid in test_qids)
-    train_qids = [qid for qid in qids if qid not in test_qids]
-    assert len(set(train_qids).intersection(set(test_qids))) == 0, f"Fold {fold_idx+1} leak: overlapping IDs"
-    train_traj = [r for r in trajectories if q_by_text.get(r.get("query")) not in test_qids]
+    train_ids = set(qid for qid in qids if qid not in test_qids)
+    test_ids = set(test_qids)
+    
+    train_traj, test_traj = split_trajectories_by_fold(trajectories, train_ids, test_ids)
 
     # Pre-train fold controller strictly on out-of-fold training queries
     fold_controller = LinUCBController(context_dim=7, alpha=INFERENCE_ALPHA)
-    current_query = None
+    current_query_id = None
     tried = {"LAG": 0.0, "CAEP": 0.0, "LQP": 0.0}
     for row in train_traj:
-        q_txt = row.get("query")
+        q_id = row.get("query_id")
         step_val = float(row.get("state", {}).get("step", 0))
-        if q_txt != current_query or step_val == 0:
-            current_query = q_txt
+        if q_id != current_query_id or step_val == 0:
+            current_query_id = q_id
             tried = {"LAG": 0.0, "CAEP": 0.0, "LQP": 0.0}
 
         cmi_val = float(row["state"]["cmi"])
@@ -171,7 +187,7 @@ for fold_idx, test_qids in enumerate(folds):
 
         t0_v2 = time.perf_counter()
         ops, conf_trace, v2_ranking, stop_reason = setu_v2_run(
-            query=query_text, controller=fold_controller, raw_ranking=raw_ranking, embed_fn=embed_fn,
+            query=query_text, query_id=qid, controller=fold_controller, raw_ranking=raw_ranking, embed_fn=embed_fn,
             entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
             lqp_model=lqp_model, faiss_search_fn=faiss_search_fn, confidence_fn=confidence_proxy,
             lag_model=lag_model,
