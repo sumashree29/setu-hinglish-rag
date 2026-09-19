@@ -1,0 +1,52 @@
+2026-09-19 17:37:52.791287: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+/usr/local/lib/python3.13/dist-packages/ranx/metrics/ndcg.py:72: NumbaTypeSafetyWarning: unsafe cast from uint64 to int64. Precision may be lost.
+  scores[i] = _ndcg(qrels[i], run[i], k, rel_lvl, jarvelin)
+Loading embedding model (BGE-M3)...
+Loading real fitted CAEP gate, LQP model, and LAG model from results/models/...
+Loaded caep_gate.pkl, lqp_model.pkl, and lag_model.pkl (trained on real corpus/PHINC/pilot labels)
+
+Loaded 572 offline exploration trajectory transitions.
+Running RAW baseline and SETU v1 across all 314 queries...
+
+Running SETU v2 (LinUCB) via 5-Fold Out-of-Fold (OOF) Cross-Validation...
+  Fold 1/5 evaluated (63 held-out queries).
+  Fold 2/5 evaluated (63 held-out queries).
+  Fold 3/5 evaluated (63 held-out queries).
+  Fold 4/5 evaluated (63 held-out queries).
+  Fold 5/5 evaluated (62 held-out queries).
+
+All 5 folds evaluated.
+
+==================================================
+=== FULL DATASET (314 Queries) ===
+==================================================
+=== RAW baseline ===
+{'ndcg@10': 0.885773838611957, 'mrr': 0.8526071681326458, 'recall@5': 0.9554140127388535, 'recall@10': 0.9872611464968153, 'mean_latency_ms': 34.529578493625976}
+Mean latency: 34.53 ms
+
+=== SETU v1 (fixed order) ===
+{'ndcg@10': 0.8796916251528599, 'mrr': 0.8474714157038998, 'recall@5': 0.9522292993630573, 'recall@10': 0.9808917197452229, 'mean_latency_ms': 219.3439219681243, 'mean_steps': 4.0}
+Mean steps taken: 4.00
+Mean latency: 219.34 ms
+
+=== SETU v2 (LinUCB) ===
+{'ndcg@10': 0.884053973383859, 'mrr': 0.8503185862262295, 'recall@5': 0.9585987261146497, 'recall@10': 0.9872611464968153, 'mean_steps': 2.6974522292993632, 'mean_latency_ms': 102.78312837897737}
+Mean steps taken: 2.70
+Mean latency: 102.78 ms
+
+==================================================
+=== MISSPELLED ENTITY SUBSET (15 Queries: Q61-Q75) ===
+==================================================
+=== RAW baseline (misspelled subset) ===
+{'ndcg@10': 0.9507906338095277, 'mrr': 0.9333333333333333, 'recall@5': 1.0, 'recall@10': 1.0}
+
+=== SETU v1 (misspelled subset) ===
+{'ndcg@10': 0.9507906338095277, 'mrr': 0.9333333333333333, 'recall@5': 1.0, 'recall@10': 1.0}
+
+=== SETU v2 (misspelled subset) ===
+{'ndcg@10': 0.9507906338095277, 'mrr': 0.9333333333333333, 'recall@5': 1.0, 'recall@10': 1.0}
+
+Saved aggregate comparison to /content/setu-hinglish-rag/results/tables/setu_v1_v2_comparison_scaled.json
+Stop reason distribution: {'repeat_action_forced': 300, 'explicit_stop': 14}
+Saved per-query logs to /content/setu-hinglish-rag/results/logs/setu_v2_per_query_v3.json
