@@ -23,7 +23,7 @@ ACTIONS = ["LAG", "CAEP", "LQP", "STOP"]
 TRAJECTORY_LOG_PATH = Path("data/logs/trajectories_v3.jsonl")
 
 
-def log_trajectory(query: str, state: Dict, action: str, confidence_before: float, confidence_after: float, stop_reason: str = None) -> Dict:
+def log_trajectory(query: str, query_id: str, state: Dict, action: str, confidence_before: float, confidence_after: float, stop_reason: str = None) -> Dict:
     """
     One row of the trajectory log = this controller's training data.
     Appends to data/logs/trajectories_v3.jsonl (append-only, per plan §6.1 alt #2).
@@ -34,6 +34,7 @@ def log_trajectory(query: str, state: Dict, action: str, confidence_before: floa
 
     row = {
         "query": query,
+        "query_id": query_id,
         "state": state,
         "action": action,
         "stop_reason": stop_reason,
@@ -235,17 +236,17 @@ class LinUCBController:
 
     def fit_from_trajectories(self, trajectory_path):
         """Pre-train LinUCB from an offline trajectory log (JSONL)."""
-        current_query = None
+        current_query_id = None
         tried = {"LAG": 0.0, "CAEP": 0.0, "LQP": 0.0}
         with open(trajectory_path, "r", encoding="utf-8") as f:
             for line in f:
                 if not line.strip():
                     continue
                 row = json.loads(line)
-                q = row.get("query")
+                q_id = row.get("query_id")
                 step_val = float(row.get("state", {}).get("step", 0))
-                if q != current_query or step_val == 0:
-                    current_query = q
+                if q_id != current_query_id or step_val == 0:
+                    current_query_id = q_id
                     tried = {"LAG": 0.0, "CAEP": 0.0, "LQP": 0.0}
 
                 cmi_val = float(row["state"]["cmi"])
@@ -290,6 +291,7 @@ class LinUCBController:
 
 def setu_v2_run(
     query: str,
+    query_id: str,
     controller,
     raw_ranking: Tuple[List[str], List[float]],
     embed_fn,
@@ -358,6 +360,7 @@ def setu_v2_run(
                 controller.update(context, "STOP", reward=0.0)
                 log_trajectory(
                     query=query,
+                    query_id=query_id,
                     state={"cmi": cmi_score, "lid_entropy": entropy_score, "confidence": confidence, "step": step},
                     action="STOP",
                     confidence_before=confidence,
@@ -416,6 +419,7 @@ def setu_v2_run(
             controller.update(context, action, reward)
             log_trajectory(
                 query=query,
+                query_id=query_id,
                 state={"cmi": cmi_score, "lid_entropy": entropy_score, "confidence": confidence_before, "step": step},
                 action=action,
                 confidence_before=confidence_before,

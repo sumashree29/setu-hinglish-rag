@@ -56,15 +56,28 @@ def main():
     np.random.seed(42)
     controller = LinUCBController(context_dim=7, alpha=1.0)
     
+    trajectory_path = ROOT / "data" / "logs" / "trajectories_v3.jsonl"
+    if trajectory_path.exists():
+        import time
+        import shutil
+        archive_dir = ROOT / "results" / "archive"
+        archive_dir.mkdir(parents=True, exist_ok=True)
+        timestamp = int(time.time())
+        archive_path = archive_dir / f"trajectories_v3_{timestamp}.jsonl"
+        shutil.move(trajectory_path, archive_path)
+        print(f"Archived existing trajectory log to {archive_path}")
+
     print(f"Generating trajectories for {len(queries)} queries...")
     for i, q in enumerate(queries):
         q_txt = q["text"]
+        q_id = q["query_id"]
         q_emb = embed_fn([q_txt])[0]
         raw_ranking = faiss_search_fn(q_emb)
 
         # setu_v2_run(train=True) logs trajectory to data/logs/trajectories_v3.jsonl automatically
         setu_v2_run(
             query=q_txt,
+            query_id=q_id,
             controller=controller,
             raw_ranking=raw_ranking,
             embed_fn=embed_fn,
