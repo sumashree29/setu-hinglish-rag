@@ -87,6 +87,10 @@ with open(lag_labels_file, "r", encoding="utf-8") as f:
     lag_labeled_data = json.load(f)
 
 # 4. Model-by-Model Operator Training & Standalone Ablation
+# Note: BM25 is intentionally excluded here because LQP is a dense-vector projection operator 
+# and mathematically incompatible with sparse retrieval. mContriever is also excluded here 
+# as the operator ablation focuses on the three primary state-of-the-art multilingual dense 
+# backbones (BGE-M3, Indic-SBERT, mE5-large). The Phase 9 script evaluates all 5 baselines.
 EMBEDDING_MODELS = {
     "bge_m3": ("BAAI/bge-m3", False),
     "indic_sbert": ("l3cube-pune/indic-sentence-similarity-sbert", False),
