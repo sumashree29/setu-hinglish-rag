@@ -70,12 +70,27 @@
         "high (0.4-0.6)": 0.8495145631067961,
         "very high (>0.6)": 0.75
     },
-    "mean_steps_by_confidence": {
-        "low (<0.2)": 0.8210862619808307,
-        "medium (0.2-0.4)": 1.0,
-        "high (0.4-0.6)": 0.0,
-        "very high (0.6-0.8)": 0.0,
-        "extreme (>0.8)": 0.0
+    "steps_by_confidence": {
+        "low (<0.2)": {
+            "mean_steps": 0.8210862619808307,
+            "query_count": 313
+        },
+        "medium (0.2-0.4)": {
+            "mean_steps": 1.0,
+            "query_count": 1
+        },
+        "high (0.4-0.6)": {
+            "mean_steps": 0.0,
+            "query_count": 0
+        },
+        "very high (0.6-0.8)": {
+            "mean_steps": 0.0,
+            "query_count": 0
+        },
+        "extreme (>0.8)": {
+            "mean_steps": 0.0,
+            "query_count": 0
+        }
     },
     "chi_square_test": {
         "chi2_statistic": 7.022868255104042,
