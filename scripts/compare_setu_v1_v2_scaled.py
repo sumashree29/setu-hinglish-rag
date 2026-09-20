@@ -201,12 +201,17 @@ for fold_idx, test_qids in enumerate(folds):
         
         per_query_logs.append({
             "query_id": qid,
-            "action_sequence": ops,
-            "stop_reason": stop_reason,
-            "n_steps": len(ops),
-            "confidence_trace": conf_trace,
-            "final_ranking": v2_ranking,
-            "latency": v2_latencies[-1]
+            "raw_ranking": [doc for doc in raw_ranking[0]],
+            "raw_latency": raw_time,
+            "v1_ranking": v1_ranking,
+            "v1_latency": v1_latencies[-1],
+            "v1_steps": len([o for o in v1_result["trajectory"] if o != "STOP"]),
+            "v2_action_sequence": ops,
+            "v2_stop_reason": stop_reason,
+            "v2_n_steps": len(ops),
+            "v2_confidence_trace": conf_trace,
+            "v2_ranking": v2_ranking,
+            "v2_latency": v2_latencies[-1]
         })
 
     print(f"  Fold {fold_idx + 1}/{n_splits} evaluated ({len(test_qids)} held-out queries).")
@@ -299,8 +304,9 @@ with open(comparison_path, "w", encoding="utf-8") as f:
 print(f"\nSaved aggregate comparison to {tables_dir / 'setu_v1_v2_comparison_scaled.json'}")
 print(f"Stop reason distribution: {comparison_out['stop_reason_distribution']}")
 
-logs_dir = Path(__file__).resolve().parents[1] / "results" / "logs"
-logs_dir.mkdir(parents=True, exist_ok=True)
-with open(logs_dir / "setu_v2_per_query_v3.json", "w", encoding="utf-8") as f:
-    json.dump(per_query_logs, f, indent=4)
-print(f"Saved per-query logs to {logs_dir / 'setu_v2_per_query_v3.json'}")
+canonical_dir = Path(__file__).resolve().parents[1] / "results" / "canonical"
+canonical_dir.mkdir(parents=True, exist_ok=True)
+with open(canonical_dir / "per_query_results.jsonl", "w", encoding="utf-8") as f:
+    for log in per_query_logs:
+        f.write(json.dumps(log) + "\n")
+print(f"Saved canonical per-query logs to {canonical_dir / 'per_query_results.jsonl'}")
