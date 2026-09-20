@@ -1,0 +1,94 @@
+2026-09-20 08:06:56.315093: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:sentence_transformers.SentenceTransformer:No sentence-transformers model found with name facebook/mcontriever-msmarco. Creating a new one with mean pooling.
+Some weights of BertModel were not initialized from the model checkpoint at facebook/mcontriever-msmarco and are newly initialized: ['pooler.dense.bias', 'pooler.dense.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+/usr/local/lib/python3.13/dist-packages/ranx/metrics/recall.py:29: NumbaTypeSafetyWarning: unsafe cast from uint64 to int64. Precision may be lost.
+  scores[i] = _recall(qrels[i], run[i], k, rel_lvl)
+Loaded 380 corpus chunks (v2).
+Loaded 314 queries (v3).
+
+==================================================
+Embedding with bge_m3 (BAAI/bge-m3)
+==================================================
+Encoding 380 corpus chunks...
+Encoding 314 paraphrased queries...
+Saved query embeddings to /content/setu-hinglish-rag/data/embeddings/query_emb_bge_m3_v3.npy shape: (314, 1024)
+Elapsed: 121.19s
+
+==================================================
+Embedding with indic_sbert (l3cube-pune/indic-sentence-similarity-sbert)
+==================================================
+Encoding 380 corpus chunks...
+Encoding 314 paraphrased queries...
+Saved query embeddings to /content/setu-hinglish-rag/data/embeddings/query_emb_indic_sbert_v3.npy shape: (314, 768)
+Elapsed: 34.48s
+
+==================================================
+Embedding with me5_large (intfloat/multilingual-e5-large)
+==================================================
+Encoding 380 corpus chunks...
+Encoding 314 paraphrased queries...
+Saved query embeddings to /content/setu-hinglish-rag/data/embeddings/query_emb_me5_large_v3.npy shape: (314, 1024)
+Elapsed: 185.35s
+
+==================================================
+Embedding with mcontriever (nthakur/mcontriever-base-msmarco)
+==================================================
+Encoding 380 corpus chunks...
+Encoding 314 paraphrased queries...
+Saved query embeddings to /content/setu-hinglish-rag/data/embeddings/query_emb_mcontriever_v3.npy shape: (314, 768)
+Elapsed: 23.58s
+
+==================================================
+Evaluating Sparse Baseline (BM25)
+==================================================
+
+Saved scaled retrieval metrics table to: /content/setu-hinglish-rag/results/tables/scaled_corpus_retrieval_v3.json
+Saved comparison figure to: /content/setu-hinglish-rag/results/figures/scaled_corpus_retrieval_comparison_v3.png
+
+================================================================================
+LEXICAL OVERLAP RESULTS (PILOT VS PARAPHRASED AUTO-GENERATED)
+================================================================================
+Pilot Queries Overlap (n=75):       Mean = 0.4835 (±0.2440), Median = 0.4667
+Auto-Generated Overlap (n=239):     Mean = 0.4012 (±0.1490), Median = 0.4000
+Full Benchmark Overlap (n=314):     Mean = 0.4208 (±0.1799), Median = 0.4000
+Overlap Ratio (Auto / Pilot):       0.83x (Down from 1.82x)
+
+=====================================================================================
+OVERLAP VS MRR CORRELATION (All 314 Queries)
+=====================================================================================
+bge_m3          | Pearson r = 0.2398 (p=1.7521e-05) | Spearman rho = 0.2400 (p=1.7099e-05)
+indic_sbert     | Pearson r = 0.1754 (p=1.8103e-03) | Spearman rho = 0.2047 (p=2.6128e-04)
+me5_large       | Pearson r = 0.2794 (p=4.8560e-07) | Spearman rho = 0.2796 (p=4.7582e-07)
+mcontriever     | Pearson r = 0.2583 (p=3.5340e-06) | Spearman rho = 0.2573 (p=3.8619e-06)
+bm25            | Pearson r = 0.4622 (p=5.0774e-18) | Spearman rho = 0.4639 (p=3.6814e-18)
+
+===============================================================================================
+Model           | Scale / Query Split                 | Recall@5   | Recall@10  | MRR        | nDCG@10   
+===============================================================================================
+BGE-M3          | Pilot Baseline (75 Qs / 20 Chunks)  | 0.9467     | 0.9867     | 0.8666     | 0.8960    
+                | Pilot Queries on Scaled (75 Qs / 380 Chunks) | 0.9467     | 0.9867     | 0.8599     | 0.8911    
+                | Auto Queries on Scaled (239 Qs / 380 Chunks) | 0.9582     | 0.9874     | 0.8503     | 0.8841    
+                | Overall Scaled (314 Qs / 380 Chunks) | 0.9554     | 0.9873     | 0.8526     | 0.8858    
+-----------------------------------------------------------------------------------------------
+Indic-SBERT     | Pilot Baseline (75 Qs / 20 Chunks)  | 0.9067     | 1.0000     | 0.7299     | 0.7944    
+                | Pilot Queries on Scaled (75 Qs / 380 Chunks) | 0.7867     | 0.8667     | 0.6583     | 0.7074    
+                | Auto Queries on Scaled (239 Qs / 380 Chunks) | 0.7406     | 0.8159     | 0.5690     | 0.6288    
+                | Overall Scaled (314 Qs / 380 Chunks) | 0.7516     | 0.8280     | 0.5903     | 0.6476    
+-----------------------------------------------------------------------------------------------
+mE5-Large       | Pilot Baseline (75 Qs / 20 Chunks)  | 0.9600     | 0.9867     | 0.9109     | 0.9294    
+                | Pilot Queries on Scaled (75 Qs / 380 Chunks) | 0.9600     | 0.9867     | 0.9043     | 0.9245    
+                | Auto Queries on Scaled (239 Qs / 380 Chunks) | 0.9582     | 0.9874     | 0.8681     | 0.8975    
+                | Overall Scaled (314 Qs / 380 Chunks) | 0.9586     | 0.9873     | 0.8767     | 0.9039    
+-----------------------------------------------------------------------------------------------
+mContriever     | Pilot Baseline (75 Qs / 20 Chunks)  | 0.9200     | 0.9867     | 0.7828     | 0.8303    
+                | Pilot Queries on Scaled (75 Qs / 380 Chunks) | 0.9200     | 0.9733     | 0.7569     | 0.8079    
+                | Auto Queries on Scaled (239 Qs / 380 Chunks) | 0.8577     | 0.9038     | 0.7195     | 0.7646    
+                | Overall Scaled (314 Qs / 380 Chunks) | 0.8726     | 0.9204     | 0.7285     | 0.7749    
+-----------------------------------------------------------------------------------------------
+BM25            | Pilot Baseline (75 Qs / 20 Chunks)  | 0.8533     | 0.9333     | 0.7710     | 0.8058    
+                | Pilot Queries on Scaled (75 Qs / 380 Chunks) | 0.7867     | 0.8933     | 0.7040     | 0.7458    
+                | Auto Queries on Scaled (239 Qs / 380 Chunks) | 0.7908     | 0.8452     | 0.6318     | 0.6839    
+                | Overall Scaled (314 Qs / 380 Chunks) | 0.7898     | 0.8567     | 0.6490     | 0.6987    
+-----------------------------------------------------------------------------------------------
