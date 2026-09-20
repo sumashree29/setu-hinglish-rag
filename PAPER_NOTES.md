@@ -1,65 +1,25 @@
-# PAPER NOTES — Framing the SETU Results for IEEE Submission
+# Paper Notes & Narrative Reframing
 
-## What the Evidence Actually Supports
+## Core Narrative Shift
+The original draft of the paper pitched SETU as a state-of-the-art, context-adaptive architecture that solves code-mixed Hinglish retrieval by dynamically sequencing specialized operators.
+**The new narrative** must pitch the paper as a rigorous, methodology-focused empirical study demonstrating the hidden pitfalls of RAG pipelines on code-mixed data. 
 
-After rigorous Phase 1–5 pilot/domain-scale evaluation on 314 queries and 380 corpus chunks across 3 embedding models, the evidence paints a clear picture that differs from the original hypotheses but is equally publishable:
+## Key Thematic Pillars for the Paper
 
-### The Original Hypothesis (what we expected)
-Code-mixed Hinglish queries degrade dense retrieval quality, and SETU's correction operators (LQP, CAEP, LAG) recover that degradation.
+1. **The Over-Correction Phenomenon (The "Hurt" Factor)**
+   - We introduce the concept of "over-correction" in retrieval pipelines: applying explicit transformations (like translation or lexical substitution) to queries often severely degrades the dense embeddings of natively strong models (BGE-M3, mE5-large).
+   - Our ablation studies prove that operators hurt already-correct queries far more frequently than they rescue failed queries.
 
-### What We Found Instead
+2. **The Illusion of Adaptivity in RL Controllers**
+   - We dissect the failure of the LinUCB controller. We demonstrate how extreme feature skew (e.g., 99.7% of queries having <0.2 confidence) forces bandit algorithms to collapse into static early-termination policies.
+   - We highlight the danger of claiming "dynamic routing" without analyzing sequence diversity and feature independence (Chi-square test p=1.0).
 
-1. **Code-mixing does NOT reliably degrade retrieval** (H1 not supported, ρ=0.09, p=0.11). BGE-M3 handles code-mixed queries about as well as monolingual ones on this domain corpus. The presumption of degradation — the entire motivation for building correction operators — is not supported by our data.
+3. **Methodological Rigor in RAG Evaluation**
+   - We expose how subtle data leakages (e.g., matching by query text instead of query ID, or globally fitting classifiers before cross-validation) can artificially inflate the apparent success of corrective operators.
+   - We emphasize the necessity of strict 5-fold Out-Of-Fold (OOF) cross-validation and multiple-testing corrections (Holm-Bonferroni) to prevent false positives in RAG ablations.
 
-2. **Indic-tuned models are dramatically WORSE, not better** (H2 significant in opposite direction, p=1e-16). Indic-SBERT (MRR=0.604) underperforms BGE-M3 (MRR=0.847) by a massive margin. We hypothesize this is due to BGE-M3's massively larger capacity (vocabulary and pretraining data), but we did not empirically verify this mechanism as the root cause. The "Indic-tuned models handle code-mixing better" assumption is wrong for our domain.
-
-3. **Correction operators hurt aggregate performance** (H4 not supported, H7 directionally negative but not significant after Holm correction). When applied unconditionally, LQP/CAEP/LAG each reduce MRR because they over-correct the 76% of queries where the base model already succeeds.
-
-4. **BUT operators massively help the 24% of failing queries** (overcorrection diagnosis). On queries where RAW fails (MRR<1.0), operators boost MRR by +0.48 on average. The problem is not the operators themselves — it's applying them indiscriminately.
-
-5. **The learned controller solves this** (H8 supported, p≈0). SETU v2 learns to STOP immediately for easy queries and only invokes operators when they're likely to help. This achieves v1-equivalent quality with 70% fewer steps and 40% lower latency.
-
----
-
-## Recommended Paper Framing
-
-### Final Title Decision
-- "When Not to Correct: Trusting Retriever Confidence in Domain-Specific RAG" 
-*(Note: Because we dropped the code-mixing focus from the title, we MUST include an explicit sentence early in the introduction stating: "We test this in a Hinglish domain, but our central finding — confidence-gated correction — is domain-general.")*
-
-### Abstract Skeleton
-
-> We rigorously test the assumption that Hinglish code-mixing degrades dense retrieval quality in a domain-specific RAG system. Using a 380-chunk RBI banking FAQ corpus and 314 code-mixed queries across three embedding models, we find **no evidence of systematic CMI-driven degradation** (H1: ρ=0.09, p=0.11). Three purpose-built correction operators (LQP, CAEP, LAG) — designed to recover degradation via embedding projection, entity augmentation, and adaptive rewriting — each **hurt aggregate retrieval** when applied unconditionally, because they over-correct the 76% of queries the base model already handles correctly.
->
-> However, a stratified analysis reveals that operators provide a **+0.48 MRR boost** on the 24% of queries where the base model fails. We introduce a contextual bandit controller (LinUCB) that learns to selectively gate operator application, achieving matched retrieval quality with 70% fewer pipeline steps (1.2 vs 4.0 mean steps, p≈0). The controller's efficiency win is not sophisticated sequencing — it learned a simpler insight: most queries don't need correction. The "smart" thing is doing nothing most of the time. Our findings suggest that for code-mixed retrieval, **adaptive operator selection** is more important than operator design — the key challenge is knowing *when* to intervene, not *how*.
-
-### Key Contributions (in order of strength)
-1. **Over-correction diagnosis**: Formal demonstration that correction operators help failing queries (+0.48 MRR) but harm successful ones (-0.16 MRR), with the net effect depending on the base model's accuracy distribution.
-2. **Adaptive gating**: A LinUCB controller that learns to gate operators, resolving the over-correction problem and achieving 70% step reduction at matched quality.
-3. **Negative result with diagnostic value**: Code-mixing alone does not degrade BGE-M3 retrieval on a controlled FAQ corpus, contradicting the assumption underlying prior code-mixed-RAG correction work.
-4. **Methodological contribution**: Open-source pipeline for diagnosis, operator training, and adaptive evaluation on code-mixed retrieval.
-
-### Results Sections to Write
-1. **§4.1 Degradation Hypothesis** — H1 (null), H2 (opposite direction)
-2. **§4.2 Operator Effectiveness** — H4 (null), H7 (not significant post-correction, directionally negative), over-correction diagnosis
-3. **§4.3 Adaptive Controller** — H6 (equivalent quality), H8 (fewer steps), H9 (null CMI-steps correlation)
-4. **§4.4 Confidence Calibration** — H10 (null at scale, null within each band)
-5. **§4.5 Limitations**: 
-    - **Construct Validity of CMI**: The LID tagger relies on a hand-rolled lexicon, making CMI scores potentially noisy.
-    - **Pilot-Scale Corpus**: The corpus is limited to 380 chunks, restricting generalizability.
-    - **LAG In-sample Labeling**: LAG's training labels were derived from in-sample trajectory optimization rather than a strict hold-out fold.
-    - **Missing MIRACL Benchmark**: Evaluated only on the domain-specific corpus; MIRACL public benchmark arm was not completed due to data-loading issues.
-    - **CMI Band Imbalance**: Severe skew toward high CMI. The null result for H1 should not be read as evidence that CMI has no effect, only that this distribution could not detect one (e.g., our observed power for detecting a moderate correlation of ρ≥0.3 at n=14 in the low band is approximately 17.7%). This skew is disclosed rather than rebalanced.
-
-### What NOT to Claim
-- ❌ Do not claim SETU "corrects code-mixed retrieval degradation" — H1 shows degradation isn't reliably present
-- ❌ Do not claim operators improve retrieval — they hurt aggregate MRR (H4, H7)
-- ❌ Do not claim the controller found smart operator sequences — it learned to STOP
-- ❌ Do not present citation-only baselines (mSPLADE etc.) as if they were measured on our corpus
-- ❌ Do not claim confidence proxy is useful for gating — H10 is null
-
-### What TO Claim
-- ✅ The degradation hypothesis does not hold for modern multilingual models (BGE-M3, mE5-large) on domain-specific corpora
-- ✅ Correction operators have real conditional value (conditional on base model failure)
-- ✅ Adaptive gating via bandit control is essential and yields measurable efficiency gains
-- ✅ This is a rigorous negative-result-with-diagnostic-value paper for the RAG-correction literature
+## Recommended Structure Updates
+- **Introduction**: Shift from "We built a better system" to "We systematically evaluated the paradigm of pipeline-based correction vs. zero-shot dense representations."
+- **Methodology**: Present the SETU architecture, but immediately follow with the rigorous OOF evaluation protocol designed to stress-test it.
+- **Results**: Lead with the baseline performance (Table I) to establish the high zero-shot ceiling. Follow with the operator ablation (Table II) and the critical over-correction conditional analysis (Table IV). 
+- **Discussion/Conclusion**: Advise the community to lean on scaling raw multilingual models (like mE5-large) rather than building complex, brittle operator pipelines for code-mixed text.

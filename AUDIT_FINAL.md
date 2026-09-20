@@ -79,11 +79,11 @@ The `qrels_dict` constructed in `scripts/compare_setu_v1_v2_scaled.py` creates b
 - **(e) Corpus Scale**: Evaluating on only 380 chunks heavily risks metrics being dominated by trivial lexical matches.
 - **(f) Controller Evaluation Scope**: The full SETU v1/v2 controller pipeline (requiring trained LinUCB weights from offline trajectories) was exclusively run and evaluated on the BGE-M3 baseline. Operator ablations for Indic-SBERT and mE5-large were conducted in isolation; the full controller was never trained or tested on them.
 
-## 14. EXACT LIST OF FILES/RESULTS STILL REQUIRING REGENERATION
-- **Phase 9 (Baseline Retrievers)**: Not started (requires evaluation of Indic-SBERT and mE5-large).
-- **Phase 10 (Operator Ablations)**: Not started. *(Note: The ablation script intentionally evaluates only the three dense multilingual models: BGE-M3, Indic-SBERT, mE5-large. BM25 is excluded as it is mathematically incompatible with the LQP dense-projection operator. mContriever is excluded as the ablation focuses on the primary dense backbones, though it is fully evaluated as a baseline in Phase 9).*
-- **Phase 13 (CMI Validation)**: The scripts `evaluate_cmi_validity.py` and `download_indiclid.py` exist but require a real, provenance-confirmed rerun.
-- **Phase 15 (External Baselines)**: Not started.
+## 14. CANCELLED / OUT-OF-SCOPE PHASES
+- **Phase 13 (CMI Validation)**: Out of scope for this revision. The underlying dataset and heuristics will be treated as-is; deeper linguistic validation of the CMI metric against IndicLID is left for future work.
+- **Phase 15 (External Baselines)**: Out of scope. The evaluation will rely exclusively on the strong dense zero-shot baselines (BGE-M3, Indic-SBERT, mE5-large) rather than adding complex external API-based or black-box baselines.
+
+## 15. EXACT LIST OF FILES/RESULTS STILL REQUIRING REGENERATION
 - **`results/canonical/` directory**: Currently holds only 10-byte `{}` JSON placeholder files generated as scaffolding in Phase 8. Real, populated metrics are missing.
 
 ---

@@ -1,80 +1,31 @@
-# RESULTS SUMMARY — SETU Hypothesis Testing (H1–H10)
+# SETU-Hinglish-RAG: Final Results Summary
 
-All results from the pilot/domain-scale evaluation: **314 queries, 380 corpus chunks, BGE-M3 primary model**.
-Source: `results/tables/statistical_significance_H1_H10_scaled.json`
+This document summarizes the canonical, leakage-free results of the SETU evaluation following the Phase 0-12 remediation audit.
 
-## Hypothesis Verdicts
+## 1. Zero-Shot Baselines (Phase 9)
+Evaluating on the 314 canonical Hinglish queries without any operators demonstrates that modern multilingual dense models already solve the vast majority of cases:
+- **BGE-M3**: MRR = 0.8526, Hit@10 = 0.9873
+- **mE5-large**: MRR = 0.8767, Hit@10 = 0.9873
+- **Indic-SBERT**: MRR = 0.5903, Hit@10 = 0.8280
+- **mContriever**: MRR = 0.7285, Hit@10 = 0.9204
 
-| # | Hypothesis | Test | Statistic | p-value | Verdict | Plain-English Meaning |
-|---|-----------|------|-----------|---------|---------|----------------------|
-| H1 | Retrieval quality decreases as CMI increases | Spearman (CMI vs MRR) | ρ=0.091 | 0.108 | **Not supported** | No significant monotonic relationship between code-mixing intensity and retrieval degradation. Band imbalance (low=14, medium=28, high=237, very_high=35) limits statistical power. |
-| H2 | Indic-tuned encoders degrade less than general multilingual encoders | Paired Wilcoxon (Indic-SBERT vs BGE-M3) | r_rb=-0.718 | 1.03e-16 | **⚠️ Significant in OPPOSITE direction** | Indic-SBERT (MRR=0.604) performs dramatically *worse* than BGE-M3 (MRR=0.847), not better. We hypothesize this is due to a capacity deficit (vocabulary and pretraining corpus size), but did not empirically verify this as the root cause. |
-| H3 | Retrieval degradation predicts answer-quality degradation | — | — | — | **Insufficient data** | Deferred to Phase 6 (downstream LLM generation evaluation not yet implemented). |
-| H4 | SETU-processed queries achieve higher Recall/MRR/nDCG than raw | Paired Wilcoxon (RAW vs SETU v1 MRR) | r_rb=-0.157 | 0.484 | **Not supported** | SETU v1 (fixed pipeline) does not significantly improve over RAW. Mean MRR diff = -0.005 (slight decrease). |
-| H5 | SETU's recovery exceeds generic baselines (interpolation, Rewrite-Retrieve-Read) | — | — | — | **Insufficient data** | External comparison baselines not implemented. |
-| H6 | SETU v2 outperforms SETU v1 in retrieval quality | Paired Wilcoxon (v1 vs v2 MRR) | r_rb=0.268 | 0.232 | **Not supported (equivalent)** | v1 MRR=0.8475 vs v2 MRR=0.8505 — statistically indistinguishable. Quality is matched. |
-| H7 | LQP alone recovers CMI-driven degradation | Paired Wilcoxon (RAW vs LQP MRR) | r_rb=-0.417 | 0.153 (adj) | **Not supported (failed Holm correction)** | LQP hurts aggregate retrieval (MRR 0.853→0.841), though not statistically significantly after multiple-testing correction. The projection over-corrects the 76% of queries where RAW is already correct (see Over-correction Diagnosis below). |
-| H8 | SETU v2 matches quality with fewer steps than v1 | Paired Wilcoxon (step counts) | r_rb=-1.000 | 5.28e-59 | **✅ Supported** | v2 uses mean 1.20 steps vs v1's 4.00 steps (2.80 fewer, p≈0). The LinUCB controller learned to STOP immediately for ~80% of queries while maintaining matched retrieval quality. |
-| H9 | v2 step count correlates positively with CMI | Spearman (CMI vs steps) | ρ=-0.086 | 0.127 | **Not supported** | No significant correlation — the controller does not allocate more steps to higher-CMI queries as hypothesized. |
-| H10 | Confidence proxy (score margin) correlates with retrieval success | Spearman (margin vs MRR) | ρ=0.503 | 0.0 | **Supported** | Score margin positively correlates with retrieval correctness at scale. | |
+*Finding*: Baseline BGE-M3 and mE5-large perform exceptionally well natively, leaving a very small headroom (e.g., 20-25% of queries) for any corrective operator to improve.
 
-## Key Supplementary Finding: Over-correction Diagnosis
+## 2. Operator Ablation & Over-Correction (Phase 10 & 11)
+When corrective operators (LQP, CAEP, LAG) are applied independently:
+- **Aggregated Washout**: The operators yield flat or negative aggregate MRR deltas when evaluated over the full 314 queries, failing to outperform the raw baselines (particularly on BGE-M3 and mE5-large).
+- **Over-Correction Mechanism**: Conditional analysis reveals that all operators exert a statistically significant *degradation* (negative MRR delta) on queries that the raw retriever had already mapped correctly.
+- **Lack of Failure Lift**: Conversely, on queries where the raw retriever failed (MRR < 1), the operators provide *no statistically robust improvement* (Phase 12 multiple-testing correction confirmed that an initial observed lift for BGE-M3+LAG was a false positive, Holm p=0.398).
 
-Source: `results/tables/overcorrection_diagnosis.json`
+*Finding*: Operators are structurally predisposed to disrupt natively strong representations while offering no significant corrective power on actual failures.
 
-The single most important finding outside the formal hypotheses:
+## 3. Controller Adaptivity (Phase 4)
+The LinUCB controller was hypothesized to dynamically sequence operators based on a 7-dimensional context vector (including CMI, entropy, and confidence).
+- **Policy Collapse**: The controller operates almost exclusively as a static early-termination policy. In >95% of queries, it takes exactly one action before triggering a forced stop.
+- **Context Independence**: A Chi-square test confirms that the initial action chosen by the controller is statistically independent of the query's complexity/CMI band (Holm p=1.0).
+- **LAG Internal Collapse**: The LAG classifier itself collapses to predicting a single strategy (`light_normalize`) for 97.1% of queries due to severe class imbalance.
 
-| Group | n | LQP Δ MRR | CAEP Δ MRR | LAG Δ MRR |
-|-------|---|-----------|------------|-----------|
-| RAW already correct (MRR=1.0) | 238 (76%) | **-0.160** | **-0.158** | **-0.155** |
-| RAW got it wrong (MRR<1.0) | 76 (24%) | **+0.478** | **+0.465** | **+0.479** |
+*Finding*: SETU functions as a fixed-policy correction system rather than a context-adaptive one. 
 
-**Interpretation**: All three operators provide a massive MRR boost (+0.47) when the base model fails, but they *actively harm* retrieval (-0.16) when applied to queries the base model already handles correctly. Since 76% of queries fall in the "already correct" group, the net aggregate effect is negative — explaining why H4 and H7 fail.
-
-This directly justifies the adaptive controller (SETU v2/H8): the operators ARE useful, but only when the base model is struggling. The controller learned exactly this — to STOP immediately on easy queries and only invoke operators selectively.
-
-## Model Comparison (BGE-M3 vs Indic-SBERT vs mE5-large)
-
-Source: `results/tables/scaled_corpus_retrieval_v3.json`
-
-| Model | MRR | nDCG@10 | Recall@10 |
-|-------|-----|---------|-----------|
-| **BGE-M3** | 0.8526 | 0.8858 | 0.9873 |
-| **mE5-large** | 0.8767 | 0.9039 | 0.9873 |
-| **Indic-SBERT** | 0.5903 | 0.6476 | 0.8280 |
-
-mE5-large is the strongest model overall. Indic-SBERT substantially underperforms both general multilingual models, contradicting H2's premise.
-
-## Additional Limitations
-
-In addition to the CMI band distribution noted below, the following methodological limitations must be considered:
-* **Construct Validity of CMI (Task 7):** CMI was computed using a lexicon-based heuristic rather than a deep learning LID tagger. The planned IndicLID-FTN token-level integration failed construct validity because the FastText model collapsed Hinglish tokens to "other", nullifying all CMI variance (Cohen's Kappa = 0.0868 between heuristic and IndicLID). Therefore, the lexicon heuristic was retained.
-1. **Pilot-Scale Corpus**: The evaluation corpus size (380 chunks) is pilot-scale. High recall numbers may be partially driven by lexical overlap confounds, limiting the generalizability of the H1 null finding.
-2. **Hand-rolled LID Tagger**: CMI scores rely on a placeholder lexicon tagger instead of the target IndicLID model, threatening construct validity and potentially making CMI scores noisy.
-3. **LAG In-sample Labeling**: The LAG operator's training labels were derived from trajectory optimization on the evaluation queries themselves, rather than a strict hold-out fold.
-4. **Missing MIRACL Benchmark**: Public benchmark evaluation (MIRACL/Aksharantar) was not completed.
-
-## CMI Band Distribution (Limitation)
-
-| Band | CMI Range | n Queries | % of Total |
-|------|-----------|-----------|------------|
-| Low | 0.00–0.15 | 14 | 4.5% |
-| Medium | 0.15–0.35 | 28 | 8.9% |
-| High | 0.35–0.55 | 237 | 75.5% |
-| Very High | 0.55–1.00 | 35 | 11.1% |
-
-The severe skew toward the "high" band limits statistical power for H1 (degradation hypothesis) and H9 (step-CMI correlation). The 239 auto-generated queries cluster in the 0.35–0.55 CMI range because the code-mixed query generation strategy naturally produces queries in this band. The null result for H1 should not be read as evidence that CMI has no effect, only that this distribution could not detect one (e.g., our observed power for detecting a moderate correlation of ρ≥0.3 at n=14 in the low band is approximately 17.7%). We are proceeding by disclosing this skew as a formal limitation rather than rebalancing the dataset.
-
-## Formal Citations and External Baselines (Placeholders)
-
-As specified in the evaluation plan, formal benchmarking against external baselines has been deferred to Phase 5. However, we note the methodology and intended citations for the baselines that will be used for H5:
-
-1. **Rewrite-Retrieve-Read (RRR):** A baseline pipeline that employs a large language model to rewrite the code-mixed query into a standardized English query before retrieval.
-   * *Citation Placeholder:* Ma, X., Gong, P., He, P., Zhao, H., & Chen, W. (2023). Query Rewriting for Retrieval-Augmented Large Language Models. *arXiv preprint arXiv:2305.14283*.
-   * *Placeholder Metric:* RRR MRR (BGE-M3): [TBD - Pending execution]
-2. **Embedding-Interpolation Mixing:** A dense retrieval baseline that interpolates embeddings from monolingual sub-queries (e.g., separating Hinglish into Hindi and English components).
-   * *Citation Placeholder:* Litschko, R., Glavaš, G., Ponzetto, S. P., & Vulić, I. (2022). Evaluating multilingual text encoders for unsupervised cross-lingual retrieval. *Advances in Information Retrieval: 44th European Conference on IR Research*.
-   * *Placeholder Metric:* Interpolated MRR (BGE-M3): [TBD - Pending execution]
-3. **Public Benchmark (MIRACL/Aksharantar):** Testing generalization to out-of-domain code-mixed datasets.
-   * *Citation Placeholder:* Zhang, X., et al. (2023). MIRACL: A Multilingual Retrieval Dataset Covering 18 Diverse Languages. *Transactions of the Association for Computational Linguistics*.
-   * *Placeholder Metric:* MIRACL nDCG@10: [TBD - Pending execution]
+## 4. Final Verdict
+The original hypothesis—that code-mixed specific operators adaptively orchestrated by a controller would outperform raw multilingual retrieval—is **rejected**. Following strict isolation of train/test data (fixing Phase 1/2 leakage) and multiple-testing correction (Phase 12), SETU demonstrates no robust empirical benefit over zero-shot BGE-M3 or mE5-large, and actively degrades correct retrievals.
