@@ -99,7 +99,12 @@ def main():
     conf_steps = {b: [] for b in conf_bands}
     for d in query_data.values():
         conf_steps[get_conf_band(d["conf_0"])].append(d["steps"])
-    mean_steps_conf = {b: float(np.mean(vals)) if vals else 0.0 for b, vals in conf_steps.items()}
+    steps_by_conf = {
+        b: {
+            "mean_steps": float(np.mean(vals)) if vals else 0.0,
+            "query_count": len(vals)
+        } for b, vals in conf_steps.items()
+    }
     
     # 8. Chi-square test (First action vs CMI band)
     contingency = []
@@ -125,7 +130,7 @@ def main():
         "termination_by_cmi_band": bands_term,
         "first_action_by_cmi_band": cmi_action_counts,
         "mean_steps_by_cmi": mean_steps_cmi,
-        "mean_steps_by_confidence": mean_steps_conf,
+        "steps_by_confidence": steps_by_conf,
         "chi_square_test": {
             "chi2_statistic": float(chi2),
             "p_value": float(p),
