@@ -77,6 +77,7 @@ The `qrels_dict` constructed in `scripts/compare_setu_v1_v2_scaled.py` creates b
 - **(c) CMI/IndicLID Disagreement**: An orphaned output (`results/tables/cmi_validity.txt`) shows a Cohen's Kappa of just 0.0868 between the heuristic lexicon and IndicLID. **(Provenance unverified, not yet officially regenerated under Phase 13)**.
 - **(d) Extreme Confidence Skew**: 313/314 queries (99.7%) start with confidence `<0.2`. This is a severely narrow distribution on a core context dimension, flagged as a major risk for Phase 14 (H10).
 - **(e) Corpus Scale**: Evaluating on only 380 chunks heavily risks metrics being dominated by trivial lexical matches.
+- **(f) Controller Evaluation Scope**: The full SETU v1/v2 controller pipeline (requiring trained LinUCB weights from offline trajectories) was exclusively run and evaluated on the BGE-M3 baseline. Operator ablations for Indic-SBERT and mE5-large were conducted in isolation; the full controller was never trained or tested on them.
 
 ## 14. EXACT LIST OF FILES/RESULTS STILL REQUIRING REGENERATION
 - **Phase 9 (Baseline Retrievers)**: Not started (requires evaluation of Indic-SBERT and mE5-large).
