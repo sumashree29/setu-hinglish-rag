@@ -104,3 +104,12 @@ A code-reading audit of the `LinUCBController` (in `setu/controller/setu_bandit.
   2. The controller attempts an action it has already tried (`repeat_action_forced`), forcing an immediate halt.
   3. The environment hits the hard limit of `max_steps=4`.
 - **Central Finding**: The action space, state formulation, and stopping logic are sound. There is no evident leakage in the controller definition itself, provided that out-of-fold separation is maintained during the `fit_from_trajectories` step (which was fixed in Phase 1).
+
+## Phase 4: Controller Behavior Analysis
+
+An empirical analysis of the logged trajectories (`results/logs/setu_v2_per_query_v3.json`) reveals that the controller acts as a **learned early-termination policy with limited action-sequence diversity**, and does not exhibit strong context-sensitive operator sequencing.
+
+Key evidence supporting this conclusion:
+- **Low Sequence Diversity**: Out of 314 queries, only 3 queries (less than 1%) executed a sequence with more than one non-stop action (e.g., `LAG->CAEP->LQP->STOP`). The vast majority of episodes consist of exactly one action followed by a forced stop, or an immediate `STOP` (which occurred 61 times).
+- **Forced Termination Dominates**: Only 4.46% (14 out of 314) of queries terminated because the controller explicitly selected `STOP`. The remaining 95.54% of queries were forcibly halted by the `repeat_action_forced` guard.
+- **Lack of Context-Sensitivity**: The distribution of the first action chosen by the controller is statistically independent of the query's complexity (CMI band). A Chi-square test of independence yields `p = 0.635` (not significant at alpha=0.05), indicating that the controller's initial action choice does not shift meaningfully in response to the context state.

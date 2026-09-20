@@ -1,0 +1,85 @@
+{
+    "n_queries": 314,
+    "unique_sequences": {
+        "LQP->STOP": 89,
+        "CAEP->STOP": 83,
+        "LAG->STOP": 78,
+        "STOP": 61,
+        "LAG->CAEP->LQP->STOP": 1,
+        "LQP->LAG->CAEP->STOP": 1,
+        "CAEP->LAG->STOP": 1
+    },
+    "first_action_distribution": {
+        "LQP": 90,
+        "CAEP": 84,
+        "LAG": 79,
+        "STOP": 61
+    },
+    "explicit_stop_percentage": 4.45859872611465,
+    "termination_by_cmi_band": {
+        "low (<0.2)": {
+            "explicit_stop": 5,
+            "repeat_action_forced": 11,
+            "max_steps_reached": 0
+        },
+        "high (0.4-0.6)": {
+            "explicit_stop": 9,
+            "repeat_action_forced": 197,
+            "max_steps_reached": 0
+        },
+        "medium (0.2-0.4)": {
+            "explicit_stop": 0,
+            "repeat_action_forced": 80,
+            "max_steps_reached": 0
+        },
+        "very high (>0.6)": {
+            "explicit_stop": 0,
+            "repeat_action_forced": 12,
+            "max_steps_reached": 0
+        }
+    },
+    "first_action_by_cmi_band": {
+        "low (<0.2)": {
+            "LAG": 4,
+            "CAEP": 3,
+            "LQP": 5,
+            "STOP": 4
+        },
+        "medium (0.2-0.4)": {
+            "LAG": 15,
+            "CAEP": 22,
+            "LQP": 23,
+            "STOP": 20
+        },
+        "high (0.4-0.6)": {
+            "LAG": 59,
+            "CAEP": 55,
+            "LQP": 58,
+            "STOP": 34
+        },
+        "very high (>0.6)": {
+            "LAG": 1,
+            "CAEP": 4,
+            "LQP": 4,
+            "STOP": 3
+        }
+    },
+    "mean_steps_by_cmi": {
+        "low (<0.2)": 0.875,
+        "medium (0.2-0.4)": 0.75,
+        "high (0.4-0.6)": 0.8495145631067961,
+        "very high (>0.6)": 0.75
+    },
+    "mean_steps_by_confidence": {
+        "low (<0.2)": 0.8210862619808307,
+        "medium (0.2-0.4)": 1.0,
+        "high (0.4-0.6)": 0.0,
+        "very high (0.6-0.8)": 0.0,
+        "extreme (>0.8)": 0.0
+    },
+    "chi_square_test": {
+        "chi2_statistic": 7.022868255104042,
+        "p_value": 0.634738384397038,
+        "significant_at_05": false
+    }
+}
