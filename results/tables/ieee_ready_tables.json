@@ -1,0 +1,453 @@
+{
+    "Table_1_Dataset": {
+        "num_source_documents": 1,
+        "num_chunks": 380,
+        "chunk_length_distribution": {
+            "mean": 110.61315789473684,
+            "median": 84.5,
+            "min": 17,
+            "max": 304
+        },
+        "num_queries_by_variant": {
+            "en": 15,
+            "low": 15,
+            "medium": 15,
+            "high": 15,
+            "misspelled": 15,
+            "hi-en": 239
+        },
+        "num_queries_by_review_status": {
+            "unreviewed": 75,
+            "auto_generated_v3_paraphrased": 239
+        },
+        "cmi_distribution": {
+            "mean": 0.4296455414012739,
+            "median": 0.4444,
+            "min": 0.0,
+            "max": 0.6429
+        },
+        "cmi_band_counts": {
+            "low": 14,
+            "high": 237,
+            "medium": 28,
+            "very_high": 35
+        },
+        "lid_entropy_distribution": {
+            "mean": 1.1584509554140128,
+            "median": 1.231,
+            "min": 0.0,
+            "max": 1.5774
+        },
+        "num_relevant_docs_per_query": {
+            "mean": 1.0254777070063694,
+            "median": 1.0,
+            "min": 1,
+            "max": 2
+        },
+        "num_queries_with_more_than_one_relevant_doc": 8,
+        "total_queries": 314
+    },
+    "Table_2_Baseline": {
+        "ndcg@10": 0.885773838611957,
+        "mrr": 0.8526071681326458,
+        "recall@5": 0.9554140127388535,
+        "recall@10": 0.9872611464968153,
+        "mean_latency_ms": 162.38357293030995
+    },
+    "Table_3_RAW_v1_v2": {
+        "RAW": {
+            "ndcg@10": 0.885773838611957,
+            "mrr": 0.8526071681326458,
+            "recall@5": 0.9554140127388535,
+            "recall@10": 0.9872611464968153,
+            "mean_latency_ms": 162.38357293030995
+        },
+        "SETU_v1": {
+            "ndcg@10": 0.8801085988903488,
+            "mrr": 0.8480022012665325,
+            "recall@5": 0.9522292993630573,
+            "recall@10": 0.9808917197452229,
+            "mean_latency_ms": 940.1941207003229,
+            "mean_steps": 4.0
+        },
+        "SETU_v2": {
+            "ndcg@10": 0.8832766582681363,
+            "mrr": 0.8493631722134908,
+            "recall@5": 0.9585987261146497,
+            "recall@10": 0.9872611464968153,
+            "mean_steps": 1.697452229299363,
+            "mean_latency_ms": 483.34756496942236
+        }
+    },
+    "Table_4_Hypotheses": {
+        "H1": {
+            "hypothesis": "H1: Retrieval quality decreases significantly as CMI increases, on the same corpus/model.",
+            "p": 0.10824501486268585,
+            "p_corr": 0.4329800594507434,
+            "effect": 0.09081404925213138,
+            "verdict": "not supported"
+        },
+        "H2": {
+            "hypothesis": "H2: Indic-tuned encoders degrade less than general multilingual encoders under code-mixing, at matched CMI.",
+            "p": 1.0271073089690512e-16,
+            "p_corr": 6.162643853814307e-16,
+            "effect": -0.7181561376476631,
+            "verdict": "not supported"
+        },
+        "H3": {
+            "hypothesis": "H3 (optional): Retrieval-stage degradation significantly predicts downstream answer-quality degradation.",
+            "verdict": "insufficient data"
+        },
+        "H4": {
+            "hypothesis": "H4: SETU-processed queries achieve significantly higher Recall@k/MRR/nDCG than raw queries, with recovery increasing with CMI.",
+            "p": 0.4843703988045449,
+            "p_corr": 1.0,
+            "effect": -0.15669515669515668,
+            "verdict": "not supported"
+        },
+        "H5": {
+            "hypothesis": "H5: SETU's recovery is significantly greater than embedding-interpolation mixing and generic Rewrite-Retrieve-Read, at matched CMI, with comparable or lower overhead.",
+            "verdict": "insufficient data"
+        },
+        "H6": {
+            "hypothesis": "H6: SETU v2 (learned controller) significantly outperforms SETU v1 (fixed-order, always-4-steps).",
+            "p": 0.379224807554285,
+            "p_corr": 1.0,
+            "effect": 0.1896551724137931,
+            "verdict": "not supported (equivalent retrieval quality)"
+        },
+        "H10": {
+            "hypothesis": "H10: Proxy confidence signals (e.g., score margin) accurately correlate with retrieval success.",
+            "p": 1.5254442649862641e-21,
+            "p_corr": 1.0678109854903849e-20,
+            "effect": 0.5030299246087869,
+            "verdict": "supported"
+        },
+        "H7": {
+            "hypothesis": "H7: LQP alone recovers CMI-driven degradation.",
+            "p": 0.03057651167415393,
+            "p_corr": 0.15288255837076967,
+            "effect": -0.4174603174603175,
+            "verdict": "not supported (failed Holm correction)"
+        },
+        "H8": {
+            "hypothesis": "H8: SETU v2 matches quality with fewer steps than v1.",
+            "p": 3.138089386554242e-57,
+            "p_corr": 2.5104715092433935e-56,
+            "effect": -1.0,
+            "verdict": "supported"
+        },
+        "H9": {
+            "hypothesis": "H9: v2 step count correlates positively with CMI.",
+            "p": 0.5820250849625348,
+            "p_corr": 1.0,
+            "effect": -0.03117930786824029,
+            "verdict": "not supported"
+        }
+    },
+    "Table_5_Controller": {
+        "explicit_stop": 14,
+        "repeat_action_forced": 300
+    },
+    "Table_6_Overcorrection": {
+        "bge_m3": {
+            "group_sizes": {
+                "RAW_already_correct": 243,
+                "percent_correct": 77.39,
+                "RAW_incorrect": 71,
+                "percent_incorrect": 22.61
+            },
+            "operators": {
+                "LQP": {
+                    "mean_delta_correct": -0.0195,
+                    "cohen_d_correct": -0.1935,
+                    "ci_95_correct": [
+                        -0.0323,
+                        -0.0068
+                    ],
+                    "mean_delta_incorrect": 0.0143,
+                    "cohen_d_incorrect": 0.0986,
+                    "ci_95_incorrect": [
+                        -0.0201,
+                        0.0487
+                    ],
+                    "wilcoxon_p_correct_raw": 0.0039,
+                    "wilcoxon_p_correct_holm": 0.078,
+                    "significant_correct_holm": false,
+                    "wilcoxon_p_incorrect_raw": 0.7603,
+                    "wilcoxon_p_incorrect_holm": 1.0,
+                    "significant_incorrect_holm": false
+                },
+                "CAEP": {
+                    "mean_delta_correct": -0.0238,
+                    "cohen_d_correct": -0.1902,
+                    "ci_95_correct": [
+                        -0.0396,
+                        -0.008
+                    ],
+                    "mean_delta_incorrect": 0.0195,
+                    "cohen_d_incorrect": 0.1097,
+                    "ci_95_incorrect": [
+                        -0.0226,
+                        0.0616
+                    ],
+                    "wilcoxon_p_correct_raw": 0.007,
+                    "wilcoxon_p_correct_holm": 0.133,
+                    "significant_correct_holm": false,
+                    "wilcoxon_p_incorrect_raw": 0.5489,
+                    "wilcoxon_p_incorrect_holm": 1.0,
+                    "significant_incorrect_holm": false
+                },
+                "LAG": {
+                    "mean_delta_correct": -0.031,
+                    "cohen_d_correct": -0.2328,
+                    "ci_95_correct": [
+                        -0.0478,
+                        -0.0142
+                    ],
+                    "mean_delta_incorrect": 0.0446,
+                    "cohen_d_incorrect": 0.2978,
+                    "ci_95_incorrect": [
+                        0.0091,
+                        0.0801
+                    ],
+                    "wilcoxon_p_correct_raw": 0.0011,
+                    "wilcoxon_p_correct_holm": 0.024200000000000003,
+                    "significant_correct_holm": true,
+                    "wilcoxon_p_incorrect_raw": 0.0275,
+                    "wilcoxon_p_incorrect_holm": 0.42329999999999995,
+                    "significant_incorrect_holm": false
+                },
+                "SETU_v1": {
+                    "mean_delta_correct": -0.0127,
+                    "cohen_d_correct": -0.1399,
+                    "ci_95_correct": [
+                        -0.0241,
+                        -0.0012
+                    ],
+                    "mean_delta_incorrect": 0.023,
+                    "cohen_d_incorrect": 0.1695,
+                    "ci_95_incorrect": [
+                        -0.0091,
+                        0.055
+                    ],
+                    "wilcoxon_p_correct_raw": 0.0394,
+                    "wilcoxon_p_correct_holm": 0.5516,
+                    "significant_correct_holm": false,
+                    "wilcoxon_p_incorrect_raw": 0.3047,
+                    "wilcoxon_p_incorrect_holm": 1.0,
+                    "significant_incorrect_holm": false
+                },
+                "SETU_v2": {
+                    "mean_delta_correct": -0.0089,
+                    "cohen_d_correct": -0.128,
+                    "ci_95_correct": [
+                        -0.0177,
+                        -0.0001
+                    ],
+                    "mean_delta_incorrect": 0.0162,
+                    "cohen_d_incorrect": 0.2344,
+                    "ci_95_incorrect": [
+                        -0.0002,
+                        0.0325
+                    ],
+                    "wilcoxon_p_correct_raw": 0.0588,
+                    "wilcoxon_p_correct_holm": 0.7644,
+                    "significant_correct_holm": false,
+                    "wilcoxon_p_incorrect_raw": 0.0249,
+                    "wilcoxon_p_incorrect_holm": 0.42329999999999995,
+                    "significant_incorrect_holm": false
+                }
+            }
+        },
+        "indic_sbert": {
+            "group_sizes": {
+                "RAW_already_correct": 148,
+                "percent_correct": 47.13,
+                "RAW_incorrect": 166,
+                "percent_incorrect": 52.87
+            },
+            "operators": {
+                "LQP": {
+                    "mean_delta_correct": -0.0101,
+                    "cohen_d_correct": -0.1434,
+                    "ci_95_correct": [
+                        -0.0216,
+                        0.0013
+                    ],
+                    "mean_delta_incorrect": -0.0039,
+                    "cohen_d_incorrect": -0.0536,
+                    "ci_95_incorrect": [
+                        -0.0149,
+                        0.0072
+                    ],
+                    "wilcoxon_p_correct_raw": 0.0833,
+                    "wilcoxon_p_correct_holm": 0.9996,
+                    "significant_correct_holm": false,
+                    "wilcoxon_p_incorrect_raw": 0.3201,
+                    "wilcoxon_p_incorrect_holm": 1.0,
+                    "significant_incorrect_holm": false
+                },
+                "CAEP": {
+                    "mean_delta_correct": -0.0692,
+                    "cohen_d_correct": -0.3325,
+                    "ci_95_correct": [
+                        -0.103,
+                        -0.0354
+                    ],
+                    "mean_delta_incorrect": 0.0182,
+                    "cohen_d_incorrect": 0.1085,
+                    "ci_95_incorrect": [
+                        -0.0075,
+                        0.044
+                    ],
+                    "wilcoxon_p_correct_raw": 0.0003,
+                    "wilcoxon_p_correct_holm": 0.006899999999999999,
+                    "significant_correct_holm": true,
+                    "wilcoxon_p_incorrect_raw": 0.7276,
+                    "wilcoxon_p_incorrect_holm": 1.0,
+                    "significant_incorrect_holm": false
+                },
+                "LAG": {
+                    "mean_delta_correct": -0.074,
+                    "cohen_d_correct": -0.3483,
+                    "ci_95_correct": [
+                        -0.1086,
+                        -0.0395
+                    ],
+                    "mean_delta_incorrect": 0.0335,
+                    "cohen_d_incorrect": 0.2067,
+                    "ci_95_incorrect": [
+                        0.0087,
+                        0.0584
+                    ],
+                    "wilcoxon_p_correct_raw": 0.0002,
+                    "wilcoxon_p_correct_holm": 0.0048000000000000004,
+                    "significant_correct_holm": true,
+                    "wilcoxon_p_incorrect_raw": 0.085,
+                    "wilcoxon_p_incorrect_holm": 0.9996,
+                    "significant_incorrect_holm": false
+                }
+            }
+        },
+        "me5_large": {
+            "group_sizes": {
+                "RAW_already_correct": 254,
+                "percent_correct": 80.89,
+                "RAW_incorrect": 60,
+                "percent_incorrect": 19.11
+            },
+            "operators": {
+                "LQP": {
+                    "mean_delta_correct": -0.0118,
+                    "cohen_d_correct": -0.1552,
+                    "ci_95_correct": [
+                        -0.0212,
+                        -0.0024
+                    ],
+                    "mean_delta_incorrect": -0.0038,
+                    "cohen_d_incorrect": -0.0441,
+                    "ci_95_incorrect": [
+                        -0.026,
+                        0.0184
+                    ],
+                    "wilcoxon_p_correct_raw": 0.0143,
+                    "wilcoxon_p_correct_holm": 0.2574,
+                    "significant_correct_holm": false,
+                    "wilcoxon_p_incorrect_raw": 0.2696,
+                    "wilcoxon_p_incorrect_holm": 1.0,
+                    "significant_incorrect_holm": false
+                },
+                "CAEP": {
+                    "mean_delta_correct": -0.0261,
+                    "cohen_d_correct": -0.2171,
+                    "ci_95_correct": [
+                        -0.041,
+                        -0.0113
+                    ],
+                    "mean_delta_incorrect": -0.0029,
+                    "cohen_d_incorrect": -0.0216,
+                    "ci_95_incorrect": [
+                        -0.0374,
+                        0.0316
+                    ],
+                    "wilcoxon_p_correct_raw": 0.0011,
+                    "wilcoxon_p_correct_holm": 0.024200000000000003,
+                    "significant_correct_holm": true,
+                    "wilcoxon_p_incorrect_raw": 0.1448,
+                    "wilcoxon_p_incorrect_holm": 1.0,
+                    "significant_incorrect_holm": false
+                },
+                "LAG": {
+                    "mean_delta_correct": -0.0098,
+                    "cohen_d_correct": -0.1414,
+                    "ci_95_correct": [
+                        -0.0184,
+                        -0.0012
+                    ],
+                    "mean_delta_incorrect": 0.0094,
+                    "cohen_d_incorrect": 0.0806,
+                    "ci_95_incorrect": [
+                        -0.0206,
+                        0.0393
+                    ],
+                    "wilcoxon_p_correct_raw": 0.0253,
+                    "wilcoxon_p_correct_holm": 0.42329999999999995,
+                    "significant_correct_holm": false,
+                    "wilcoxon_p_incorrect_raw": 0.6784,
+                    "wilcoxon_p_incorrect_holm": 1.0,
+                    "significant_incorrect_holm": false
+                }
+            }
+        },
+        "phase4_chi2": {
+            "raw_p": 0.635,
+            "holm_corrected_p": 1.0,
+            "significant_after_correction": false
+        },
+        "phase14_confidence_correlation": {
+            "rho": NaN,
+            "raw_p": NaN,
+            "holm_corrected_p": NaN,
+            "significant_after_correction": false
+        }
+    },
+    "Table_7_Latency": {
+        "hardware_environment": {
+            "os": "Windows-10-10.0.26200-SP0",
+            "cpu_processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+            "cpu_cores_physical": 12,
+            "cpu_cores_logical": 14,
+            "ram_gb": 15.51,
+            "gpu": "None used (Local CPU run)",
+            "python_version": "3.11.9",
+            "packages": {
+                "numpy": "2.2.0",
+                "torch": "2.10.0+cpu",
+                "faiss": "1.14.3"
+            }
+        },
+        "n_queries": 314,
+        "n_repeats": "3 (local CPU constraint)",
+        "results": {
+            "RAW": {
+                "mean_ms": 128.78201974307694,
+                "median_ms": 120.94524997519329,
+                "sd_ms": 35.42561689069832,
+                "p95_ms": 199.32122998870906
+            },
+            "SETU_v1": {
+                "mean_ms": 757.384030253309,
+                "median_ms": 707.4972999398597,
+                "sd_ms": 218.8311150604055,
+                "p95_ms": 1156.1150199791882
+            },
+            "SETU_v2": {
+                "mean_ms": 383.8898818450535,
+                "median_ms": 385.9669999801554,
+                "sd_ms": 119.35432918199419,
+                "p95_ms": 585.4065400257236
+            }
+        }
+    }
+}

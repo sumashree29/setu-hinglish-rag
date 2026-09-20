@@ -1,19 +1,20 @@
-# SETU-Hinglish-RAG Claim Contract
+# Claim Contract
 
-This document dictates the absolute boundaries of what can and cannot be claimed in the IEEE manuscript, based on the rigorous remediation audit and Holm-Bonferroni statistical corrections (Phases 0-12).
+This document strictly defines what claims the authors are permitted to make in the IEEE paper, based *only* on the final statistically corrected canonical evidence.
 
-## 1. SAFE TO CLAIM
-- **Baseline Dominance**: Modern multilingual dense zero-shot models (BGE-M3 MRR 0.8526, mE5-large MRR 0.8767) natively solve up to 80% of the Hinglish queries in this domain, leaving extremely limited headroom for correction.
-- **The Over-Correction Effect (Degradation)**: Applying explicit operators (LAG, CAEP, LQP) causes a statistically significant degradation on natively correct retrievals. The degradation is robust against Holm-Bonferroni multiple testing correction across models (e.g., Indic-SBERT CAEP $p_{holm}=0.007$, BGE-M3 LAG $p_{holm}=0.022$).
-- **Lack of Controller Context-Sensitivity**: The LinUCB controller operates as a fixed early-termination policy, rather than a context-sensitive sequencer. The controller's initial action choice is statistically independent of the query's complexity state (Chi-square test, $p_{holm}=1.0$).
-- **Confidence Signal Inviability**: The raw embedding confidence signal exhibits near-zero variance across the dataset (313/314 queries <0.2), making it an unviable feature for dynamic gating in this environment.
+## Safe Claims (Supported by Evidence)
+- **Baseline Strength:** Dense embedding models (e.g., BGE-M3, mE5-large) are robust zero-shot baselines for Hinglish code-mixed retrieval, solving a large majority (~77-80%) of the evaluated queries natively without modification.
+- **Latency Overheads:** The dynamic controller pipeline incurs a significant latency overhead compared to the raw baseline.
+- **Controller Efficiency (H8):** The contextual bandit controller (SETU v2) significantly reduces the number of inference steps (mean 1.70) compared to a fixed-order pipeline (mean 4.0), while producing comparable retrieval outcomes.
+- **Confidence Correlation (H10):** The margin-based confidence proxy positively correlates with actual retrieval success (MRR) in the evaluated dataset.
+- **Overcorrection Risk:** Operator-based query modification pipelines risk overcorrection, significantly degrading queries that the underlying dense retriever already resolves correctly.
 
-## 2. CONDITIONALLY SAFE
-- **Operator Efficacy on Weak Retrievers**: It is safe to frame SETU's operators as "detrimental to strong retrievals, and yielding non-significant lift on weak retrievals." However, you **must always cite the Holm-corrected p-values ($p_{holm} > 0.39$)**, and never cite the uncorrected raw p-values alone when discussing operator performance on failure cases.
+## Conditional Claims (Require Precise Scientific Wording)
+- **Controller Adaptivity:** Instead of claiming "the controller's sequence choices are fully detached from context," you must state: "No statistically significant association was detected between the initial action and the CMI band in the evaluated dataset. The controller largely functioned as an early-termination policy rather than a context-sensitive sequencer."
+- **Performance Parity (H6):** Instead of claiming "SETU v1 and SETU v2 perform exactly the same," you must state: "No statistically significant difference was detected between SETU v1 and SETU v2 under the evaluated test." (Proving true equivalence requires a predefined non-inferiority margin).
 
-## 3. DO NOT CLAIM
-- **DO NOT CLAIM** that SETU improves retrieval performance overall compared to strong baselines.
-- **DO NOT CLAIM** that the LinUCB controller learns an adaptive or dynamic routing policy based on context.
-- **DO NOT CLAIM** that operators provide significant or robust corrective lift on queries where the baseline fails. The apparent lift on BGE-M3+LAG was proven to be a multiple-testing false positive.
-- **DO NOT CLAIM** any generalization of these results beyond the highly narrow 380-chunk single-domain corpus evaluated here.
-- **DO NOT CLAIM** comparison against any external black-box or API-based baselines, as Phase 15 was explicitly scoped out of the evaluation.
+## Prohibited Claims (Do NOT Write These)
+- **Universal Superiority:** Do not claim SETU outperforms raw dense retrieval on this dataset. It does not.
+- **Causality from Correlation:** Do not claim that confidence gating *causes* better retrieval.
+- **Improvement on Failure Cases:** Do not claim that operators successfully correct baseline failures. After Holm-Bonferroni correction, no operator showed statistically significant improvement on natively failed queries.
+- **Generalization:** Do not claim universal generalization of these results to other datasets, domains, or completely distinct multilingual setups beyond this 314-query Hinglish evaluation.

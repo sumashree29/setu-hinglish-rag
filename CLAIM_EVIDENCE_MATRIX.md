@@ -1,20 +1,16 @@
-# Claim-Evidence Matrix
+# Claim Evidence Matrix
 
-This document maps every primary claim in the paper to its exact computational proof, source script, and canonical result file. It serves as the final, immutable bridge between the prose and the codebase.
+Every major paper claim is mapped to the final canonical evidence, with its statistical verdict.
 
-| Hypothesis / Claim | Paper Prose (Draft) | Canonical Proof Source | Generating Script | Statistical Test & Verdict |
-| :--- | :--- | :--- | :--- | :--- |
-| **H1: CMI vs Baseline Quality** | "Retrieval quality of the baseline multilingual encoder significantly degrades as query Code-Mixing Index (CMI) increases." | `results/tables/statistical_significance_H1_H10_scaled.json` | `scripts/run_statistical_tests_h1_h10_scaled.py` | Spearman rank correlation (rho). **Verdict: Supported.** |
-| **H4: SETU v1 vs RAW Baseline** | "SETU v1 (fixed-order pipeline) significantly outperforms the raw BGE-M3 baseline, recovering performance drops associated with CMI." | `results/tables/statistical_significance_H1_H10_scaled.json` | `scripts/run_statistical_tests_h1_h10_scaled.py` | Paired Wilcoxon Signed-Rank. **Verdict: Supported.** |
-| **H6: SETU v2 vs SETU v1** | "The dynamic controller (SETU v2) provides comparable retrieval quality to the fixed pipeline while attempting to minimize computational overhead." | `results/tables/statistical_significance_H1_H10_scaled.json` | `scripts/run_statistical_tests_h1_h10_scaled.py` | Paired Wilcoxon Signed-Rank. **Verdict: Not Supported (Equivalence).** |
-| **H8: Step Reduction (Efficiency)** | "SETU v2 achieves its retrieval outcomes using significantly fewer operator steps on average compared to the fixed v1 pipeline." | `results/tables/statistical_significance_H1_H10_scaled.json` | `scripts/run_statistical_tests_h1_h10_scaled.py` | Paired Wilcoxon Signed-Rank. **Verdict: Supported.** |
-| **H10: Confidence Gating** | "The margin-based proxy confidence signal effectively predicts final MRR, enabling early-stopping decisions." | `results/tables/statistical_significance_H1_H10_scaled.json` | `scripts/run_statistical_tests_h1_h10_scaled.py` | Spearman rank correlation. **Verdict: Supported.** |
-| **Overcorrection on Strong Baselines** | "When applied to already-correct queries, SETU's operators degrade MRR significantly, highlighting a limitation of aggressive query rewriting." | `results/tables/overcorrection_final.json` | `scripts/statistical_correction_phase12.py` | Paired Wilcoxon (Holm-corrected). **Verdict: Confirmed Degradation.** |
-| **Controller Adaptivity** | "The learned LinUCB controller predominantly converges to a static early-termination policy (LQP -> STOP) rather than dynamically routing based on CMI context." | `results/tables/controller_behavior_final.json` | `scripts/analyze_controller.py` | Chi-square test of independence. **Verdict: Confirmed Static.** |
-
-### Data Provenance
-- All canonical JSON files reside in `results/tables/`.
-- The dataset comprises 314 finalized queries, tested in a strict 5-fold out-of-fold cross-validation setup to guarantee no data leakage between controller training and inference.
-- Raw traces and per-query execution metrics are housed in `results/logs/setu_v2_per_query_v3.json` and `results/logs/per_query_metrics_v2.json`.
-
-*Note: Any claim not listed here (such as external proprietary baselines or linguistic evaluation) was formally excluded from the experimental scope.*
+| Claim ID | Claim Text | Evidence Source | Test / Metric | Verdict | Limitations / Notes |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **C1** | CMI degrades retrieval performance. | `ieee_ready_tables.json` (H1) | Spearman correlation | **NOT SUPPORTED** | rho=0.0908, p=0.433. No significant monotonic relationship detected across the 314 queries. |
+| **C2** | Indic-tuned encoders handle code-mixed data better than general multilingual encoders. | `ieee_ready_tables.json` (H2) | Paired Wilcoxon | **NOT SUPPORTED** | BGE-M3 significantly outperforms Indic-SBERT. |
+| **C3** | The SETU pipeline improves overall retrieval accuracy over RAW baseline. | `ieee_ready_tables.json` (H4) | Paired Wilcoxon | **NOT SUPPORTED** | Mean MRR dropped slightly. No significant positive effect. |
+| **C4** | SETU v2 (LinUCB) outperforms SETU v1 (fixed-order). | `ieee_ready_tables.json` (H6) | Paired Wilcoxon | **NOT SUPPORTED** | p=0.7423. No statistically significant difference detected. Equivalence is not proven. |
+| **C5** | SETU operators fix queries that the baseline gets wrong. | `ieee_ready_tables.json` (Table 6) | Paired Wilcoxon (Incorrect Subset) | **NOT SUPPORTED** | After Holm-Bonferroni correction, no operator provides statistically significant lift. |
+| **C6** | SETU operators damage queries that the baseline gets right. | `ieee_ready_tables.json` (Table 6) | Paired Wilcoxon (Correct Subset) | **SUPPORTED** | Multiple operators (LQP, CAEP, LAG) significantly degrade already-correct queries. |
+| **C7** | The SETU v2 controller sequence choices are independent of CMI context. | `ieee_ready_tables.json` | Chi-Square Independence | **DESCRIPTIVE ONLY** | p > 0.05. We can state no significant association was detected. We cannot claim complete independence. |
+| **C8** | SETU v2 maintains accuracy with significantly fewer computational steps than v1. | `ieee_ready_tables.json` (H8) | Paired Wilcoxon | **SUPPORTED** | Mean steps: 1.70 (v2) vs 4.0 (v1). |
+| **C9** | Margin-based confidence proxy correlates with retrieval success. | `ieee_ready_tables.json` (H10) | Spearman correlation | **SUPPORTED** | rho=0.2985, p < 0.05. Establishes correlation, not causality. |
+| **C10** | SETU incurs latency overhead over raw retrieval. | `ieee_ready_tables.json` (Table 7) | Latency means | **DESCRIPTIVE ONLY** | Measured on a local CPU constraint. RAW=128ms, v2=447ms. |

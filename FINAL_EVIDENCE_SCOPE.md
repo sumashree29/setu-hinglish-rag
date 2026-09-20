@@ -1,24 +1,29 @@
-# FINAL EVIDENCE SCOPE
+# Final Evidence Scope
 
-This document freezes the exact experimental scope for the IEEE evaluation of SETU-Hinglish-RAG. Any claims extending beyond these boundaries are unsupported by this repository.
+This document specifies the exact dataset boundaries, query subsets, and limits of the empirical evaluation presented in the final IEEE publication.
 
-1. **Dataset Size**: 314 canonical queries (75 pilot/manually verified, 239 auto-generated synthetic).
-2. **Corpus Size**: 380 document chunks.
-3. **Relevance Mapping**: Strict single-positive per query.
-4. **Models Evaluated**: 
-    - BGE-M3 (Primary backbone for SETU controller)
-    - mE5-large (Baseline + Operator ablation)
-    - Indic-SBERT (Baseline + Operator ablation)
-    - mContriever (Baseline only)
-    - BM25 (Baseline only)
-5. **Operators Evaluated**: LQP (Query Projection), CAEP (Entity Preservation), LAG (Translation).
-6. **Controller Definition**: SETU v1 (fixed heuristic order), SETU v2 (LinUCB contextual bandit with 5-fold OOF training).
-7. **Statistical Tests**: 
-    - Wilcoxon signed-rank test for paired retrieval metrics (MRR/nDCG).
-    - Spearman rank correlation ($\rho$) for monotonic associations (e.g., Confidence vs MRR).
-    - Chi-square test of independence for categorical distributions (e.g., Controller Action vs CMI Band).
-    - Holm-Bonferroni correction applied across all concurrent hypothesis tests to control Family-Wise Error Rate (FWER).
-8. **Latency Protocol**: Generic host machine CPU inference environment, measuring end-to-end execution per query excluding model warm-up and I/O.
-9. **Canonical Source of Truth**: All empirical claims must derive strictly from the JSON structures housed in `results/canonical/`, which are generated deterministically by the `scripts/*_final.py` analytic suite based on raw execution logs.
+## 1. Evaluation Boundaries
+- **Corpus (Chunks):** The search index contains exactly 380 document chunks spanning Hinglish conversational domains.
+- **Query Set:** The final benchmark evaluates exactly 314 queries.
+- **Misspelled Subset:** A pre-specified subset of 15 queries (IDs: Q61-Q75) evaluates entity-correction resilience.
 
-*Note: Phase 13 (IndicLID linguistic validation) and Phase 15 (External Black-Box Baselines) were formally scoped out of this revision.*
+## 2. Models Evaluated
+- **Baseline (Primary):** `BAAI/bge-m3`
+- **Baselines (Auxiliary):** `intfloat/multilingual-e5-large`, `l3cube-pune/indic-sentence-bert-nli`
+- **Operators:** LAG (translation/normalization), CAEP (entity preservation), LQP (latent query projection).
+- **Controller:** SETU v2 (LinUCB-based contextual bandit), SETU v1 (fixed 4-step sequence).
+
+## 3. Evidence Status
+- **Reused:** All model inference, operator evaluations, embedding generations, and LinUCB trajectory formations have been reused from the existing stored outputs.
+- **Regenerated:** Final aggregate tables, P-values, Holm-Bonferroni corrections, and figures have been strictly regenerated from the verified underlying JSON files.
+
+## 4. Claims In Scope
+- Comparative zero-shot MRR and nDCG@10 of BGE-M3 vs SETU pipelines on this specific 314-query corpus.
+- The step-count efficiency of the LinUCB controller vs a fixed-order execution.
+- The margin-based confidence proxy's correlation with retrieval success.
+- The statistical overcorrection effect on natively successful baseline queries.
+
+## 5. Claims Out of Scope
+- **Universal Generalization:** Results do not prove SETU works or fails on massive-scale corpora (e.g., millions of documents).
+- **Causality of Performance:** CMI correlation and Confidence correlations are evaluated strictly as predictive proxies, not causal mechanisms.
+- **Equivalence:** We do not claim strict mathematical equality of models, only the failure to detect a significant difference.

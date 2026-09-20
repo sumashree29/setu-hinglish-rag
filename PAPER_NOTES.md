@@ -1,25 +1,25 @@
-# Paper Notes & Narrative Reframing
+# Paper Notes & Narrative Constraints
 
-## Core Narrative Shift
-The original draft of the paper pitched SETU as a state-of-the-art, context-adaptive architecture that solves code-mixed Hinglish retrieval by dynamically sequencing specialized operators.
-**The new narrative** must pitch the paper as a rigorous, methodology-focused empirical study demonstrating the hidden pitfalls of RAG pipelines on code-mixed data. 
+This file records the specific narrative boundaries for drafting the IEEE paper based on the final evaluation results. 
 
-## Key Thematic Pillars for the Paper
+## 1. Do Not Claim Universality
+The results strictly evaluate a 314-query Hinglish corpus against 380 document chunks. BGE-M3 performs extremely well as a zero-shot baseline (MRR ~0.85). Any claim that code-mixed retrieval *universally requires* dynamic operator pipelines is unsupported by this data and must be avoided.
 
-1. **The Over-Correction Phenomenon (The "Hurt" Factor)**
-   - We introduce the concept of "over-correction" in retrieval pipelines: applying explicit transformations (like translation or lexical substitution) to queries often severely degrades the dense embeddings of natively strong models (BGE-M3, mE5-large).
-   - Our ablation studies prove that operators hurt already-correct queries far more frequently than they rescue failed queries.
+## 2. Controller Adaptivity (H6)
+**Original flawed claim:** "The contextual bandit provides highly adaptive, dynamic routing that improves over fixed sequences."
+**Corrected claim:** "Under the evaluated dataset, the LinUCB controller largely converged to a low-step early-termination policy rather than a context-sensitive sequencer. No statistically significant difference in retrieval outcomes was detected between the fixed pipeline and the dynamic controller (p=0.7423), though the controller achieved comparable outcomes in significantly fewer steps."
 
-2. **The Illusion of Adaptivity in RL Controllers**
-   - We dissect the failure of the LinUCB controller. We demonstrate how extreme feature skew (e.g., 99.7% of queries having <0.2 confidence) forces bandit algorithms to collapse into static early-termination policies.
-   - We highlight the danger of claiming "dynamic routing" without analyzing sequence diversity and feature independence (Chi-square test p=1.0).
+## 3. The Overcorrection Problem (C6)
+**Narrative focus:** The paper must highlight overcorrection as a primary finding. Applying heuristic or model-based operators to queries that are already successfully retrieved by a robust dense baseline (like BGE-M3) significantly degrades performance. Future code-mixed pipelines must prioritize highly conservative gating (e.g., confidence thresholds) to protect strong zero-shot baseline performance.
 
-3. **Methodological Rigor in RAG Evaluation**
-   - We expose how subtle data leakages (e.g., matching by query text instead of query ID, or globally fitting classifiers before cross-validation) can artificially inflate the apparent success of corrective operators.
-   - We emphasize the necessity of strict 5-fold Out-Of-Fold (OOF) cross-validation and multiple-testing corrections (Holm-Bonferroni) to prevent false positives in RAG ablations.
+## 4. Confidence Gating (H10)
+**Narrative focus:** The significant correlation between margin-based confidence and empirical retrieval success (rho=0.2985) is the most promising avenue for avoiding overcorrection. The paper should propose this as a diagnostic tool, but explicitly refrain from claiming that the current SETU controller fully exploits this signal.
 
-## Recommended Structure Updates
-- **Introduction**: Shift from "We built a better system" to "We systematically evaluated the paradigm of pipeline-based correction vs. zero-shot dense representations."
-- **Methodology**: Present the SETU architecture, but immediately follow with the rigorous OOF evaluation protocol designed to stress-test it.
-- **Results**: Lead with the baseline performance (Table I) to establish the high zero-shot ceiling. Follow with the operator ablation (Table II) and the critical over-correction conditional analysis (Table IV). 
-- **Discussion/Conclusion**: Advise the community to lean on scaling raw multilingual models (like mE5-large) rather than building complex, brittle operator pipelines for code-mixed text.
+## 5. Statistical Rigor
+Every p-value cited in the paper must be the Holm-Bonferroni corrected value. Any discussion of "improvement on baseline failure cases" must explicitly state that the results were statistically insignificant after correcting for multiple comparisons.
+
+## 6. Language and Tone
+Use conservative IEEE-style scientific language. 
+- Avoid "proves", use "demonstrates" or "suggests".
+- Avoid "equivalent", use "no statistically significant difference was detected".
+- Avoid "failed", use "did not demonstrate statistically significant improvement".

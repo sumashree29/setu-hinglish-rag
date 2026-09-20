@@ -1,6 +1,7 @@
 import json
-from pathlib import Path
 import sys
+from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -16,47 +17,50 @@ def main():
     errors = []
     
     try:
-        comp = read_json(ROOT / "results" / "tables" / "setu_v1_v2_comparison_scaled.json")
-        stats = read_json(ROOT / "results" / "tables" / "statistical_significance_H1_H10_scaled.json")
-        latency = read_json(ROOT / "results" / "tables" / "latency_final.json")
-        overcorr = read_json(ROOT / "results" / "tables" / "overcorrection_final.json")
+        tables = read_json(ROOT / "results" / "tables" / "ieee_ready_tables.json")
     except Exception as e:
-        print(f"FAILED TO LOAD TABLES RESULTS: {e}")
+        print(f"FAILED TO LOAD IEEE TABLES: {e}")
         sys.exit(1)
         
-    canonical_raw_mrr = f"{comp['full_dataset']['RAW']['mrr']:.4f}"
-    canonical_v1_mrr = f"{comp['full_dataset']['SETU_v1']['mrr']:.4f}"
-    canonical_v2_mrr = f"{comp['full_dataset']['SETU_v2']['mrr']:.4f}"
+    canonical_raw_mrr = f"{tables['Table_2_Baseline']['mrr']:.4f}"
     
-    canonical_holm_p = stats.get("H6", {}).get("p_value_corrected")
-    canonical_holm_p_str = f"{canonical_holm_p:.4f}" if canonical_holm_p is not None else "None"
+    h6_verdict = tables["Table_4_Hypotheses"].get("H6", {}).get("verdict", "").lower()
     
     # Documents to check
-    docs = {
-        "RESULTS_SUMMARY.md": read_file(ROOT / "RESULTS_SUMMARY.md"),
-        "README.md": read_file(ROOT / "README.md"),
-        "CLAIM_CONTRACT.md": read_file(ROOT / "CLAIM_CONTRACT.md"),
-        "ADVERSARIAL_REVIEW.md": read_file(ROOT / "ADVERSARIAL_REVIEW.md")
-    }
+    doc_paths = [
+        "RESULTS_SUMMARY.md",
+        "README.md",
+        "CLAIM_CONTRACT.md",
+        "CLAIM_EVIDENCE_MATRIX.md",
+        "FINAL_EVIDENCE_REPORT.md",
+        "FINAL_EVIDENCE_SCOPE.md"
+    ]
     
-    for name, content in docs.items():
+    for name in doc_paths:
+        try:
+            content = read_file(ROOT / name)
+        except Exception:
+            errors.append(f"File {name} not found.")
+            continue
+            
         if "TBD" in content:
             errors.append(f"{name} contains 'TBD'")
             
-        # Hard restrictions based on claims
-        lower = content.lower()
-        if "statistically equivalent" in lower or "statistical equivalence" in lower:
-            errors.append(f"{name} claims 'statistically equivalent' without TOST.")
-        if "adaptive routing" in lower and "controller" in lower and "not" not in lower:
-             # Wait, ADVERSARIAL_REVIEW might quote "adaptive routing" in the concern.
-             pass # Too fragile to simple text match.
+        lower_content = content.lower()
+        if "statistically equivalent" in lower_content or "statistical equivalence" in lower_content:
+             errors.append(f"{name} claims 'statistically equivalent' without TOST/equivalence margin.")
              
-    # Ensure RESULTS_SUMMARY doesn't have stale numbers. 
-    # It must have canonical_raw_mrr if it mentions BGE-M3 baseline.
-    if canonical_raw_mrr not in docs["RESULTS_SUMMARY.md"]:
-        errors.append(f"RESULTS_SUMMARY.md missing canonical RAW MRR {canonical_raw_mrr}")
-        
-    # We will enforce this manually.
+        if name == "RESULTS_SUMMARY.md" and canonical_raw_mrr not in content:
+            errors.append(f"{name} is missing the exact canonical RAW MRR ({canonical_raw_mrr})")
+
+        # Check for claims of causality from correlation
+        if "proves causality" in lower_content or "causes retrieval" in lower_content:
+            errors.append(f"{name} contains unsupported causal claims.")
+            
+        # Check for absolute controller independence claims
+        if "completely independent" in lower_content:
+            errors.append(f"{name} contains exaggerated 'completely independent' controller claims.")
+            
     if errors:
         print("CONSISTENCY ERRORS FOUND:")
         for e in errors:

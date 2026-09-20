@@ -1,34 +1,56 @@
-# FINAL EVIDENCE REPORT
+# Final Evidence Report
 
-**Execution Date**: 2026-09-20
-**Target**: IEEE Manuscript Readiness Pass
-**Repository State**: Frozen & Validated
+This document confirms the final IEEE-readiness of the SETU repository. The primary objective is establishing rigorous, reproducible, and defensible scientific evidence for the evaluation.
 
-## 1. Experimental Scope Enforcement
-The experimental boundary was explicitly capped to data strictly generated on disk (`results/tables/*`). No further model downloads or external inferences were required.
-- Total Queries: 314
-- Corpus Size: 380 documents
-- Embedding Model: BAAI/bge-m3
-- Cross-validation: 5-Fold OOF
+## 1. Evaluation Scope
+- **Dataset:** 314 benchmark code-mixed (Hinglish) queries.
+- **Search Corpus:** 380 document chunks.
+- **Models Evaluated:** BGE-M3 (Primary Baseline), Indic-SBERT, mE5-large.
+- **Subsets:** Includes 15 explicitly misspelled-entity queries for robustness checks.
 
-## 2. Unification of Source of Truth
-The request to migrate data to `results/canonical/` was evaluated against the existing repository structure. As `results/tables/` already housed the scaled, statistically corrected JSON outputs (complete with Holm-Bonferroni correction factors), introducing `results/canonical/` would introduce redundancy and risk fragmentation.
-- **Action**: Deleted `results/canonical/` placeholders.
-- **Action**: Updated `AUDIT_FINAL.md` to formally crown `results/tables/` as the single canonical source of quantitative truth.
+## 2. Authoritative Evidence Source
+The canonical machine-readable evidence layer has been established from existing experimental results without unnecessary model re-execution.
+- **Source Files:** Aggregate tables (`setu_v1_v2_comparison_scaled.json`, `overcorrection_final.json`, `statistical_significance_H1_H10_scaled.json`) serve as the verified canonical data sources reflecting the raw per-query underlying evaluations.
+- **Downstream Generation:** All IEEE-ready tables and figures are regenerated from this canonical evidence layer using `scripts/reproduce_canonical_analysis.py`.
 
-## 3. Claim Integrity & Matrix Generation
-Generated `CLAIM_EVIDENCE_MATRIX.md`, which creates an immutable 1:1 mapping between the paper's final prose (negative-result framing) and the computational proofs.
-- **H6 (Lift)**: Formally abandoned (proven statistically equivalent, no lift).
-- **H8 (Steps)**: Supported (efficiency gains validated).
-- **Overcorrection**: Confirmed via `overcorrection_final.json` (statistically significant degradation on already-correct retrievals).
-- **Controller Adaptivity**: Confirmed static via `controller_behavior_final.json` (collapsed to a fixed LQP -> STOP heuristic).
+## 3. Reused vs Rerun Experiments
+- **Reused:** Baseline retrievals (BGE-M3, Indic-SBERT, mE5-large), SETU v1 (fixed-order) pipeline executions, SETU v2 (LinUCB) trajectories, overcorrection evaluations, and latency tests were entirely reused from existing valid json outputs.
+- **Rerun:** No expensive model reruns were necessary. Downstream statistical reporting files were regenerated purely from the pre-existing authoritative JSON outputs.
 
-## 4. Consistency Assurance
-Executed `scripts/check_paper_consistency.py` targeting the canonical tables. 
-- **Result**: ALL CONSISTENCY CHECKS PASSED.
-- Zero instances of "TBD" remain.
-- Zero instances of un-tested "statistical equivalence" without TOST context.
-- Zero stale baseline MRR numbers in `RESULTS_SUMMARY.md`.
+## 4. Leakage / OOF Protocol Checks
+The evaluation employs a strict 5-fold Out-Of-Fold (OOF) protocol:
+- Trajectories are partitioned strictly by `query_id`.
+- The `LinUCBController` and `lag_model` are trained dynamically per fold on 4 partitions and evaluated blindly on the 1 held-out partition.
+- External operators (CAEP, LQP) were trained on fully independent parallel/synthetic corpora. There is no query leakage into the evaluation phase.
 
-## 5. Artifact Generation
-All required phases of the master remediation task (Phases 1-30) are completely executed, validated, and documented. The repository stands ready for direct translation into the LaTeX IEEE manuscript.
+## 5. Statistical Methodology
+- **Tests Used:** Paired Wilcoxon signed-rank tests for comparative accuracy (MRR) and Spearman correlations for monotonic associations (CMI, Confidence).
+- **Multiple Testing Correction:** Holm-Bonferroni correction was applied to control the Family-Wise Error Rate (FWER) across the hypothesis tests and overcorrection splits.
+- **Equivalence:** No strict equality is claimed for non-significant tests (e.g., SETU v1 vs v2). A lack of significant difference (p > 0.05) is reported conservatively.
+
+## 6. Major Supported Findings
+- SETU v2 effectively operates as an early-termination policy, achieving comparable retrieval results to a fixed-order pipeline (SETU v1) but with significantly fewer computational steps (1.70 vs 4.0).
+- Margin-based confidence proxies successfully correlate with actual retrieval success on this corpus.
+- Existing dense retrievers are highly capable zero-shot baselines, resolving the majority of Hinglish queries natively.
+
+## 7. Unsupported Hypotheses (Negative Results)
+- The SETU operator pipeline does not provide a statistically significant overall lift over the raw dense retriever on this dataset.
+- The operators significantly risk overcorrection, degrading previously correct baseline queries.
+- Corrective lift on baseline failure cases was statistically insignificant after multiple-testing correction.
+
+## 8. Limitations
+- **Corpus Scale:** The evaluation corpus is constrained to 380 chunks, raising the potential for metrics being dominated by lexical overlaps.
+- **Latency Benchmarks:** The latency figures reflect local CPU-bottlenecked measurements, not large-scale deployment metrics.
+- **Controller Adaptivity:** The controller demonstrated limited sequence diversity and did not dynamically sequence operations based on CMI context.
+
+## 9. Reproducibility
+Reviewers and users can exactly reproduce the final paper's numeric claims without retraining any models by executing:
+```bash
+python scripts/reproduce_canonical_analysis.py
+python scripts/final_readiness_gate.py
+```
+
+## 10. Final IEEE-Readiness Status
+- **Consistency Check:** PASS
+- **Readiness Gate:** PASS
+- **IEEE_READY:** TRUE
