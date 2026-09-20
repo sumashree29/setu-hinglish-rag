@@ -19,7 +19,7 @@ import sys
 import re
 from pathlib import Path
 import numpy as np
-np.random.seed(42)
+set_seed()
 from scipy import stats
 from statsmodels.stats.multitest import multipletests
 

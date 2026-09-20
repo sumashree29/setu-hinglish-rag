@@ -53,7 +53,7 @@ def main():
     lag_model = pickle.load(open(ROOT / "results" / "models" / "lag_model_v3.pkl", "rb"))
 
     print("Initializing LinUCBController for exploration (alpha=1.0)...")
-    np.random.seed(42)
+    set_seed()
     controller = LinUCBController(context_dim=7, alpha=1.0)
     
     trajectory_path = ROOT / "data" / "logs" / "trajectories_v3.jsonl"

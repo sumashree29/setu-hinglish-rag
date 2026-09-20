@@ -19,7 +19,7 @@ from pathlib import Path
 from sentence_transformers import SentenceTransformer
 
 # Set seed for reproducibility
-np.random.seed(42)
+set_seed()
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.append(str(ROOT))

@@ -11,3 +11,6 @@
 - **Python Version**: Python 3.11.x
 - **Environment Variables**:
   - `OMP_NUM_THREADS` / `MKL_NUM_THREADS`: Not explicitly set (defaults used).
+
+## Random Seed
+All operations are deterministic and initialized by `setu.config.set_seed(42)` which fixes random states for `random`, `numpy`, and `torch`.

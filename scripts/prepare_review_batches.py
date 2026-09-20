@@ -40,7 +40,7 @@ def main():
     # We want 90 queries total, stratified proportionally.
     # Total = len(auto_queries)
     sampled = []
-    random.seed(42)
+    set_seed()
     for b_name, b_queries in bands.items():
         n_samples = int(round(len(b_queries) / len(auto_queries) * 90))
         # ensure we don't sample more than available, just in case
