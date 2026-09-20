@@ -109,3 +109,12 @@ Key evidence supporting this conclusion:
 - **Forced Termination Dominates**: Only 4.46% (14 out of 314) of queries terminated because the controller explicitly selected `STOP`. The remaining 95.54% of queries were forcibly halted by the `repeat_action_forced` guard.
 - **Lack of Context-Sensitivity**: The distribution of the first action chosen by the controller is statistically independent of the query's complexity (CMI band). A Chi-square test of independence yields `p = 0.635` (not significant at alpha=0.05), indicating that the controller's initial action choice does not shift meaningfully in response to the context state.
 - **Extremely Narrow Confidence Distribution**: A structural limitation contributing to this lack of context-sensitivity is that 313/314 queries (99.7%) start with an initial confidence of `<0.2`. Although confidence is one of the controller's 7 context dimensions, its variance across the dataset is practically zero. This is flagged as a limitation to revisit in Phase 14 (H10 confidence analysis).
+
+### LAG Classifier Behavior (found during Phase 10)
+
+An additional diagnostic (`scripts/check_lag_strategies.py`) traced `predict_strategy`'s output across all 314 queries under the same 5-fold OOF protocol used elsewhere. The LAG classifier collapses to a near-constant policy:
+- `light_normalize`: 305/314 queries (97.1%)
+- `dual_variant`: 9/314 queries (2.9%)
+- `full_translation`: 0/314 queries (0.0%)
+
+This corroborates the Phase 4 controller-behavior finding via an independent mechanism: not only does the LinUCB controller fail to show context-sensitive operator sequencing, but the LAG operator's own internal classifier also fails to differentiate meaningfully across the CMI/lid_entropy/entity_density feature space, defaulting almost entirely to one strategy. The likely cause is a severe class imbalance in `lag_labels_v3.json` (as seen in the Phase 10 Colab run: 12-18 positive examples out of ~250 per fold, under 7%), combined with limited feature variance. Both the controller-level and operator-level "adaptivity" claims should therefore be scoped conservatively in the paper: SETU functions largely as a fixed-policy correction system in this evaluation, not a context-adaptive one.
