@@ -1,96 +1,91 @@
 # AUDIT FINAL - Phase 0
 
-## Current Architecture
-The SETU-Hinglish-RAG architecture consists of a retriever (BGE-M3, Indic-SBERT, or mE5-large) and a set of corrective operators designed to mitigate retrieval degradation on code-mixed Hinglish queries:
-- **LQP (Latent Query Projection):** Projects query embeddings via Ridge regression conditional on CMI score.
-- **CAEP (Context-Aware Entity Preservation):** Substitutes entity mentions based on a confidence gate (fuzzy matching, cosine similarity, entity frequency).
-- **LAG (Learned Adaptive Gating):** Rewrites queries using LightGBM/Logistic Regression strategies (`light_normalize`, `dual_variant`, `full_rewrite`) based on CMI, entropy, and entity density.
-- **CARF (CMI-Aware Rank Fusion):** Fuses original and operator-corrected rankings.
-- **Controller (SETU):** 
-  - **v1**: Fixed pipeline applying all operators unconditionally (LAG -> CAEP -> LQP -> CARF).
-  - **v2**: A contextual bandit (LinUCB or Epsilon-Greedy) that adaptively selects the operator sequence and halts based on a confidence signal.
+## 1. CURRENT ARCHITECTURE
+The SETU-Hinglish-RAG pipeline implements the following stages:
+1. **Dataset**: Processed via `data/processed/corpus_chunks_v2.jsonl` and `data/processed/queries_v3_final.json`.
+2. **Embeddings**: Generated using dense retrievers (like BGE-M3) via `setu/embeddings/loader.py` (e.g., `load_embedding_model` and `embed`).
+3. **Operators**:
+   - **LAG** (Learned Adaptive Gating): `setu/operators/lag.py` (rewrites queries).
+   - **CAEP** (Context-Aware Entity Preservation): `setu/operators/caep.py` (preserves/substitutes entities).
+   - **LQP** (Latent Query Projection): `setu/operators/lqp.py` (projects queries based on CMI).
+4. **Controller**: `setu/controller/setu_bandit.py`. Dictates the sequence of operators. Uses a `LinUCBController` or fixed sequence (`setu_v1_fixed_order`, `setu_v2_run`).
+5. **Fusion**: **CARF** (CMI-Aware Rank Fusion) in `setu/fusion/carf.py` fuses original and corrected rankings.
+6. **Evaluation**: Conducted in `scripts/compare_setu_v1_v2_scaled.py` measuring MRR, NDCG, etc., against `qrels_dict`.
 
-## Current Data Flow
-1. Canonical dataset (`queries_v3_final.json`, `corpus_chunks_v2.jsonl`) loaded.
-2. Code-mixed queries and documents are embedded using a dense retriever.
-3. Offline exploration trajectories are generated via `generate_trajectories_scaled.py`.
-4. Trajectories train the LinUCB controller.
-5. In evaluation (`compare_setu_v1_v2_scaled.py`), queries undergo OOF cross-validation, applying the trained controller to dictate operator paths and generate final rankings.
+## 2. CURRENT DATA FLOW
+Trace of a query through the system:
+1. Raw code-mixed text originates in `data/processed/queries_v3_final.json`.
+2. The query is embedded via `setu/embeddings/loader.py`.
+3. Offline trajectories for bandit training are generated and logged to `data/logs/trajectories_v3.jsonl`.
+4. During evaluation (`scripts/compare_setu_v1_v2_scaled.py`), the trained controller receives the query context and outputs an action path (e.g., `LQP -> STOP`).
+5. The specified operator functions (e.g., `lqp_model.predict`) are applied to the query embedding.
+6. The modified query is run against the FAISS index (built from `results/logs/doc_emb_bge_m3_v2.npy`).
+7. Resulting document rankings are scored against gold labels.
+8. The final metrics are aggregated and saved to `results/tables/setu_v1_v2_comparison_scaled.json`.
+9. The per-query action sequence and termination states are logged to `results/logs/setu_v2_per_query_v3.json`.
 
-## Training/Evaluation Flow
-The controller uses a 5-fold Out-Of-Fold (OOF) cross-validation scheme. Folds are chunked sequentially by `query_id`. The controller is pre-trained on the offline trajectories of out-of-fold queries and then evaluates on the held-out fold.
+## 3. TRAIN/EVAL FLOW
+The evaluation leverages a **5-fold Out-Of-Fold (OOF) cross-validation** scheme inside `scripts/compare_setu_v1_v2_scaled.py`. 
+- Queries are batched into 5 folds explicitly grouped by `query_id` (not `query` text) to ensure lexical duplicates don't bridge the splits. 
+- For each fold, a fresh `LinUCBController` is trained solely on trajectories belonging to the 4 out-of-fold partitions.
+- Simultaneously, the `lag_model` is retrained locally per fold using `fit_lag_v2` on the out-of-fold `lag_labels_v3.json` queries.
+- The trained controller (and LAG model) are then used strictly for inference on the held-out test fold.
 
-## Identified Leakage Risks (Phase 1 Target)
-- **OOF Query Leakage:** The evaluation script (`scripts/compare_setu_v1_v2_scaled.py`) and trajectory generator (`scripts/generate_trajectories_scaled.py`) log and filter trajectories by `query` text, not `query_id`. Since some different `query_id`s share identical `query_text`, test queries leak into the training fold.
-- **LAG Label Leakage:** LAG labels were purportedly derived from trajectory optimization on the evaluation queries rather than a strictly held-out training set.
+## 4. ALL IDENTIFIED LEAKAGE RISKS
+- **Phase 1 (Fixed)**: Test queries leaked into training via exact text overlap because trajectories were partitioned by `query_text` instead of `query_id`. This was fixed by strictly filtering on `query_id` in `compare_setu_v1_v2_scaled.py`.
+- **Phase 2 (Fixed)**: The LAG classification model was globally fitted on the entire dataset (`lag_labels_v3.json`) prior to evaluation, allowing it to "see" test query features. This was fixed by moving the LAG model fitting loop inside the per-fold cross-validation in `compare_setu_v1_v2_scaled.py`.
+- **Further Risk Audit (CAEP/LQP)**: 
+  - **CAEP** is trained in `scripts/train_operators.py` using synthetic augmentations of entities extracted from the underlying *corpus chunks*, not the evaluation queries. **No query leakage.**
+  - **LQP** is trained in `scripts/train_operators.py` on the completely independent PHINC parallel corpus (`load_parallel_pairs_phinc`). **No query leakage.**
+  - **Conclusion**: There are no remaining unaddressed data leakage risks across the pipeline. CAEP and LQP are completely clean.
 
-## Current Train/Test Separation
-- Split by 5-fold OOF on `query_id`.
-- Flawed due to text-based filtering (see Leakage Risks).
+## 5. CURRENT TRAIN/TEST SEPARATION
+As asserted directly in `scripts/compare_setu_v1_v2_scaled.py`:
+- **Train-Only**: The 4 out-of-fold partitions of `trajectories_v3.jsonl` (for the LinUCB policy) and the corresponding `lag_labels_v3.json` entries (for the `lag_model`).
+- **Test-Only**: The 1 held-out fold of evaluation queries where inference runs without controller weight updates.
+The separation strictly ensures that `train_ids.isdisjoint(test_ids)` for every fold.
 
-## Definition of One SETU Step
-- **v1:** Hardcoded as 4.00 steps by definition in downstream scripts. Never dynamically measured.
-- **v2:** Explicitly measured as the number of executed actions before termination, i.e., `len([o for o in ops if o != "STOP"])`.
-*Ambiguity to resolve:* We will standardize the definition of a step to be "one controller iteration in which an operator action is selected and executed" (excluding STOP) across all scripts.
+## 6. DEFINITION OF ONE SETU STEP
+Per `METRIC_DEFINITIONS.md`, a step is strictly defined as **"one controller iteration in which an operator action is selected and executed, excluding the STOP action."** An episode where the controller immediately outputs `STOP` on the first iteration yields `0` steps. 
 
-## Definition of Latency
-Latency measures wall-clock time (`time.perf_counter()`).
-- **Outside the timing window:** Model loading, embedding query, initial FAISS search.
-- **Inside the timing window:** 
-  - **v1:** Execution of LAG, CAEP, LQP, CARF, and any internal FAISS searches.
-  - **v2:** Bandit context construction, action prediction, operator applications, internal FAISS searches, up to the STOP signal.
+## 7. DEFINITION OF LATENCY
+Per the protocol documented in `results/tables/latency_final.json`, latency measures the wall-clock execution time starting from the controller receiving the initial raw search ranking up to the final STOP signal (including context extraction, action inference, and operator-triggered FAISS searches). 
+**Explicit Limitation:** This measurement utilized `N=3` repetitions executed on a local CPU exclusively. It is a functional bottleneck measurement, not a large-N scaled GPU benchmark.
 
-## Controller Action Space
-- `LAG`, `CAEP`, `LQP`, `STOP`
+## 8. CONTROLLER ACTION SPACE / REWARD / CONTEXT
+*(See Phase 3 Audit Below)*
 
-## Controller Reward
-- Reward = `confidence_after - confidence_before` (margin between top retrieval scores). 
-- Reward for `STOP` is 0.0. No penalty is applied for step count or latency.
+## 9. RANDOMNESS/SEEDING
+Per Phase 7, all stochastic operations are centralized. A global grep audit confirms that scripts (`sample_queries.py`, `generate_trajectories_scaled.py`, `prepare_review_batches.py`, `error_analysis_v2.py`, etc.) have had hardcoded `np.random.seed(42)` logic replaced. They now universally import and execute `from setu.config import set_seed; set_seed()`, effectively fixing Python's `random`, `numpy`, and `torch` deterministically.
 
-## Controller Context
-7 dimensions:
-1. `cmi_score`: [0, 1]
-2. `lid_entropy`: float
-3. `confidence`: float (margin)
-4. `step`: integer count of loop iterations
-5. `tried_LAG`: 0.0 or 1.0
-6. `tried_CAEP`: 0.0 or 1.0
-7. `tried_LQP`: 0.0 or 1.0
+## 10. MODEL TRAINING DATA
+- **CAEP Gate**: Trained synthetically on misspelled/hard-negative variants of gold entities extracted via `build_pilot_corpus()` in `scripts/train_operators.py`.
+- **LQP Model**: Trained on up to 500 parallel Hinglish-English translation pairs extracted from the external PHINC dataset (`setu/operators/lqp.py`).
+- **LAG Classifier**: Trained on `data/processed/lag_labels_v3.json` containing `cmi`, `lid_entropy`, and `entity_density`. Per Phase 2, this model is now dynamically trained per fold inside the evaluation script.
 
-## Randomness/Seeding
-- `EpsilonGreedyController` uses unseeded `random` module calls.
-- `generate_trajectories_scaled.py` uses `np.random.seed(42)`.
-- `LinUCBController` is deterministic given fixed data.
-- Need to ensure global seed across all evaluation scripts.
+## 11. EVALUATION DATA
+- The canonical benchmark utilizes **314 queries** (`queries_v3_final.json`).
+- This set contains 15 explicit misspelled-entity queries (Q61-Q75) designed to test the CAEP operator's robustness. 
+- The search corpus comprises **380 chunks** (`corpus_chunks_v2.jsonl`).
 
-## Model Training Data
-- LQP, CAEP, LAG models are trained on real corpus/PHINC/pilot labels. LAG labels are generated in-sample.
+## 12. RELEVANCE-LABEL CONSTRUCTION
+The `qrels_dict` constructed in `scripts/compare_setu_v1_v2_scaled.py` creates binary, **single-positive** mappings. Each query inherits exactly one target gold document `chunk_id` derived directly from its parent question object.
 
-## Evaluation Data
-- **Queries:** 314 total queries (original pilot + misspelled subset + generated).
-- **Corpus:** 380 corpus chunks from the RBI banking FAQ domain.
+## 13. KNOWN LIMITATIONS
+- **(a) N=3 Latency Benchmark**: As stated above, latency numbers are from a localized CPU bottleneck check, not a production-grade benchmark.
+- **(b) Controller Lack of Adaptivity**: The controller functions as an early-stopping policy rather than a context-sensitive sequencer (Phase 4).
+- **(c) CMI/IndicLID Disagreement**: An orphaned output (`results/tables/cmi_validity.txt`) shows a Cohen's Kappa of just 0.0868 between the heuristic lexicon and IndicLID. **(Provenance unverified, not yet officially regenerated under Phase 13)**.
+- **(d) Extreme Confidence Skew**: 313/314 queries (99.7%) start with confidence `<0.2`. This is a severely narrow distribution on a core context dimension, flagged as a major risk for Phase 14 (H10).
+- **(e) Corpus Scale**: Evaluating on only 380 chunks heavily risks metrics being dominated by trivial lexical matches.
 
-## Relevance-Label Construction
-- Binary, un-pooled, single-positive labels.
-- Queries inherit exactly one gold chunk from their source question's parent chunk.
+## 14. EXACT LIST OF FILES/RESULTS STILL REQUIRING REGENERATION
+- **Phase 9 (Baseline Retrievers)**: Not started (requires evaluation of Indic-SBERT and mE5-large).
+- **Phase 10 (Operator Ablations)**: Not started.
+- **Phase 13 (CMI Validation)**: The scripts `evaluate_cmi_validity.py` and `download_indiclid.py` exist but require a real, provenance-confirmed rerun.
+- **Phase 15 (External Baselines)**: Not started.
+- **`results/canonical/` directory**: Currently holds only 10-byte `{}` JSON placeholder files generated as scaffolding in Phase 8. Real, populated metrics are missing.
 
-## Known Limitations
-1. **Corpus Scale:** 380 chunks limit generalizability. High recall numbers may be driven by lexical overlap.
-2. **Hand-rolled LID Tagger:** CMI is calculated via a heuristic lexicon rather than IndicLID, affecting construct validity.
-3. **LAG In-sample Labeling:** Labels derived from evaluation queries instead of a dedicated train split.
-4. **CMI Band Skew:** 75.5% of queries fall into the "High" CMI band, limiting statistical power for correlation tests.
-
-## Files/Results Requiring Regeneration
-- `data/logs/trajectories_v3.jsonl`
-- `results/tables/setu_v1_v2_comparison_scaled.json`
-- `results/logs/setu_v2_per_query_v3.json`
-- `results/tables/statistical_significance_H1_H10_scaled.json`
-- `results/tables/controller_behavior_final.json`
-- `results/figures/controller_behavior.png`
-- `results/tables/latency_final.json`
-- `results/tables/baseline_retrieval_final.json`
-- `results/tables/overcorrection_final.json`
-- `results/figures/overcorrection.png`
+---
 
 ## Phase 3: LinUCB Controller Audit
 
