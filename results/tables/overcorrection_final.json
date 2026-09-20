@@ -1,0 +1,120 @@
+{
+    "bge_m3": {
+        "group_sizes": {
+            "RAW_already_correct": 243,
+            "percent_correct": 77.39,
+            "RAW_incorrect": 71,
+            "percent_incorrect": 22.61
+        },
+        "operators": {
+            "LQP": {
+                "mean_delta_correct": -0.0195,
+                "wilcoxon_p_correct": 0.0039,
+                "significant_correct": true,
+                "mean_delta_incorrect": 0.0143,
+                "wilcoxon_p_incorrect": 0.7603,
+                "significant_incorrect": false
+            },
+            "CAEP": {
+                "mean_delta_correct": -0.0238,
+                "wilcoxon_p_correct": 0.007,
+                "significant_correct": true,
+                "mean_delta_incorrect": 0.0195,
+                "wilcoxon_p_incorrect": 0.5489,
+                "significant_incorrect": false
+            },
+            "LAG": {
+                "mean_delta_correct": -0.031,
+                "wilcoxon_p_correct": 0.0011,
+                "significant_correct": true,
+                "mean_delta_incorrect": 0.0446,
+                "wilcoxon_p_incorrect": 0.0275,
+                "significant_incorrect": true
+            },
+            "SETU_v1": {
+                "mean_delta_correct": -0.0127,
+                "wilcoxon_p_correct": 0.0394,
+                "significant_correct": true,
+                "mean_delta_incorrect": 0.023,
+                "wilcoxon_p_incorrect": 0.3047,
+                "significant_incorrect": false
+            },
+            "SETU_v2": {
+                "mean_delta_correct": -0.0089,
+                "wilcoxon_p_correct": 0.0588,
+                "significant_correct": false,
+                "mean_delta_incorrect": 0.0162,
+                "wilcoxon_p_incorrect": 0.0249,
+                "significant_incorrect": true
+            }
+        }
+    },
+    "indic_sbert": {
+        "group_sizes": {
+            "RAW_already_correct": 148,
+            "percent_correct": 47.13,
+            "RAW_incorrect": 166,
+            "percent_incorrect": 52.87
+        },
+        "operators": {
+            "LQP": {
+                "mean_delta_correct": -0.0101,
+                "wilcoxon_p_correct": 0.0833,
+                "significant_correct": false,
+                "mean_delta_incorrect": -0.0039,
+                "wilcoxon_p_incorrect": 0.3201,
+                "significant_incorrect": false
+            },
+            "CAEP": {
+                "mean_delta_correct": -0.0692,
+                "wilcoxon_p_correct": 0.0003,
+                "significant_correct": true,
+                "mean_delta_incorrect": 0.0182,
+                "wilcoxon_p_incorrect": 0.7276,
+                "significant_incorrect": false
+            },
+            "LAG": {
+                "mean_delta_correct": -0.074,
+                "wilcoxon_p_correct": 0.0002,
+                "significant_correct": true,
+                "mean_delta_incorrect": 0.0335,
+                "wilcoxon_p_incorrect": 0.085,
+                "significant_incorrect": false
+            }
+        }
+    },
+    "me5_large": {
+        "group_sizes": {
+            "RAW_already_correct": 254,
+            "percent_correct": 80.89,
+            "RAW_incorrect": 60,
+            "percent_incorrect": 19.11
+        },
+        "operators": {
+            "LQP": {
+                "mean_delta_correct": -0.0118,
+                "wilcoxon_p_correct": 0.0143,
+                "significant_correct": true,
+                "mean_delta_incorrect": -0.0038,
+                "wilcoxon_p_incorrect": 0.2696,
+                "significant_incorrect": false
+            },
+            "CAEP": {
+                "mean_delta_correct": -0.0261,
+                "wilcoxon_p_correct": 0.0011,
+                "significant_correct": true,
+                "mean_delta_incorrect": -0.0029,
+                "wilcoxon_p_incorrect": 0.1448,
+                "significant_incorrect": false
+            },
+            "LAG": {
+                "mean_delta_correct": -0.0098,
+                "wilcoxon_p_correct": 0.0253,
+                "significant_correct": true,
+                "mean_delta_incorrect": 0.0094,
+                "wilcoxon_p_incorrect": 0.6784,
+                "significant_incorrect": false
+            }
+        }
+    }
+}

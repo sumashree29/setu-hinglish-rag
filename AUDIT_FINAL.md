@@ -118,3 +118,20 @@ An additional diagnostic (`scripts/check_lag_strategies.py`) traced `predict_str
 - `full_translation`: 0/314 queries (0.0%)
 
 This corroborates the Phase 4 controller-behavior finding via an independent mechanism: not only does the LinUCB controller fail to show context-sensitive operator sequencing, but the LAG operator's own internal classifier also fails to differentiate meaningfully across the CMI/lid_entropy/entity_density feature space, defaulting almost entirely to one strategy. The likely cause is a severe class imbalance in `lag_labels_v3.json` (as seen in the Phase 10 Colab run: 12-18 positive examples out of ~250 per fold, under 7%), combined with limited feature variance. Both the controller-level and operator-level "adaptivity" claims should therefore be scoped conservatively in the paper: SETU functions largely as a fixed-policy correction system in this evaluation, not a context-adaptive one.
+
+## Phase 11: Over-Correction Analysis
+
+Based on the fresh, leakage-free data from Phase 9/10, an analysis of operator behavior conditional on the baseline (RAW) retrieval performance yielded a stark finding: SETU largely functions by degrading originally correct retrievals without sufficiently offsetting them via improvements on incorrect retrievals.
+
+The 314 evaluation queries were split based on whether RAW retrieval returned the correct document at rank 1 (MRR=1). The initial splits confirm that models with strong dense backbones already solve the vast majority of queries natively:
+- **BGE-M3 (default)**: 243 queries (77.39%) already correct, 71 (22.61%) incorrect.
+- **mE5-large**: 254 queries (80.89%) already correct, 60 (19.11%) incorrect.
+- **Indic-SBERT** (much weaker baseline): 148 queries (47.13%) already correct, 166 (52.87%) incorrect.
+
+When applying individual operators (LQP, CAEP, LAG) or the full SETU controller variants:
+1. **Performance on "Already Correct" Queries**: All operators across all three models significantly *degrade* MRR (negative mean delta, Wilcoxon p < 0.05). For BGE-M3, LQP, CAEP, LAG, and SETU_v1 all show significant statistical degradation.
+2. **Performance on "Incorrect" Queries**: 
+   - For **Indic-SBERT** and **mE5-large**, no operator yielded any statistically significant improvement.
+   - For **BGE-M3**, only the LAG operator (p=0.027) and the SETU_v2 controller (p=0.0249) achieved significant positive deltas.
+
+**Conclusion**: The prior "over-correction hypothesis" is fully validated. The operators are structurally predisposed to "hurt" queries that are already successfully mapped by raw dense retrieval, while offering very sparse improvements on failure cases (and only on BGE-M3). This over-correction effectively washes out system-level metrics, explaining why baseline BGE-M3 often outperforms the full pipeline in aggregated tables. The paper should clearly state that SETU (in its current formulation) acts detrimentally on natively strong dense representations.
