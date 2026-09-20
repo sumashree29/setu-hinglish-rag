@@ -21,7 +21,7 @@
                     0.0487
                 ],
                 "wilcoxon_p_correct_raw": 0.0039,
-                "wilcoxon_p_correct_holm": 0.074,
+                "wilcoxon_p_correct_holm": 0.078,
                 "significant_correct_holm": false,
                 "wilcoxon_p_incorrect_raw": 0.7603,
                 "wilcoxon_p_incorrect_holm": 1.0,
@@ -41,7 +41,7 @@
                     0.0616
                 ],
                 "wilcoxon_p_correct_raw": 0.007,
-                "wilcoxon_p_correct_holm": 0.1252,
+                "wilcoxon_p_correct_holm": 0.133,
                 "significant_correct_holm": false,
                 "wilcoxon_p_incorrect_raw": 0.5489,
                 "wilcoxon_p_incorrect_holm": 1.0,
@@ -61,10 +61,10 @@
                     0.0801
                 ],
                 "wilcoxon_p_correct_raw": 0.0011,
-                "wilcoxon_p_correct_holm": 0.0222,
+                "wilcoxon_p_correct_holm": 0.024200000000000003,
                 "significant_correct_holm": true,
                 "wilcoxon_p_incorrect_raw": 0.0275,
-                "wilcoxon_p_incorrect_holm": 0.3981,
+                "wilcoxon_p_incorrect_holm": 0.42329999999999995,
                 "significant_incorrect_holm": false
             },
             "SETU_v1": {
@@ -81,7 +81,7 @@
                     0.055
                 ],
                 "wilcoxon_p_correct_raw": 0.0394,
-                "wilcoxon_p_correct_holm": 0.5117,
+                "wilcoxon_p_correct_holm": 0.5516,
                 "significant_correct_holm": false,
                 "wilcoxon_p_incorrect_raw": 0.3047,
                 "wilcoxon_p_incorrect_holm": 1.0,
@@ -101,10 +101,10 @@
                     0.0325
                 ],
                 "wilcoxon_p_correct_raw": 0.0588,
-                "wilcoxon_p_correct_holm": 0.7054,
+                "wilcoxon_p_correct_holm": 0.7644,
                 "significant_correct_holm": false,
                 "wilcoxon_p_incorrect_raw": 0.0249,
-                "wilcoxon_p_incorrect_holm": 0.3981,
+                "wilcoxon_p_incorrect_holm": 0.42329999999999995,
                 "significant_incorrect_holm": false
             }
         }
@@ -131,7 +131,7 @@
                     0.0072
                 ],
                 "wilcoxon_p_correct_raw": 0.0833,
-                "wilcoxon_p_correct_holm": 0.9159,
+                "wilcoxon_p_correct_holm": 0.9996,
                 "significant_correct_holm": false,
                 "wilcoxon_p_incorrect_raw": 0.3201,
                 "wilcoxon_p_incorrect_holm": 1.0,
@@ -151,7 +151,7 @@
                     0.044
                 ],
                 "wilcoxon_p_correct_raw": 0.0003,
-                "wilcoxon_p_correct_holm": 0.0073,
+                "wilcoxon_p_correct_holm": 0.006899999999999999,
                 "significant_correct_holm": true,
                 "wilcoxon_p_incorrect_raw": 0.7276,
                 "wilcoxon_p_incorrect_holm": 1.0,
@@ -171,10 +171,10 @@
                     0.0584
                 ],
                 "wilcoxon_p_correct_raw": 0.0002,
-                "wilcoxon_p_correct_holm": 0.0056,
+                "wilcoxon_p_correct_holm": 0.0048000000000000004,
                 "significant_correct_holm": true,
                 "wilcoxon_p_incorrect_raw": 0.085,
-                "wilcoxon_p_incorrect_holm": 0.9159,
+                "wilcoxon_p_incorrect_holm": 0.9996,
                 "significant_incorrect_holm": false
             }
         }
@@ -201,7 +201,7 @@
                     0.0184
                 ],
                 "wilcoxon_p_correct_raw": 0.0143,
-                "wilcoxon_p_correct_holm": 0.2432,
+                "wilcoxon_p_correct_holm": 0.2574,
                 "significant_correct_holm": false,
                 "wilcoxon_p_incorrect_raw": 0.2696,
                 "wilcoxon_p_incorrect_holm": 1.0,
@@ -221,7 +221,7 @@
                     0.0316
                 ],
                 "wilcoxon_p_correct_raw": 0.0011,
-                "wilcoxon_p_correct_holm": 0.0222,
+                "wilcoxon_p_correct_holm": 0.024200000000000003,
                 "significant_correct_holm": true,
                 "wilcoxon_p_incorrect_raw": 0.1448,
                 "wilcoxon_p_incorrect_holm": 1.0,
@@ -241,7 +241,7 @@
                     0.0393
                 ],
                 "wilcoxon_p_correct_raw": 0.0253,
-                "wilcoxon_p_correct_holm": 0.3981,
+                "wilcoxon_p_correct_holm": 0.42329999999999995,
                 "significant_correct_holm": false,
                 "wilcoxon_p_incorrect_raw": 0.6784,
                 "wilcoxon_p_incorrect_holm": 1.0,
@@ -252,6 +252,12 @@
     "phase4_chi2": {
         "raw_p": 0.635,
         "holm_corrected_p": 1.0,
+        "significant_after_correction": false
+    },
+    "phase14_confidence_correlation": {
+        "rho": NaN,
+        "raw_p": NaN,
+        "holm_corrected_p": NaN,
         "significant_after_correction": false
     }
 }

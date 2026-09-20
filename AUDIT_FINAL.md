@@ -83,8 +83,9 @@ The `qrels_dict` constructed in `scripts/compare_setu_v1_v2_scaled.py` creates b
 - **Phase 13 (CMI Validation)**: Out of scope for this revision. The underlying dataset and heuristics will be treated as-is; deeper linguistic validation of the CMI metric against IndicLID is left for future work.
 - **Phase 15 (External Baselines)**: Out of scope. The evaluation will rely exclusively on the strong dense zero-shot baselines (BGE-M3, Indic-SBERT, mE5-large) rather than adding complex external API-based or black-box baselines.
 
-## 15. EXACT LIST OF FILES/RESULTS STILL REQUIRING REGENERATION
-- **`results/canonical/` directory**: Currently holds only 10-byte `{}` JSON placeholder files generated as scaffolding in Phase 8. Real, populated metrics are missing.
+## 15. FINAL CLEANUP & TEST STATUS
+- **Canonical Results**: The `results/canonical/` scaffolding has been deleted. All canonical empirical truth resides within the `results/tables/` directory.
+- **Test Coverage (Phase 27)**: The primary regression test (`tests/test_leakage.py`) passes and validates the OOF disjointness. Comprehensive test coverage for individual operators and pipeline components remains future work.
 
 ---
 

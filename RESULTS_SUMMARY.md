@@ -15,7 +15,7 @@ Evaluating on the 314 canonical Hinglish queries without any operators demonstra
 When corrective operators (LQP, CAEP, LAG) are applied independently:
 - **Aggregated Washout**: The operators yield flat or negative aggregate MRR deltas when evaluated over the full 314 queries, failing to outperform the raw baselines (particularly on BGE-M3 and mE5-large).
 - **Over-Correction Mechanism**: Conditional analysis reveals that all operators exert a statistically significant *degradation* (negative MRR delta) on queries that the raw retriever had already mapped correctly.
-- **Lack of Failure Lift**: Conversely, on queries where the raw retriever failed (MRR < 1), the operators provide *no statistically robust improvement* (Phase 12 multiple-testing correction confirmed that an initial observed lift for BGE-M3+LAG was a false positive, Holm p=0.398).
+- **Lack of Failure Lift**: Conversely, on queries where the raw retriever failed (MRR < 1), the operators provide *no statistically robust improvement* (Phase 12 multiple-testing correction confirmed that an initial observed lift for BGE-M3+LAG was a false positive, Holm p=0.423).
 
 *Finding*: Operators are structurally predisposed to disrupt natively strong representations while offering no significant corrective power on actual failures.
 
@@ -27,5 +27,13 @@ The LinUCB controller was hypothesized to dynamically sequence operators based o
 
 *Finding*: SETU functions as a fixed-policy correction system rather than a context-adaptive one. 
 
-## 4. Final Verdict
+## 4. Supplementary: Misspelled Entity Subset (Phase 17)
+A targeted subset of 15 queries (Q61-Q75) featuring explicit misspellings and transliteration errors was evaluated.
+- **RAW (BGE-M3)**: MRR = 0.9333
+- **SETU_v1**: MRR = 0.9333
+- **SETU_v2**: MRR = 0.9333
+
+*Finding*: The baseline index natively resolves these engineered misspellings with extreme accuracy, rendering any explicit CAEP operations entirely redundant. All methods perform identically.
+
+## 5. Final Verdict
 The original hypothesis—that code-mixed specific operators adaptively orchestrated by a controller would outperform raw multilingual retrieval—is **rejected**. Following strict isolation of train/test data (fixing Phase 1/2 leakage) and multiple-testing correction (Phase 12), SETU demonstrates no robust empirical benefit over zero-shot BGE-M3 or mE5-large, and actively degrades correct retrievals.

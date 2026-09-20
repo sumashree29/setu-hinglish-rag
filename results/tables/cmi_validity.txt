@@ -1,0 +1,4 @@
+Cohen's Kappa (Heuristic vs IndicLID-FTN): 0.0868
+H1 Old (Heuristic): rho=0.1220, p=0.0307
+H1 New (IndicLID):  rho=nan, p=nan
+IndicLID is classifying short Hinglish tokens as 'other' and 'sat_Olch', ruining CMI construct validity.

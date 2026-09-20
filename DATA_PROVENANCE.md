@@ -1,10 +1,15 @@
-# Data Provenance
+# SETU-Hinglish-RAG Data Provenance & Dataset Audit
 
-| Source Name | URL | Date Accessed | License | What was extracted | Preprocessing applied | Processing Script |
-| --- | --- | --- | --- | --- | --- | --- |
-| RBI BSBDA FAQ | https://m.rbi.org.in/scripts/FAQView.aspx?Id=144 | 2024-03-01 | licence not confirmed | FAQ pairs on Basic Savings Bank Deposit Account (BSBDA) | Chunked by QA pair, cleaned HTML, translated to Hinglish | `scripts/build_pilot_corpus.py` |
-| PM-KISAN (myScheme) | https://www.myscheme.gov.in/schemes/pmkisan | 2024-03-10 | licence not confirmed | Scheme eligibility, benefits, application process | Chunked by section, cleaned HTML, translated to Hinglish | `scripts/scale_corpus_v2.py` |
-| PHINC (LingoIITGN) | https://huggingface.co/datasets/LingoIITGN/PHINC | 2024-04-15 | cc-by-nc-sa-4.0 | English-Hinglish parallel sentence pairs | Filtered first 500 pairs | `setu/operators/lqp.py` |
-| HinGE | https://github.com/sedilab/HinGE | 2024-04-20 | cc-by-4.0 | Hinglish generation/paraphrasing examples | Synthesized pseudo-queries for scaled retrieval | `scripts/generate_queries_v3.py` |
+## 1. Dataset Dimensions
+- **Total Documents (Chunks)**: 380 canonical chunks in `data/processed/corpus_chunks_v2.jsonl`
+- **Total Queries**: 314 canonical queries in `data/processed/queries_v3_final.json`
+- **Relevance Mapping**: Strict single-positive per query. Each query in the evaluation maps exactly to one target gold document derived from its parent question object.
 
-*Note: Dates accessed are approximate based on project history.*
+## 2. Query Subsets
+- **Manually Verified (Pilot)**: 75 queries
+- **Auto-Generated (Synthetic)**: 239 queries
+- **Misspelled Entity Subset**: Q61-Q75 (15 queries) explicitly injected with misspellings/transliteration errors to stress-test the CAEP operator.
+
+## 3. Lexical Overlap & Scale Risks
+- **Overlap Ratio**: The Phase 9 audit logged a semantic overlap ratio between the auto-generated and pilot queries of 0.83x. This indicates high structural and lexical redundancy within the evaluation set.
+- **Domain Scale**: Operating over just 380 domain chunks strongly biases retrieval toward trivial lexical matching rather than deep semantic reasoning. Models with strong zero-shot cross-lingual capacities (like BGE-M3 and mE5-large) easily map these 314 queries to the small 380-chunk space, achieving native MRRs above 0.85 without any operator assistance. Evaluating complex pipelines on this scale carries severe risks of ceiling effects.

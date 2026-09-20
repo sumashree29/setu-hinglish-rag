@@ -1,54 +1,25 @@
-# SETU — Hinglish RAG Retrieval Degradation & Adaptive Correction
+# SETU-Hinglish-RAG
 
-IEEE-target research project. Diagnoses how Hinglish/code-mixed queries degrade RAG
-retrieval quality, and corrects it with a learned controller (SETU) that sequences
-three operators (LQP, CAEP, LAG) and fuses ranks (CARF).
+## Research Question
+Can explicit, code-mixed specific operators (such as translation, entity preservation, and query projection) orchestrated by an adaptive reinforcement learning controller outperform strong zero-shot dense multilingual retrieval models (like BGE-M3 and mE5-large) on Hinglish text?
 
-## Team roles (see MASTER_CHECKLIST.md for the live task list)
-- **R1 — Retrieval & Diagnosis Lead**: `setu/diagnosis/`, `setu/embeddings/`, LQP, Phase 1 + corpus scaling
-- **R2 — Operators & Fusion Lead**: CAEP, LAG, CARF, confidence calibration
-- **R3 — Controller & Evaluation Lead**: SETU bandit controller, stats, benchmark arm, paper assembly
+## Method
+SETU introduces an architecture consisting of three discrete operators (LAG, CAEP, LQP) aimed at mitigating the lexical variance and domain-specific challenges of Hinglish. A LinUCB contextual bandit controller was designed to adaptively sequence these operators based on the query's complexity (measured by CMI and entropy) and the initial retrieval confidence.
 
-## Setup
-```bash
-python3 -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
-pip install -r requirements.txt
-```
-No GPU needed anywhere in this project — everything is CPU-only.
+We conducted a rigorous, strictly isolated 5-fold Out-Of-Fold (OOF) cross-validation of the full controller pipeline, evaluating against 314 canonical Hinglish queries mapped to 380 domain chunks.
 
-## How this repo is organized
-```
-setu/
-  diagnosis/     CMI(q), LID-entropy(q), pilot corpus builder      -> R1, Phase 1
-  embeddings/    loads BGE-M3 / Indic-SBERT / multilingual-e5      -> R1, Phase 1
-  operators/     lqp.py (R1), caep.py (R2), lag.py (R2)            -> Phase 2
-  fusion/        carf.py                                          -> R2, Phase 3
-  controller/    setu_bandit.py (SETU v1 baseline + v2 learned)    -> R3, Phase 4
-  evaluation/    metrics.py (Recall/MRR/nDCG), stats.py (Wilcoxon) -> R1 seeds it, R3 owns it
+## The Negative Result
+Our empirical audit conclusively **rejects** the hypothesis that the SETU architecture outperforms raw zero-shot dense representations. 
+- **Baseline Dominance**: Modern multilingual models (BGE-M3, mE5-large) solve ~80% of the Hinglish queries natively, leaving minimal headroom for explicit correction.
+- **Over-Correction Degradation**: We systematically demonstrate that explicitly transforming queries (via translation or projection) statically *degrades* the performance of already-correct retrievals. Statistical analysis across 24 hypothesis tests confirms that the operators offer no robust corrective lift on failure cases.
+- **Controller Policy Collapse**: Due to the narrow distribution of contextual features (99.7% of queries possess initial embedding confidences <0.2), the LinUCB controller collapses into a static early-termination policy entirely independent of the query context.
 
-scripts/         one script per pipeline stage — the thing you actually run
-notebooks/       exploratory work per phase; graduate stable code into setu/ once it's solid
-data/            raw/ (downloaded corpora), processed/ (built pilot corpus), embeddings/ (cached vectors), logs/ (operator trajectories)
-outputs/         (REMOVED: consolidated into results/)
-results/         canonical artifact directory (tables, figures, logs, models)
-demo/            setu-web-app demo site (Note: NOT part of the experimental pipeline)
-tests/           one test file per module; write these as you fill in the TODOs
-```
+We conclude that scaling strong dense multilingual representations is fundamentally more robust than developing brittle, context-adaptive operator pipelines for code-mixed retrieval.
 
-## Workflow for filling in a module
-1. Open your file (e.g. `setu/diagnosis/cmi.py`)
-2. Read the docstring — it says what the function must take in/return, and links back to
-   the exact section of `SETU_Implementation_Plan.pdf` that specifies it
-3. Implement it, replacing the `raise NotImplementedError(...)`
-4. Add/run the matching test in `tests/`
-5. Tick the row off in `MASTER_CHECKLIST.md`
-
-## Where to run things
-Everything here is plain Python — works identically in Jupyter, Colab, or an IDE.
-Recommended: prototype in `notebooks/`, then once a function is stable, move its final
-version into the matching `setu/` module so the rest of the pipeline can import it.
+## Explicit Limitations
+1. **Domain Scale**: The evaluation corpus consists of only 380 chunks. This biases results heavily toward trivial lexical matches and restricts the generalizability of the findings to large-scale open-domain retrieval.
+2. **Controller Scope**: The full SETU LinUCB controller was evaluated exclusively using the BGE-M3 backbone. Ablations for Indic-SBERT and mE5-large were conducted in isolation.
+3. **Out-of-Scope Phases**: Deeper linguistic validation of the CMI heuristics against external tools (IndicLID) and comparisons against complex black-box/external API baselines were explicitly designated as out-of-scope for this revision.
 
 ## Reproducibility
-For the bandit controller evaluation, we use a rigorous 5-fold out-of-fold cross validation.
-The splits are fully deterministic, based on sequential chunking of the sorted query IDs in `queries_v3_final.json`, eliminating random seed variance. All initializations of the LinUCB context weights start deterministically at zero, ensuring the evaluations in `test_phase4_integration.py` and `run_statistical_tests_h1_h10_scaled.py` are strictly reproducible.
+For the exact command sequence required to fully reproduce the canonical metrics, statistical tests, and tables, please see [REPRODUCE_FINAL.md](REPRODUCE_FINAL.md).
