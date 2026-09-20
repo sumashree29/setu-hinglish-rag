@@ -134,4 +134,15 @@ When applying individual operators (LQP, CAEP, LAG) or the full SETU controller 
    - For **Indic-SBERT** and **mE5-large**, no operator yielded any statistically significant improvement.
    - For **BGE-M3**, only the LAG operator (p=0.027) and the SETU_v2 controller (p=0.0249) achieved significant positive deltas.
 
-**Conclusion**: The prior "over-correction hypothesis" is fully validated. The operators are structurally predisposed to "hurt" queries that are already successfully mapped by raw dense retrieval, while offering very sparse improvements on failure cases (and only on BGE-M3). This over-correction effectively washes out system-level metrics, explaining why baseline BGE-M3 often outperforms the full pipeline in aggregated tables. The paper should clearly state that SETU (in its current formulation) acts detrimentally on natively strong dense representations.
+**Conclusion**: The prior "over-correction hypothesis" is fully validated. The operators are structurally predisposed to "hurt" queries that are already successfully mapped by raw dense retrieval. While raw uncorrected p-values suggested a sparse improvement on failure cases for BGE-M3, see Phase 12 below for the corrected significance.
+
+### Phase 12: Statistical Correction (Holm-Bonferroni)
+
+To rigorously validate the Phase 11 and Phase 4 findings, a Holm-Bonferroni multiple-testing correction was applied across all 23 hypothesis tests run to date (22 Wilcoxon tests from Phase 11 + 1 Chi-Square test from Phase 4). 
+
+The correction revealed a critical false positive:
+1. **Evaporation of Positive Lift**: The only previously observed significant improvements on failure cases (BGE-M3 + LAG with uncorrected p=0.0275, and BGE-M3 + SETU_v2 with uncorrected p=0.0249) completely failed to survive correction (**Holm p=0.3981** for both). There is **zero statistically robust evidence** that any operator or controller variant improves retrieval on natively failed queries across any of the three models.
+2. **Robustness of Degradation**: In stark contrast, the degradation (negative MRR delta) on "Already Correct" queries survived correction with high significance for several operators, including Indic-SBERT CAEP (Holm p=0.0073), Indic-SBERT LAG (Holm p=0.0056), mE5-large CAEP (Holm p=0.0222), and BGE-M3 LAG (Holm p=0.0222). 
+3. **Controller Independence**: The Phase 4 conclusion that the LinUCB controller's first action is independent of the query's complexity (CMI) remains fully valid (Holm p=1.0).
+
+**Final Conclusion on Pipeline Efficacy**: Following Phase 12 correction, the data dictates that the entire SETU operator pipeline exerts only one statistically significant effect: it degrades natively strong dense retrievals. It provides no robust corrective lift. The paper should explicitly acknowledge this as a limitation of the current operator/controller formulation.

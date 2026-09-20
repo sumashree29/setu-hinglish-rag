@@ -9,43 +9,103 @@
         "operators": {
             "LQP": {
                 "mean_delta_correct": -0.0195,
-                "wilcoxon_p_correct": 0.0039,
-                "significant_correct": true,
+                "cohen_d_correct": -0.1935,
+                "ci_95_correct": [
+                    -0.0323,
+                    -0.0068
+                ],
                 "mean_delta_incorrect": 0.0143,
-                "wilcoxon_p_incorrect": 0.7603,
-                "significant_incorrect": false
+                "cohen_d_incorrect": 0.0986,
+                "ci_95_incorrect": [
+                    -0.0201,
+                    0.0487
+                ],
+                "wilcoxon_p_correct_raw": 0.0039,
+                "wilcoxon_p_correct_holm": 0.074,
+                "significant_correct_holm": false,
+                "wilcoxon_p_incorrect_raw": 0.7603,
+                "wilcoxon_p_incorrect_holm": 1.0,
+                "significant_incorrect_holm": false
             },
             "CAEP": {
                 "mean_delta_correct": -0.0238,
-                "wilcoxon_p_correct": 0.007,
-                "significant_correct": true,
+                "cohen_d_correct": -0.1902,
+                "ci_95_correct": [
+                    -0.0396,
+                    -0.008
+                ],
                 "mean_delta_incorrect": 0.0195,
-                "wilcoxon_p_incorrect": 0.5489,
-                "significant_incorrect": false
+                "cohen_d_incorrect": 0.1097,
+                "ci_95_incorrect": [
+                    -0.0226,
+                    0.0616
+                ],
+                "wilcoxon_p_correct_raw": 0.007,
+                "wilcoxon_p_correct_holm": 0.1252,
+                "significant_correct_holm": false,
+                "wilcoxon_p_incorrect_raw": 0.5489,
+                "wilcoxon_p_incorrect_holm": 1.0,
+                "significant_incorrect_holm": false
             },
             "LAG": {
                 "mean_delta_correct": -0.031,
-                "wilcoxon_p_correct": 0.0011,
-                "significant_correct": true,
+                "cohen_d_correct": -0.2328,
+                "ci_95_correct": [
+                    -0.0478,
+                    -0.0142
+                ],
                 "mean_delta_incorrect": 0.0446,
-                "wilcoxon_p_incorrect": 0.0275,
-                "significant_incorrect": true
+                "cohen_d_incorrect": 0.2978,
+                "ci_95_incorrect": [
+                    0.0091,
+                    0.0801
+                ],
+                "wilcoxon_p_correct_raw": 0.0011,
+                "wilcoxon_p_correct_holm": 0.0222,
+                "significant_correct_holm": true,
+                "wilcoxon_p_incorrect_raw": 0.0275,
+                "wilcoxon_p_incorrect_holm": 0.3981,
+                "significant_incorrect_holm": false
             },
             "SETU_v1": {
                 "mean_delta_correct": -0.0127,
-                "wilcoxon_p_correct": 0.0394,
-                "significant_correct": true,
+                "cohen_d_correct": -0.1399,
+                "ci_95_correct": [
+                    -0.0241,
+                    -0.0012
+                ],
                 "mean_delta_incorrect": 0.023,
-                "wilcoxon_p_incorrect": 0.3047,
-                "significant_incorrect": false
+                "cohen_d_incorrect": 0.1695,
+                "ci_95_incorrect": [
+                    -0.0091,
+                    0.055
+                ],
+                "wilcoxon_p_correct_raw": 0.0394,
+                "wilcoxon_p_correct_holm": 0.5117,
+                "significant_correct_holm": false,
+                "wilcoxon_p_incorrect_raw": 0.3047,
+                "wilcoxon_p_incorrect_holm": 1.0,
+                "significant_incorrect_holm": false
             },
             "SETU_v2": {
                 "mean_delta_correct": -0.0089,
-                "wilcoxon_p_correct": 0.0588,
-                "significant_correct": false,
+                "cohen_d_correct": -0.128,
+                "ci_95_correct": [
+                    -0.0177,
+                    -0.0001
+                ],
                 "mean_delta_incorrect": 0.0162,
-                "wilcoxon_p_incorrect": 0.0249,
-                "significant_incorrect": true
+                "cohen_d_incorrect": 0.2344,
+                "ci_95_incorrect": [
+                    -0.0002,
+                    0.0325
+                ],
+                "wilcoxon_p_correct_raw": 0.0588,
+                "wilcoxon_p_correct_holm": 0.7054,
+                "significant_correct_holm": false,
+                "wilcoxon_p_incorrect_raw": 0.0249,
+                "wilcoxon_p_incorrect_holm": 0.3981,
+                "significant_incorrect_holm": false
             }
         }
     },
@@ -59,27 +119,63 @@
         "operators": {
             "LQP": {
                 "mean_delta_correct": -0.0101,
-                "wilcoxon_p_correct": 0.0833,
-                "significant_correct": false,
+                "cohen_d_correct": -0.1434,
+                "ci_95_correct": [
+                    -0.0216,
+                    0.0013
+                ],
                 "mean_delta_incorrect": -0.0039,
-                "wilcoxon_p_incorrect": 0.3201,
-                "significant_incorrect": false
+                "cohen_d_incorrect": -0.0536,
+                "ci_95_incorrect": [
+                    -0.0149,
+                    0.0072
+                ],
+                "wilcoxon_p_correct_raw": 0.0833,
+                "wilcoxon_p_correct_holm": 0.9159,
+                "significant_correct_holm": false,
+                "wilcoxon_p_incorrect_raw": 0.3201,
+                "wilcoxon_p_incorrect_holm": 1.0,
+                "significant_incorrect_holm": false
             },
             "CAEP": {
                 "mean_delta_correct": -0.0692,
-                "wilcoxon_p_correct": 0.0003,
-                "significant_correct": true,
+                "cohen_d_correct": -0.3325,
+                "ci_95_correct": [
+                    -0.103,
+                    -0.0354
+                ],
                 "mean_delta_incorrect": 0.0182,
-                "wilcoxon_p_incorrect": 0.7276,
-                "significant_incorrect": false
+                "cohen_d_incorrect": 0.1085,
+                "ci_95_incorrect": [
+                    -0.0075,
+                    0.044
+                ],
+                "wilcoxon_p_correct_raw": 0.0003,
+                "wilcoxon_p_correct_holm": 0.0073,
+                "significant_correct_holm": true,
+                "wilcoxon_p_incorrect_raw": 0.7276,
+                "wilcoxon_p_incorrect_holm": 1.0,
+                "significant_incorrect_holm": false
             },
             "LAG": {
                 "mean_delta_correct": -0.074,
-                "wilcoxon_p_correct": 0.0002,
-                "significant_correct": true,
+                "cohen_d_correct": -0.3483,
+                "ci_95_correct": [
+                    -0.1086,
+                    -0.0395
+                ],
                 "mean_delta_incorrect": 0.0335,
-                "wilcoxon_p_incorrect": 0.085,
-                "significant_incorrect": false
+                "cohen_d_incorrect": 0.2067,
+                "ci_95_incorrect": [
+                    0.0087,
+                    0.0584
+                ],
+                "wilcoxon_p_correct_raw": 0.0002,
+                "wilcoxon_p_correct_holm": 0.0056,
+                "significant_correct_holm": true,
+                "wilcoxon_p_incorrect_raw": 0.085,
+                "wilcoxon_p_incorrect_holm": 0.9159,
+                "significant_incorrect_holm": false
             }
         }
     },
@@ -93,28 +189,69 @@
         "operators": {
             "LQP": {
                 "mean_delta_correct": -0.0118,
-                "wilcoxon_p_correct": 0.0143,
-                "significant_correct": true,
+                "cohen_d_correct": -0.1552,
+                "ci_95_correct": [
+                    -0.0212,
+                    -0.0024
+                ],
                 "mean_delta_incorrect": -0.0038,
-                "wilcoxon_p_incorrect": 0.2696,
-                "significant_incorrect": false
+                "cohen_d_incorrect": -0.0441,
+                "ci_95_incorrect": [
+                    -0.026,
+                    0.0184
+                ],
+                "wilcoxon_p_correct_raw": 0.0143,
+                "wilcoxon_p_correct_holm": 0.2432,
+                "significant_correct_holm": false,
+                "wilcoxon_p_incorrect_raw": 0.2696,
+                "wilcoxon_p_incorrect_holm": 1.0,
+                "significant_incorrect_holm": false
             },
             "CAEP": {
                 "mean_delta_correct": -0.0261,
-                "wilcoxon_p_correct": 0.0011,
-                "significant_correct": true,
+                "cohen_d_correct": -0.2171,
+                "ci_95_correct": [
+                    -0.041,
+                    -0.0113
+                ],
                 "mean_delta_incorrect": -0.0029,
-                "wilcoxon_p_incorrect": 0.1448,
-                "significant_incorrect": false
+                "cohen_d_incorrect": -0.0216,
+                "ci_95_incorrect": [
+                    -0.0374,
+                    0.0316
+                ],
+                "wilcoxon_p_correct_raw": 0.0011,
+                "wilcoxon_p_correct_holm": 0.0222,
+                "significant_correct_holm": true,
+                "wilcoxon_p_incorrect_raw": 0.1448,
+                "wilcoxon_p_incorrect_holm": 1.0,
+                "significant_incorrect_holm": false
             },
             "LAG": {
                 "mean_delta_correct": -0.0098,
-                "wilcoxon_p_correct": 0.0253,
-                "significant_correct": true,
+                "cohen_d_correct": -0.1414,
+                "ci_95_correct": [
+                    -0.0184,
+                    -0.0012
+                ],
                 "mean_delta_incorrect": 0.0094,
-                "wilcoxon_p_incorrect": 0.6784,
-                "significant_incorrect": false
+                "cohen_d_incorrect": 0.0806,
+                "ci_95_incorrect": [
+                    -0.0206,
+                    0.0393
+                ],
+                "wilcoxon_p_correct_raw": 0.0253,
+                "wilcoxon_p_correct_holm": 0.3981,
+                "significant_correct_holm": false,
+                "wilcoxon_p_incorrect_raw": 0.6784,
+                "wilcoxon_p_incorrect_holm": 1.0,
+                "significant_incorrect_holm": false
             }
         }
+    },
+    "phase4_chi2": {
+        "raw_p": 0.635,
+        "holm_corrected_p": 1.0,
+        "significant_after_correction": false
     }
 }

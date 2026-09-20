@@ -5,8 +5,31 @@ import faiss
 import pickle
 import time
 from pathlib import Path
-from scipy.stats import wilcoxon
+from scipy.stats import wilcoxon, sem, t
 import matplotlib.pyplot as plt
+
+try:
+    from statsmodels.stats.multitest import multipletests
+except ImportError:
+    import subprocess
+    subprocess.check_call(["pip", "install", "statsmodels"])
+    from statsmodels.stats.multitest import multipletests
+
+def cohen_d_paired(d_list):
+    if len(d_list) < 2: return 0.0
+    d_arr = np.array(d_list)
+    std = np.std(d_arr, ddof=1)
+    if std == 0: return 0.0
+    return np.mean(d_arr) / std
+
+def mean_ci(d_list):
+    if len(d_list) < 2: return (0.0, 0.0)
+    d_arr = np.array(d_list)
+    mean = np.mean(d_arr)
+    se = sem(d_arr)
+    if se == 0: return (mean, mean)
+    ci = t.interval(0.95, len(d_arr)-1, loc=mean, scale=se)
+    return ci
 
 sys.path.append(str(Path(__file__).resolve().parents[1]))
 from sentence_transformers import SentenceTransformer
@@ -195,6 +218,7 @@ for model_key, (model_name, needs_prefix) in EMBEDDING_MODELS.items():
         "operators": {}
     }
     
+    # We will collect the p-values and raw deltas for the final correction
     for op, grp_deltas in deltas.items():
         op_res = {}
         for grp in ["correct", "incorrect"]:
@@ -202,7 +226,7 @@ for model_key, (model_name, needs_prefix) in EMBEDDING_MODELS.items():
             if len(d_list) == 0:
                 continue
             mean_d = float(np.mean(d_list))
-            # Wilcoxon requires non-zero differences, otherwise it throws ValueError. Add safe fallback.
+            # Wilcoxon requires non-zero differences
             non_zero_d = [x for x in d_list if abs(x) > 1e-6]
             if len(non_zero_d) > 0:
                 try:
@@ -213,13 +237,52 @@ for model_key, (model_name, needs_prefix) in EMBEDDING_MODELS.items():
             else:
                 p_val = 1.0
             
+            d_val = cohen_d_paired(d_list)
+            ci = mean_ci(d_list)
+            
             op_res[f"mean_delta_{grp}"] = round(mean_d, 4)
-            op_res[f"wilcoxon_p_{grp}"] = round(p_val, 4)
-            op_res[f"significant_{grp}"] = p_val < 0.05
+            op_res[f"wilcoxon_p_{grp}"] = p_val
+            op_res[f"cohen_d_{grp}"] = round(d_val, 4)
+            op_res[f"ci_95_{grp}"] = [round(ci[0], 4), round(ci[1], 4)]
         model_results["operators"][op] = op_res
         
     final_results[model_key] = model_results
     plot_data[model_key] = deltas
+
+# Apply Holm-Bonferroni across all Phase 11 Wilcoxon tests + Phase 4 Chi-Square
+all_pvals = []
+pval_keys = []
+
+# Phase 4 Chi-Square (Independence of initial action and CMI band)
+all_pvals.append(0.635)
+pval_keys.append(("phase4_chi2", "N/A", "N/A"))
+
+for m_key, m_res in final_results.items():
+    for op, op_res in m_res["operators"].items():
+        for grp in ["correct", "incorrect"]:
+            p_key = f"wilcoxon_p_{grp}"
+            if p_key in op_res:
+                all_pvals.append(op_res[p_key])
+                pval_keys.append((m_key, op, grp))
+
+rej, pvals_corrected, _, _ = multipletests(all_pvals, alpha=0.05, method='holm')
+
+# Write back corrected p-values
+for i, (m_key, op, grp) in enumerate(pval_keys):
+    if m_key == "phase4_chi2":
+        final_results["phase4_chi2"] = {
+            "raw_p": round(all_pvals[i], 4),
+            "holm_corrected_p": round(pvals_corrected[i], 4),
+            "significant_after_correction": bool(rej[i])
+        }
+        continue
+    
+    op_res = final_results[m_key]["operators"][op]
+    op_res[f"wilcoxon_p_{grp}_raw"] = round(all_pvals[i], 4)
+    op_res[f"wilcoxon_p_{grp}_holm"] = round(pvals_corrected[i], 4)
+    op_res[f"significant_{grp}_holm"] = bool(rej[i])
+    # Remove the unrounded raw p_val to clean up JSON
+    del op_res[f"wilcoxon_p_{grp}"]
 
 # Save JSON
 out_path = ROOT / "results" / "tables" / "overcorrection_final.json"
