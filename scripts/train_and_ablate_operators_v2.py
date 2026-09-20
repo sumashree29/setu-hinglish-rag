@@ -59,6 +59,7 @@ doc_ids = [c["chunk_id"] for c in chunks_v2]
 doc_texts = [c["text"] for c in chunks_v2]
 query_ids = [q["query_id"] for q in queries_v3]
 query_texts = [q["text"] for q in queries_v3]
+q_by_id = {q["query_id"]: q for q in queries_v3}
 
 print(f"Loaded {len(chunks_v2)} chunks and {len(queries_v3)} queries.")
 
@@ -80,20 +81,10 @@ entity_freq = entity_frequencies(doc_texts)
 print(f"Extracted {len(entities)} unique domain entities from 380 chunks.")
 print(f"Top 15 entities: {entities[:15]}")
 
-# 3. Retrain LAG on Empirical Labels (314 Queries)
-print("\n--- 2. Retraining LAG on 314 Queries (Empirical Labels) ---")
-
+# Load LAG labels (for OOF training later)
 lag_labels_file = DATA_DIR / "processed" / "lag_labels_v3.json"
 with open(lag_labels_file, "r", encoding="utf-8") as f:
     lag_labeled_data = json.load(f)
-
-X_lag = np.array([[d["cmi"], d["lid_entropy"], d["entity_density"]] for d in lag_labeled_data])
-y_lag = np.array([d["label"] for d in lag_labeled_data])
-
-print(f"Fitting LAG model on {len(lag_labeled_data)} queries (Strategy distribution: {dict(zip(SUB_STRATEGIES, [sum(y_lag==0), sum(y_lag==1), sum(y_lag==2)]))})...")
-lag_model = fit_lag_v2(X_lag, y_lag)
-with open(MODELS_DIR / "lag_model_v3.pkl", "wb") as f:
-    pickle.dump(lag_model, f)
 
 # 4. Model-by-Model Operator Training & Standalone Ablation
 EMBEDDING_MODELS = {
@@ -138,7 +129,6 @@ for model_key, (model_name, needs_prefix) in EMBEDDING_MODELS.items():
 
     # A. Train LQP for this model (Bypassed! Load existing)
     print(f"Loading pre-trained LQP for {model_key}...")
-    import pickle
     try:
         with open(MODELS_DIR / f"lqp_model_{model_key}.pkl", "rb") as f:
             lqp_model = pickle.load(f)
@@ -146,14 +136,12 @@ for model_key, (model_name, needs_prefix) in EMBEDDING_MODELS.items():
         if not args.allow_dummy_data:
             raise RuntimeError(f"LQP model load failed: {e}. Refusing to train on dummy data. Pass --allow-dummy-data to override.")
         print(f"Warning: LQP model load failed: {e}")
-        # fallback if somehow missing, though it shouldn't be
         X_phinc = embed_fn(hinglish_sents)
         Y_phinc = embed_fn(english_sents)
         lqp_model = fit_lqp(X_phinc, Y_phinc, alpha_reg=1.0)
         
     # B. Train CAEP Gate for this model (Bypassed! Load existing)
     print(f"Loading pre-trained CAEP Gate for {model_key}...")
-    import pickle
     try:
         with open(MODELS_DIR / f"caep_gate_{model_key}.pkl", "rb") as f:
             caep_gate = pickle.load(f)
@@ -165,7 +153,7 @@ for model_key, (model_name, needs_prefix) in EMBEDDING_MODELS.items():
         caep_gate = CAEPGate(0.85)
 
     # C. Load Doc Embeddings & Build FAISS Index
-    doc_emb_path = DATA_DIR / "embeddings" / f"doc_emb_{model_key}_v2.npy"
+    doc_emb_path = ROOT / "results" / "logs" / f"doc_emb_{model_key}_v2.npy"
     doc_emb = np.load(doc_emb_path)
     faiss.normalize_L2(doc_emb)
     index = faiss.IndexFlatIP(doc_emb.shape[1])
@@ -182,11 +170,11 @@ for model_key, (model_name, needs_prefix) in EMBEDDING_MODELS.items():
     raw_run, lqp_run, caep_run, lag_run = {}, {}, {}, {}
     lat_raw, lat_lqp, lat_caep, lat_lag = [], [], [], []
 
+    # D1. Global evaluation for RAW, LQP, CAEP
     for q in queries_v3:
         qid = q["query_id"]
         q_text = q["text"]
         q_c = query_cmi[qid]
-        q_ent = query_entropy[qid]
         
         # 1. RAW
         t0 = time.perf_counter()
@@ -210,29 +198,58 @@ for model_key, (model_name, needs_prefix) in EMBEDDING_MODELS.items():
         lat_caep.append(time.perf_counter() - t0)
         caep_run[qid] = {d: (len(c_ids) - rk) for rk, d in enumerate(c_ids)}
         
-        # 4. LAG ALONE
-        t0 = time.perf_counter()
-        q_dens = entity_density(q_text, entities)
-        lag_strat = predict_strategy(q_c, q_ent, q_dens, lag_model)
-        lag_out = apply_lag(
-            q_text,
-            lag_strat,
-            entities=entities,
-            embed_fn=embed_fn,
-            caep_gate=caep_gate,
-            entity_freq=entity_freq,
-        )
-        if isinstance(lag_out, list):
-            q1_emb = embed_fn([lag_out[0]])[0]
-            q2_emb = embed_fn([lag_out[1]])[0]
-            r1_ids, _ = faiss_search(np.asarray(q1_emb))
-            r2_ids, _ = faiss_search(np.asarray(q2_emb))
-            lag_ids = rrf_baseline([r1_ids, r2_ids])
-        else:
-            lag_emb = embed_fn([lag_out])[0]
-            lag_ids, _ = faiss_search(np.asarray(lag_emb))
-        lat_lag.append(time.perf_counter() - t0)
-        lag_run[qid] = {d: (len(lag_ids) - rk) for rk, d in enumerate(lag_ids)}
+    # D2. 5-Fold OOF evaluation for LAG_alone
+    print(f"Running 5-fold OOF evaluation for LAG_alone to prevent leakage...")
+    n_splits = 5
+    folds = np.array_split(query_ids, n_splits)
+    
+    for fold_idx, test_qids in enumerate(folds):
+        train_ids = set(query_ids) - set(test_qids)
+        test_ids = set(test_qids)
+        
+        assert train_ids.isdisjoint(test_ids), "fold overlap detected"
+        
+        fold_lag_data = [d for d in lag_labeled_data if d["query_id"] in train_ids]
+        fold_lag_test_data = [d for d in lag_labeled_data if d["query_id"] in test_ids]
+        
+        assert all(d["query_id"] not in test_ids for d in fold_lag_data), "LAG train leakage"
+        assert all(d["query_id"] not in train_ids for d in fold_lag_test_data), "LAG test leakage"
+        
+        X_lag = np.array([[d["cmi"], d["lid_entropy"], d["entity_density"]] for d in fold_lag_data])
+        y_lag = np.array([d["label"] for d in fold_lag_data])
+        
+        # Train fold_lag_model on out-of-fold training queries
+        fold_lag_model = fit_lag_v2(X_lag, y_lag)
+        
+        # Score held-out fold queries
+        for qid in test_qids:
+            q = q_by_id[qid]
+            q_text = q["text"]
+            q_c = query_cmi[qid]
+            q_ent = query_entropy[qid]
+            
+            t0 = time.perf_counter()
+            q_dens = entity_density(q_text, entities)
+            lag_strat = predict_strategy(q_c, q_ent, q_dens, fold_lag_model)
+            lag_out = apply_lag(
+                q_text,
+                lag_strat,
+                entities=entities,
+                embed_fn=embed_fn,
+                caep_gate=caep_gate,
+                entity_freq=entity_freq,
+            )
+            if isinstance(lag_out, list):
+                q1_emb = embed_fn([lag_out[0]])[0]
+                q2_emb = embed_fn([lag_out[1]])[0]
+                r1_ids, _ = faiss_search(np.asarray(q1_emb))
+                r2_ids, _ = faiss_search(np.asarray(q2_emb))
+                lag_ids = rrf_baseline([r1_ids, r2_ids])
+            else:
+                lag_emb = embed_fn([lag_out])[0]
+                lag_ids, _ = faiss_search(np.asarray(lag_emb))
+            lat_lag.append(time.perf_counter() - t0)
+            lag_run[qid] = {d: (len(lag_ids) - rk) for rk, d in enumerate(lag_ids)}
 
     # Overall Evaluation
     run_objs = {
@@ -283,7 +300,7 @@ print("="*100)
 print(f"{'Model':<12} | {'Operator':<12} | {'Recall@5':<10} | {'Δ Recall@5':<12} | {'Recall@10':<10} | {'MRR':<10} | {'Δ MRR':<10} | {'nDCG@10':<10} | {'Latency'}")
 print("-"*100)
 
-for m_key in EMBEDDING_MODELS:
+for m_key in ablation_results.keys():
     m_res = ablation_results[m_key]["overall_314"]
     raw_r5 = m_res["RAW"]["recall@5"]
     raw_mrr = m_res["RAW"]["mrr"]
@@ -304,11 +321,13 @@ for m_key in EMBEDDING_MODELS:
 print("\n" + "="*100)
 print("SUBGROUP ABLATION: LOW (n=14) vs VERY HIGH (n=35) CMI BANDS")
 print("="*100)
-for m_key in EMBEDDING_MODELS:
+for m_key in ablation_results.keys():
     print(f"\nModel: {m_key}")
     print(f"{'Band':<12} | {'Operator':<12} | {'Recall@5':<10} | {'Δ Recall@5':<12} | {'MRR':<10} | {'Δ MRR':<10} | {'nDCG@10':<10}")
     print("-"*80)
     for band in ["low", "very_high"]:
+        if band not in ablation_results[m_key]["by_cmi_band"]:
+            continue
         b_res = ablation_results[m_key]["by_cmi_band"][band]
         b_raw_r5 = b_res["RAW"]["recall@5"]
         b_raw_mrr = b_res["RAW"]["mrr"]
