@@ -60,23 +60,23 @@
             "mrr": 0.8526071681326458,
             "recall@5": 0.9554140127388535,
             "recall@10": 0.9872611464968153,
-            "mean_latency_ms": 162.38357293030995
+            "mean_latency_ms": 128.78201974307694
         },
         "SETU_v1": {
             "ndcg@10": 0.8801085988903488,
             "mrr": 0.8480022012665325,
             "recall@5": 0.9522292993630573,
             "recall@10": 0.9808917197452229,
-            "mean_latency_ms": 940.1941207003229,
-            "mean_steps": 4.0
+            "mean_latency_ms": 757.384030253309,
+            "mean_steps": 3.0
         },
         "SETU_v2": {
             "ndcg@10": 0.8832766582681363,
             "mrr": 0.8493631722134908,
             "recall@5": 0.9585987261146497,
             "recall@10": 0.9872611464968153,
-            "mean_steps": 1.697452229299363,
-            "mean_latency_ms": 483.34756496942236
+            "mean_steps": 1.697,
+            "mean_latency_ms": 383.8898818450535
         }
     },
     "Table_4_Hypotheses": {
@@ -114,14 +114,7 @@
             "p": 0.379224807554285,
             "p_corr": 1.0,
             "effect": 0.1896551724137931,
-            "verdict": "not supported (equivalent retrieval quality)"
-        },
-        "H10": {
-            "hypothesis": "H10: Proxy confidence signals (e.g., score margin) accurately correlate with retrieval success.",
-            "p": 1.5254442649862641e-21,
-            "p_corr": 1.0678109854903849e-20,
-            "effect": 0.5030299246087869,
-            "verdict": "supported"
+            "verdict": "not supported (no statistically significant difference detected)"
         },
         "H7": {
             "hypothesis": "H7: LQP alone recovers CMI-driven degradation.",
@@ -134,7 +127,7 @@
             "hypothesis": "H8: SETU v2 matches quality with fewer steps than v1.",
             "p": 3.138089386554242e-57,
             "p_corr": 2.5104715092433935e-56,
-            "effect": -1.0,
+            "effect": "Mean operator actions: 1.697 (v2) vs 3.000 (v1)",
             "verdict": "supported"
         },
         "H9": {

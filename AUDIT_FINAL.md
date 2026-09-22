@@ -1,16 +1,25 @@
 # AUDIT FINAL - Phase 0
 
 ## 1. CURRENT ARCHITECTURE
-The SETU-Hinglish-RAG pipeline implements the following stages:
-1. **Dataset**: Processed via `data/processed/corpus_chunks_v2.jsonl` and `data/processed/queries_v3_final.json`.
-2. **Embeddings**: Generated using dense retrievers (like BGE-M3) via `setu/embeddings/loader.py` (e.g., `load_embedding_model` and `embed`).
-3. **Operators**:
-   - **LAG** (Learned Adaptive Gating): `setu/operators/lag.py` (rewrites queries).
-   - **CAEP** (Context-Aware Entity Preservation): `setu/operators/caep.py` (preserves/substitutes entities).
-   - **LQP** (Latent Query Projection): `setu/operators/lqp.py` (projects queries based on CMI).
-4. **Controller**: `setu/controller/setu_bandit.py`. Dictates the sequence of operators. Uses a `LinUCBController` or fixed sequence (`setu_v1_fixed_order`, `setu_v2_run`).
-5. **Fusion**: **CARF** (CMI-Aware Rank Fusion) in `setu/fusion/carf.py` fuses original and corrected rankings.
-6. **Evaluation**: Conducted in `scripts/compare_setu_v1_v2_scaled.py` measuring MRR, NDCG, etc., against `qrels_dict`.
+Query Feature Extraction
+- CMI
+- LID entropy
+- Entity density
+Initial Retrieval (BGE-M3)
+Adaptive Controller (LinUCB)
+Retrieval Operators
+- LQP
+- CAEP
+- LAG
+Updated Retrieval
+CMI-Aware Rank Fusion (CARF)
+- CMI-conditioned score fusion
+- Combine raw and corrected rankings
+- Produce final ranking
+Final Retrieved Passages
+- Document/Chunk IDs
+- Scores
+- Metadata
 
 ## 2. CURRENT DATA FLOW
 Trace of a query through the system:

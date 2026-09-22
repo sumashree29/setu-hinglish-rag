@@ -2,7 +2,7 @@
 SETU controller — the paper's central contribution.
 OWNER: R3 | PHASE: 4 (plan §6)
 
-SETU v1: fixed order, always all 4 steps (LAG -> CAEP -> LQP -> CARF), tau=1. Baseline.
+SETU v1: fixed order, three retrieval operators (LAG -> CAEP -> LQP), followed by CARF fusion. CARF is not an operator action.
 SETU v2: learned contextual bandit that picks the operator sequence per query
          and halts adaptively based on a confidence signal.
 
@@ -61,7 +61,7 @@ def setu_v1_fixed_order(
     lag_model=None,
 ) -> Dict:
     """
-    Baseline: always LAG -> CAEP -> LQP -> CARF, no adaptivity.
+    Baseline: always LAG -> CAEP -> LQP, then apply CARF as final rank fusion. No adaptive operator selection.
 
     Args:
         query: raw Hinglish query

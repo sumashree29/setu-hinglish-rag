@@ -26,11 +26,11 @@ The evaluation employs a strict 5-fold Out-Of-Fold (OOF) protocol:
 ## 5. Statistical Methodology
 - **Tests Used:** Paired Wilcoxon signed-rank tests for comparative accuracy (MRR) and Spearman correlations for monotonic associations (CMI, Confidence).
 - **Multiple Testing Correction:** Holm-Bonferroni correction was applied to control the Family-Wise Error Rate (FWER) across the hypothesis tests and overcorrection splits.
-- **Equivalence:** No strict equality is claimed for non-significant tests (e.g., SETU v1 vs v2). A lack of significant difference (p > 0.05) is reported conservatively.
+- **Equivalence:** No statistically significant difference was detected between SETU v1 and SETU v2 under the evaluated paired test. This is not an equivalence claim.
 
 ## 6. Major Supported Findings
-- SETU v2 effectively operates as an early-termination policy, achieving comparable retrieval results to a fixed-order pipeline (SETU v1) but with significantly fewer computational steps (1.70 vs 4.0).
-- Margin-based confidence proxies successfully correlate with actual retrieval success on this corpus.
+- SETU v2 effectively operates as an early-termination policy, achieving comparable retrieval results to a fixed-order pipeline (SETU v1) but with significantly fewer computational steps (1.697 operator actions vs 3.0 operator actions).
+- The previous margin-confidence correlation result is excluded because the underlying confidence-margin series is not present in the canonical evidence.
 - Existing dense retrievers are highly capable zero-shot baselines, resolving the majority of Hinglish queries natively.
 
 ## 7. Unsupported Hypotheses (Negative Results)

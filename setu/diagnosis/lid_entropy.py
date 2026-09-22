@@ -12,8 +12,7 @@ we have opted to keep the lexicon tagger for the pilot-scale evaluation due to
 dependency constraints.
 
 LIMITATION: This hand-rolled tagger affects the construct validity of the CMI
-metric. The resulting CMI scores may be noisy. This limitation must be explicitly
-disclosed in the paper's limitation section.
+metric. The resulting CMI scores may be noisy. setu/diagnosis/lid_entropy.py currently uses a hand-built lexicon/heuristic tagger. Treat CMI and LID entropy as proxy diagnostics, not as validated language-identification measurements.
 """
 import re
 import string
