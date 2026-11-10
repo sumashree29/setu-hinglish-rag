@@ -56,10 +56,21 @@ def main():
                 return 1.0 / (r + 1)
         return 0.0
 
+    raw_rankings_map = {}
+    pqr_path = ROOT / "results" / "canonical" / "per_query_results.jsonl"
+    if pqr_path.exists():
+        with open(pqr_path, "r", encoding="utf-8") as f:
+            for line in f:
+                if line.strip():
+                    rec = json.loads(line)
+                    raw_rankings_map[rec["query_id"]] = rec.get("raw_ranking", [])
+
     for q in logs:
         qid = q["query_id"]
-        # context is [cmi, lid, conf, step, ...]
-        if "context" in q and len(q["context"]) > 2:
+        # confidence_trace[0] holds initial top-1/top-2 margin
+        if "confidence_trace" in q and len(q["confidence_trace"]) > 0:
+            confidences.append(q["confidence_trace"][0])
+        elif "context" in q and len(q["context"]) > 2:
             confidences.append(q["context"][2])
         else:
             confidences.append(0.0) # Fallback
@@ -69,12 +80,10 @@ def main():
         
         if qid in subset_ids:
             subset_v2.append(mrr_v2)
-            # Find RAW MRR from baseline table if we don't have it directly in logs. 
-            # Actually, `setu_v2_per_query_v3.json` might not have RAW ranking.
-            # We can just look up `scaled_corpus_retrieval_v3.json`? No, it has aggregates.
-            # Let's just output v2 for now, or if `initial_ranking` is present, use it.
             if "initial_ranking" in q:
                 subset_raw.append(get_mrr(q["initial_ranking"], qrel_dict.get(qid, set())))
+            elif qid in raw_rankings_map:
+                subset_raw.append(get_mrr(raw_rankings_map[qid], qrel_dict.get(qid, set())))
             else:
                 subset_raw.append(0.0) # Fallback if missing
                 
@@ -96,7 +105,7 @@ def main():
     pval_keys.append(("phase4_chi2", "N/A"))
     
     for m, mres in over.items():
-        if m == "phase4_chi2" or m == "phase14": continue
+        if not isinstance(mres, dict) or "operators" not in mres: continue
         for op, opres in mres.get("operators", {}).items():
             for grp in ["correct", "incorrect"]:
                 p_key = f"wilcoxon_p_{grp}_raw"

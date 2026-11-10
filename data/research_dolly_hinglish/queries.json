@@ -1,0 +1,6002 @@
+[
+  {
+    "query_id": "q_dolly_00000",
+    "query": "Orange wine ka origin kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00000"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00002",
+    "query": "Scotland mein Aberdeen city ke baare mein kya jaante ho?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00002"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00007",
+    "query": "Passage se ICICI Bank branches aur uske subsidiaries ke locations ka pata lagayein jo India ke bahar hain. Results ko comma separated format mein dikhayien.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00007"
+    ],
+    "metadata": {
+      "cmi": 0.56,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00008",
+    "query": "Neeche diye gaye text ke anusaar Tingri Nepalese logon ke liye kyun important tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00008"
+    ],
+    "metadata": {
+      "cmi": 0.4286,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00011",
+    "query": "Passage se Rise of the Planet of the Apes movie ke stars ke naam note karein. Results ko comma separated format mein list karein.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00011"
+    ],
+    "metadata": {
+      "cmi": 0.4583,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00024",
+    "query": "Smuggler Cove Shell Midden kahaan hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00024"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00026",
+    "query": "I Liq Chuan martial art ke liye grading system kisne banaya?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00026"
+    ],
+    "metadata": {
+      "cmi": 0.4545,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00027",
+    "query": "1970s, 1980s aur 1990s ke kuch best TV shows ke naam bataiye",
+    "gold_chunk_ids": [
+      "chunk_dolly_00027"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00031",
+    "query": "Game theory kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00031"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00032",
+    "query": "Paragraph mein diye gaye paani ke bare mein, paani ko cohesive kya banata hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00032"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00034",
+    "query": "California ka pehla official wine-producing vineyard kaun sa mana jata hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00034"
+    ],
+    "metadata": {
+      "cmi": 0.5455,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00037",
+    "query": "90s ke aakhiri mein sabse best hip hop group kaun tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00037"
+    ],
+    "metadata": {
+      "cmi": 0.2727,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00041",
+    "query": "Powerlifting kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00041"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00043",
+    "query": "Iss paragraph ke anusaar, Mohammad Shah I ke apne sultanate par raj karne ka mukhya focus kya tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00043"
+    ],
+    "metadata": {
+      "cmi": 0.5556,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00047",
+    "query": "Iss sentence ko past tense mein badlein",
+    "gold_chunk_ids": [
+      "chunk_dolly_00047"
+    ],
+    "metadata": {
+      "cmi": 0.4286,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00048",
+    "query": "Kya Fairdale mein koi high school hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00048"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00051",
+    "query": "William Gibson ki pehli comic book series ka naam kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00051"
+    ],
+    "metadata": {
+      "cmi": 0.5455,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00053",
+    "query": "Iss article ke anusaar, Ala-ud-Din Bahman Shah aur Alauddin Mujahid Shah ke beech kya rishta tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00053"
+    ],
+    "metadata": {
+      "cmi": 0.5625,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00056",
+    "query": "Sri Lanka mein Sigiriya fortress kisne banaya tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00056"
+    ],
+    "metadata": {
+      "cmi": 0.625,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00058",
+    "query": "Inflation kya hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00058"
+    ],
+    "metadata": {
+      "cmi": 0.25,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00059",
+    "query": "Gandhi ke dwara ki gayi pehli major agitation kab aur kahan hui thi, bataiye yeh agitation kiske khilaf thi, kis fasal ke karan yeh agitation hui aur yeh agitation kyun hui.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00059"
+    ],
+    "metadata": {
+      "cmi": 0.3226,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00062",
+    "query": "Sailboats ko upwind tack kyun karna padta hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00062"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00067",
+    "query": "SVM kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00067"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00068",
+    "query": "Dollarama kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00068"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00072",
+    "query": "Itsunen Shoyu ke iss reference ke anusaar, unhone Zen Buddhism ko Japan mein lane ke liye kisko convince kiya tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00072"
+    ],
+    "metadata": {
+      "cmi": 0.6,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00074",
+    "query": "Douglas Stuart Moore ko kis cheez ke liye sabse zyada yaad kiya jata hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00074"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00078",
+    "query": "Diye gaye passage se, Cassandra ke liye language drivers ki list nikalo. Unhe comma se alag karein.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00078"
+    ],
+    "metadata": {
+      "cmi": 0.4706,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00080",
+    "query": "Neeche diye gaye description ke hisaab se gravity hill ke primary features kya hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00080"
+    ],
+    "metadata": {
+      "cmi": 0.4286,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00081",
+    "query": "Romain Iannetta kaun hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00081"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00084",
+    "query": "Passage se beaver dams banane ke liye use kiye gaye materials ko extract karein aur unhe comma se alag karein.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00084"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00089",
+    "query": "Anne Elizabeth Howells ke baare mein diye gaye reference text se, unke parents ke naam aur unki death kaise hui bataiye.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00089"
+    ],
+    "metadata": {
+      "cmi": 0.5238,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00090",
+    "query": "Ken Shamrock ne apna last name kyun badla?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00090"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00093",
+    "query": "Kya aap jaante hain ki Game of Thrones ke kitne episodes hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00093"
+    ],
+    "metadata": {
+      "cmi": 0.4167,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00094",
+    "query": "Easter kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00094"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00099",
+    "query": "Dill Records ke baare mein diye gaye paragraph se bataiye ki group ne kab CDs banaye aur record label kisne start kiya.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00099"
+    ],
+    "metadata": {
+      "cmi": 0.4545,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00101",
+    "query": "2008 tak ke liye diye gaye paragraph mein heart ke bare mein, cardiovascular diseases kitne deaths (in %) ke liye responsible hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00101"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00104",
+    "query": "Alaska mein kitne time zones hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00104"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00106",
+    "query": "Dolphins noise kaise karte hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00106"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00107",
+    "query": "Sam Bankman-Fried ka kya status hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00107"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00112",
+    "query": "Portugal ke Azores islands ke population ki nationalities ko extract karein. Unhe comma se alag karein.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00112"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00119",
+    "query": "Passage se climate change ke karan bataiye",
+    "gold_chunk_ids": [
+      "chunk_dolly_00119"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00122",
+    "query": "Algebra aur calculus mein kya farak hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00122"
+    ],
+    "metadata": {
+      "cmi": 0.4286,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00123",
+    "query": "Stock market mein invest kyun karein?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00123"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00133",
+    "query": "Nero ka janam kab aur kahan hua tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00133"
+    ],
+    "metadata": {
+      "cmi": 0.375,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00134",
+    "query": "Holi kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00134"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00141",
+    "query": "Kya blue-ring octopus harmless hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00141"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00145",
+    "query": "Kenya ke neeche wale jagah mein kaun se phal aur sabzi ugate hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00145"
+    ],
+    "metadata": {
+      "cmi": 0.3846,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00146",
+    "query": "Duniya ke sabse valuable corporate brands kaun hain",
+    "gold_chunk_ids": [
+      "chunk_dolly_00146"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00147",
+    "query": "Mary Celeste ko kyun chhod diya gaya tha, uske liye theories nikalo.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00147"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00153",
+    "query": "Natural hydrogen ke bare mein diye gaye paragraphs mein, uske liye ek aur naam kya hai jo usko hydrogen ke doosre forms se alag karta hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00153"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00157",
+    "query": "France ke administrative region Occitania ke 13 departments aur main communities kaun hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00157"
+    ],
+    "metadata": {
+      "cmi": 0.5385,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00161",
+    "query": "Vivek Oberoi ke parents kaun hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00161"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00164",
+    "query": "Pultenaea empetrifolia ke bare mein diye gaye reference text mein, mujhe uske flowers ke colors bataiye.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00164"
+    ],
+    "metadata": {
+      "cmi": 0.4375,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00168",
+    "query": "Duniya ke sabse busy commuter rail stations kaun se desh mein hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00168"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00173",
+    "query": "Netherlands ke bare mein diye gaye is paragraph mein, kitne log gaming industry mein kaam karte hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00173"
+    ],
+    "metadata": {
+      "cmi": 0.4706,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00175",
+    "query": "Odds aur probability mein kya farak hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00175"
+    ],
+    "metadata": {
+      "cmi": 0.4286,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00179",
+    "query": "Paragraph ke hisaab se, pehli aurat ne officially kaunsa marathon finish kiya tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00179"
+    ],
+    "metadata": {
+      "cmi": 0.3846,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00180",
+    "query": "Agar Curated Golden Square ko plan ke hisaab se bana diya gaya hota, toh average cost (nearest dollar tak round off karke) per square foot kitna hota?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00180"
+    ],
+    "metadata": {
+      "cmi": 0.4815,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00183",
+    "query": "Harry Potter ki kis book mein humne Voldemort ke bachpan ke baare mein jaana tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00183"
+    ],
+    "metadata": {
+      "cmi": 0.5333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00190",
+    "query": "Balance sheet kya hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00190"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00191",
+    "query": "David Houseman ne college kaha se kiya tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00191"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00193",
+    "query": "Diye gaye passage se Anatrachyntis badia ke rehne waale deshon ke naam nikalein aur unhe bullet list mein likhein.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00193"
+    ],
+    "metadata": {
+      "cmi": 0.4211,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00196",
+    "query": "Gertrude Townend ne kya kiya?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00196"
+    ],
+    "metadata": {
+      "cmi": 0.6,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00199",
+    "query": "Salt River ke baare mein diye gaye reference text se bataiye ki river kitni lambi hai aur yeh kaha se shuru hoti hai aur khatam hoti hai.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00199"
+    ],
+    "metadata": {
+      "cmi": 0.5185,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00203",
+    "query": "2018 UCI Track Cycling World Championships mein Men's Madison Competition kab hua tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00203"
+    ],
+    "metadata": {
+      "cmi": 0.3077,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00205",
+    "query": "Iss paragraph ke hisaab se jismein Sir Alexander Fleming ke dwara penicillin ki khoj ke barein mein likha gaya hai, mujhe bataiye ki penicillin ka anti-bacterial effect kaun kaun bacteria par hota hai, aur penicillin ki khoj ke liye kaun kaun conditions jaruri thi",
+    "gold_chunk_ids": [
+      "chunk_dolly_00205"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00206",
+    "query": "Aurora australis ko kaun se deshon se dekha ja sakta hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00206"
+    ],
+    "metadata": {
+      "cmi": 0.4545,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00209",
+    "query": "Ghana ke decline se Mali Empire ke western Sudan ko consolidate karne mein kitne saal lage?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00209"
+    ],
+    "metadata": {
+      "cmi": 0.4375,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00210",
+    "query": "Nnedi Okarafor ke naam mein \"Nnedi\" ka matlab kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00210"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00215",
+    "query": "Wikipedia se liye gaye iss paragraph mein, Alan Wolffe ka primary research interest kya tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00215"
+    ],
+    "metadata": {
+      "cmi": 0.5333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00219",
+    "query": "Joshua Braff ke baare mein kuch jaante ho?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00219"
+    ],
+    "metadata": {
+      "cmi": 0.625,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00223",
+    "query": "Roy Cameron kaun the? Unhone kab aur kahan kaam kiya?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00223"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00224",
+    "query": "Iss paragraph se Paris shahar ke sabse unche point ka pata lagayein.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00224"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00228",
+    "query": "Cooked food ko fridge mein kitne time tak store kar sakte hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00228"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00233",
+    "query": "Forever War kis baare mein hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00233"
+    ],
+    "metadata": {
+      "cmi": 0.6667,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00234",
+    "query": "Bangalore mein sabse best food place kaun sa hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00234"
+    ],
+    "metadata": {
+      "cmi": 0.4444,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00235",
+    "query": "Major League Baseball ke bare mein diye gaye text mein, teams regular season mein kitne games khelte hain aur World Series mein kitne games khele jaate hain.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00235"
+    ],
+    "metadata": {
+      "cmi": 0.5556,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00236",
+    "query": "Mechanical-switch keyboards ke bare mein diye gaye passage mein, kaun se keyboards sabse jyada shor karte hain, aur main unhe kaise kam shor kar sakta hun?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00236"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00237",
+    "query": "Debit card kya hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00237"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00238",
+    "query": "Shuyga kahaan hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00238"
+    ],
+    "metadata": {
+      "cmi": 0.6667,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00239",
+    "query": "Kya mujhe influencer banna chahiye?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00239"
+    ],
+    "metadata": {
+      "cmi": 0.2,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00241",
+    "query": "Singapore ke official languages kya hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00241"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00242",
+    "query": "SWIFT kya hai banking mein?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00242"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00247",
+    "query": "U2 kahaan se hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00247"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00250",
+    "query": "Madrid shahar mein kon kon football team hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00250"
+    ],
+    "metadata": {
+      "cmi": 0.375,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00252",
+    "query": "Text mein mention kiye gaye tree species mein se kaun se animals ke liye food source ke roop mein use hote hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00252"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00255",
+    "query": "Gusii language ke bare mein diye gaye paragraph mein, Tabaka Kenya mein sandals ko kya kehte hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00255"
+    ],
+    "metadata": {
+      "cmi": 0.5294,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00256",
+    "query": "Sports mein Cricket kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00256"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00258",
+    "query": "Neeche diye gaye text se unincorporated communities ko nikalein jo R, W aur G se shuru hote hain aur unhe pipe se alag karke list mein likhein",
+    "gold_chunk_ids": [
+      "chunk_dolly_00258"
+    ],
+    "metadata": {
+      "cmi": 0.4815,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00260",
+    "query": "Navy Cross kisko diya jaata hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00260"
+    ],
+    "metadata": {
+      "cmi": 0.6667,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00261",
+    "query": "Duniya ke 5 sabse bade desh kaun se hain land area ke hisaab se?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00261"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00263",
+    "query": "Connectomics kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00263"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00267",
+    "query": "Hip-Hop ke kuch duos ke naam bataiye.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00267"
+    ],
+    "metadata": {
+      "cmi": 0.4286,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00269",
+    "query": "Major League Baseball ke NL Central Division mein kaun kaun si teams hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00269"
+    ],
+    "metadata": {
+      "cmi": 0.5385,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00270",
+    "query": "Bob Sanders ne apne career mein jin teams ke liye khela, unke naam comma-separated list mein likho.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00270"
+    ],
+    "metadata": {
+      "cmi": 0.5294,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00274",
+    "query": "Go kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00274"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00278",
+    "query": "Iss paragraph ke anusaar, Joe Biden ki maa ka maiden name kya tha, unka janam kis shahar mein hua tha, bachpan mein unke kitne siblings the, aur bachpan mein unka religion kya tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00278"
+    ],
+    "metadata": {
+      "cmi": 0.4848,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00279",
+    "query": "The Night Buffalo ke iss plot summary se, Manuel ko apne late friend ke wajah se hone waali in ghatnaon ka pata kaise chala?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00279"
+    ],
+    "metadata": {
+      "cmi": 0.5417,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00281",
+    "query": "Norwood scale ka use kis liye kiya jata hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00281"
+    ],
+    "metadata": {
+      "cmi": 0.5556,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00282",
+    "query": "Paragraph se saare jagah ke naam nikalo. Alag alag jagah ke naam comma se alag karne hain.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00282"
+    ],
+    "metadata": {
+      "cmi": 0.4706,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00283",
+    "query": "Iss paragraph ke hisaab se, Ford Telstar ko kahan bechha gaya tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00283"
+    ],
+    "metadata": {
+      "cmi": 0.5833,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00284",
+    "query": "Finland aur Sweden kab NATO mein shamil hue?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00284"
+    ],
+    "metadata": {
+      "cmi": 0.625,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00285",
+    "query": "Sabse bada fresh water lake kaun sa hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00285"
+    ],
+    "metadata": {
+      "cmi": 0.375,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00286",
+    "query": "Game of Thrones ke season seven ke kitne episodes ko direct kiya gaya tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00286"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00287",
+    "query": "Kya Spain rehne ke liye ek achhi jagah hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00287"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00288",
+    "query": "Mammals ke domestication ke baare mein diye gaye paragraph se, mujhe bataiye ki dairying ka sabse pehla kaun sa time period tha aur woh kaha hua tha.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00288"
+    ],
+    "metadata": {
+      "cmi": 0.4074,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00291",
+    "query": "Diye gaye passage se, Gujarat Giants ke coach ka naam nikaliye",
+    "gold_chunk_ids": [
+      "chunk_dolly_00291"
+    ],
+    "metadata": {
+      "cmi": 0.5455,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00296",
+    "query": "ODI cricket mein sabse jyada run kisne banaye hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00296"
+    ],
+    "metadata": {
+      "cmi": 0.4444,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00302",
+    "query": "Kaise ek efficient cardio workout karein aur apni speed badhayein, aur dusre health benefits hasil karein?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00302"
+    ],
+    "metadata": {
+      "cmi": 0.25,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00304",
+    "query": "Bull sharks ke bare mein diye gaye paragraph mein, adult female adult sharks kitne feet long hote hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00304"
+    ],
+    "metadata": {
+      "cmi": 0.3889,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00306",
+    "query": "Outcault ne kiske liye electric light displays paint kiye?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00306"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00307",
+    "query": "Climbing mein, hand jam kya hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00307"
+    ],
+    "metadata": {
+      "cmi": 0.4286,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00309",
+    "query": "Cuban red-tailed hawk ek species ke roop mein kitna established hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00309"
+    ],
+    "metadata": {
+      "cmi": 0.5455,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00315",
+    "query": "Docu-series 'The Circus' kab bana tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00315"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00317",
+    "query": "Mujhe 10 nematode species ki list do",
+    "gold_chunk_ids": [
+      "chunk_dolly_00317"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00318",
+    "query": "Iss gaane ke bare mein batao",
+    "gold_chunk_ids": [
+      "chunk_dolly_00318"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00319",
+    "query": "Hackathons mein kaun hissa leta hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00319"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00321",
+    "query": "Russo-Japanese War ke baad sign hue First Treaty ke bare mein diye gaye paragraph mein, koi secret component tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00321"
+    ],
+    "metadata": {
+      "cmi": 0.4737,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00323",
+    "query": "Test cricket ke history par likhe gaye is paragraph mein mention kiye gaye sabhi countries ki ek comma separated list banaiye",
+    "gold_chunk_ids": [
+      "chunk_dolly_00323"
+    ],
+    "metadata": {
+      "cmi": 0.2857,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00324",
+    "query": "Protein purification kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00324"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00325",
+    "query": "Passage se FIFA ke neeche aane wale continental confederations ki list banaiye. Result ko comma separated format mein likhiye.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00325"
+    ],
+    "metadata": {
+      "cmi": 0.5263,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00329",
+    "query": "Main apne liye romantic life partner ko kaise dhund sakta hun?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00329"
+    ],
+    "metadata": {
+      "cmi": 0.4545,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00330",
+    "query": "DNA annotation kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00330"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00333",
+    "query": "Japan mein cherry blossom dekhne ka sabse accha time kab hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00333"
+    ],
+    "metadata": {
+      "cmi": 0.4545,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00341",
+    "query": "Tennis ball ka size kya hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00341"
+    ],
+    "metadata": {
+      "cmi": 0.4286,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00346",
+    "query": "Jab Allen Iverson ne kaha \"We talking about practice\", tab unka kya matlab tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00346"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00347",
+    "query": "Passage mein diye gaye analog content ke examples kya hain? Unhe semicolon se alag karke list karein.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00347"
+    ],
+    "metadata": {
+      "cmi": 0.4118,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00348",
+    "query": "San Mateo, CA mein ramen khaane ke liye best jagah kaun si hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00348"
+    ],
+    "metadata": {
+      "cmi": 0.5385,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00350",
+    "query": "Detroit Lions ke saath rivalry ki ek list bullet form mein nikalo, alphabetically sort ki hui.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00350"
+    ],
+    "metadata": {
+      "cmi": 0.4375,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00351",
+    "query": "Gobekli Tepe kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00351"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00353",
+    "query": "Composer Arvo Pärt ke baare mein diye gaye paragraph se bataiye ki unhone composition kaha aur kab aur kis teacher se seekha tha.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00353"
+    ],
+    "metadata": {
+      "cmi": 0.4783,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00357",
+    "query": "70th Academy Awards ke liye kaunsi movie ko sabse zyada nominations mile the?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00357"
+    ],
+    "metadata": {
+      "cmi": 0.4615,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00360",
+    "query": "Duniya bhar mein sabse zyada bikne wala single kaun sa hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00360"
+    ],
+    "metadata": {
+      "cmi": 0.4545,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00361",
+    "query": "Main apne teething baby ko kaise rahat pahuncha sakta hu?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00361"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00365",
+    "query": "Singer ke baare mein diye gaye paragraph ke hisaab se, Rihanna ke kitne top-ten singles United States mein rahe hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00365"
+    ],
+    "metadata": {
+      "cmi": 0.6,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00367",
+    "query": "Check clearing system kyun banaya gaya tha, uski wajah bataiye",
+    "gold_chunk_ids": [
+      "chunk_dolly_00367"
+    ],
+    "metadata": {
+      "cmi": 0.1,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00368",
+    "query": "Stanley B. Goldenberg ka profession kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00368"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00370",
+    "query": "Olivella rehderi kaunsi prakar ki species hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00370"
+    ],
+    "metadata": {
+      "cmi": 0.4286,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00371",
+    "query": "64th Annual Grammy Awards mein, best album of the year award kisko diya gaya tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00371"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00374",
+    "query": "Hydrogen Storage ke bare mein diye gaye paragraphs ko padh ke bataiye ki storage ke do mukhya historical forms kya rahe hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00374"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00376",
+    "query": "Kidnapping aur vacation mein kya farak hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00376"
+    ],
+    "metadata": {
+      "cmi": 0.4286,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00378",
+    "query": "snow skiing kya hai",
+    "gold_chunk_ids": [
+      "chunk_dolly_00378"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00380",
+    "query": "2008 Pittsburgh Pirates season ke baare mein diye gaye reference text mein, unka season record kya tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00380"
+    ],
+    "metadata": {
+      "cmi": 0.4706,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00381",
+    "query": "Palmitic acid kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00381"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00386",
+    "query": "John Grisham ke kuch best-selling novels ke naam bataiye.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00386"
+    ],
+    "metadata": {
+      "cmi": 0.4444,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00389",
+    "query": "Vodka ke America mein popular hone mein kaunsa cocktail ka haath tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00389"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00390",
+    "query": "\"VTubers\" kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00390"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00391",
+    "query": "Hadoop ke key components kya hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00391"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00394",
+    "query": "Ethiopia mein income ka sabse bada source kya hai aur yeh important kyun hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00394"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00395",
+    "query": "Kya California mein abhi bhi grizzly bears hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00395"
+    ],
+    "metadata": {
+      "cmi": 0.375,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00402",
+    "query": "George Koukou ke baare mein diye gaye reference text se bataiye ki unhe kab aur kyun arrest kiya gaya tha.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00402"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00403",
+    "query": "US mein har saal kitne log zoo jaate hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00403"
+    ],
+    "metadata": {
+      "cmi": 0.5556,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00406",
+    "query": "Refinancing kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00406"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00407",
+    "query": "Kya koi airline UEFA Champions League (2023 tak) ko sponsor karti hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00407"
+    ],
+    "metadata": {
+      "cmi": 0.5833,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00408",
+    "query": "Kiwi ka sign kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00408"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00410",
+    "query": "\"Abbey Road\" album release ke kitne time baad The Beatles band tut gaya?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00410"
+    ],
+    "metadata": {
+      "cmi": 0.5385,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00418",
+    "query": "Leptodactylus tapiti kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00418"
+    ],
+    "metadata": {
+      "cmi": 0.25,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00423",
+    "query": "Genomic medicine kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00423"
+    ],
+    "metadata": {
+      "cmi": 0.25,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00428",
+    "query": "Iss list mein Liebers surname wale kaun notable person sabse baad mein paida hue?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00428"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00429",
+    "query": "Ted Kennedy ke bare mein iss passage ke anusaar, unki death ke time, ab tak ke sabse lamba time tak seva karne wale teen senators kaun the?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00429"
+    ],
+    "metadata": {
+      "cmi": 0.4444,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00431",
+    "query": "Low-flow fixtures ke kuch examples kya hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00431"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00434",
+    "query": "São Paulo mein The Heart Institute (InCor) ki shuruaat kisne ki thi?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00434"
+    ],
+    "metadata": {
+      "cmi": 0.5833,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00436",
+    "query": "Jane Eyre kisne likha tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00436"
+    ],
+    "metadata": {
+      "cmi": 0.6,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00437",
+    "query": "Colnago ke bare mein diye gaye paragraph se bataiye ki kis Italian automobile company ke saath Colnago ne naya carbon fiber technology develop karne ke liye kaam kiya tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00437"
+    ],
+    "metadata": {
+      "cmi": 0.4138,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00439",
+    "query": "TV show \"Friends\" ke kuch characters ke naam bataiye?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00439"
+    ],
+    "metadata": {
+      "cmi": 0.4444,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00440",
+    "query": "Star Trek starships ke bare mein diye gaye paragraph mein, sabse tez kon hai.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00440"
+    ],
+    "metadata": {
+      "cmi": 0.4286,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00442",
+    "query": "Diye gaye passage se, woh state nikalo jahan Lincoln ka janam hua tha",
+    "gold_chunk_ids": [
+      "chunk_dolly_00442"
+    ],
+    "metadata": {
+      "cmi": 0.4615,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00445",
+    "query": "Group loan kya hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00445"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00447",
+    "query": "KPMG company kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00447"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00449",
+    "query": "Diye gaye text ke anusaar, kya beavers wood khaate hain ya woh sirf dams ke liye ped katte hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00449"
+    ],
+    "metadata": {
+      "cmi": 0.4211,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00451",
+    "query": "Man ki utpatti kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00451"
+    ],
+    "metadata": {
+      "cmi": 0.2,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00454",
+    "query": "The Real Housewives of Dubai ke kuch bravolebrities ke naam bataiye",
+    "gold_chunk_ids": [
+      "chunk_dolly_00454"
+    ],
+    "metadata": {
+      "cmi": 0.4545,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00456",
+    "query": "Sachin Tendulkar kon hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00456"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00458",
+    "query": "Seattle Seahawks ne Super Bowl kab jeeta tha, final game mein unhone kiske khilaf khela tha, aur final score kya tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00458"
+    ],
+    "metadata": {
+      "cmi": 0.4762,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00459",
+    "query": "Muse band ke members ko comma-separated list mein likhiye.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00459"
+    ],
+    "metadata": {
+      "cmi": 0.5556,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00461",
+    "query": "Passage se Babaluku ke jeetne wale awards ko note karein. Results ko comma separated format mein list karein.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00461"
+    ],
+    "metadata": {
+      "cmi": 0.5556,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00462",
+    "query": "North Indian basin mein kab storms sabse common hote hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00462"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00467",
+    "query": "Yaha Ross McLean ke baare mein kuch information hai, Ross kitne saal League of Help for Sick and Elderly ke president rahe?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00467"
+    ],
+    "metadata": {
+      "cmi": 0.5909,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00471",
+    "query": "Mohamed Fourati ko kitne saal ki umar mein hospital assistant banaya gaya tha, yeh is paragraph se pata lagao.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00471"
+    ],
+    "metadata": {
+      "cmi": 0.5263,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00472",
+    "query": "Neeche diye gaye reference text mein, GATR kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00472"
+    ],
+    "metadata": {
+      "cmi": 0.5556,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00474",
+    "query": "Napoleon ko kaise haraaya gaya?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00474"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00476",
+    "query": "Joseph Charlton ke baare mein diye gaye reference text mein, woh kis college football team ke liye khele the?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00476"
+    ],
+    "metadata": {
+      "cmi": 0.4211,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00478",
+    "query": "Generic question kya hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00478"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00482",
+    "query": "Log billiyon ko entertain karne ke liye kya kar sakte hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00482"
+    ],
+    "metadata": {
+      "cmi": 0.2727,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00485",
+    "query": "XGBoost Algorithm kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00485"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00487",
+    "query": "Stanwell-Fletcher Lake ke aas-paas ugne wale plants ki ek bulleted list likhein.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00487"
+    ],
+    "metadata": {
+      "cmi": 0.5833,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00488",
+    "query": "Diye gaye passage se, agriculture se hone wali saalana kamai ka taaza data dollar mein nikalo.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00488"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00489",
+    "query": "Ek golfer ka handicap kaise calculate karte hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00489"
+    ],
+    "metadata": {
+      "cmi": 0.25,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00491",
+    "query": "Copenhagen Denmark mein sabse famous street kaunsi hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00491"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00494",
+    "query": "Neeche diye gaye passage mein, Tallinn ko Helsinki se aur Estonian ko Finland se replace karein",
+    "gold_chunk_ids": [
+      "chunk_dolly_00494"
+    ],
+    "metadata": {
+      "cmi": 0.625,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00501",
+    "query": "Tri-state area kya hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00501"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00503",
+    "query": "Blue Angels kab bane the, yeh bataiye",
+    "gold_chunk_ids": [
+      "chunk_dolly_00503"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00504",
+    "query": "Manhattan ke East Side aur West Side ke major neighborhoods ki list banaiye.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00504"
+    ],
+    "metadata": {
+      "cmi": 0.6154,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00505",
+    "query": "Type 1 Diabetes ko manage karne ke kuch common tarike kya hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00505"
+    ],
+    "metadata": {
+      "cmi": 0.5833,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00506",
+    "query": "Passage mein diye gaye information ke anusaar, You ke alag alag seasons kab telecast hue the, woh list karein. Format mein likhein: ‘season #no : Year’",
+    "gold_chunk_ids": [
+      "chunk_dolly_00506"
+    ],
+    "metadata": {
+      "cmi": 0.4231,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00507",
+    "query": "Duniya mein kaun sa shehar professional aur famous surfers aur surfboard shapers ke liye sabse jyada jaana jaata hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00507"
+    ],
+    "metadata": {
+      "cmi": 0.5263,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00508",
+    "query": "Neeche diye gaye text se saare saal extract karein.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00508"
+    ],
+    "metadata": {
+      "cmi": 0.2222,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00509",
+    "query": "Passage se boomerang banane ke liye use kiye gaye materials ki list banayein. Results ko comma separated format mein list karein.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00509"
+    ],
+    "metadata": {
+      "cmi": 0.4286,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00515",
+    "query": "Batao ki Operation Aurora ka naam kaise rakha gaya?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00515"
+    ],
+    "metadata": {
+      "cmi": 0.5556,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00522",
+    "query": "Neeche diye gaye reference text ke anusaar, Isthmohyla debilis kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00522"
+    ],
+    "metadata": {
+      "cmi": 0.4545,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00526",
+    "query": "Violet Jessop kaun si baat ke liye famous hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00526"
+    ],
+    "metadata": {
+      "cmi": 0.5556,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00527",
+    "query": "Portuguese royal family Brazil kab shift hui thi?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00527"
+    ],
+    "metadata": {
+      "cmi": 0.25,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00529",
+    "query": "Luka Modrić (Croatian pronunciation: [lûːka mɔːdritčː]; born 9 September 1985) ek Croatian professional footballer hain jo La Liga club Real Madrid ke liye midfielder ke roop mein khelte hain aur Croatia national team ke captain hain. Woh mukhya roop se ek central midfielder ke roop mein khelte hain, lekin woh ek attacking midfielder ya ek defensive midfielder ke roop mein bhi khel sakte hain. Unhe ab tak ke sabse bade midfielders mein se ek aur sabse bade Croatian footballer ke roop mein dekha jata hai.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00529"
+    ],
+    "metadata": {
+      "cmi": 0.5765,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00531",
+    "query": "Diye gaye passage ke hisaab se, periodic table mein sirf do elements ka naam aise logo ke naam par rakha gaya hai jo naam rakhne ke time par zinda the?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00531"
+    ],
+    "metadata": {
+      "cmi": 0.4667,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00534",
+    "query": "Jab main apni gadi start karne ki koshish karta hoon, tab woh click karne ki awaz kyun karti hai? Lights thodi der ke liye jalti hain, lekin engine start nahi hota.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00534"
+    ],
+    "metadata": {
+      "cmi": 0.4516,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00537",
+    "query": "Iss passage se Osborne 1 ki price pata karein.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00537"
+    ],
+    "metadata": {
+      "cmi": 0.6667,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00540",
+    "query": "Goethe ka sabse acha kaunsa kaam hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00540"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00541",
+    "query": "Alphabet kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00541"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00544",
+    "query": "Kya Leaning Tower of Pisa structure stabilized hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00544"
+    ],
+    "metadata": {
+      "cmi": 0.625,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00545",
+    "query": "Kuch best life changing self-help books ke naam bataiye",
+    "gold_chunk_ids": [
+      "chunk_dolly_00545"
+    ],
+    "metadata": {
+      "cmi": 0.2222,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00548",
+    "query": "TV series Babylon5 ko kisne likha tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00548"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00549",
+    "query": "Silicon carbide ka natural source bataiye.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00549"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00557",
+    "query": "Yeh paragraph padh ke bataiye ki Edmund Selous ne scientific study ke liye kaunsa method support kiya tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00557"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00558",
+    "query": "1991 Season ke khatam hone par kaunsi team ko league se relegate kiya gaya tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00558"
+    ],
+    "metadata": {
+      "cmi": 0.5333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00560",
+    "query": "Navibulgar company kya kaam karti hai",
+    "gold_chunk_ids": [
+      "chunk_dolly_00560"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00562",
+    "query": "1066 mein kaun se leaders English throne ke liye claim karte the?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00562"
+    ],
+    "metadata": {
+      "cmi": 0.4167,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00564",
+    "query": "English Civil War ke time John Evelyn kiska support karte the?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00564"
+    ],
+    "metadata": {
+      "cmi": 0.5455,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00566",
+    "query": "Soccer duniya ka sabse popular sport kyun hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00566"
+    ],
+    "metadata": {
+      "cmi": 0.375,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00567",
+    "query": "Iss text mein mention kiye gaye train tracks ko extract karein aur ek list banayein jisme yeh mention ho ki unke paas platform hai ya nahi, iss format mein {track #number} - {yes/no}",
+    "gold_chunk_ids": [
+      "chunk_dolly_00567"
+    ],
+    "metadata": {
+      "cmi": 0.3939,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00568",
+    "query": "SMTP kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00568"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00571",
+    "query": "Current generation mein autism ke liye ek main trigger kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00571"
+    ],
+    "metadata": {
+      "cmi": 0.3636,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00572",
+    "query": "South Korea ke baare mein diye gaye paragraph mein, kon sa paani ka body country ke western border ko banata hai aur kon sa paani ka body country ke eastern border ko banata hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00572"
+    ],
+    "metadata": {
+      "cmi": 0.4706,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00579",
+    "query": "'Silicon Valley' ka birthplace kahaan hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00579"
+    ],
+    "metadata": {
+      "cmi": 0.6667,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00580",
+    "query": "Patriots ne kaun kaun se saal Super Bowl jeeta hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00580"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00582",
+    "query": "Putlacheruvu ke bare mein diye gaye reference text mein, kitne canals hain aur unka kya use hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00582"
+    ],
+    "metadata": {
+      "cmi": 0.4706,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00587",
+    "query": "Hotdog par kaun se common toppings ja sakte hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00587"
+    ],
+    "metadata": {
+      "cmi": 0.4444,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00590",
+    "query": "David Moses ben Meir Dyte ke baare mein diye gaye reference text se bataiye ki unhe kis cheez ke liye jaana jaata hai.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00590"
+    ],
+    "metadata": {
+      "cmi": 0.5652,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00593",
+    "query": "Country music mein sabse zyada #1 hits kiske hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00593"
+    ],
+    "metadata": {
+      "cmi": 0.5556,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00594",
+    "query": "India ke aas-paas kaun sa desh hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00594"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00595",
+    "query": "Neeche diye gaye text mein, Captain Lewis ko Borneo ko Banjarmasin se Madras tak sail karne mein kitne din lage? Yeh calculation aapne kaise ki, woh bhi bataiye.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00595"
+    ],
+    "metadata": {
+      "cmi": 0.5357,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00596",
+    "query": "Speed limits ke bare mein diye gaye paragraph mein, UK mein speed limits ko regulate karne wala pehla kanoon kya tha, kab banaya gaya tha aur usme kya speed limits set ki gayi thi.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00596"
+    ],
+    "metadata": {
+      "cmi": 0.4706,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00598",
+    "query": "Kuch Japanese words bataiye jo ki different Japanese art forms ko describe karte hain.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00598"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00602",
+    "query": "Wisconsin ke logon ko aur kya bola jata hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00602"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00603",
+    "query": "Ethnology ka origin kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00603"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00604",
+    "query": "Dunkirk ke bare mein diye gaye reference text mein bataiye ki us area mein kaun kaun se schools hain.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00604"
+    ],
+    "metadata": {
+      "cmi": 0.5263,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00607",
+    "query": "St. Peters Basilica kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00607"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00613",
+    "query": "Protein ki nuclear magnetic resonance spectroscopy kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00613"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00615",
+    "query": "Visual Basic kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00615"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00616",
+    "query": "SCSS kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00616"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00621",
+    "query": "Combinatorial optimisation kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00621"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00622",
+    "query": "Pre-school aur kindergarten mein Montessori Method of education ke bare mein samjhaiye",
+    "gold_chunk_ids": [
+      "chunk_dolly_00622"
+    ],
+    "metadata": {
+      "cmi": 0.5833,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00625",
+    "query": "Harry Potter ki kitni books hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00625"
+    ],
+    "metadata": {
+      "cmi": 0.6667,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00626",
+    "query": "Scrubs ke bare mein kya unique tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00626"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00628",
+    "query": "OpenAI ke GPT series mein pehla model kab train kiya gaya tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00628"
+    ],
+    "metadata": {
+      "cmi": 0.4167,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00630",
+    "query": "Bourbon aur whiskey mein kya farak hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00630"
+    ],
+    "metadata": {
+      "cmi": 0.4286,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00632",
+    "query": "Étienne Halphen ke interest kaise unke harmonic distribution ko discover karne ki wajah bane?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00632"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00635",
+    "query": "Bass guitar aur regular guitar mein kya farak hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00635"
+    ],
+    "metadata": {
+      "cmi": 0.5556,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00637",
+    "query": "Nobel prize jeetne wala pehla couple kaun tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00637"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00639",
+    "query": "Ek purani kahani ka naam bataiye",
+    "gold_chunk_ids": [
+      "chunk_dolly_00639"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00646",
+    "query": "Movie 'Everything Everywhere All at Once' mein Evelyn Quan Wang kaun hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00646"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00647",
+    "query": "Battery storage power stations ke baare mein diye gaye paragraphs mein, 2019 tak battery power storage kitni der tak open cycle gas turbine power se sasta tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00647"
+    ],
+    "metadata": {
+      "cmi": 0.2963,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00648",
+    "query": "Umbrella ka kya fayda hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00648"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00651",
+    "query": "Compact aur economy-sized car mein kya difference hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00651"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00653",
+    "query": "Diye gaye passage se, Apache Software Foundation ke incorporate hone ka saal nikaliye.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00653"
+    ],
+    "metadata": {
+      "cmi": 0.6154,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00655",
+    "query": "Wallet ka use kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00655"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00656",
+    "query": "Arsenal kab pehli baar first division mein pahuncha? 1989 se 2005 ke beech unhone kitne league titles aur kitne FA cups jeete? Us period mein unhone total kitne trophies jeete?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00656"
+    ],
+    "metadata": {
+      "cmi": 0.5667,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00658",
+    "query": "Pandora ke bare mein diye gaye paragraph mein, Pandora musical group ka initial group name kya tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00658"
+    ],
+    "metadata": {
+      "cmi": 0.4118,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00659",
+    "query": "Djidonou kaha ke paida hue the, us desh ka naam bataiye.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00659"
+    ],
+    "metadata": {
+      "cmi": 0.3636,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00661",
+    "query": "Eponymous TV show mein Ted Lasso kaun hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00661"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00662",
+    "query": "Solar system kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00662"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00666",
+    "query": "Caffeine kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00666"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00674",
+    "query": "Diye gaye text mein mention kiye gaye sabhi numbers ki ek list taiyar karein aur bataiye ki woh kya represent karte hain",
+    "gold_chunk_ids": [
+      "chunk_dolly_00674"
+    ],
+    "metadata": {
+      "cmi": 0.4545,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00676",
+    "query": "IHAC ka matlab kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00676"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00677",
+    "query": "Passage se 2022 world cup host karne wale country ka naam nikalo.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00677"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00679",
+    "query": "Ek exoplanet ke evidence ko pehli baar kab confirm kiya gaya tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00679"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00683",
+    "query": "Clarence Adams ke baare mein batao",
+    "gold_chunk_ids": [
+      "chunk_dolly_00683"
+    ],
+    "metadata": {
+      "cmi": 0.6667,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00684",
+    "query": "Easter eggs ke baare mein ek reference text diya gaya hai, mujhe bataiye ki woh kya hai, woh kya symbolize karte hai, aur woh kaha se originate hue?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00684"
+    ],
+    "metadata": {
+      "cmi": 0.3214,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00687",
+    "query": "England mein competitive honours jeetne wale football clubs ki list kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00687"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00689",
+    "query": "Passage ke anusaar Ram Mohan Roy ko kaun si bhashayein aati thi?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00689"
+    ],
+    "metadata": {
+      "cmi": 0.6667,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00692",
+    "query": "Capitol kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00692"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00694",
+    "query": "Formula 1 history mein sabse successful driver kaun hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00694"
+    ],
+    "metadata": {
+      "cmi": 0.5556,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00695",
+    "query": "Elson ke Indiana University join karne ke baad pehla road trip kaun sa tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00695"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00696",
+    "query": "Italy mein outdoor experiences ke liye kaunsi jagah sabse best hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00696"
+    ],
+    "metadata": {
+      "cmi": 0.4545,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00700",
+    "query": "Balloon kya hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00700"
+    ],
+    "metadata": {
+      "cmi": 0.25,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00701",
+    "query": "Bull sharks ke bare mein diye gaye reference text se, mujhe bull sharks ke liye gestation period bataiye.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00701"
+    ],
+    "metadata": {
+      "cmi": 0.3889,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00702",
+    "query": "1929 ke US stock market crash ke kuch kaaran kya the?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00702"
+    ],
+    "metadata": {
+      "cmi": 0.4545,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00707",
+    "query": "Aap customers ko khush kyun rakhna chahte hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00707"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00709",
+    "query": "Freddie Mercury ke baare mein diye gaye paragraph mein, Queen ke saath unka last performance kahaan tha.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00709"
+    ],
+    "metadata": {
+      "cmi": 0.4706,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00710",
+    "query": "Japan mein cherry blossom season kab hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00710"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00711",
+    "query": "Iss paragraph ke hisaab se humne unhe last kab space mein bheja tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00711"
+    ],
+    "metadata": {
+      "cmi": 0.3846,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00714",
+    "query": "Soccer aur American football mein kya farak hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00714"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00716",
+    "query": "Disease ka genomics kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00716"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00720",
+    "query": "Kya Wilbur Snyder ek acche wrestler the?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00720"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00725",
+    "query": "Intellectual property ke sabse jaane maane prakar list karein. Results ko comma separated format mein list karein.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00725"
+    ],
+    "metadata": {
+      "cmi": 0.4118,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00727",
+    "query": "John Wick movie ka plot kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00727"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00728",
+    "query": "Kya Paul Ernest Adolph kabhi military mein the?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00728"
+    ],
+    "metadata": {
+      "cmi": 0.625,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00730",
+    "query": "\"The New Deal\" ke bare mein diye gaye reference text mein, historians program ke bare mein kaun se \"3 R's\" refer karte hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00730"
+    ],
+    "metadata": {
+      "cmi": 0.5652,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00731",
+    "query": "Travelling salesman problem ka history kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00731"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00734",
+    "query": "Sand wet hone par kyun hard ho jata hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00734"
+    ],
+    "metadata": {
+      "cmi": 0.5556,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00735",
+    "query": "Room temperature kya hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00735"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00736",
+    "query": "Maskavas Forstate mein architecture kaisa hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00736"
+    ],
+    "metadata": {
+      "cmi": 0.6667,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00737",
+    "query": "Orion constellation ka shape kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00737"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00738",
+    "query": "K-pop kitna popular hai duniya bhar mein?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00738"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00740",
+    "query": "Roberson Museum and Science Center kahaan hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00740"
+    ],
+    "metadata": {
+      "cmi": 0.4286,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00742",
+    "query": "United States ke union mein shamil hone wale pehle das states kaun se the?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00742"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00743",
+    "query": "Thomas Pynchon ke kuch books ke naam bataiye",
+    "gold_chunk_ids": [
+      "chunk_dolly_00743"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00747",
+    "query": "Michael Daugherty ke kaam ke naam text se nikalo. Unhe comma se alag karein.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00747"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00749",
+    "query": "Ice hockey mein \"cycling\" kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00749"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00751",
+    "query": "UNESCO ke field offices ke naam bataiye jo Asia aur Pacific mein hain. Unhe semi-colon se alag karein",
+    "gold_chunk_ids": [
+      "chunk_dolly_00751"
+    ],
+    "metadata": {
+      "cmi": 0.5556,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00755",
+    "query": "Paul Harvey ne jin films mein kaam kiya hai unke naam nikalo aur comma se alag kar do.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00755"
+    ],
+    "metadata": {
+      "cmi": 0.5556,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00763",
+    "query": "Solar system mein planets ke naam bataiye, dhoop se unki doori ke anusaar",
+    "gold_chunk_ids": [
+      "chunk_dolly_00763"
+    ],
+    "metadata": {
+      "cmi": 0.4615,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00764",
+    "query": "Disney ne pehli full-length animated movie kaun si release ki thi?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00764"
+    ],
+    "metadata": {
+      "cmi": 0.3636,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00771",
+    "query": "'The Bridge on the River Kwai' movie ke bare mein diye gaye paragraph mein, writers ko secret mein kaam kyun karna pada?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00771"
+    ],
+    "metadata": {
+      "cmi": 0.4091,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00772",
+    "query": "Pitt Street Mall ke bare mein diye gaye reference text se bataiye ki woh kitna bada hai aur usme kitne specialty stores hain.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00772"
+    ],
+    "metadata": {
+      "cmi": 0.5652,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00774",
+    "query": "Spanish patatas bravas aise aloo hote hain jinhe tomato aur mirchi se bani red sauce ke saath serve kiya jata hai. Kya patatas bravas 1490 mein ho sakte the?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00774"
+    ],
+    "metadata": {
+      "cmi": 0.4138,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00775",
+    "query": "Sunrise ke time mein saal bhar mein variation kyun hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00775"
+    ],
+    "metadata": {
+      "cmi": 0.5455,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00783",
+    "query": "Pomelo aur grapefruit mein kya farak hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00783"
+    ],
+    "metadata": {
+      "cmi": 0.4286,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00784",
+    "query": "Bakersfield Majestics ke bare mein diye gaye reference text mein, team apne games kahan khelti thi?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00784"
+    ],
+    "metadata": {
+      "cmi": 0.4375,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00786",
+    "query": "Duniya mein sabse zyada active volcanoes kaun se desh mein hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00786"
+    ],
+    "metadata": {
+      "cmi": 0.4545,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00787",
+    "query": "CPU architectures ke kuch examples bataiye jo dedicated flag register ka use nahi karte?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00787"
+    ],
+    "metadata": {
+      "cmi": 0.3571,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00788",
+    "query": "Allen Eager ka bachpan kahan guzara?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00788"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00791",
+    "query": "Diye gaye passage se 2022 aur 2023 J1 Japanese football league ke do mukhya badlav nikalo.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00791"
+    ],
+    "metadata": {
+      "cmi": 0.5625,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00799",
+    "query": "Diye gaye passage se, Andhra Pradesh ka GSDP nikalo",
+    "gold_chunk_ids": [
+      "chunk_dolly_00799"
+    ],
+    "metadata": {
+      "cmi": 0.5556,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00800",
+    "query": "Ramona Singer kaun hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00800"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00801",
+    "query": "United States Marine Corps kab bana tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00801"
+    ],
+    "metadata": {
+      "cmi": 0.4286,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00802",
+    "query": "Refractor telescope aur reflector telescope mein kya difference hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00802"
+    ],
+    "metadata": {
+      "cmi": 0.5556,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00805",
+    "query": "David Gilhooly kaun se college gaye the?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00805"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00808",
+    "query": "Passage mein kis kis ka naam hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00808"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00809",
+    "query": "Osama bin Laden kaun tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00809"
+    ],
+    "metadata": {
+      "cmi": 0.6,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00810",
+    "query": "Foosball kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00810"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00813",
+    "query": "Reference text se California ki total population aur total area extract karein",
+    "gold_chunk_ids": [
+      "chunk_dolly_00813"
+    ],
+    "metadata": {
+      "cmi": 0.4167,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00814",
+    "query": "United States mein slavery kab khatam hui thi?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00814"
+    ],
+    "metadata": {
+      "cmi": 0.375,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00815",
+    "query": "Coxed four mein Waters ke saath gold medal kisne jeeta?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00815"
+    ],
+    "metadata": {
+      "cmi": 0.6,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00821",
+    "query": "Finland ki capital kya hai aur yeh kab establish hui thi?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00821"
+    ],
+    "metadata": {
+      "cmi": 0.5455,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00823",
+    "query": "Magic tricks mein kaise achha banu?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00823"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00824",
+    "query": "ANT catalog mein kaun se hacking tools ka use computer ya networking devices ke BIOS ko infect karne ke liye kiya jaata hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00824"
+    ],
+    "metadata": {
+      "cmi": 0.4783,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00825",
+    "query": "Football/soccer mein offside kya hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00825"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00826",
+    "query": "Itihaas ke sabse successful golfers kaun hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00826"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00828",
+    "query": "World Wide Web ke liye dominant character encoding kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00828"
+    ],
+    "metadata": {
+      "cmi": 0.6,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00830",
+    "query": "SSO kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00830"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00834",
+    "query": "ADSL kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00834"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00838",
+    "query": "Azure mein ADLS kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00838"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00839",
+    "query": "Snowman kya hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00839"
+    ],
+    "metadata": {
+      "cmi": 0.25,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00844",
+    "query": "Kya dharti chapatti hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00844"
+    ],
+    "metadata": {
+      "cmi": 0.0,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00845",
+    "query": "Paise invest karne ke liye common tarike kya hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00845"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00848",
+    "query": "Probability mein key terms kya hai",
+    "gold_chunk_ids": [
+      "chunk_dolly_00848"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00850",
+    "query": "Kis team ne Marques Pope ko draft kiya tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00850"
+    ],
+    "metadata": {
+      "cmi": 0.5556,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00851",
+    "query": "Bristly bellflower ko jungle mein kahaan pa sakte hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00851"
+    ],
+    "metadata": {
+      "cmi": 0.5556,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00852",
+    "query": "Game of Thrones ke season four ke kaun se episodes Michelle MacLaren ne direct kiye the?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00852"
+    ],
+    "metadata": {
+      "cmi": 0.5625,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00856",
+    "query": "HP GL kaunsi language hai",
+    "gold_chunk_ids": [
+      "chunk_dolly_00856"
+    ],
+    "metadata": {
+      "cmi": 0.6,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00859",
+    "query": "Boxer John Baldwin kaun the?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00859"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00860",
+    "query": "Tom Cruise ke baare mein diye gaye reference text se bataiye ki unka janam kab hua tha aur woh kis cheez ke liye famous hain.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00860"
+    ],
+    "metadata": {
+      "cmi": 0.48,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00861",
+    "query": "Neeche diye gaye passage ke anusaar, scientologists ka kya maan hai ki neuroses aur mental problems ka karan kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00861"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00864",
+    "query": "1980 ke decade mein Yogi Bear ko voice dene wale logon ke naam bataiye.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00864"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00865",
+    "query": "Non subjective ka matlab kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00865"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00867",
+    "query": "The Mo ke ek aisa gaana batao jiske naam mein dairy product nahi hai.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00867"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00873",
+    "query": "Large language models ka sabse important kaam kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00873"
+    ],
+    "metadata": {
+      "cmi": 0.4444,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00875",
+    "query": "Cymbals ka sabse purana manufacturer kaun hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00875"
+    ],
+    "metadata": {
+      "cmi": 0.4286,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00878",
+    "query": "Kuch famous Bollywood actors ke naam bataiye?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00878"
+    ],
+    "metadata": {
+      "cmi": 0.4286,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00879",
+    "query": "Stress aur strain mein kya difference hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00879"
+    ],
+    "metadata": {
+      "cmi": 0.4286,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00881",
+    "query": "New York state mein 5 professional sports teams ke naam bataiye.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00881"
+    ],
+    "metadata": {
+      "cmi": 0.5455,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00882",
+    "query": "Amsterdam mein kitne canals hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00882"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00883",
+    "query": "Text ke anusaar, Illinois ke Cloquet fire mein kitne log mare the?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00883"
+    ],
+    "metadata": {
+      "cmi": 0.5833,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00885",
+    "query": "Azure Synapse Dedicated SQL Pools aur Serverless SQL Pools mein kya antar hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00885"
+    ],
+    "metadata": {
+      "cmi": 0.3846,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00886",
+    "query": "Grep ka use kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00886"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00887",
+    "query": "Beer kaise banta hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00887"
+    ],
+    "metadata": {
+      "cmi": 0.25,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00893",
+    "query": "Intel Xeon kis kaam aata hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00893"
+    ],
+    "metadata": {
+      "cmi": 0.6667,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00894",
+    "query": "Terraform modules use karne ka kya fayda hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00894"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00895",
+    "query": "NBA super team kya hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00895"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00905",
+    "query": "Diye gaye passage mein, Covenant ne kis saal attack kiya tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00905"
+    ],
+    "metadata": {
+      "cmi": 0.3636,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00906",
+    "query": "Reference text ke hisaab se, kaunsa album Taylor Swift ko country star se pop star banaya?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00906"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00908",
+    "query": "Kya Eugène Delacroix ke art work mein racial depictions facts hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00908"
+    ],
+    "metadata": {
+      "cmi": 0.5455,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00910",
+    "query": "West coast oysters ka taste kaisa hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00910"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00911",
+    "query": "Konse NBA franchises ke paas sabse zyada championships hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00911"
+    ],
+    "metadata": {
+      "cmi": 0.5556,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00914",
+    "query": "Alpaca ke kitne prakar hote hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00914"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00916",
+    "query": "Passage ke anusar, northern hemisphere mein seasons ke hisaab se sunset kaisa dikhta hai, uska summary bataiye.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00916"
+    ],
+    "metadata": {
+      "cmi": 0.4706,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00917",
+    "query": "Bill Clinton kaun hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00917"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00918",
+    "query": "Flying trapeze kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00918"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00921",
+    "query": "France mein electricity generation ka main source kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00921"
+    ],
+    "metadata": {
+      "cmi": 0.4444,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00922",
+    "query": "Aru Islands pe kaunsi bhasha boli jaati hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00922"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00923",
+    "query": "Ek towboat ke bare mein diye gaye reference text mein, boat kaise kaam karta hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00923"
+    ],
+    "metadata": {
+      "cmi": 0.4667,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00926",
+    "query": "Touch Typing se kya matlab hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00926"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00928",
+    "query": "2009 mein ESPN ke SportsCenter ke bare mein diye gaye paragraph mein, ESPN ne apna 1:00 a.m. Eastern Time edition of SportsCenter kaise produce karna shuru kiya?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00928"
+    ],
+    "metadata": {
+      "cmi": 0.5926,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00929",
+    "query": "9 carat gold ka matlab kya hai",
+    "gold_chunk_ids": [
+      "chunk_dolly_00929"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00930",
+    "query": "Union Territory of Ladakh ki capital kaun hai ?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00930"
+    ],
+    "metadata": {
+      "cmi": 0.5556,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00932",
+    "query": "Iss paragraph se pata karo ki Panama Canal ko kisne banaya tha",
+    "gold_chunk_ids": [
+      "chunk_dolly_00932"
+    ],
+    "metadata": {
+      "cmi": 0.5833,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00936",
+    "query": "Ford Pinto ko aakhri baar kab banaya gaya tha",
+    "gold_chunk_ids": [
+      "chunk_dolly_00936"
+    ],
+    "metadata": {
+      "cmi": 0.4444,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00937",
+    "query": "Norwegian ke likhe hue official forms kya hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00937"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00940",
+    "query": "Spatial network kya hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00940"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00943",
+    "query": "2019 mein golf ke masters mein kisne jeet haasil ki?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00943"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00946",
+    "query": "Stuart Russell ke book \"Human Compatible\" ke diye gaye summary ko dekhte hue, AI ko develop karne ke liye standard approach ki limitations ko overcome karne ke liye author ka kya proposal hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00946"
+    ],
+    "metadata": {
+      "cmi": 0.4848,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00951",
+    "query": "Golf mein birdie kya hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00951"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00955",
+    "query": "Excavator kya hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00955"
+    ],
+    "metadata": {
+      "cmi": 0.25,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00956",
+    "query": "Sarisariñama kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00956"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00957",
+    "query": "Upar diye gaye passage ke based pe Bermudians ko unke descent ke based pe classify karein aur unke respective percentages ko bracket mein likhein. Results ko comma separated format mein display karein.",
+    "gold_chunk_ids": [
+      "chunk_dolly_00957"
+    ],
+    "metadata": {
+      "cmi": 0.4062,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00959",
+    "query": "Web browser kya hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00959"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00964",
+    "query": "Sheron ke baare mein kuch interesting facts bataiye",
+    "gold_chunk_ids": [
+      "chunk_dolly_00964"
+    ],
+    "metadata": {
+      "cmi": 0.375,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00969",
+    "query": "Their, there aur they're mein kya farak hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00969"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00972",
+    "query": "Spokane, Washington ka nickname kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00972"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00974",
+    "query": "Sabse bada passenger airliner kaun sa hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00974"
+    ],
+    "metadata": {
+      "cmi": 0.4286,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00977",
+    "query": "Compound statement kya hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00977"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00980",
+    "query": "Africa ke bare mein diye gaye paragraph ko padh ke bataiye ki Africa ka per capita GDP kam kyun hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00980"
+    ],
+    "metadata": {
+      "cmi": 0.55,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00981",
+    "query": "Diye gaye passage se, woh saal nikalo jis saal Elizabeth Taylor Los Angeles gayi thi",
+    "gold_chunk_ids": [
+      "chunk_dolly_00981"
+    ],
+    "metadata": {
+      "cmi": 0.5333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00983",
+    "query": "Grocery store kya hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00983"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00984",
+    "query": "Law of sines kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00984"
+    ],
+    "metadata": {
+      "cmi": 0.6,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00985",
+    "query": "Geling Yan kaun hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00985"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00986",
+    "query": "'A Song of Ice and Fire' series mein kaun kaun si books hain aur unka release kab hua tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00986"
+    ],
+    "metadata": {
+      "cmi": 0.5263,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00990",
+    "query": "Goose aur geese mein kya difference hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00990"
+    ],
+    "metadata": {
+      "cmi": 0.4286,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00991",
+    "query": "Vegan lifestyle aapke liye kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00991"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00992",
+    "query": "Singapore ka itihaas bataiye",
+    "gold_chunk_ids": [
+      "chunk_dolly_00992"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00994",
+    "query": "Matter ke teen main states kya hain aur ek state se dusre state mein kaise badalta hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00994"
+    ],
+    "metadata": {
+      "cmi": 0.1765,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00995",
+    "query": "American show The Office kis par based hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00995"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00996",
+    "query": "APR kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00996"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00998",
+    "query": "Bhagat Singh kaun the?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00998"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_00999",
+    "query": "Iss passage ke anusaar, Zangisheh mein ek family mein kitne log rehte hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_00999"
+    ],
+    "metadata": {
+      "cmi": 0.4615,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01001",
+    "query": "Financial services kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01001"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01009",
+    "query": "Passage se Twitter ke founders ki list comma separated format mein bataiye.",
+    "gold_chunk_ids": [
+      "chunk_dolly_01009"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01010",
+    "query": "Second City Theatre venues ke naam bataiye jahan Chris Farley cast member the, commas se alag karke.",
+    "gold_chunk_ids": [
+      "chunk_dolly_01010"
+    ],
+    "metadata": {
+      "cmi": 0.4118,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01012",
+    "query": "Internet kab bana tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01012"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01013",
+    "query": "Modern Portfolio Theory mein portfolio return aur variance calculate karne ke liye math latex markdown format mein formulas extract karein https://en.wikipedia.org/wiki/Modern_portfolio_theory",
+    "gold_chunk_ids": [
+      "chunk_dolly_01013"
+    ],
+    "metadata": {
+      "cmi": 0.4762,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01018",
+    "query": "18 holes golf karne mein kitna time lagta hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01018"
+    ],
+    "metadata": {
+      "cmi": 0.4444,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01021",
+    "query": "Amalfi Coast visit karne ke liye 5 din ka itinerary kya ho sakta hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01021"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01022",
+    "query": "Multiomics ke bare mein diye gaye paragraphs se, panomics kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01022"
+    ],
+    "metadata": {
+      "cmi": 0.5455,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01025",
+    "query": "Sabse famous 'Running of the Bulls' event kaun sa hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01025"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01034",
+    "query": "Middle eastern music aur western music ki tulna karein",
+    "gold_chunk_ids": [
+      "chunk_dolly_01034"
+    ],
+    "metadata": {
+      "cmi": 0.4444,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01036",
+    "query": "Inflation ka matlab hai ki cheezon ke daam badh rahe hain, deflation ke opposite. Roti aur baal katwana jaise kaam ke liye zyada paise dene padenge.",
+    "gold_chunk_ids": [
+      "chunk_dolly_01036"
+    ],
+    "metadata": {
+      "cmi": 0.4231,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01040",
+    "query": "Gran Tavola ki main branches kahaan thi?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01040"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01044",
+    "query": "Aajkal multi-layer perceptrons (MLPs) ko train karne ka sabse popular tarika kya hai aur yeh kaise kaam karta hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01044"
+    ],
+    "metadata": {
+      "cmi": 0.4737,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01045",
+    "query": "Part of Speech ko define karein",
+    "gold_chunk_ids": [
+      "chunk_dolly_01045"
+    ],
+    "metadata": {
+      "cmi": 0.6667,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01046",
+    "query": "Iss passage ke based pe, TSMC ke semiconductor fabrication (ya \"fab\") facilities kaun kaun se countries mein hain, unke naam commas se alag karke bataiye.",
+    "gold_chunk_ids": [
+      "chunk_dolly_01046"
+    ],
+    "metadata": {
+      "cmi": 0.48,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01050",
+    "query": "Coffee aur espresso mein kya farak hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01050"
+    ],
+    "metadata": {
+      "cmi": 0.4286,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01051",
+    "query": "Iss passage mein diye gaye sabhi universities ki comma separated list dijiye",
+    "gold_chunk_ids": [
+      "chunk_dolly_01051"
+    ],
+    "metadata": {
+      "cmi": 0.25,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01057",
+    "query": "Amanecer ke baare mein diye gaye reference text mein, album kisne banaya tha aur usme kaunsa viral gaana tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01057"
+    ],
+    "metadata": {
+      "cmi": 0.4211,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01058",
+    "query": "Warsaw mein sabse thanda mahina kaunsa hai aur us mahine mein average temperature kitni hoti hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01058"
+    ],
+    "metadata": {
+      "cmi": 0.4375,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01059",
+    "query": "Ancient Rome mein figs kitne popular the?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01059"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01061",
+    "query": "Shoji Hashimoto kaun the?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01061"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01063",
+    "query": "RFK kon hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01063"
+    ],
+    "metadata": {
+      "cmi": 0.6667,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01067",
+    "query": "Kaun sa zyada tasty hai, laal ya hara angoor?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01067"
+    ],
+    "metadata": {
+      "cmi": 0.4444,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01071",
+    "query": "Iss reference text mein jo book The High King ka plot summarize kar raha hai, Dyrnwyn sword ne apni power kaise khoi?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01071"
+    ],
+    "metadata": {
+      "cmi": 0.4545,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01072",
+    "query": "Depreciation kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01072"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01079",
+    "query": "Moha ka matlab kya hai",
+    "gold_chunk_ids": [
+      "chunk_dolly_01079"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01081",
+    "query": "Godfather Part II mein kisne kaam kiya tha",
+    "gold_chunk_ids": [
+      "chunk_dolly_01081"
+    ],
+    "metadata": {
+      "cmi": 0.625,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01085",
+    "query": "Neeche diye gaye paragraph se pehle ke sabhi US presidents ke naam nikaliye:",
+    "gold_chunk_ids": [
+      "chunk_dolly_01085"
+    ],
+    "metadata": {
+      "cmi": 0.3846,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01087",
+    "query": "Iss Wikipedia article se Seattle Storm ke sabse latest owner ka naam nikalo.",
+    "gold_chunk_ids": [
+      "chunk_dolly_01087"
+    ],
+    "metadata": {
+      "cmi": 0.5385,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01090",
+    "query": "Fidel Castro ke bare mein diye gaye reference text se bataiye ki unka janam kahan hua tha, unhone kaha padhai ki thi, aur woh kab Cuba ke leader the.",
+    "gold_chunk_ids": [
+      "chunk_dolly_01090"
+    ],
+    "metadata": {
+      "cmi": 0.4483,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01092",
+    "query": "Sleeping bag kya hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01092"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01095",
+    "query": "Aapke bar mein kaun se basic spirits hone chahiye",
+    "gold_chunk_ids": [
+      "chunk_dolly_01095"
+    ],
+    "metadata": {
+      "cmi": 0.4444,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01098",
+    "query": "In sentences mein typos ko sahi karein",
+    "gold_chunk_ids": [
+      "chunk_dolly_01098"
+    ],
+    "metadata": {
+      "cmi": 0.2857,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01100",
+    "query": "Trans Tahoe Relay kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01100"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01102",
+    "query": "Kya Grigorievna Nazarenko Moscow mein rehti hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01102"
+    ],
+    "metadata": {
+      "cmi": 0.4286,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01105",
+    "query": "Donald ke dada ji kiske liye body guard the?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01105"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01107",
+    "query": "Mauricio Macri kaun hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01107"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01108",
+    "query": "Kya David Petrarca ne Game of Thrones ke dusre season mein koi episode direct kiye the?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01108"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01110",
+    "query": "5 pounds aur 10 kilograms mein se kaun bada hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01110"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01111",
+    "query": "Ek product ke liye ek accha Survey kaise hasil karein",
+    "gold_chunk_ids": [
+      "chunk_dolly_01111"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01112",
+    "query": "Diye gaye passage se, Indian National Congress ke banne ka saal nikalo",
+    "gold_chunk_ids": [
+      "chunk_dolly_01112"
+    ],
+    "metadata": {
+      "cmi": 0.6667,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01113",
+    "query": "\"Fire power\" Fargus ko kaise madad karta hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01113"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01114",
+    "query": "Berwick ke bare mein diye gaye paragraph mein, sabse latest census ke hisaab se uski population kitni thi?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01114"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01115",
+    "query": "2FA kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01115"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01119",
+    "query": "Kafka ek prolific writer the, phir bhi unke itne kam kaam kyun bach paye?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01119"
+    ],
+    "metadata": {
+      "cmi": 0.4286,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01120",
+    "query": "George R.R. Martin kab \"A Song of Ice and Fire\" series ki chhathi book release karenge?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01120"
+    ],
+    "metadata": {
+      "cmi": 0.5625,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01122",
+    "query": "Mujhe ek aisa exercise bataiye jo main har roz kar sakun",
+    "gold_chunk_ids": [
+      "chunk_dolly_01122"
+    ],
+    "metadata": {
+      "cmi": 0.3636,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01123",
+    "query": "Finance mein security kya hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01123"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01125",
+    "query": "Modi ke Gujarat ke chief minister ke liye candidate hone par, Advani ko Modi ke political experience ki kami ki chinta thi.",
+    "gold_chunk_ids": [
+      "chunk_dolly_01125"
+    ],
+    "metadata": {
+      "cmi": 0.4545,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01126",
+    "query": "Latin Text ke bare mein diye gaye paragraph mein, \"Dona nobis pacem\" ka English mein kya matlab hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01126"
+    ],
+    "metadata": {
+      "cmi": 0.6111,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01128",
+    "query": "F-15EX Eagle II modern offensive war fighting ke liye ideal aircraft kyun nahi hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01128"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01129",
+    "query": "Cabernet Sauvignon kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01129"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01131",
+    "query": "Baseball ke khel mein, agar ek batter ek game mein teen strikeout kha jaye to use kya kehte hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01131"
+    ],
+    "metadata": {
+      "cmi": 0.5263,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01135",
+    "query": "Gilding metal ke kuchh upayog bataiye?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01135"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01136",
+    "query": "Apne ghar se mosquitoes ko kaise bhagain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01136"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01137",
+    "query": "Aapke sewing projects ke liye fabric kharidne ke liye sabse achhi jagah kaun si hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01137"
+    ],
+    "metadata": {
+      "cmi": 0.5333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01139",
+    "query": "Cabernet Sauvignon kaha ugaaya jaata hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01139"
+    ],
+    "metadata": {
+      "cmi": 0.6667,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01140",
+    "query": "Spark MapReduce se zyada fast kyun hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01140"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01141",
+    "query": "Equity securities kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01141"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01144",
+    "query": "India mein kaun sa sport sabse famous hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01144"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01152",
+    "query": "Lord of the Rings trilogy mein kaun kaun si books hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01152"
+    ],
+    "metadata": {
+      "cmi": 0.5455,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01155",
+    "query": "Constantine ki maut kaise hui?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01155"
+    ],
+    "metadata": {
+      "cmi": 0.6,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01158",
+    "query": "Neeche diye gaye passage se modern technology mein electricity ke do mukhya upayog nikalo.",
+    "gold_chunk_ids": [
+      "chunk_dolly_01158"
+    ],
+    "metadata": {
+      "cmi": 0.3571,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01160",
+    "query": "Fernando Pessoa ke main heteronyms kaun the?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01160"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01162",
+    "query": "Angie Thomas ka pehla published novel kya tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01162"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01166",
+    "query": "Dormouse ke bare mein diye gaye reference text mein, woh kis novel ka character hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01166"
+    ],
+    "metadata": {
+      "cmi": 0.4667,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01167",
+    "query": "Diye gaye text se science fiction ki jitni bhi definitions nikal sakti hain, unhe extract karein",
+    "gold_chunk_ids": [
+      "chunk_dolly_01167"
+    ],
+    "metadata": {
+      "cmi": 0.375,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01168",
+    "query": "Diye gaye passage se, NFL season mein khele gaye games ki sankhya ka progression nikalo.",
+    "gold_chunk_ids": [
+      "chunk_dolly_01168"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01169",
+    "query": "The X-Files ke kaun se episodes viewers ki ratings ke hisaab se sabse high-rated hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01169"
+    ],
+    "metadata": {
+      "cmi": 0.5333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01177",
+    "query": "Eczema aur Atopic Dermatitis mein kya farak hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01177"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01183",
+    "query": "Fairmont, West Virginia ke climate ke bare mein diye gaye paragraph se, city ke history mein sabse thanda mahina kaun sa tha, aur us mahine mein average temperature kya tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01183"
+    ],
+    "metadata": {
+      "cmi": 0.5333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01184",
+    "query": "Lamborghini ke owner aur Lamborghini ke Motorsport division ke liye banaye gaye Huracan cars ke type ki list nikalo.",
+    "gold_chunk_ids": [
+      "chunk_dolly_01184"
+    ],
+    "metadata": {
+      "cmi": 0.5789,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01188",
+    "query": "Cricket kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01188"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01189",
+    "query": "2023 mein Oscars mein best picture ka award kis movie ko mila tha?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01189"
+    ],
+    "metadata": {
+      "cmi": 0.4615,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01191",
+    "query": "Neeche diye gaye text se, Bhagvad Geeta ke top 3 chapters list karein, jinmein sabse zyada verses hain.",
+    "gold_chunk_ids": [
+      "chunk_dolly_01191"
+    ],
+    "metadata": {
+      "cmi": 0.4444,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01192",
+    "query": "Tanki ke alawa, Aruba mein kitne aur Amerindian settlements hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01192"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01193",
+    "query": "Tamil Nadu ka superstar kon hai ?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01193"
+    ],
+    "metadata": {
+      "cmi": 0.5714,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01198",
+    "query": "Sintok kaha par hai, yeh bataiye.",
+    "gold_chunk_ids": [
+      "chunk_dolly_01198"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01199",
+    "query": "Matt Giraud kaun hai",
+    "gold_chunk_ids": [
+      "chunk_dolly_01199"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01200",
+    "query": "Dutch log orange kyun pehnte hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01200"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01202",
+    "query": "Andre Weiss ke bare mein kuch text hai, Andre kitne saal Paris ke University of Dijon mein the?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01202"
+    ],
+    "metadata": {
+      "cmi": 0.6667,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01203",
+    "query": "Keanu Reeves aur unke parents kahaan se hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01203"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01207",
+    "query": "Kite kya hota hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01207"
+    ],
+    "metadata": {
+      "cmi": 0.25,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01210",
+    "query": "Schalke 04 kis cheez ke liye famous hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01210"
+    ],
+    "metadata": {
+      "cmi": 0.625,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01211",
+    "query": "Passage mein un individuals ke naam nikalo jinke naam par kanoon hai.",
+    "gold_chunk_ids": [
+      "chunk_dolly_01211"
+    ],
+    "metadata": {
+      "cmi": 0.4167,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01214",
+    "query": "Incorporation kya hai?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01214"
+    ],
+    "metadata": {
+      "cmi": 0.3333,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01216",
+    "query": "Sabse common sorting algorithms kya hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01216"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01220",
+    "query": "Diye gaye text mein notable dates aur events ki ek list nikalein, aur unhe bullet list mein rakhein: {Year} - {Event}",
+    "gold_chunk_ids": [
+      "chunk_dolly_01220"
+    ],
+    "metadata": {
+      "cmi": 0.4762,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01224",
+    "query": "Carlos Andres Perez kon hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01224"
+    ],
+    "metadata": {
+      "cmi": 0.4,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01225",
+    "query": "Yield curve ke shape ko affect karne wale factors ko extract karein aur unhe bullet points mein list karein.",
+    "gold_chunk_ids": [
+      "chunk_dolly_01225"
+    ],
+    "metadata": {
+      "cmi": 0.4211,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01228",
+    "query": "Kis American president ki pehli bhasha Dutch thi?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01228"
+    ],
+    "metadata": {
+      "cmi": 0.5,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01231",
+    "query": "Cycle kaise chalate hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01231"
+    ],
+    "metadata": {
+      "cmi": 0.25,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01232",
+    "query": "Neeche diye gaye text se Nachum ke rehne ke jagah nikalein aur unhe alphabetical order mein list karein aur semicolon se alag karein.",
+    "gold_chunk_ids": [
+      "chunk_dolly_01232"
+    ],
+    "metadata": {
+      "cmi": 0.4348,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01236",
+    "query": "One Night game ke kitne versions available hain?",
+    "gold_chunk_ids": [
+      "chunk_dolly_01236"
+    ],
+    "metadata": {
+      "cmi": 0.625,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  },
+  {
+    "query_id": "q_dolly_01237",
+    "query": "Iss paragraph mein mention kiye gaye TV show series ke do naam nikaliye",
+    "gold_chunk_ids": [
+      "chunk_dolly_01237"
+    ],
+    "metadata": {
+      "cmi": 0.3846,
+      "script": "Latin-Romanized",
+      "dataset_source": "Dolly-15k-Hinglish"
+    }
+  }
+]

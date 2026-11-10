@@ -1,0 +1,2532 @@
+{
+    "logs": [
+        {
+            "query_id": "Q01",
+            "initial_confidence": 0.047952473163604736,
+            "final_confidence": 0.04767489433288574,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q02",
+            "initial_confidence": 0.059860408306121826,
+            "final_confidence": 0.04466056823730469,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q03",
+            "initial_confidence": 0.0706825852394104,
+            "final_confidence": 0.07816570997238159,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q04",
+            "initial_confidence": 0.13877296447753906,
+            "final_confidence": 0.13877296447753906,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q29",
+            "initial_confidence": 0.08106470108032227,
+            "final_confidence": 0.08106470108032227,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q30",
+            "initial_confidence": 0.09223663806915283,
+            "final_confidence": 0.09223663806915283,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q31",
+            "initial_confidence": 0.0021475553512573242,
+            "final_confidence": 0.00486910343170166,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q32",
+            "initial_confidence": 0.00033587217330932617,
+            "final_confidence": 0.006030678749084473,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q57",
+            "initial_confidence": 0.060186147689819336,
+            "final_confidence": 0.05733376741409302,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q58",
+            "initial_confidence": 0.06351560354232788,
+            "final_confidence": 0.07365334033966064,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q59",
+            "initial_confidence": 0.05608832836151123,
+            "final_confidence": 0.05827361345291138,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q60",
+            "initial_confidence": 0.08168226480484009,
+            "final_confidence": 0.07649827003479004,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q61",
+            "initial_confidence": 0.13097470998764038,
+            "final_confidence": 0.13097470998764038,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q62",
+            "initial_confidence": 0.08708173036575317,
+            "final_confidence": 0.08708173036575317,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q75",
+            "initial_confidence": 0.1324634552001953,
+            "final_confidence": 0.1324634552001953,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q078",
+            "initial_confidence": 0.014221549034118652,
+            "final_confidence": 0.039622604846954346,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q083",
+            "initial_confidence": 0.019678354263305664,
+            "final_confidence": 0.0269736647605896,
+            "initial_mrr": 0.1111111111111111,
+            "final_mrr": 0.1111111111111111,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q090",
+            "initial_confidence": 0.026253700256347656,
+            "final_confidence": 0.022394835948944092,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q096",
+            "initial_confidence": 0.033455491065979004,
+            "final_confidence": 0.033455491065979004,
+            "initial_mrr": 0.0,
+            "final_mrr": 0.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q101",
+            "initial_confidence": 0.03238105773925781,
+            "final_confidence": 0.02627640962600708,
+            "initial_mrr": 0.2,
+            "final_mrr": 0.2,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q106",
+            "initial_confidence": 0.0310666561126709,
+            "final_confidence": 0.01396036148071289,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q110",
+            "initial_confidence": 0.10454371571540833,
+            "final_confidence": 0.10454371571540833,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q115",
+            "initial_confidence": 0.028208911418914795,
+            "final_confidence": 0.04863134026527405,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q120",
+            "initial_confidence": 0.058386385440826416,
+            "final_confidence": 0.058386385440826416,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q125",
+            "initial_confidence": 0.04265111684799194,
+            "final_confidence": 0.044989585876464844,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q130",
+            "initial_confidence": 0.04883641004562378,
+            "final_confidence": 0.039321959018707275,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q135",
+            "initial_confidence": 0.043229520320892334,
+            "final_confidence": 0.03747296333312988,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q140",
+            "initial_confidence": 0.09380656480789185,
+            "final_confidence": 0.10829943418502808,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q144",
+            "initial_confidence": 0.04143118858337402,
+            "final_confidence": 0.048315346240997314,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q154",
+            "initial_confidence": 0.008063435554504395,
+            "final_confidence": 0.007951438426971436,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q155",
+            "initial_confidence": 0.0012552142143249512,
+            "final_confidence": 0.0007309317588806152,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q161",
+            "initial_confidence": 0.007461130619049072,
+            "final_confidence": 0.005557984113693237,
+            "initial_mrr": 0.25,
+            "final_mrr": 0.25,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q166",
+            "initial_confidence": 0.011435508728027344,
+            "final_confidence": 0.015231132507324219,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q171",
+            "initial_confidence": 8.380413055419922e-05,
+            "final_confidence": 0.003620624542236328,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q175",
+            "initial_confidence": 0.1209406852722168,
+            "final_confidence": 0.1209406852722168,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q180",
+            "initial_confidence": 0.031178295612335205,
+            "final_confidence": 0.036035776138305664,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q189",
+            "initial_confidence": 0.00020623207092285156,
+            "final_confidence": 0.0017895698547363281,
+            "initial_mrr": 0.25,
+            "final_mrr": 0.25,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q195",
+            "initial_confidence": 0.04438501596450806,
+            "final_confidence": 0.03826427459716797,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q200",
+            "initial_confidence": 0.04270249605178833,
+            "final_confidence": 0.03861111402511597,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q205",
+            "initial_confidence": 0.06978762149810791,
+            "final_confidence": 0.05966785550117493,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q211",
+            "initial_confidence": 0.007397770881652832,
+            "final_confidence": 0.008611917495727539,
+            "initial_mrr": 0.3333333333333333,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q216",
+            "initial_confidence": 0.06822365522384644,
+            "final_confidence": 0.07796645164489746,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q221",
+            "initial_confidence": 0.011404991149902344,
+            "final_confidence": 0.04172718524932861,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q222",
+            "initial_confidence": 0.017406702041625977,
+            "final_confidence": 0.02288687229156494,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q223",
+            "initial_confidence": 0.017406702041625977,
+            "final_confidence": 0.02288687229156494,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q227",
+            "initial_confidence": 0.072079598903656,
+            "final_confidence": 0.05610102415084839,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q232",
+            "initial_confidence": 0.03954380750656128,
+            "final_confidence": 0.05304497480392456,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q237",
+            "initial_confidence": 0.05249291658401489,
+            "final_confidence": 0.052874982357025146,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q242",
+            "initial_confidence": 0.03907287120819092,
+            "final_confidence": 0.03601515293121338,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q247",
+            "initial_confidence": 0.026136159896850586,
+            "final_confidence": 0.02403891086578369,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q254",
+            "initial_confidence": 0.14211666584014893,
+            "final_confidence": 0.14211666584014893,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q261",
+            "initial_confidence": 0.017455637454986572,
+            "final_confidence": 0.004159688949584961,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q266",
+            "initial_confidence": 4.673004150390625e-05,
+            "final_confidence": 0.006556570529937744,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q271",
+            "initial_confidence": 0.0710369348526001,
+            "final_confidence": 0.07282906770706177,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q277",
+            "initial_confidence": 0.018705248832702637,
+            "final_confidence": 0.02370619773864746,
+            "initial_mrr": 0.2,
+            "final_mrr": 0.25,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q282",
+            "initial_confidence": 0.007193058729171753,
+            "final_confidence": 0.00770193338394165,
+            "initial_mrr": 0.25,
+            "final_mrr": 0.25,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q287",
+            "initial_confidence": 0.17856398224830627,
+            "final_confidence": 0.17856398224830627,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q288",
+            "initial_confidence": 0.03656148910522461,
+            "final_confidence": 0.04733365774154663,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q289",
+            "initial_confidence": 0.12529829144477844,
+            "final_confidence": 0.12529829144477844,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q294",
+            "initial_confidence": 0.0033849477767944336,
+            "final_confidence": 0.010002613067626953,
+            "initial_mrr": 0.3333333333333333,
+            "final_mrr": 0.5,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q299",
+            "initial_confidence": 0.030402183532714844,
+            "final_confidence": 0.034011662006378174,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q308",
+            "initial_confidence": 0.019600331783294678,
+            "final_confidence": 0.017179101705551147,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q312",
+            "initial_confidence": 0.044745445251464844,
+            "final_confidence": 0.044745445251464844,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q17",
+            "initial_confidence": 0.1084776520729065,
+            "final_confidence": 0.09806430339813232,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q18",
+            "initial_confidence": 0.05105757713317871,
+            "final_confidence": 0.031567513942718506,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q19",
+            "initial_confidence": 0.0857805609703064,
+            "final_confidence": 0.07049190998077393,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q20",
+            "initial_confidence": 0.05582869052886963,
+            "final_confidence": 0.03879570960998535,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q25",
+            "initial_confidence": 0.07805782556533813,
+            "final_confidence": 0.050910353660583496,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q26",
+            "initial_confidence": 0.04070371389389038,
+            "final_confidence": 0.03726482391357422,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q27",
+            "initial_confidence": 0.07503575086593628,
+            "final_confidence": 0.0910646915435791,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q28",
+            "initial_confidence": 0.054085612297058105,
+            "final_confidence": 0.04338139295578003,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q45",
+            "initial_confidence": 0.06965595483779907,
+            "final_confidence": 0.08958929777145386,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q46",
+            "initial_confidence": 0.049376726150512695,
+            "final_confidence": 0.047306716442108154,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q47",
+            "initial_confidence": 0.051060616970062256,
+            "final_confidence": 0.05273282527923584,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q48",
+            "initial_confidence": 0.000584721565246582,
+            "final_confidence": 0.04613429307937622,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q66",
+            "initial_confidence": 0.08692073822021484,
+            "final_confidence": 0.08692073822021484,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q68",
+            "initial_confidence": 0.005473673343658447,
+            "final_confidence": 0.005473673343658447,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q69",
+            "initial_confidence": 0.1607794165611267,
+            "final_confidence": 0.1607794165611267,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q079",
+            "initial_confidence": 0.006055355072021484,
+            "final_confidence": 0.006055355072021484,
+            "initial_mrr": 0.1111111111111111,
+            "final_mrr": 0.1111111111111111,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q084",
+            "initial_confidence": 0.08387356996536255,
+            "final_confidence": 0.08387356996536255,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q091",
+            "initial_confidence": 0.03286111354827881,
+            "final_confidence": 0.032861173152923584,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q097",
+            "initial_confidence": 0.016756832599639893,
+            "final_confidence": 0.016756832599639893,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q102",
+            "initial_confidence": 0.0035209357738494873,
+            "final_confidence": 0.0035209357738494873,
+            "initial_mrr": 0.14285714285714285,
+            "final_mrr": 0.14285714285714285,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q107",
+            "initial_confidence": 0.08229202032089233,
+            "final_confidence": 0.08229202032089233,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q109",
+            "initial_confidence": 0.04224425554275513,
+            "final_confidence": 0.04224425554275513,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q114",
+            "initial_confidence": 0.0509340763092041,
+            "final_confidence": 0.03504180908203125,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q119",
+            "initial_confidence": 0.05356970429420471,
+            "final_confidence": 0.048361361026763916,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q124",
+            "initial_confidence": 0.026765763759613037,
+            "final_confidence": 0.026765763759613037,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q126",
+            "initial_confidence": 0.016371726989746094,
+            "final_confidence": 0.016371726989746094,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q131",
+            "initial_confidence": 0.18637600541114807,
+            "final_confidence": 0.1715107262134552,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q136",
+            "initial_confidence": 0.06972062587738037,
+            "final_confidence": 0.06972062587738037,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q143",
+            "initial_confidence": 0.026619017124176025,
+            "final_confidence": 0.03258633613586426,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q149",
+            "initial_confidence": 0.01755434274673462,
+            "final_confidence": 0.002423107624053955,
+            "initial_mrr": 0.16666666666666666,
+            "final_mrr": 0.3333333333333333,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q151",
+            "initial_confidence": 0.0007962584495544434,
+            "final_confidence": 0.0019835829734802246,
+            "initial_mrr": 0.3333333333333333,
+            "final_mrr": 0.3333333333333333,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q156",
+            "initial_confidence": 0.01577150821685791,
+            "final_confidence": 0.01577150821685791,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q160",
+            "initial_confidence": 0.08920586109161377,
+            "final_confidence": 0.05736136436462402,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q165",
+            "initial_confidence": 0.015494048595428467,
+            "final_confidence": 0.015494048595428467,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q170",
+            "initial_confidence": 0.005990326404571533,
+            "final_confidence": 0.007953941822052002,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q179",
+            "initial_confidence": 0.01555401086807251,
+            "final_confidence": 0.0002282857894897461,
+            "initial_mrr": 0.3333333333333333,
+            "final_mrr": 0.5,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q182",
+            "initial_confidence": 0.023580074310302734,
+            "final_confidence": 0.01869368553161621,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q184",
+            "initial_confidence": 0.1841975748538971,
+            "final_confidence": 0.12650728225708008,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q186",
+            "initial_confidence": 0.0007962584495544434,
+            "final_confidence": 0.0019835829734802246,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q191",
+            "initial_confidence": 0.009042024612426758,
+            "final_confidence": 0.007443785667419434,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q196",
+            "initial_confidence": 0.020303726196289062,
+            "final_confidence": 0.007570803165435791,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q201",
+            "initial_confidence": 0.09080076217651367,
+            "final_confidence": 0.08709150552749634,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q206",
+            "initial_confidence": 0.009819209575653076,
+            "final_confidence": 0.0011293292045593262,
+            "initial_mrr": 0.25,
+            "final_mrr": 0.25,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q210",
+            "initial_confidence": 0.002951502799987793,
+            "final_confidence": 0.0039629340171813965,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q215",
+            "initial_confidence": 0.03215014934539795,
+            "final_confidence": 0.03215014934539795,
+            "initial_mrr": 0.3333333333333333,
+            "final_mrr": 0.3333333333333333,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q220",
+            "initial_confidence": 0.06647956371307373,
+            "final_confidence": 0.06647956371307373,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q226",
+            "initial_confidence": 0.07378137111663818,
+            "final_confidence": 0.07596069574356079,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q231",
+            "initial_confidence": 0.14927935600280762,
+            "final_confidence": 0.14927935600280762,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q236",
+            "initial_confidence": 0.003411233425140381,
+            "final_confidence": 0.003411233425140381,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q241",
+            "initial_confidence": 0.020541071891784668,
+            "final_confidence": 0.012915492057800293,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q246",
+            "initial_confidence": 0.002328932285308838,
+            "final_confidence": 0.009214043617248535,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q251",
+            "initial_confidence": 0.03247922658920288,
+            "final_confidence": 0.015388846397399902,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q260",
+            "initial_confidence": 0.00047004222869873047,
+            "final_confidence": 0.009542584419250488,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q265",
+            "initial_confidence": 0.03752458095550537,
+            "final_confidence": 0.02667093276977539,
+            "initial_mrr": 0.16666666666666666,
+            "final_mrr": 0.16666666666666666,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q270",
+            "initial_confidence": 0.031095266342163086,
+            "final_confidence": 0.029796838760375977,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q276",
+            "initial_confidence": 0.04847234487533569,
+            "final_confidence": 0.04500633478164673,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q281",
+            "initial_confidence": 0.006961047649383545,
+            "final_confidence": 0.006961047649383545,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q286",
+            "initial_confidence": 0.12722080945968628,
+            "final_confidence": 0.10605797171592712,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q293",
+            "initial_confidence": 0.024178624153137207,
+            "final_confidence": 0.013638794422149658,
+            "initial_mrr": 0.2,
+            "final_mrr": 0.2,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q298",
+            "initial_confidence": 0.11023825407028198,
+            "final_confidence": 0.05899953842163086,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q303",
+            "initial_confidence": 0.09703123569488525,
+            "final_confidence": 0.09703123569488525,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q304",
+            "initial_confidence": 0.12108772993087769,
+            "final_confidence": 0.11666154861450195,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q307",
+            "initial_confidence": 0.038518667221069336,
+            "final_confidence": 0.038518667221069336,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q05",
+            "initial_confidence": 0.04814082384109497,
+            "final_confidence": 0.04251444339752197,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q06",
+            "initial_confidence": 0.015220701694488525,
+            "final_confidence": 0.01574760675430298,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q07",
+            "initial_confidence": 0.00922095775604248,
+            "final_confidence": 0.0004252791404724121,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q08",
+            "initial_confidence": 0.006955385208129883,
+            "final_confidence": 0.00891810655593872,
+            "initial_mrr": 0.3333333333333333,
+            "final_mrr": 0.3333333333333333,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q21",
+            "initial_confidence": 0.002575099468231201,
+            "final_confidence": 0.005729317665100098,
+            "initial_mrr": 0.3333333333333333,
+            "final_mrr": 0.3333333333333333,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q22",
+            "initial_confidence": 0.03576916456222534,
+            "final_confidence": 0.03641033172607422,
+            "initial_mrr": 0.3333333333333333,
+            "final_mrr": 0.5,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q23",
+            "initial_confidence": 0.013001620769500732,
+            "final_confidence": 0.008115231990814209,
+            "initial_mrr": 0.14285714285714285,
+            "final_mrr": 0.2,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q24",
+            "initial_confidence": 0.002539992332458496,
+            "final_confidence": 0.015827298164367676,
+            "initial_mrr": 0.0,
+            "final_mrr": 0.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q49",
+            "initial_confidence": 0.10077053308486938,
+            "final_confidence": 0.09806621074676514,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q50",
+            "initial_confidence": 0.033872246742248535,
+            "final_confidence": 0.033499181270599365,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q51",
+            "initial_confidence": 0.06546491384506226,
+            "final_confidence": 0.06128782033920288,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q52",
+            "initial_confidence": 0.10948359966278076,
+            "final_confidence": 0.10371974110603333,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q63",
+            "initial_confidence": 0.011589407920837402,
+            "final_confidence": 0.0098496675491333,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q73",
+            "initial_confidence": 0.006109952926635742,
+            "final_confidence": 0.006109893321990967,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q74",
+            "initial_confidence": 0.1487281620502472,
+            "final_confidence": 0.15767979621887207,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q080",
+            "initial_confidence": 0.0742163360118866,
+            "final_confidence": 0.025196373462677002,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q085",
+            "initial_confidence": 0.07482469081878662,
+            "final_confidence": 0.07482469081878662,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q088",
+            "initial_confidence": 0.05223822593688965,
+            "final_confidence": 0.05223822593688965,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q089",
+            "initial_confidence": 0.05223822593688965,
+            "final_confidence": 0.05223822593688965,
+            "initial_mrr": 0.2,
+            "final_mrr": 0.2,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q092",
+            "initial_confidence": 0.06324803829193115,
+            "final_confidence": 0.06324803829193115,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q093",
+            "initial_confidence": 0.01143801212310791,
+            "final_confidence": 0.01143801212310791,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q098",
+            "initial_confidence": 0.023740410804748535,
+            "final_confidence": 0.023901939392089844,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q103",
+            "initial_confidence": 0.06814706325531006,
+            "final_confidence": 0.06814706325531006,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q108",
+            "initial_confidence": 0.10799270868301392,
+            "final_confidence": 0.10799270868301392,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q113",
+            "initial_confidence": 0.06444400548934937,
+            "final_confidence": 0.027825593948364258,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q118",
+            "initial_confidence": 0.09742903709411621,
+            "final_confidence": 0.10225814580917358,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q123",
+            "initial_confidence": 0.0596732497215271,
+            "final_confidence": 0.0596732497215271,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q127",
+            "initial_confidence": 0.008533060550689697,
+            "final_confidence": 0.008533060550689697,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q132",
+            "initial_confidence": 0.1959565281867981,
+            "final_confidence": 0.18319356441497803,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 1
+        },
+        {
+            "query_id": "Q137",
+            "initial_confidence": 0.02032071352005005,
+            "final_confidence": 0.016024649143218994,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q142",
+            "initial_confidence": 0.04972809553146362,
+            "final_confidence": 0.036980241537094116,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q147",
+            "initial_confidence": 0.011868059635162354,
+            "final_confidence": 0.012313127517700195,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q153",
+            "initial_confidence": 0.06237608194351196,
+            "final_confidence": 0.033505260944366455,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q159",
+            "initial_confidence": 0.045718491077423096,
+            "final_confidence": 0.045718491077423096,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q164",
+            "initial_confidence": 0.012794554233551025,
+            "final_confidence": 0.017857670783996582,
+            "initial_mrr": 0.0,
+            "final_mrr": 0.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q169",
+            "initial_confidence": 0.05264550447463989,
+            "final_confidence": 0.05264550447463989,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q178",
+            "initial_confidence": 0.07284492254257202,
+            "final_confidence": 0.07790595293045044,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q181",
+            "initial_confidence": 0.033343732357025146,
+            "final_confidence": 0.033343732357025146,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q183",
+            "initial_confidence": 0.009679019451141357,
+            "final_confidence": 0.02938324213027954,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q192",
+            "initial_confidence": 0.04755735397338867,
+            "final_confidence": 0.04084378480911255,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q197",
+            "initial_confidence": 0.0636650025844574,
+            "final_confidence": 0.06380212306976318,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q202",
+            "initial_confidence": 0.15248823165893555,
+            "final_confidence": 0.13756102323532104,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q207",
+            "initial_confidence": 0.05001246929168701,
+            "final_confidence": 0.04497730731964111,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q209",
+            "initial_confidence": 0.05494952201843262,
+            "final_confidence": 0.044359803199768066,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q214",
+            "initial_confidence": 0.0696173906326294,
+            "final_confidence": 0.0696173906326294,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q219",
+            "initial_confidence": 0.018445193767547607,
+            "final_confidence": 0.018445193767547607,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q225",
+            "initial_confidence": 0.05913889408111572,
+            "final_confidence": 0.05913889408111572,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q230",
+            "initial_confidence": 0.08867675065994263,
+            "final_confidence": 0.08867675065994263,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q235",
+            "initial_confidence": 0.031643450260162354,
+            "final_confidence": 0.031643450260162354,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q245",
+            "initial_confidence": 0.014591395854949951,
+            "final_confidence": 0.00822591781616211,
+            "initial_mrr": 0.25,
+            "final_mrr": 0.2,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q248",
+            "initial_confidence": 0.02136772871017456,
+            "final_confidence": 0.025032758712768555,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q250",
+            "initial_confidence": 0.11582040786743164,
+            "final_confidence": 0.12278950214385986,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q256",
+            "initial_confidence": 0.06873297691345215,
+            "final_confidence": 0.0715588927268982,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q259",
+            "initial_confidence": 0.06769567728042603,
+            "final_confidence": 0.059605956077575684,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q264",
+            "initial_confidence": 0.02401876449584961,
+            "final_confidence": 0.023071229457855225,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q269",
+            "initial_confidence": 0.09096968173980713,
+            "final_confidence": 0.09827786684036255,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q275",
+            "initial_confidence": 0.06714379787445068,
+            "final_confidence": 0.06714382767677307,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q280",
+            "initial_confidence": 0.029902756214141846,
+            "final_confidence": 0.029902786016464233,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q285",
+            "initial_confidence": 0.03718709945678711,
+            "final_confidence": 0.03718709945678711,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q292",
+            "initial_confidence": 0.015579760074615479,
+            "final_confidence": 0.015579760074615479,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q297",
+            "initial_confidence": 0.1550275683403015,
+            "final_confidence": 0.14970380067825317,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q302",
+            "initial_confidence": 0.022574007511138916,
+            "final_confidence": 0.022574007511138916,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q306",
+            "initial_confidence": 0.06800264120101929,
+            "final_confidence": 0.06800264120101929,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q09",
+            "initial_confidence": 0.09478390216827393,
+            "final_confidence": 0.09718960523605347,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q10",
+            "initial_confidence": 0.08462411165237427,
+            "final_confidence": 0.08462411165237427,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q11",
+            "initial_confidence": 0.08839362859725952,
+            "final_confidence": 0.08756113052368164,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q12",
+            "initial_confidence": 0.017505645751953125,
+            "final_confidence": 0.012281715869903564,
+            "initial_mrr": 0.3333333333333333,
+            "final_mrr": 0.3333333333333333,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q37",
+            "initial_confidence": 0.08152997493743896,
+            "final_confidence": 0.09050476551055908,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q38",
+            "initial_confidence": 0.12129229307174683,
+            "final_confidence": 0.12862884998321533,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q39",
+            "initial_confidence": 0.05389374494552612,
+            "final_confidence": 0.027627021074295044,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q40",
+            "initial_confidence": 0.027746140956878662,
+            "final_confidence": 0.01221531629562378,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q41",
+            "initial_confidence": 0.15633922815322876,
+            "final_confidence": 0.15633922815322876,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q42",
+            "initial_confidence": 0.08363455533981323,
+            "final_confidence": 0.0910499095916748,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q43",
+            "initial_confidence": 0.08706516027450562,
+            "final_confidence": 0.12300431728363037,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q44",
+            "initial_confidence": 0.018691182136535645,
+            "final_confidence": 0.004698336124420166,
+            "initial_mrr": 0.125,
+            "final_mrr": 0.14285714285714285,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q64",
+            "initial_confidence": 0.1270948052406311,
+            "final_confidence": 0.1270948052406311,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q67",
+            "initial_confidence": 0.09665548801422119,
+            "final_confidence": 0.09665548801422119,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q71",
+            "initial_confidence": 0.07593041658401489,
+            "final_confidence": 0.07593041658401489,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q72",
+            "initial_confidence": 0.07554560899734497,
+            "final_confidence": 0.07554560899734497,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q076",
+            "initial_confidence": 0.001017749309539795,
+            "final_confidence": 0.00027829408645629883,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q081",
+            "initial_confidence": 0.10389864444732666,
+            "final_confidence": 0.10389864444732666,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q086",
+            "initial_confidence": 0.029443800449371338,
+            "final_confidence": 0.029443800449371338,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q094",
+            "initial_confidence": 0.00953763723373413,
+            "final_confidence": 0.00953763723373413,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q099",
+            "initial_confidence": 0.003748655319213867,
+            "final_confidence": 0.003748655319213867,
+            "initial_mrr": 0.16666666666666666,
+            "final_mrr": 0.16666666666666666,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q104",
+            "initial_confidence": 0.025274038314819336,
+            "final_confidence": 0.015932917594909668,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q112",
+            "initial_confidence": 0.012704432010650635,
+            "final_confidence": 0.013028979301452637,
+            "initial_mrr": 0.25,
+            "final_mrr": 0.25,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q117",
+            "initial_confidence": 0.0620342493057251,
+            "final_confidence": 0.034332871437072754,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q122",
+            "initial_confidence": 0.006272494792938232,
+            "final_confidence": 0.006272494792938232,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q128",
+            "initial_confidence": 0.09257614612579346,
+            "final_confidence": 0.09257614612579346,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q133",
+            "initial_confidence": 0.004269123077392578,
+            "final_confidence": 0.004575610160827637,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q138",
+            "initial_confidence": 0.0020962953567504883,
+            "final_confidence": 0.009842932224273682,
+            "initial_mrr": 0.5,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q141",
+            "initial_confidence": 0.019425272941589355,
+            "final_confidence": 0.01288449764251709,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q146",
+            "initial_confidence": 0.009971439838409424,
+            "final_confidence": 0.03063863515853882,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q152",
+            "initial_confidence": 0.13272714614868164,
+            "final_confidence": 0.13272714614868164,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q157",
+            "initial_confidence": 0.11285573244094849,
+            "final_confidence": 0.11285573244094849,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q163",
+            "initial_confidence": 0.0321042537689209,
+            "final_confidence": 0.043746888637542725,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q168",
+            "initial_confidence": 0.08148258924484253,
+            "final_confidence": 0.08148258924484253,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q174",
+            "initial_confidence": 0.08701181411743164,
+            "final_confidence": 0.0812143087387085,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q177",
+            "initial_confidence": 0.1134890615940094,
+            "final_confidence": 0.11124467849731445,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q188",
+            "initial_confidence": 0.14017024636268616,
+            "final_confidence": 0.14017024636268616,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q193",
+            "initial_confidence": 0.044358909130096436,
+            "final_confidence": 0.044358909130096436,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q198",
+            "initial_confidence": 0.06645092368125916,
+            "final_confidence": 0.0745171308517456,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q203",
+            "initial_confidence": 0.00176316499710083,
+            "final_confidence": 0.00176316499710083,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q208",
+            "initial_confidence": 0.039855003356933594,
+            "final_confidence": 0.031530916690826416,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q213",
+            "initial_confidence": 0.0030587315559387207,
+            "final_confidence": 0.009151756763458252,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q218",
+            "initial_confidence": 0.024945437908172607,
+            "final_confidence": 0.024945437908172607,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q229",
+            "initial_confidence": 0.03897809982299805,
+            "final_confidence": 0.03581821918487549,
+            "initial_mrr": 0.25,
+            "final_mrr": 0.3333333333333333,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q234",
+            "initial_confidence": 0.019765615463256836,
+            "final_confidence": 0.019765615463256836,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q239",
+            "initial_confidence": 0.047995567321777344,
+            "final_confidence": 0.017882466316223145,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q240",
+            "initial_confidence": 0.07086414098739624,
+            "final_confidence": 0.07086414098739624,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q244",
+            "initial_confidence": 0.0023933053016662598,
+            "final_confidence": 0.008200764656066895,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q249",
+            "initial_confidence": 0.036465466022491455,
+            "final_confidence": 0.036465466022491455,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q255",
+            "initial_confidence": 0.05837434530258179,
+            "final_confidence": 0.060603171586990356,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q258",
+            "initial_confidence": 0.04347491264343262,
+            "final_confidence": 0.0594024658203125,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q263",
+            "initial_confidence": 0.010066509246826172,
+            "final_confidence": 0.013989031314849854,
+            "initial_mrr": 0.3333333333333333,
+            "final_mrr": 0.3333333333333333,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q268",
+            "initial_confidence": 0.03763937950134277,
+            "final_confidence": 0.020638585090637207,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q273",
+            "initial_confidence": 0.09234696626663208,
+            "final_confidence": 0.09906661510467529,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q274",
+            "initial_confidence": 0.13755130767822266,
+            "final_confidence": 0.13755130767822266,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q279",
+            "initial_confidence": 0.016993224620819092,
+            "final_confidence": 0.015053212642669678,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q284",
+            "initial_confidence": 0.005117058753967285,
+            "final_confidence": 0.009900093078613281,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q291",
+            "initial_confidence": 0.03469163179397583,
+            "final_confidence": 0.03469163179397583,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q296",
+            "initial_confidence": 0.20120543241500854,
+            "final_confidence": 0.20120543241500854,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q301",
+            "initial_confidence": 0.04365396499633789,
+            "final_confidence": 0.04365396499633789,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q310",
+            "initial_confidence": 0.03990828990936279,
+            "final_confidence": 0.052503347396850586,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q311",
+            "initial_confidence": 0.019124746322631836,
+            "final_confidence": 0.019124746322631836,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q313",
+            "initial_confidence": 0.16030514240264893,
+            "final_confidence": 0.16030514240264893,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q13",
+            "initial_confidence": 0.013334572315216064,
+            "final_confidence": 0.009726345539093018,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q14",
+            "initial_confidence": 0.00018149614334106445,
+            "final_confidence": 0.0030913949012756348,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q15",
+            "initial_confidence": 0.05233520269393921,
+            "final_confidence": 0.04539597034454346,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q16",
+            "initial_confidence": 0.0355570912361145,
+            "final_confidence": 0.04394811391830444,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q33",
+            "initial_confidence": 0.1620396375656128,
+            "final_confidence": 0.1620396375656128,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q34",
+            "initial_confidence": 0.11545723676681519,
+            "final_confidence": 0.11545723676681519,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q35",
+            "initial_confidence": 0.040556132793426514,
+            "final_confidence": 0.026736348867416382,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q36",
+            "initial_confidence": 0.044123291969299316,
+            "final_confidence": 0.03540495038032532,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q53",
+            "initial_confidence": 0.09869521856307983,
+            "final_confidence": 0.09869521856307983,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q54",
+            "initial_confidence": 0.08211648464202881,
+            "final_confidence": 0.08211648464202881,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q55",
+            "initial_confidence": 0.019213557243347168,
+            "final_confidence": 0.004094570875167847,
+            "initial_mrr": 0.14285714285714285,
+            "final_mrr": 0.14285714285714285,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q56",
+            "initial_confidence": 0.007635235786437988,
+            "final_confidence": 0.021705985069274902,
+            "initial_mrr": 0.25,
+            "final_mrr": 0.25,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q65",
+            "initial_confidence": 0.05832391977310181,
+            "final_confidence": 0.05832391977310181,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q70",
+            "initial_confidence": 0.13551050424575806,
+            "final_confidence": 0.13551050424575806,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q077",
+            "initial_confidence": 0.017955422401428223,
+            "final_confidence": 0.016203999519348145,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q082",
+            "initial_confidence": 0.005827546119689941,
+            "final_confidence": 0.005827546119689941,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q087",
+            "initial_confidence": 0.012333691120147705,
+            "final_confidence": 0.012333691120147705,
+            "initial_mrr": 0.3333333333333333,
+            "final_mrr": 0.3333333333333333,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q095",
+            "initial_confidence": 0.001231372356414795,
+            "final_confidence": 0.0012314319610595703,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q100",
+            "initial_confidence": 0.042155563831329346,
+            "final_confidence": 0.042155563831329346,
+            "initial_mrr": 0.14285714285714285,
+            "final_mrr": 0.14285714285714285,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q105",
+            "initial_confidence": 0.06261062622070312,
+            "final_confidence": 0.06261062622070312,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q111",
+            "initial_confidence": 0.08589351177215576,
+            "final_confidence": 0.08589351177215576,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q116",
+            "initial_confidence": 0.045262813568115234,
+            "final_confidence": 0.045262813568115234,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q121",
+            "initial_confidence": 0.008726656436920166,
+            "final_confidence": 0.008726656436920166,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q129",
+            "initial_confidence": 0.10044604539871216,
+            "final_confidence": 0.10044604539871216,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q134",
+            "initial_confidence": 0.06574922800064087,
+            "final_confidence": 0.06574922800064087,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q139",
+            "initial_confidence": 0.03883004188537598,
+            "final_confidence": 0.03692227602005005,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q145",
+            "initial_confidence": 0.013742506504058838,
+            "final_confidence": 0.021654248237609863,
+            "initial_mrr": 1.0,
+            "final_mrr": 0.3333333333333333,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q148",
+            "initial_confidence": 0.009311437606811523,
+            "final_confidence": 0.004744529724121094,
+            "initial_mrr": 1.0,
+            "final_mrr": 0.5,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q150",
+            "initial_confidence": 0.07040649652481079,
+            "final_confidence": 0.07040649652481079,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q158",
+            "initial_confidence": 0.06980293989181519,
+            "final_confidence": 0.06980293989181519,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q162",
+            "initial_confidence": 0.021670937538146973,
+            "final_confidence": 0.022904813289642334,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q167",
+            "initial_confidence": 0.0889589786529541,
+            "final_confidence": 0.0889589786529541,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q172",
+            "initial_confidence": 0.04019084572792053,
+            "final_confidence": 0.04334825277328491,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q173",
+            "initial_confidence": 0.021267712116241455,
+            "final_confidence": 0.03480929136276245,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q176",
+            "initial_confidence": 0.060156285762786865,
+            "final_confidence": 0.060156285762786865,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q185",
+            "initial_confidence": 0.009311437606811523,
+            "final_confidence": 0.004744529724121094,
+            "initial_mrr": 0.5,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q187",
+            "initial_confidence": 0.05988419055938721,
+            "final_confidence": 0.05988419055938721,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q190",
+            "initial_confidence": 0.018779754638671875,
+            "final_confidence": 0.018779754638671875,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q194",
+            "initial_confidence": 0.055632442235946655,
+            "final_confidence": 0.055632442235946655,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q199",
+            "initial_confidence": 0.02462667226791382,
+            "final_confidence": 0.02462667226791382,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q204",
+            "initial_confidence": 0.04741388559341431,
+            "final_confidence": 0.04741388559341431,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q212",
+            "initial_confidence": 0.009307265281677246,
+            "final_confidence": 0.002776801586151123,
+            "initial_mrr": 0.3333333333333333,
+            "final_mrr": 0.3333333333333333,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q217",
+            "initial_confidence": 0.00793546438217163,
+            "final_confidence": 0.00793546438217163,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q224",
+            "initial_confidence": 0.026645362377166748,
+            "final_confidence": 0.023344457149505615,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q228",
+            "initial_confidence": 0.00039196014404296875,
+            "final_confidence": 0.004069805145263672,
+            "initial_mrr": 1.0,
+            "final_mrr": 0.3333333333333333,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q233",
+            "initial_confidence": 0.0469050407409668,
+            "final_confidence": 0.04728919267654419,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q238",
+            "initial_confidence": 0.10294961929321289,
+            "final_confidence": 0.10294961929321289,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q243",
+            "initial_confidence": 0.06406307220458984,
+            "final_confidence": 0.06406307220458984,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q252",
+            "initial_confidence": 0.08322227001190186,
+            "final_confidence": 0.08322227001190186,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q253",
+            "initial_confidence": 0.0850454568862915,
+            "final_confidence": 0.0850454568862915,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q257",
+            "initial_confidence": 0.07473790645599365,
+            "final_confidence": 0.07473790645599365,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q262",
+            "initial_confidence": 0.16440284252166748,
+            "final_confidence": 0.16440284252166748,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q267",
+            "initial_confidence": 0.12074506282806396,
+            "final_confidence": 0.12074506282806396,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q272",
+            "initial_confidence": 0.006385505199432373,
+            "final_confidence": 0.014075398445129395,
+            "initial_mrr": 0.0,
+            "final_mrr": 0.09090909090909091,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q278",
+            "initial_confidence": 0.029154598712921143,
+            "final_confidence": 0.029154598712921143,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q283",
+            "initial_confidence": 0.03586709499359131,
+            "final_confidence": 0.05585139989852905,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q290",
+            "initial_confidence": 0.08582985401153564,
+            "final_confidence": 0.08582985401153564,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q295",
+            "initial_confidence": 0.15702518820762634,
+            "final_confidence": 0.15702518820762634,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q300",
+            "initial_confidence": 0.0729513168334961,
+            "final_confidence": 0.0729513168334961,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q305",
+            "initial_confidence": 0.016235172748565674,
+            "final_confidence": 0.016235172748565674,
+            "initial_mrr": 0.5,
+            "final_mrr": 0.5,
+            "step_count": 0
+        },
+        {
+            "query_id": "Q309",
+            "initial_confidence": 0.006650745868682861,
+            "final_confidence": 0.006650745868682861,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        },
+        {
+            "query_id": "Q314",
+            "initial_confidence": 0.014155089855194092,
+            "final_confidence": 0.013248682022094727,
+            "initial_mrr": 1.0,
+            "final_mrr": 1.0,
+            "step_count": 2
+        }
+    ],
+    "statistics": {
+        "spearman_rho": 0.5029972453480036,
+        "spearman_p": 1.536051277239573e-21,
+        "variance": 0.0019069135557285603,
+        "unique_values_count": 310,
+        "total_queries": 314,
+        "queries_below_0_2": 313,
+        "distribution": {
+            "p0": 4.673004150390625e-05,
+            "p25": 0.017096593976020813,
+            "p50": 0.043352216482162476,
+            "p75": 0.0754181444644928,
+            "p99": 0.1834652078151703,
+            "p100": 0.20120543241500854
+        }
+    }
+}

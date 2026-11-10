@@ -2,36 +2,36 @@
   "H1": {
     "hypothesis": "H1: Retrieval quality decreases significantly as CMI increases, on the same corpus/model.",
     "test_used": "Spearman rank correlation (CMI vs MRR) with Paired Bootstrap 95% CI on rho",
-    "statistic": 0.09081404925213138,
-    "p_value": 0.10824501486268585,
-    "effect_size": 0.09081404925213138,
+    "statistic": 0.07119306051598402,
+    "p_value": 0.20835201126432792,
+    "effect_size": 0.07119306051598402,
     "ci_95": [
-      -0.02560838102579804,
-      0.20360167677824806
+      -0.04500604544946453,
+      0.18456229349870806
     ],
     "verdict": "not supported",
-    "details": "Spearman rho=0.0908 (95% CI: [-0.0256, 0.2036]), p=0.1082 across 314 queries on BGE-M3.",
+    "details": "Spearman rho=0.0712 (95% CI: [-0.0450, 0.1846]), p=0.2084 across 314 queries on BGE-M3.",
     "power_analysis": "With n=314, 80% power at alpha=0.05 can detect a minimum correlation of rho=0.1575.",
     "confound_analysis": {
       "cmi_vs_overlap": "rho=0.1653, p=0.0033",
-      "low_overlap_subset": "n=179, rho=0.2683, p=0.0003",
-      "high_overlap_subset": "n=135, rho=-0.1797, p=0.0370"
+      "low_overlap_subset": "n=179, rho=0.2312, p=0.0019",
+      "high_overlap_subset": "n=135, rho=-0.1596, p=0.0645"
     },
-    "p_value_corrected": 0.4329800594507434
+    "p_value_corrected": 0.8334080450573117
   },
   "H2": {
     "hypothesis": "H2: Indic-tuned encoders degrade less than general multilingual encoders under code-mixing, at matched CMI.",
     "test_used": "Paired Wilcoxon signed-rank test (Indic-SBERT vs BGE-M3) with Paired Bootstrap 95% CI on effect size",
-    "statistic": 2195.0,
-    "p_value": 1.0271073089690512e-16,
-    "effect_size": -0.7181561376476631,
+    "statistic": 2211.0,
+    "p_value": 5.83829645021557e-18,
+    "effect_size": -0.734462259052423,
     "ci_95": [
-      -0.8194438307051038,
-      -0.6062015371141776
+      -0.8299579990852002,
+      -0.6292615008663873
     ],
     "verdict": "not supported",
-    "details": "Indic-SBERT mean MRR=0.6035 vs BGE-M3 mean MRR=0.8465 (mean diff=-0.2429, 95% CI: [-0.2937, -0.1933]). Rank-biserial r_rb=-0.7182 (95% CI: [-0.8194, -0.6062]).",
-    "p_value_corrected": 6.162643853814307e-16
+    "details": "Indic-SBERT mean MRR=0.5903 vs BGE-M3 mean MRR=0.8526 (mean diff=-0.2623, 95% CI: [-0.3146, -0.2115]). Rank-biserial r_rb=-0.7345 (95% CI: [-0.8300, -0.6293]).",
+    "p_value_corrected": 3.502977870129342e-17
   },
   "H3": {
     "hypothesis": "H3 (optional): Retrieval-stage degradation significantly predicts downstream answer-quality degradation.",
@@ -46,15 +46,15 @@
   "H4": {
     "hypothesis": "H4: SETU-processed queries achieve significantly higher Recall@k/MRR/nDCG than raw queries, with recovery increasing with CMI.",
     "test_used": "Paired Wilcoxon signed-rank test (RAW vs SETU v1 MRR) with Paired Bootstrap 95% CI on effect size",
-    "statistic": 148.0,
-    "p_value": 0.4843703988045449,
-    "effect_size": -0.15669515669515668,
+    "statistic": 145.0,
+    "p_value": 0.637336623205249,
+    "effect_size": -0.1076923076923077,
     "ci_95": [
-      -0.5842206477732793,
-      0.29168337789661297
+      -0.5584054834054833,
+      0.3446189516129032
     ],
     "verdict": "not supported",
-    "details": "RAW MRR=0.8526 vs SETU v1 MRR=0.8475 (mean diff=-0.0051, 95% CI: [-0.0177, 0.0050]). Rank-biserial r_rb=-0.1567 (95% CI: [-0.5842, 0.2917]).",
+    "details": "RAW MRR=0.8526 vs SETU v1 MRR=0.8492 (mean diff=-0.0034, 95% CI: [-0.0155, 0.0065]). Rank-biserial r_rb=-0.1077 (95% CI: [-0.5584, 0.3446]).",
     "p_value_corrected": 1.0
   },
   "H5": {
@@ -70,17 +70,17 @@
   "H6": {
     "hypothesis": "H6: SETU v2 (learned controller) significantly outperforms SETU v1 (fixed-order, always-4-steps).",
     "test_used": "Paired Wilcoxon signed-rank test (SETU v1 vs SETU v2 MRR) with Paired Bootstrap 95% CI on effect size",
-    "statistic": 164.5,
-    "p_value": 0.379224807554285,
-    "effect_size": 0.1896551724137931,
+    "statistic": 176.5,
+    "p_value": 0.24817536759631398,
+    "effect_size": 0.24086021505376345,
     "ci_95": [
-      -0.23282446311858057,
-      0.614920702518544
+      -0.16748768472906403,
+      0.6365610772062384
     ],
     "verdict": "not supported (equivalent retrieval quality)",
-    "details": "SETU v1 MRR=0.8475 vs SETU v2 MRR=0.8503 (p=0.3792, mean diff=0.0028, 95% CI: [-0.0074, 0.0134]). Quality is statistically equivalent.",
+    "details": "SETU v1 MRR=0.8492 vs SETU v2 MRR=0.8550 (p=0.2482, mean diff=0.0058, 95% CI: [-0.0047, 0.0175]). Quality is statistically equivalent.",
     "power_analysis": "With n=314, 80% power at alpha=0.05 can detect a minimum effect size of d=0.1581.",
-    "p_value_corrected": 1.0
+    "p_value_corrected": 0.8334080450573117
   },
   "H10": {
     "hypothesis": "H10: Proxy confidence signals (e.g., score margin) accurately correlate with retrieval success.",
@@ -110,24 +110,24 @@
     "hypothesis": "H8: SETU v2 matches quality with fewer steps than v1.",
     "test_used": "Paired Wilcoxon signed-rank test (v1 steps vs v2 steps)",
     "statistic": 0.0,
-    "p_value": 3.138089386554242e-57,
+    "p_value": 2.2399658492653733e-56,
     "effect_size": -1.0,
     "ci_95": [
       -1.0,
       -1.0
     ],
     "verdict": "supported",
-    "details": "v1 mean steps = 4.0000 vs v2 mean steps = 1.5955 (p=0.0000). Rank-biserial r_rb=-1.0000 (95% CI: [-1.0000, -1.0000]).",
-    "p_value_corrected": 2.5104715092433935e-56
+    "details": "v1 mean steps = 3.0000 vs v2 mean steps = 1.3726 (p=0.0000). Rank-biserial r_rb=-1.0000 (95% CI: [-1.0000, -1.0000]).",
+    "p_value_corrected": 1.7919726794122986e-55
   },
   "H9": {
     "hypothesis": "H9: v2 step count correlates positively with CMI.",
     "test_used": "Spearman rank correlation (CMI vs steps)",
-    "statistic": -0.03117930786824029,
-    "p_value": 0.5820250849625348,
-    "effect_size": -0.03117930786824029,
+    "statistic": 0.005295616525776525,
+    "p_value": 0.9255341762377868,
+    "effect_size": 0.005295616525776525,
     "verdict": "not supported",
-    "details": "Spearman rho=-0.0312, p=0.5820.",
+    "details": "Spearman rho=0.0053, p=0.9255.",
     "p_value_corrected": 1.0
   }
 }

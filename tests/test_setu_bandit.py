@@ -43,7 +43,8 @@ def test_epsilon_greedy_controller_select_and_update():
     assert controller.history["CAEP"]["rewards"][0] == 0.8
 
 
-def test_setu_v2_run_terminates_and_returns_ranking():
+def test_setu_v2_run_terminates_and_returns_ranking(tmp_path, monkeypatch):
+    monkeypatch.setattr("setu.controller.setu_bandit.TRAJECTORY_LOG_PATH", tmp_path / "trajectories_v3.jsonl")
     controller = LinUCBController(context_dim=7, alpha=1.0)
     doc_ids = ["C01", "C02", "C03", "C04", "C05"]
     raw_ranking = (doc_ids, [1.0, 0.8, 0.6, 0.4, 0.2])
@@ -64,6 +65,7 @@ def test_setu_v2_run_terminates_and_returns_ranking():
 
     ops, conf_trace, final_ranking, stop_reason = setu_v2_run(
         query="mera account balance check karna hai",
+        query_id="Q_TEST_1",
         controller=controller,
         raw_ranking=raw_ranking,
         embed_fn=dummy_embed_fn,
@@ -104,6 +106,7 @@ def test_setu_v2_run_frozen_mode_does_not_mutate_controller():
 
     ops, conf_trace, final_ranking, stop_reason = setu_v2_run(
         query="mera account balance check karna hai",
+        query_id="Q_TEST_2",
         controller=controller,
         raw_ranking=raw_ranking,
         embed_fn=dummy_embed_fn,
@@ -121,7 +124,8 @@ def test_setu_v2_run_frozen_mode_does_not_mutate_controller():
         assert np.allclose(controller.A[a], A_snapshots[a]), f"Action {a} matrix A mutated during frozen run!"
         assert np.allclose(controller.b[a], b_snapshots[a]), f"Action {a} vector b mutated during frozen run!"
 
-def test_stop_reason_max_steps():
+def test_stop_reason_max_steps(tmp_path, monkeypatch):
+    monkeypatch.setattr("setu.controller.setu_bandit.TRAJECTORY_LOG_PATH", tmp_path / "trajectories_v3.jsonl")
     # If the controller never outputs STOP and never repeats an action, it hits max_steps
     class DummyController:
         def __init__(self):
@@ -142,7 +146,7 @@ def test_stop_reason_max_steps():
     lqp_model = Ridge(); lqp_model.fit(np.eye(16), np.eye(16))
 
     ops, conf, rank, stop = setu_v2_run(
-        query="test", controller=controller, raw_ranking=(doc_ids, [1.0]),
+        query="test", query_id="Q_TEST_3", controller=controller, raw_ranking=(doc_ids, [1.0]),
         embed_fn=dummy_embed_fn, entities=["test"], entity_freq={"test": 1},
         caep_gate=caep_gate, lqp_model=lqp_model, faiss_search_fn=dummy_faiss_search_fn,
         confidence_fn=confidence_proxy, max_steps=3
@@ -150,7 +154,8 @@ def test_stop_reason_max_steps():
     assert stop == "max_steps_reached"
     assert len(ops) == 3
 
-def test_stop_reason_repeat_action():
+def test_stop_reason_repeat_action(tmp_path, monkeypatch):
+    monkeypatch.setattr("setu.controller.setu_bandit.TRAJECTORY_LOG_PATH", tmp_path / "trajectories_v3.jsonl")
     # If the controller repeats an action, it should force a stop
     class DummyController:
         def __init__(self):
@@ -168,7 +173,7 @@ def test_stop_reason_repeat_action():
     lqp_model = Ridge(); lqp_model.fit(np.eye(16), np.eye(16))
 
     ops, conf, rank, stop = setu_v2_run(
-        query="test", controller=controller, raw_ranking=(doc_ids, [1.0]),
+        query="test", query_id="Q_TEST_4", controller=controller, raw_ranking=(doc_ids, [1.0]),
         embed_fn=dummy_embed_fn, entities=["test"], entity_freq={"test": 1},
         caep_gate=caep_gate, lqp_model=lqp_model, faiss_search_fn=dummy_faiss_search_fn,
         confidence_fn=confidence_proxy, max_steps=3
@@ -177,7 +182,8 @@ def test_stop_reason_repeat_action():
     # The action was output first time, second time it's a repeat, so it converts to STOP
     assert ops == ["LAG", "STOP"]
 
-def test_stop_reason_explicit_stop():
+def test_stop_reason_explicit_stop(tmp_path, monkeypatch):
+    monkeypatch.setattr("setu.controller.setu_bandit.TRAJECTORY_LOG_PATH", tmp_path / "trajectories_v3.jsonl")
     class DummyController:
         def __init__(self):
             self.actions = ACTIONS
@@ -194,7 +200,7 @@ def test_stop_reason_explicit_stop():
     lqp_model = Ridge(); lqp_model.fit(np.eye(16), np.eye(16))
 
     ops, conf, rank, stop = setu_v2_run(
-        query="test", controller=controller, raw_ranking=(doc_ids, [1.0]),
+        query="test", query_id="Q_TEST_5", controller=controller, raw_ranking=(doc_ids, [1.0]),
         embed_fn=dummy_embed_fn, entities=["test"], entity_freq={"test": 1},
         caep_gate=caep_gate, lqp_model=lqp_model, faiss_search_fn=dummy_faiss_search_fn,
         confidence_fn=confidence_proxy, max_steps=3

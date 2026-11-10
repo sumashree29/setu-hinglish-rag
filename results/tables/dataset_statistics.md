@@ -1,7 +1,7 @@
 # Dataset Statistics
 
 ## Document Statistics
-- **Source Documents**: 1
+- **Source Categories / Documents**: 18
 - **Total Chunks**: 380
 
 ### Chunk Length Distribution (Words)

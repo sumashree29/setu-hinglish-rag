@@ -5,6 +5,10 @@ from scipy.stats import chi2_contingency
 from collections import Counter
 import math
 
+import sys
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+from setu.diagnosis.cmi import cmi as compute_cmi
+
 ROOT = Path(__file__).resolve().parents[1]
 
 def entropy(labels):
@@ -23,7 +27,7 @@ def main():
             per_query.append(json.loads(line))
             
     queries = json.load(open(ROOT / "data" / "processed" / "queries_v3_final.json", "r", encoding="utf-8"))
-    cmi_dict = {q["query_id"]: q.get("cmi", 0.0) for q in queries}
+    cmi_dict = {q["query_id"]: compute_cmi(q["text"]) for q in queries}
             
     initial_actions = []
     sequences = []
@@ -42,12 +46,11 @@ def main():
     seq_ent = entropy(sequences)
     stop_dist = dict(Counter(stop_reasons))
     
-    # CMI Band vs Initial Action Chi-square
-    # Let's define CMI bands: low (< 10), med (10-25), high (>25)
+    # CMI Band vs Initial Action Chi-square (CMI is in [0, 1])
     cmi_bands = []
     for c in cmis:
-        if c < 10: cmi_bands.append("low")
-        elif c < 25: cmi_bands.append("med")
+        if c < 0.2: cmi_bands.append("low")
+        elif c < 0.4: cmi_bands.append("med")
         else: cmi_bands.append("high")
         
     contingency = {}

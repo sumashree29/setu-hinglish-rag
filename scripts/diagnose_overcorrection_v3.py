@@ -89,9 +89,16 @@ for model_key, (model_name, needs_prefix) in EMBEDDING_MODELS.items():
     print(f"==========================================")
     
     st_model = SentenceTransformer(model_name)
+    embed_cache = {}
     def embed_fn(texts):
+        if len(texts) <= 4 and all(t in embed_cache for t in texts):
+            return np.stack([embed_cache[t] for t in texts])
         inp = [f"query: {t}" for t in texts] if needs_prefix else texts
-        return st_model.encode(inp, convert_to_numpy=True).astype("float32")
+        vecs = st_model.encode(inp, convert_to_numpy=True).astype("float32")
+        for t, v in zip(texts, vecs):
+            if len(embed_cache) < 5000:
+                embed_cache[t] = v
+        return vecs
 
     doc_emb = np.load(LOGS_DIR / f"doc_emb_{model_key}_v2.npy")
     query_emb_raw = np.load(LOGS_DIR / f"query_emb_{model_key}_v3.npy")
@@ -110,9 +117,10 @@ for model_key, (model_name, needs_prefix) in EMBEDDING_MODELS.items():
     lqp_model = pickle.load(open(MODELS_DIR / f"lqp_model_{model_key}.pkl", "rb"))
     caep_gate = pickle.load(open(MODELS_DIR / f"caep_gate_{model_key}.pkl", "rb"))
     
-    # 5-fold splits for LAG (reproducing Phase 10 exact logic)
+    # 5-fold grouped splits for LAG (preventing text/doc overlap across folds)
+    from scripts.compare_setu_v1_v2_scaled import build_grouped_folds
     n_splits = 5
-    folds = np.array_split(query_ids, n_splits)
+    folds = build_grouped_folds(queries, n_splits=n_splits)
     lag_models_per_fold = {}
     for fold_idx, test_qids in enumerate(folds):
         train_ids = set(query_ids) - set(test_qids)
@@ -248,13 +256,25 @@ for model_key, (model_name, needs_prefix) in EMBEDDING_MODELS.items():
         
     final_results[model_key] = model_results
     plot_data[model_key] = deltas
+    import gc, torch
+    del st_model
+    gc.collect()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
 
 # Apply Holm-Bonferroni across all Phase 11 Wilcoxon tests + Phase 4 Chi-Square
 all_pvals = []
 pval_keys = []
 
 # Phase 4 Chi-Square (Independence of initial action and CMI band)
-all_pvals.append(0.635)
+chi2_p = 0.635
+ctrl_beh_path = ROOT / "results" / "tables" / "controller_behavior_final.json"
+if ctrl_beh_path.exists():
+    try:
+        chi2_p = float(json.load(open(ctrl_beh_path, encoding="utf-8"))["chi_square_test"]["p_value"])
+    except Exception:
+        pass
+all_pvals.append(chi2_p)
 pval_keys.append(("phase4_chi2", "N/A", "N/A"))
 
 for m_key, m_res in final_results.items():

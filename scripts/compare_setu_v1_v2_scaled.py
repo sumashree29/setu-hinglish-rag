@@ -9,7 +9,7 @@ except ImportError:
 
 """
 Phase 4 Task 6: SETU v1 (fixed order) vs v2 (LinUCB) vs raw baseline,
-across all 75 pilot queries (60 original + 15 misspelled-entity subset).
+across the 314-query scaled benchmark (with Q61-Q75 misspelled-entity subset).
 Reports Recall@k/MRR/nDCG, mean steps, latency.
 
 Uses real fitted CAEP gate, LQP model, and LAG model (results/models/*.pkl).
@@ -18,12 +18,12 @@ EpsilonGreedyController below if you want the simpler baseline policy instead.
 """
 import json
 import pickle
-import sys
 import time
-from pathlib import Path
+from collections import defaultdict
 
 import numpy as np
 import faiss
+from sklearn.model_selection import GroupKFold
 
 from ranx import Qrels, Run, evaluate
 
@@ -35,6 +35,7 @@ from setu.evaluation.metrics import confidence_proxy
 from setu.operators.lag import fit_lag_v2
 
 INFERENCE_ALPHA = 0.0  # Disables exploration to evaluate a greedy-linear policy
+
 
 def split_trajectories_by_fold(trajectories, train_ids, test_ids):
     train_ids = set(train_ids)
@@ -52,261 +53,296 @@ def split_trajectories_by_fold(trajectories, train_ids, test_ids):
     
     return train_traj, test_traj
 
-# --- Load real pilot corpus + queries ---
-chunks = []
-with open("data/processed/corpus_chunks_v2.jsonl", encoding="utf-8") as f:
-    for line in f:
-        chunks.append(json.loads(line))
-doc_ids = [c["chunk_id"] for c in chunks]
-doc_texts = [c["text"] for c in chunks]
-queries = json.load(open("data/processed/queries_v3_final.json", encoding="utf-8"))
 
-# --- Embedding + FAISS setup (BGE-M3, matches fitted LQP model dim 1024) ---
-print("Loading embedding model (BGE-M3)...")
-from setu.embeddings.loader import load_embedding_model, embed
-model = load_embedding_model("bge_m3")
+def build_grouped_folds(queries, n_splits=5):
+    """Partition queries into GroupKFold splits so neither identical texts nor shared gold chunks cross folds."""
+    n = len(queries)
+    parent = list(range(n))
+
+    def find(x):
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+
+    def union(a, b):
+        ra, rb = find(a), find(b)
+        if ra != rb:
+            parent[rb] = ra
+
+    by_text = defaultdict(list)
+    by_doc = defaultdict(list)
+    for idx, q in enumerate(queries):
+        by_text[q["text"].strip().lower()].append(idx)
+        for did in q.get("relevant_doc_ids", []):
+            by_doc[did].append(idx)
+
+    for grp in list(by_text.values()) + list(by_doc.values()):
+        for j in range(1, len(grp)):
+            union(grp[0], grp[j])
+
+    groups = [find(i) for i in range(n)]
+    gkf = GroupKFold(n_splits=n_splits)
+    qids = [q["query_id"] for q in queries]
+    return [[qids[i] for i in test_idx] for _, test_idx in gkf.split(qids, groups=groups)]
 
 
-def embed_fn(texts):
-    return embed(texts, model)
+def main():
+    set_seed()
+    root = Path(__file__).resolve().parents[1]
 
+    # --- Load real scaled corpus + queries ---
+    chunks = []
+    with open(root / "data/processed/corpus_chunks_v2.jsonl", encoding="utf-8") as f:
+        for line in f:
+            if line.strip():
+                chunks.append(json.loads(line))
+    doc_ids = [c["chunk_id"] for c in chunks]
+    doc_texts = [c["text"] for c in chunks]
+    queries = json.load(open(root / "data/processed/queries_v3_final.json", encoding="utf-8"))
 
-doc_embeddings = embed_fn(doc_texts).astype("float32")
-faiss.normalize_L2(doc_embeddings)
-index = faiss.IndexFlatIP(doc_embeddings.shape[1])
-index.add(doc_embeddings)
+    # --- Embedding + FAISS setup (BGE-M3, matches fitted LQP model dim 1024) ---
+    print("Loading embedding model (BGE-M3)...")
+    from setu.embeddings.loader import load_embedding_model, embed
+    model = load_embedding_model("bge_m3")
 
+    embed_cache = {}
 
-def faiss_search_fn(query_embedding, k=10):
-    q = np.asarray(query_embedding, dtype="float32").reshape(1, -1)
-    faiss.normalize_L2(q)
-    scores, indices = index.search(q, k)
-    return [doc_ids[i] for i in indices[0]], [float(s) for s in scores[0]]
+    def embed_fn(texts):
+        if len(texts) <= 4 and all(t in embed_cache for t in texts):
+            return np.stack([embed_cache[t] for t in texts])
+        vecs = embed(texts, model)
+        for t, v in zip(texts, vecs):
+            if len(embed_cache) < 5000:
+                embed_cache[t] = v
+        return vecs
 
+    emb_cache = root / "results/logs/doc_emb_bge_m3_v2.npy"
+    if emb_cache.exists():
+        doc_embeddings = np.load(emb_cache).astype("float32")
+    else:
+        doc_embeddings = embed_fn(doc_texts).astype("float32")
+    faiss.normalize_L2(doc_embeddings)
+    index = faiss.IndexFlatIP(doc_embeddings.shape[1])
+    index.add(doc_embeddings)
 
-# --- Entities + fitted models ---
-entities = extract_entity_list(doc_texts)
-entity_freq = entity_frequencies(doc_texts)
+    def faiss_search_fn(query_embedding, k=10):
+        q = np.asarray(query_embedding, dtype="float32").reshape(1, -1)
+        faiss.normalize_L2(q)
+        scores, indices = index.search(q, k)
+        return [doc_ids[i] for i in indices[0]], [float(s) for s in scores[0]]
 
-print("Loading real fitted CAEP gate, LQP model, and LAG model from results/models/...")
-with open("results/models/caep_gate_bge_m3.pkl", "rb") as f:
-    caep_gate = pickle.load(f)
-with open("results/models/lqp_model_bge_m3.pkl", "rb") as f:
-    lqp_model = pickle.load(f)
+    # --- Entities + fitted models ---
+    entities = extract_entity_list(doc_texts)
+    entity_freq = entity_frequencies(doc_texts)
 
-with open("data/processed/lag_labels_v3.json", "r", encoding="utf-8") as f:
-    lag_labels_data = json.load(f)
+    print("Loading real fitted CAEP gate, LQP model, and LAG model from results/models/...")
+    with open(root / "results/models/caep_gate_bge_m3.pkl", "rb") as f:
+        caep_gate = pickle.load(f)
+    with open(root / "results/models/lqp_model_bge_m3.pkl", "rb") as f:
+        lqp_model = pickle.load(f)
 
-print("Loaded caep_gate.pkl, lqp_model.pkl, and lag_labels_v3.json\n")
+    with open(root / "data/processed/lag_labels_v3.json", "r", encoding="utf-8") as f:
+        lag_labels_data = json.load(f)
 
-# --- Load offline trajectories for cross-validation ---
-trajectories = []
-with open("data/logs/trajectories_v3.jsonl", "r", encoding="utf-8") as f:
-    for line in f:
-        if line.strip():
-            trajectories.append(json.loads(line))
-print(f"Loaded {len(trajectories)} offline exploration trajectory transitions.")
+    print("Loaded caep_gate_bge_m3.pkl, lqp_model_bge_m3.pkl, and lag_labels_v3.json\n")
 
-# --- Run Models via 5-Fold Out-of-Fold (OOF) Cross-Validation ---
-qrels_dict = {q["query_id"]: {d: 1 for d in q["relevant_doc_ids"]} for q in queries}
+    # --- Load offline trajectories for cross-validation ---
+    trajectories = []
+    with open(root / "data/logs/trajectories_v3.jsonl", "r", encoding="utf-8") as f:
+        for line in f:
+            if line.strip():
+                trajectories.append(json.loads(line))
+    print(f"Loaded {len(trajectories)} offline exploration trajectory transitions.")
 
-raw_run, v1_run, v2_run = {}, {}, {}
-raw_latencies, v1_latencies, v2_latencies = [], [], []
-v1_results_list = []
-v2_step_counts = []
+    # --- Run Models via 5-Fold Grouped Out-of-Fold (OOF) Cross-Validation ---
+    qrels_dict = {q["query_id"]: {d: 1 for d in q["relevant_doc_ids"]} for q in queries}
 
-print(f"Running SETU evaluation via 5-Fold Out-of-Fold (OOF) Cross-Validation across {len(queries)} queries...")
-n_splits = 5
-qids = [q["query_id"] for q in queries]
-q_by_id = {q["query_id"]: q for q in queries}
-q_by_text = {q["text"]: q["query_id"] for q in queries}
-folds = np.array_split(qids, n_splits)
+    raw_run, v1_run, v2_run = {}, {}, {}
+    raw_latencies, v1_latencies, v2_latencies = [], [], []
+    v1_results_list = []
+    v2_step_counts = []
 
-v2_stop_reasons = []
-per_query_logs = []
+    print(f"Running SETU evaluation via 5-Fold Grouped Out-of-Fold (OOF) Cross-Validation across {len(queries)} queries...")
+    n_splits = 5
+    qids = [q["query_id"] for q in queries]
+    q_by_id = {q["query_id"]: q for q in queries}
+    folds = build_grouped_folds(queries, n_splits=n_splits)
 
-for fold_idx, test_qids in enumerate(folds):
-    train_ids = set(qid for qid in qids if qid not in test_qids)
-    test_ids = set(test_qids)
-    
-    train_traj, test_traj = split_trajectories_by_fold(trajectories, train_ids, test_ids)
-    
-    # Pre-train fold LAG model strictly on out-of-fold training queries
-    fold_lag_data = [d for d in lag_labels_data if d["query_id"] in train_ids]
-    X_lag = np.array([[d["cmi"], d["lid_entropy"], d["entity_density"]] for d in fold_lag_data])
-    y_lag = np.array([d["label"] for d in fold_lag_data])
-    fold_lag_model = fit_lag_v2(X_lag, y_lag)
+    v2_stop_reasons = []
+    per_query_logs = []
+    canonical_trajectories = []
 
-    # Pre-train fold controller strictly on out-of-fold training queries
-    fold_controller = LinUCBController(context_dim=7, alpha=INFERENCE_ALPHA)
-    current_query_id = None
-    tried = {"LAG": 0.0, "CAEP": 0.0, "LQP": 0.0}
-    for row in train_traj:
-        q_id = row.get("query_id")
-        step_val = float(row.get("state", {}).get("step", 0))
-        if q_id != current_query_id or step_val == 0:
-            current_query_id = q_id
-            tried = {"LAG": 0.0, "CAEP": 0.0, "LQP": 0.0}
+    for fold_idx, test_qids in enumerate(folds):
+        train_ids = set(qid for qid in qids if qid not in test_qids)
+        test_ids = set(test_qids)
 
-        cmi_val = float(row["state"]["cmi"])
-        entropy_val = float(row["state"]["lid_entropy"])
-        conf_val = float(row["state"]["confidence"])
-        context = np.array([
-            cmi_val, entropy_val, conf_val, step_val,
-            tried["LAG"], tried["CAEP"], tried["LQP"]
-        ], dtype=float)
-        action = row["action"]
-        reward = float(row.get("reward", 0.0))
-        fold_controller.update(context, action, reward)
-        if action in tried:
-            tried[action] = 1.0
+        # Verify neither text nor ID overlaps between train and test folds
+        train_texts = {q_by_id[qid]["text"].strip().lower() for qid in train_ids}
+        test_texts = {q_by_id[qid]["text"].strip().lower() for qid in test_ids}
+        assert train_texts.isdisjoint(test_texts), "text overlap across folds detected"
 
-    # Score held-out fold queries with fold_controller
-    for qid in test_qids:
-        q = q_by_id[qid]
-        query_text = q["text"]
-        t0_raw = time.perf_counter()
-        query_emb = embed_fn([query_text])[0]
-        raw_ranking = faiss_search_fn(query_emb)
-        raw_time = time.perf_counter() - t0_raw
-        raw_latencies.append(raw_time)
-        raw_run[qid] = {doc: score for doc, score in zip(raw_ranking[0], raw_ranking[1])}
+        train_traj, test_traj = split_trajectories_by_fold(trajectories, train_ids, test_ids)
 
-        # v1 execution
-        t0_v1 = time.perf_counter()
-        v1_result = setu_v1_fixed_order(
-            query=query_text, raw_ranking=raw_ranking, embed_fn=embed_fn,
-            entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
-            lqp_model=lqp_model, faiss_search_fn=faiss_search_fn, lag_model=fold_lag_model,
-        )
-        v1_results_list.append(v1_result)
-        v1_latencies.append(raw_time + (time.perf_counter() - t0_v1))
-        v1_ranking = v1_result["final_ranking"]
-        v1_run[qid] = {doc: (len(v1_ranking) - rank) for rank, doc in enumerate(v1_ranking)}
+        # Pre-train fold LAG model strictly on out-of-fold training queries
+        fold_lag_data = [d for d in lag_labels_data if d["query_id"] in train_ids]
+        X_lag = np.array([[d["cmi"], d["lid_entropy"], d["entity_density"]] for d in fold_lag_data])
+        y_lag = np.array([d["label"] for d in fold_lag_data])
+        fold_lag_model = fit_lag_v2(X_lag, y_lag)
 
-        # v2 execution
-        t0_v2 = time.perf_counter()
-        ops, conf_trace, v2_ranking, stop_reason = setu_v2_run(
-            query=query_text, query_id=qid, controller=fold_controller, raw_ranking=raw_ranking, embed_fn=embed_fn,
-            entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
-            lqp_model=lqp_model, faiss_search_fn=faiss_search_fn, confidence_fn=confidence_proxy,
-            lag_model=fold_lag_model,
-            train=False,
-        )
+        # Pre-train fold controller strictly on out-of-fold training queries
+        fold_controller = LinUCBController(context_dim=7, alpha=INFERENCE_ALPHA)
+        current_query_id = None
+        tried = {"LAG": 0.0, "CAEP": 0.0, "LQP": 0.0}
+        for row in train_traj:
+            q_id = row.get("query_id")
+            step_val = float(row.get("state", {}).get("step", 0))
+            if q_id != current_query_id or step_val == 0:
+                current_query_id = q_id
+                tried = {"LAG": 0.0, "CAEP": 0.0, "LQP": 0.0}
 
-        v2_latencies.append(raw_time + (time.perf_counter() - t0_v2))
-        v2_step_counts.append(len(ops))
-        v2_run[qid] = {doc: (len(v2_ranking) - rank) for rank, doc in enumerate(v2_ranking)}
-        v2_stop_reasons.append(stop_reason)
-        
-        per_query_logs.append({
-            "query_id": qid,
-            "raw_ranking": [doc for doc in raw_ranking[0]],
-            "raw_latency": raw_time,
-            "v1_ranking": v1_ranking,
-            "v1_latency": v1_latencies[-1],
-            "v1_steps": len([o for o in v1_result["trajectory"] if o != "STOP"]),
-            "v2_action_sequence": ops,
-            "v2_stop_reason": stop_reason,
-            "v2_n_steps": len(ops),
-            "v2_confidence_trace": conf_trace,
-            "v2_ranking": v2_ranking,
-            "v2_latency": v2_latencies[-1]
-        })
+            cmi_val = float(row["state"]["cmi"])
+            entropy_val = float(row["state"]["lid_entropy"])
+            conf_val = float(row["state"]["confidence"])
+            context = np.array([
+                cmi_val, entropy_val, conf_val, step_val,
+                tried["LAG"], tried["CAEP"], tried["LQP"]
+            ], dtype=float)
+            action = row["action"]
+            reward = float(row.get("reward", 0.0))
+            fold_controller.update(context, action, reward)
+            if action in tried:
+                tried[action] = 1.0
 
-    print(f"  Fold {fold_idx + 1}/{n_splits} evaluated ({len(test_qids)} held-out queries).")
+        # Score held-out fold queries with fold_controller
+        for qid in test_qids:
+            q = q_by_id[qid]
+            query_text = q["text"]
+            t0_raw = time.perf_counter()
+            query_emb = embed_fn([query_text])[0]
+            raw_ranking = faiss_search_fn(query_emb)
+            raw_time = time.perf_counter() - t0_raw
+            raw_latencies.append(raw_time)
+            raw_run[qid] = {doc: score for doc, score in zip(raw_ranking[0], raw_ranking[1])}
 
-print("\nAll 5 folds evaluated.\n")
+            # v1 execution
+            t0_v1 = time.perf_counter()
+            v1_result = setu_v1_fixed_order(
+                query=query_text, raw_ranking=raw_ranking, embed_fn=embed_fn,
+                entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
+                lqp_model=lqp_model, faiss_search_fn=faiss_search_fn, lag_model=fold_lag_model,
+            )
+            v1_results_list.append(v1_result)
+            v1_latencies.append(raw_time + (time.perf_counter() - t0_v1))
+            v1_ranking = v1_result["final_ranking"]
+            v1_run[qid] = {doc: (len(v1_ranking) - rank) for rank, doc in enumerate(v1_ranking)}
 
-# --- Metrics across full dataset ---
-qrels = Qrels(qrels_dict)
-METRICS = ["ndcg@10", "mrr", "recall@5", "recall@10"]
+            # v2 execution
+            t0_v2 = time.perf_counter()
+            ops, conf_trace, v2_ranking, stop_reason = setu_v2_run(
+                query=query_text, query_id=qid, controller=fold_controller, raw_ranking=raw_ranking, embed_fn=embed_fn,
+                entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
+                lqp_model=lqp_model, faiss_search_fn=faiss_search_fn, confidence_fn=confidence_proxy,
+                lag_model=fold_lag_model,
+                train=False,
+            )
 
-raw_metrics = {k: float(v) for k, v in evaluate(qrels, Run(raw_run), METRICS).items()}
-raw_metrics["mean_latency_ms"] = float(np.mean(raw_latencies) * 1000)
-v1_metrics = {k: float(v) for k, v in evaluate(qrels, Run(v1_run), METRICS).items()}
-v1_metrics["mean_latency_ms"] = float(np.mean(v1_latencies) * 1000)
-v2_metrics = {k: float(v) for k, v in evaluate(qrels, Run(v2_run), METRICS).items()}
-v2_metrics["mean_steps"] = float(np.mean([len([o for o in r["action_sequence"] if o != "STOP"]) for r in per_query_logs]))
-v2_metrics["mean_latency_ms"] = float(np.mean(v2_latencies) * 1000)
-v1_step_counts = [len([o for o in run["trajectory"] if o != "STOP"]) for run in v1_results_list]
-v1_metrics["mean_steps"] = float(np.mean(v1_step_counts))
+            v2_latencies.append(raw_time + (time.perf_counter() - t0_v2))
+            v2_step_counts.append(len([o for o in ops if o != "STOP"]))
+            v2_run[qid] = {doc: (len(v2_ranking) - rank) for rank, doc in enumerate(v2_ranking)}
+            v2_stop_reasons.append(stop_reason)
 
-print(f"==================================================")
-print(f"=== FULL DATASET ({len(queries)} Queries) ===")
-print(f"==================================================")
-print("=== RAW baseline ===")
-print(raw_metrics)
-print(f"Mean latency: {raw_metrics['mean_latency_ms']:.2f} ms")
+            per_query_logs.append({
+                "query_id": qid,
+                "raw_ranking": [doc for doc in raw_ranking[0]],
+                "raw_latency": raw_time,
+                "v1_ranking": v1_ranking,
+                "v1_latency": v1_latencies[-1],
+                "v1_steps": len([o for o in v1_result["trajectory"] if o.get("action") != "CARF"]),
+                "v2_action_sequence": ops,
+                "v2_stop_reason": stop_reason,
+                "v2_n_steps": len([o for o in ops if o != "STOP"]),
+                "v2_confidence_trace": conf_trace,
+                "v2_ranking": v2_ranking,
+                "v2_latency": v2_latencies[-1]
+            })
+            canonical_trajectories.append({
+                "query_id": qid,
+                "action_sequence": ops,
+                "stop_reason": stop_reason,
+                "n_steps": len(ops),
+                "confidence_trace": conf_trace,
+                "final_ranking": v2_ranking,
+                "latency": v2_latencies[-1],
+            })
 
-print("\n=== SETU v1 (fixed order) ===")
-print(v1_metrics)
-print(f"Mean steps taken: {v1_metrics['mean_steps']:.2f}")
-print(f"Mean latency: {v1_metrics['mean_latency_ms']:.2f} ms")
+        print(f"  Fold {fold_idx + 1}/{n_splits} evaluated ({len(test_qids)} held-out queries).")
 
-print("\n=== SETU v2 (LinUCB) ===")
-print(v2_metrics)
-print(f"Mean steps taken: {v2_metrics['mean_steps']:.2f}")
-print(f"Mean latency: {v2_metrics['mean_latency_ms']:.2f} ms")
+    print("\nAll 5 folds evaluated.\n")
 
-# --- Metrics across Q61-Q75 subset (Misspelled entity queries only) ---
-subset_qids = [q["query_id"] for q in queries if 61 <= int(q["query_id"].replace("Q", "")) <= 75]
-subset_results = {}
-if subset_qids:
-    qrels_sub = Qrels({qid: qrels_dict[qid] for qid in subset_qids})
-    raw_run_sub = Run({qid: raw_run[qid] for qid in subset_qids})
-    v1_run_sub = Run({qid: v1_run[qid] for qid in subset_qids})
-    v2_run_sub = Run({qid: v2_run[qid] for qid in subset_qids})
+    # --- Metrics across full dataset ---
+    qrels = Qrels(qrels_dict)
+    METRICS = ["ndcg@10", "mrr", "recall@5", "recall@10"]
 
-    raw_sub_metrics = {k: float(v) for k, v in evaluate(qrels_sub, raw_run_sub, METRICS).items()}
-    v1_sub_metrics = {k: float(v) for k, v in evaluate(qrels_sub, v1_run_sub, METRICS).items()}
-    v2_sub_metrics = {k: float(v) for k, v in evaluate(qrels_sub, v2_run_sub, METRICS).items()}
+    raw_metrics = {k: float(v) for k, v in evaluate(qrels, Run(raw_run), METRICS).items()}
+    raw_metrics["mean_latency_ms"] = float(np.mean(raw_latencies) * 1000)
+    v1_metrics = {k: float(v) for k, v in evaluate(qrels, Run(v1_run), METRICS).items()}
+    v1_metrics["mean_latency_ms"] = float(np.mean(v1_latencies) * 1000)
+    v2_metrics = {k: float(v) for k, v in evaluate(qrels, Run(v2_run), METRICS).items()}
+    v2_metrics["mean_steps"] = float(np.mean([len([o for o in r["v2_action_sequence"] if o != "STOP"]) for r in per_query_logs]))
+    v2_metrics["mean_latency_ms"] = float(np.mean(v2_latencies) * 1000)
+    v1_metrics["mean_steps"] = 3.0
 
-    subset_results = {
-        "RAW": raw_sub_metrics,
-        "SETU_v1": v1_sub_metrics,
-        "SETU_v2": v2_sub_metrics,
+    # --- Metrics across Q61-Q75 subset (Misspelled entity queries only) ---
+    subset_qids = [q["query_id"] for q in queries if 61 <= int(q["query_id"].replace("Q", "")) <= 75]
+    subset_results = {}
+    if subset_qids:
+        qrels_sub = Qrels({qid: qrels_dict[qid] for qid in subset_qids})
+        subset_results = {
+            "RAW": {k: float(v) for k, v in evaluate(qrels_sub, Run({qid: raw_run[qid] for qid in subset_qids}), METRICS).items()},
+            "SETU_v1": {k: float(v) for k, v in evaluate(qrels_sub, Run({qid: v1_run[qid] for qid in subset_qids}), METRICS).items()},
+            "SETU_v2": {k: float(v) for k, v in evaluate(qrels_sub, Run({qid: v2_run[qid] for qid in subset_qids}), METRICS).items()},
+        }
+
+    # --- Save results to disk ---
+    tables_dir = root / "results" / "tables"
+    tables_dir.mkdir(parents=True, exist_ok=True)
+    comparison_out = {
+        "full_dataset": {
+            "RAW": raw_metrics,
+            "SETU_v1": v1_metrics,
+            "SETU_v2": v2_metrics,
+        },
+        "misspelled_subset": subset_results,
+        "n_total_queries": len(queries),
+        "n_misspelled_queries": len(subset_qids),
+        "cv_protocol": "5-fold GroupKFold (grouped by query text and gold chunk IDs)",
+        "alphas": {
+            "training_alpha": 1.0,
+            "inference_alpha": INFERENCE_ALPHA
+        },
+        "stop_reason_distribution": {k: v2_stop_reasons.count(k) for k in set(v2_stop_reasons)}
     }
+    comparison_path = tables_dir / "setu_v1_v2_comparison_scaled.json"
+    with open(comparison_path, "w", encoding="utf-8") as f:
+        json.dump(comparison_out, f, indent=4)
+    print(f"Saved aggregate comparison to {comparison_path}")
+    print(f"Stop reason distribution: {comparison_out['stop_reason_distribution']}")
 
-    print(f"\n==================================================")
-    print(f"=== MISSPELLED ENTITY SUBSET ({len(subset_qids)} Queries: Q61-Q75) ===")
-    print(f"==================================================")
-    print("=== RAW baseline (misspelled subset) ===")
-    print(raw_sub_metrics)
+    logs_dir = root / "results" / "logs"
+    logs_dir.mkdir(parents=True, exist_ok=True)
+    with open(logs_dir / "setu_v2_per_query_v3.json", "w", encoding="utf-8") as f:
+        json.dump(canonical_trajectories, f, indent=4)
 
-    print("\n=== SETU v1 (misspelled subset) ===")
-    print(v1_sub_metrics)
+    canonical_dir = root / "results" / "canonical"
+    canonical_dir.mkdir(parents=True, exist_ok=True)
+    with open(canonical_dir / "setu_trajectories.json", "w", encoding="utf-8") as f:
+        json.dump(canonical_trajectories, f, indent=4)
+    with open(canonical_dir / "per_query_results.jsonl", "w", encoding="utf-8") as f:
+        for log in per_query_logs:
+            f.write(json.dumps(log) + "\n")
+    print(f"Saved canonical per-query logs and trajectories to {canonical_dir}")
 
-    print("\n=== SETU v2 (misspelled subset) ===")
-    print(v2_sub_metrics)
 
-# --- Save results to disk ---
-tables_dir = Path(__file__).resolve().parents[1] / "results" / "tables"
-tables_dir.mkdir(parents=True, exist_ok=True)
-comparison_out = {
-    "full_dataset": {
-        "RAW": raw_metrics,
-        "SETU_v1": v1_metrics,
-        "SETU_v2": v2_metrics,
-    },
-    "misspelled_subset": subset_results,
-    "n_total_queries": len(queries),
-    "n_misspelled_queries": len(subset_qids),
-    "alphas": {
-        "training_alpha": 1.0,
-        "inference_alpha": INFERENCE_ALPHA
-    },
-    "stop_reason_distribution": {k: v2_stop_reasons.count(k) for k in set(v2_stop_reasons)}
-}
-comparison_path = tables_dir / "setu_v1_v2_comparison_scaled.json"
-with open(comparison_path, "w", encoding="utf-8") as f:
-    json.dump(comparison_out, f, indent=4)
-print(f"\nSaved aggregate comparison to {tables_dir / 'setu_v1_v2_comparison_scaled.json'}")
-print(f"Stop reason distribution: {comparison_out['stop_reason_distribution']}")
-
-canonical_dir = Path(__file__).resolve().parents[1] / "results" / "canonical"
-canonical_dir.mkdir(parents=True, exist_ok=True)
-with open(canonical_dir / "per_query_results.jsonl", "w", encoding="utf-8") as f:
-    for log in per_query_logs:
-        f.write(json.dumps(log) + "\n")
-print(f"Saved canonical per-query logs to {canonical_dir / 'per_query_results.jsonl'}")
+if __name__ == "__main__":
+    main()

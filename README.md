@@ -1,36 +1,31 @@
 # SETU: Hinglish RAG
 
-SETU (Self-Evolving Tool-Use) is a framework intended to improve retrieval-augmented generation for code-mixed languages like Hinglish. It employs an operator pipeline (LAG, CAEP, LQP) sequenced by a contextual bandit controller (LinUCB) to dynamically correct user queries.
+SETU (Self-Evolving Tool-Use) is a framework for studying selective query correction in code-mixed Romanized Hinglish Retrieval-Augmented Generation (`LQP`, `CAEP`, `LAG`, contextual bandit `SETU_v2`, and confidence gating).
 
-This repository contains the IEEE publication-ready artifacts, code, and verified evaluation results.
+This repository contains the IEEE manuscript sources (`ieee_submission/`), leakage-free evaluation pipeline, unit/leakage tests, and reproducible canonical artifacts.
 
 ## Final Evidence and Evaluation Scope
-The evaluation consists of **314 benchmark queries** executed against a search corpus of **380 chunks**. 
+- **Primary Benchmark:** **314** Hinglish queries across **380** RBI/PM-KISAN chunks spanning **18** source categories (`GroupKFold` 5-fold OOF CV grouped by normalized query text and shared gold chunks).
+- **External Validation Benchmark:** **500** duplicate-free Romanized Hinglish QA pairs from `aaditya/databricks-dolly-15k-Hinglish-Codemix`.
+- **Key Findings:**
+  - Multilingual dense retrievers resolve **77.4–80.9%** of RBI queries (`BGE-M3` MRR = **0.8526**, `mE5-large` MRR = **0.8767**) and **83.2–88.6%** of Dolly-Hinglish queries (`BGE-M3` MRR = **0.9121**) natively at rank 1.
+  - Standalone operators inflict statistically significant **overcorrection** on initially correct queries across both datasets (Holm $p_{\text{corr}} \le 0.0220$).
+  - Under leak-free GroupKFold CV, `SETU_v2` (**0.8550** MRR) avoids significant overcorrection (`-0.0075`, $p_{\text{corr}} = 0.9225$), achieves significant failed-query lift (`+0.0364`, $p_{\text{corr}} = 0.0494$), and cuts operator actions by **54.25%** (`3.00 -> 1.37`) and CPU latency by **59.1%** (`1186.8 ms -> 485.1 ms`).
+  - Score-margin confidence strongly tracks MRR ($\rho = 0.5030, p_{\text{corr}} = 1.07 \times 10^{-20}$), and the empirical oracle (`0.8842` MRR) favors leaving **89.5%** of queries unmodified (`RAW`).
 
-In the evaluated corpus, **SETU did not demonstrate statistically significant retrieval improvement over the raw BGE-M3 baseline.** The dense retrieval baseline correctly answered 77% of queries out-of-the-box (MRR = 0.8526). Overcorrection analysis showed that SETU operators significantly degraded already-correct baseline retrievals, while no operator achieved statistically significant improvement on natively failed queries after Holm-Bonferroni correction.
-
-The controller analysis demonstrated limited sequence diversity, largely functioning as an early-termination policy.
-
-All reported numbers are strictly drawn from canonical per-query evidence.
-
-## Reproducing the Analysis
-Expensive model executions are NOT required to reproduce the paper's tables and statistical results. We have verified and persisted the underlying per-query evidence.
-
-To automatically regenerate all tables, figures, and multiple-testing corrections from the canonical data:
+## Reproducing the Canonical Analysis & Readiness Gate
+To regenerate `results/tables/ieee_ready_tables.json` (Tables I–IX), formatted IEEE Markdown/LaTeX tables, figures, and run the final consistency/test suite:
 ```bash
+pytest tests/ -q
 python scripts/reproduce_canonical_analysis.py
-```
-This produces `results/tables/ieee_ready_tables.json`.
-
-To run the final readiness gate and consistency checker:
-```bash
+python scripts/generate_ieee_tables.py
+python scripts/generate_figures.py
 python scripts/final_readiness_gate.py
 ```
 
 ## Documentation Map
-* `RESULTS_SUMMARY.md`: High-level numeric results.
-* `CLAIM_CONTRACT.md`: Explicit definitions of safe, conditional, and prohibited claims for the IEEE paper.
-* `CLAIM_EVIDENCE_MATRIX.md`: Mapping of hypotheses to exact evidence and verdicts.
-* `FINAL_EVIDENCE_REPORT.md`: Comprehensive breakdown of evaluation scope and methodology.
-* `FINAL_EVIDENCE_SCOPE.md`: Dataset details and pipeline limits.
-* `MASTER_CHECKLIST.md`: Task tracking for publication readiness.
+- `RESULTS_SUMMARY.md`: Complete canonical results summary across primary and external arms.
+- `CLAIM_CONTRACT.md` & `CLAIM_EVIDENCE_MATRIX.md`: Verified claims, verdicts, and statistical bounds.
+- `FINAL_EVIDENCE_REPORT.md` & `FINAL_EVIDENCE_SCOPE.md`: Evaluation protocol, limitations, and scope.
+- `REPRODUCE_FINAL.md` & `ENVIRONMENT.md`: Full end-to-end execution guide and environment pin details.
+- `MASTER_CHECKLIST.md`: Publication verification checklist.

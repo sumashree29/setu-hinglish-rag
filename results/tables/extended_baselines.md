@@ -12,10 +12,10 @@
 | **MIRACL (Published)** | Dense Hybrid | ~0.88–0.91 | ~0.69–0.73 | ~0.75–0.80 | Zhang et al., TACL 2023, Table 5 (Hindi zero-shot) |
 | --- | --- | --- | --- | --- | --- |
 | **RAW Baseline (BGE-M3)** | Dense (Current) | 0.9873 | 0.8526 | 0.8858 | `setu_v1_v2_comparison_scaled.json` — 314 queries, 380 chunks |
-| **SETU v1 (Fixed pipeline)** | Operator pipeline | 0.9809 | 0.8475 | 0.8797 | `setu_v1_v2_comparison_scaled.json` — 314 queries, 380 chunks |
-| **SETU v2 (LinUCB Bandit)** | Adaptive pipeline | 0.9841 | 0.8505 | 0.8830 | `setu_v1_v2_comparison_scaled.json` — 314 queries, 380 chunks |
+| **SETU v1 (Fixed pipeline)** | Operator pipeline | 0.9809 | 0.8492 | 0.8810 | `setu_v1_v2_comparison_scaled.json` — 314 queries, 380 chunks |
+| **SETU v2 (LinUCB Bandit)** | Adaptive pipeline (5-fold GroupKFold) | 0.9873 | 0.8550 | 0.8875 | `setu_v1_v2_comparison_scaled.json` — 314 queries, 380 chunks |
 
-*Provenance: SETU rows generated from `results/tables/setu_v1_v2_comparison_scaled.json`, produced by `scripts/compare_setu_v1_v2_scaled.py` on the full 314-query / 380-chunk scaled corpus.*
+*Provenance: SETU rows generated from `results/tables/setu_v1_v2_comparison_scaled.json`, produced by `scripts/compare_setu_v1_v2_scaled.py` on the full 314-query / 380-chunk scaled corpus under 5-fold GroupKFold CV.*
 
 ## Limitations
-Standalone operators (LQP/CAEP/LAG) still underperform RAW at scale on all 3 models, though the gap has narrowed since retraining on the full 380-chunk corpus. The over-correction diagnosis (`results/tables/overcorrection_diagnosis.json`) shows operators help queries where RAW fails (+0.48 MRR) but hurt queries RAW already handles correctly (-0.16 MRR).
+Standalone operators (LQP/CAEP/LAG) underperform RAW overall on all 3 evaluated models. Conditional over-correction diagnosis (`results/tables/overcorrection_final.json`) shows standalone operators degrade already-correct queries (down to `-0.0757` MRR, Holm $p \le 0.0220$) with non-significant standalone gains on failures (`p >= 0.3300`), whereas GroupKFold `SETU_v2` avoids over-correction (`-0.0075`, $p = 0.9225$) and achieves `+0.0364` MRR lift on initially failed queries ($p_{\text{corr}} = 0.0494$).

@@ -31,7 +31,7 @@ def main():
     chunks_file = DATA_DIR / "processed" / "corpus_chunks_v2.jsonl"
     chunks = [json.loads(line) for line in open(chunks_file, encoding='utf-8') if line.strip()]
     
-    source_docs = set(c.get("doc_id", c.get("source_id", "unknown")) for c in chunks)
+    source_docs = set(c.get("category", c.get("doc_id", c.get("source_id", "unknown"))) for c in chunks)
     num_chunks = len(chunks)
     
     chunk_lengths = [len(re.findall(r"\b\w+\b", c["text"])) for c in chunks]
@@ -98,7 +98,7 @@ def main():
     md_content = f"""# Dataset Statistics
 
 ## Document Statistics
-- **Source Documents**: {stats['num_source_documents']}
+- **Source Categories / Documents**: {stats['num_source_documents']}
 - **Total Chunks**: {stats['num_chunks']}
 
 ### Chunk Length Distribution (Words)

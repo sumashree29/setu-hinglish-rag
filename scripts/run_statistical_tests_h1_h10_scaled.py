@@ -171,15 +171,18 @@ results_h1_h10["H3"] = {
 # H4: SETU-processed queries achieve significantly higher Recall@k/MRR/nDCG than raw queries
 # -------------------------------------------------------------
 import faiss, pickle
-from sentence_transformers import SentenceTransformer
+from setu.embeddings.loader import load_embedding_model, embed
 from setu.operators.caep import extract_entity_list, entity_frequencies
+from setu.operators.lag import fit_lag_v2
 from setu.controller.setu_bandit import setu_v1_fixed_order, setu_v2_run, LinUCBController
+from scripts.compare_setu_v1_v2_scaled import build_grouped_folds, split_trajectories_by_fold
 
-chunks = [json.loads(line) for line in open(ROOT / "data" / "processed" / "corpus_chunks_v2.jsonl", encoding="utf-8")]
+chunks = [json.loads(line) for line in open(ROOT / "data" / "processed" / "corpus_chunks_v2.jsonl", encoding="utf-8") if line.strip()]
 doc_ids = [c["chunk_id"] for c in chunks]
 doc_texts = [c["text"] for c in chunks]
-model = SentenceTransformer("BAAI/bge-m3", local_files_only=True)
-doc_emb = model.encode(doc_texts, convert_to_numpy=True).astype("float32")
+model = load_embedding_model("bge_m3")
+doc_emb_cache = ROOT / "results" / "logs" / "doc_emb_bge_m3_v2.npy"
+doc_emb = np.load(doc_emb_cache).astype("float32") if doc_emb_cache.exists() else embed(doc_texts, model).astype("float32")
 faiss.normalize_L2(doc_emb)
 idx = faiss.IndexFlatIP(doc_emb.shape[1])
 idx.add(doc_emb)
@@ -194,41 +197,58 @@ entities = extract_entity_list(doc_texts)
 entity_freq = entity_frequencies(doc_texts)
 caep_gate = pickle.load(open(ROOT / "results" / "models" / "caep_gate_bge_m3.pkl", "rb"))
 lqp_model = pickle.load(open(ROOT / "results" / "models" / "lqp_model_bge_m3.pkl", "rb"))
-lag_model = pickle.load(open(ROOT / "results" / "models" / "lag_model_v3.pkl", "rb"))
+lag_labeled_data = json.load(open(ROOT / "data" / "processed" / "lag_labels_v3.json", encoding="utf-8"))
 
 raw_mrrs, v1_mrrs, v2_mrrs, lqp_mrrs = [], [], [], []
 v1_steps_per_q, v2_steps_per_q, cmi_per_q = [], [], []
 raw_margins = []
 
-# Load clean trajectories for 5-fold CV
+# Load clean trajectories for grouped 5-fold OOF CV
 trajectories = [json.loads(line) for line in open(ROOT / "data" / "logs" / "trajectories_v3.jsonl", encoding="utf-8") if line.strip()]
-n_splits = 5
 qids = [q["query_id"] for q in queries_75]
-q_by_id = {q["query_id"]: q for q in queries_75}
-q_by_text = {q["text"]: q["query_id"] for q in queries_75}
-folds = np.array_split(qids, n_splits)
+folds = build_grouped_folds(queries_75, n_splits=5)
 
 fold_ctrls = {}
-for f_idx, t_qids in enumerate(folds):
-    t_texts = set(q_by_id[qid]["text"] for qid in t_qids)
-    tr_traj = [r for r in trajectories if q_by_text.get(r.get("query")) not in t_qids]
+fold_lags = {}
+for t_qids in folds:
+    train_ids = set(qids) - set(t_qids)
+    test_ids = set(t_qids)
+    tr_traj, _ = split_trajectories_by_fold(trajectories, train_ids, test_ids)
+
+    fold_lag_data = [d for d in lag_labeled_data if d["query_id"] in train_ids]
+    X_lag = np.array([[d["cmi"], d["lid_entropy"], d["entity_density"]] for d in fold_lag_data])
+    y_lag = np.array([d["label"] for d in fold_lag_data])
+    f_lag = fit_lag_v2(X_lag, y_lag)
+
     f_ctrl = LinUCBController(context_dim=7, alpha=0.0)
-    cur_q = None
+    cur_qid = None
     tried = {"LAG": 0.0, "CAEP": 0.0, "LQP": 0.0}
     for row in tr_traj:
-        q_t = row.get("query")
+        rqid = row.get("query_id")
         step_v = float(row.get("state", {}).get("step", 0))
-        if q_t != cur_q or step_v == 0:
-            cur_q = q_t
+        if rqid != cur_qid or step_v == 0:
+            cur_qid = rqid
             tried = {"LAG": 0.0, "CAEP": 0.0, "LQP": 0.0}
         c_v = float(row["state"]["cmi"])
         e_v = float(row["state"]["lid_entropy"])
         cf_v = float(row["state"]["confidence"])
         ctx = np.array([c_v, e_v, cf_v, step_v, tried["LAG"], tried["CAEP"], tried["LQP"]], dtype=float)
         f_ctrl.update(ctx, row["action"], float(row.get("reward", 0.0)))
-        if row["action"] in tried: tried[row["action"]] = 1.0
+        if row["action"] in tried:
+            tried[row["action"]] = 1.0
     for qid in t_qids:
         fold_ctrls[qid] = f_ctrl
+        fold_lags[qid] = f_lag
+
+_embed_cache = {}
+def cached_embed(texts):
+    missing = [t for t in texts if t not in _embed_cache]
+    if missing:
+        vecs = embed(missing, model).astype("float32")
+        for t, v in zip(missing, vecs):
+            if len(_embed_cache) < 10000:
+                _embed_cache[t] = v
+    return np.stack([_embed_cache[t] for t in texts])
 
 for q in queries_75:
     qid = q["query_id"]
@@ -262,9 +282,9 @@ for q in queries_75:
     
     # SETU v1 MRR
     v1_res = setu_v1_fixed_order(
-        query=q_txt, raw_ranking=raw_ranking, embed_fn=lambda t: model.encode(t, convert_to_numpy=True),
+        query=q_txt, raw_ranking=raw_ranking, embed_fn=cached_embed,
         entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
-        lqp_model=lqp_model, faiss_search_fn=faiss_search, lag_model=lag_model,
+        lqp_model=lqp_model, faiss_search_fn=faiss_search, lag_model=fold_lags[qid],
     )
     v1_mrr = 0.0
     for rank, d in enumerate(v1_res["final_ranking"]):
@@ -272,15 +292,15 @@ for q in queries_75:
             v1_mrr = 1.0 / (rank + 1)
             break
     v1_mrrs.append(v1_mrr)
-    v1_steps_per_q.append(float(len(v1_res["trajectory"])))
+    v1_steps_per_q.append(float(len([t for t in v1_res["trajectory"] if t.get("action") != "CARF"])))
     
     # SETU v2 MRR
     ops, conf_tr, v2_rank, stop_reason = setu_v2_run(
-        query=q_txt, controller=fold_ctrls[qid], raw_ranking=raw_ranking,
-        embed_fn=lambda t: model.encode(t, convert_to_numpy=True),
+        query=q_txt, query_id=qid, controller=fold_ctrls[qid], raw_ranking=raw_ranking,
+        embed_fn=cached_embed,
         entities=entities, entity_freq=entity_freq, caep_gate=caep_gate,
         lqp_model=lqp_model, faiss_search_fn=faiss_search, confidence_fn=confidence_proxy,
-        lag_model=lag_model, train=False,
+        lag_model=fold_lags[qid], train=False,
     )
     v2_mrr = 0.0
     for rank, d in enumerate(v2_rank):

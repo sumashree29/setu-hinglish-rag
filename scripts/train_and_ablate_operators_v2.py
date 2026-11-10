@@ -127,9 +127,16 @@ for model_key, (model_name, needs_prefix) in EMBEDDING_MODELS.items():
     print(f"=======================================================")
     
     st_model = SentenceTransformer(model_name)
+    embed_cache = {}
     def embed_fn(texts):
+        if len(texts) <= 4 and all(t in embed_cache for t in texts):
+            return np.stack([embed_cache[t] for t in texts])
         inp = [f"query: {t}" for t in texts] if needs_prefix else texts
-        return st_model.encode(inp, convert_to_numpy=True).astype("float32")
+        vecs = st_model.encode(inp, convert_to_numpy=True).astype("float32")
+        for t, v in zip(texts, vecs):
+            if len(embed_cache) < 5000:
+                embed_cache[t] = v
+        return vecs
 
     # A. Train LQP for this model (Bypassed! Load existing)
     print(f"Loading pre-trained LQP for {model_key}...")
@@ -202,10 +209,11 @@ for model_key, (model_name, needs_prefix) in EMBEDDING_MODELS.items():
         lat_caep.append(time.perf_counter() - t0)
         caep_run[qid] = {d: (len(c_ids) - rk) for rk, d in enumerate(c_ids)}
         
-    # D2. 5-Fold OOF evaluation for LAG_alone
-    print(f"Running 5-fold OOF evaluation for LAG_alone to prevent leakage...")
+    # D2. 5-Fold Grouped OOF evaluation for LAG_alone
+    print(f"Running 5-fold grouped OOF evaluation for LAG_alone to prevent leakage...")
+    from scripts.compare_setu_v1_v2_scaled import build_grouped_folds
     n_splits = 5
-    folds = np.array_split(query_ids, n_splits)
+    folds = build_grouped_folds(queries_v3, n_splits=n_splits)
     
     for fold_idx, test_qids in enumerate(folds):
         train_ids = set(query_ids) - set(test_qids)
@@ -290,6 +298,11 @@ for model_key, (model_name, needs_prefix) in EMBEDDING_MODELS.items():
         "overall_314": eval_overall,
         "by_cmi_band": subgroup_eval
     }
+    import gc, torch
+    del st_model
+    gc.collect()
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
 
 # 5. Save Ablation Table
 out_table = TABLE_DIR / "scaled_operator_ablation_v3.json"

@@ -1,25 +1,25 @@
 # Paper Notes & Narrative Constraints
 
-This file records the specific narrative boundaries for drafting the IEEE paper based on the final evaluation results. 
+This file records the exact narrative boundaries for drafting and updating the IEEE paper based on the freshly executed GroupKFold evaluation, selective-correction strategies, and external Dolly-Hinglish validation.
 
-## 1. Do Not Claim Universality
-The results strictly evaluate a 314-query Hinglish corpus against 380 document chunks. BGE-M3 performs extremely well as a zero-shot baseline (MRR ~0.85). Any claim that code-mixed retrieval *universally requires* dynamic operator pipelines is unsupported by this data and must be avoided.
+## 1. Scope & External Generalization
+The primary RBI evaluation covers 314 Hinglish queries across 380 chunks (18 categories), paired with an out-of-domain 500-query Dolly-Hinglish QA validation benchmark. Web-scale dense baselines (`BGE-M3` 0.8526 in-domain / 0.9121 external; `mE5-large` 0.8767 in-domain / 0.8695 external) already resolve 77–89% of queries zero-shot.
 
-## 2. Controller Adaptivity (H6)
-**Original flawed claim:** "The contextual bandit provides highly adaptive, dynamic routing that improves over fixed sequences."
-**Corrected claim:** "Under the evaluated dataset, the LinUCB controller largely converged to a low-step early-termination policy rather than a context-sensitive sequencer. No statistically significant difference in retrieval outcomes was detected between the fixed pipeline and the dynamic controller (p=0.7423), though the controller achieved comparable outcomes in significantly fewer steps."
+## 2. Controller Adaptivity & Efficiency (H6, H8)
+Under leak-free 5-fold GroupKFold CV:
+- No statistically significant overall MRR difference is detected between `SETU_v1` (0.8492) and `SETU_v2` (0.8550) (`p_raw=0.2482`, `p_corr=0.8334`), and we do not claim equivalence without TOST testing.
+- `SETU_v2` cuts operator actions by 54.25% (`3.000 -> 1.373`, `p_corr=1.79e-55`) and latency by 59.1% (`1186.8 ms -> 485.1 ms`).
+- However, sequence diversity remains restricted to 3 macro-patterns (`LQP->LAG->STOP`: 188, `STOP`: 71, `LQP->STOP`: 55), with 75.8% `repeat_action_forced` terminations due to missing action masking and compressed score-margin features (`313/314 < 0.20`). Raw Chi-square between first action and CMI band is `0.0043` (`p_corr=0.0731` after 17-test Holm correction), while total steps show no significant correlation with CMI (H9 `rho=0.0053, p=0.9255`).
 
-## 3. The Overcorrection Problem (C6)
-**Narrative focus:** The paper must highlight overcorrection as a primary finding. Applying heuristic or model-based operators to queries that are already successfully retrieved by a robust dense baseline (like BGE-M3) significantly degrades performance. Future code-mixed pipelines must prioritize highly conservative gating (e.g., confidence thresholds) to protect strong zero-shot baseline performance.
+## 3. Overcorrection vs. Selective Recovery (Table IV & External Dolly)
+- Standalone operators (`LQP`, `CAEP`, `LAG`) cause significant degradation on already-correct queries across both datasets (Holm `p_corr <= 0.0220`) while failing to yield Holm-significant lift on baseline failures in-domain (`p_corr >= 0.3300`).
+- Selective `SETU_v2` avoids significant overcorrection (`-0.0075, p_corr=0.9225`) and achieves statistically significant lift on RBI failed queries (`+0.0364, p_corr=0.0494`), while out-of-domain zero-shot `PHINC`->`Dolly` transfer shows `mE5-large + LQP` achieving `+0.0934` (`p_corr=0.0008`) on failed queries.
 
-## 4. Confidence Gating (H10)
-**Narrative focus:** The significant correlation between margin-based confidence and empirical retrieval success (rho=0.2985) is the most promising avenue for avoiding overcorrection. The paper should propose this as a diagnostic tool, but explicitly refrain from claiming that the current SETU controller fully exploits this signal.
+## 4. Confidence Gating (H10) & Empirical Oracle (`pi*`)
+Score-margin confidence strongly correlates with MRR (`rho=0.5030, p=1.53e-21, p_corr=1.07e-20`), validating margin gating diagnostics. Empirical oracle `pi*` attains MRR `0.8842` (`+0.0316`, Holm `p=5e-6`), choosing unmodified `RAW` on 281/314 (`89.49%`) queries.
 
-## 5. Statistical Rigor
-Every p-value cited in the paper must be the Holm-Bonferroni corrected value. Any discussion of "improvement on baseline failure cases" must explicitly state that the results were statistically insignificant after correcting for multiple comparisons.
-
-## 6. Language and Tone
-Use conservative IEEE-style scientific language. 
-- Avoid "proves", use "demonstrates" or "suggests".
-- Avoid "equivalent", use "no statistically significant difference was detected".
-- Avoid "failed", use "did not demonstrate statistically significant improvement".
+## 5. Language and Tone
+- Report Holm-Bonferroni corrected p-values alongside raw p-values where relevant.
+- Never claim equivalence ("no statistically significant difference detected" only).
+- Never claim causality from confidence correlations.
+- Explicitly note unfilled human review batches (`data/review/review_batch_{1,2,3}.json`) in Limitations.

@@ -1,0 +1,205 @@
+{
+  "dataset": "aaditya/databricks-dolly-15k-Hinglish-Codemix",
+  "n_passages": 500,
+  "n_queries": 500,
+  "models": {
+    "bge_m3": {
+      "overall": {
+        "RAW": {
+          "mrr": 0.9121,
+          "ndcg@10": 0.9233,
+          "hit_rate@1": 0.886,
+          "recall@10": 0.958
+        },
+        "LQP_alone": {
+          "mrr": 0.904,
+          "ndcg@10": 0.9167,
+          "hit_rate@1": 0.874,
+          "recall@10": 0.956
+        },
+        "CAEP_alone": {
+          "mrr": 0.8924,
+          "ndcg@10": 0.9069,
+          "hit_rate@1": 0.86,
+          "recall@10": 0.952
+        },
+        "LAG_alone": {
+          "mrr": 0.8902,
+          "ndcg@10": 0.9038,
+          "hit_rate@1": 0.858,
+          "recall@10": 0.946
+        }
+      },
+      "group_sizes": {
+        "RAW_already_correct": 443,
+        "percent_correct": 88.6,
+        "RAW_incorrect": 57,
+        "percent_incorrect": 11.4
+      },
+      "overcorrection": {
+        "LQP": {
+          "mean_delta_correct": -0.008,
+          "wilcoxon_p_correct_raw": 0.0235,
+          "mean_delta_incorrect": -0.0087,
+          "wilcoxon_p_incorrect_raw": 0.46,
+          "wilcoxon_p_correct_holm": 0.2354,
+          "significant_correct_holm": false,
+          "wilcoxon_p_incorrect_holm": 1.0,
+          "significant_incorrect_holm": false
+        },
+        "CAEP": {
+          "mean_delta_correct": -0.024,
+          "wilcoxon_p_correct_raw": 0.0002,
+          "mean_delta_incorrect": 0.0146,
+          "wilcoxon_p_incorrect_raw": 0.8665,
+          "wilcoxon_p_correct_holm": 0.0022,
+          "significant_correct_holm": true,
+          "wilcoxon_p_incorrect_holm": 1.0,
+          "significant_incorrect_holm": false
+        },
+        "LAG": {
+          "mean_delta_correct": -0.0259,
+          "wilcoxon_p_correct_raw": 0.0001,
+          "mean_delta_incorrect": 0.0093,
+          "wilcoxon_p_incorrect_raw": 0.8302,
+          "wilcoxon_p_correct_holm": 0.0017,
+          "significant_correct_holm": true,
+          "wilcoxon_p_incorrect_holm": 1.0,
+          "significant_incorrect_holm": false
+        }
+      }
+    },
+    "me5_large": {
+      "overall": {
+        "RAW": {
+          "mrr": 0.8695,
+          "ndcg@10": 0.8868,
+          "hit_rate@1": 0.832,
+          "recall@10": 0.94
+        },
+        "LQP_alone": {
+          "mrr": 0.8812,
+          "ndcg@10": 0.8956,
+          "hit_rate@1": 0.85,
+          "recall@10": 0.94
+        },
+        "CAEP_alone": {
+          "mrr": 0.8346,
+          "ndcg@10": 0.8577,
+          "hit_rate@1": 0.78,
+          "recall@10": 0.928
+        },
+        "LAG_alone": {
+          "mrr": 0.8231,
+          "ndcg@10": 0.8441,
+          "hit_rate@1": 0.772,
+          "recall@10": 0.908
+        }
+      },
+      "group_sizes": {
+        "RAW_already_correct": 416,
+        "percent_correct": 83.2,
+        "RAW_incorrect": 84,
+        "percent_incorrect": 16.8
+      },
+      "overcorrection": {
+        "LQP": {
+          "mean_delta_correct": -0.0048,
+          "wilcoxon_p_correct_raw": 0.0455,
+          "mean_delta_incorrect": 0.0934,
+          "wilcoxon_p_incorrect_raw": 0.0001,
+          "wilcoxon_p_correct_holm": 0.4095,
+          "significant_correct_holm": false,
+          "wilcoxon_p_incorrect_holm": 0.0008,
+          "significant_incorrect_holm": true
+        },
+        "CAEP": {
+          "mean_delta_correct": -0.0469,
+          "wilcoxon_p_correct_raw": 0.0,
+          "mean_delta_incorrect": 0.0242,
+          "wilcoxon_p_incorrect_raw": 0.5588,
+          "wilcoxon_p_correct_holm": 0.0,
+          "significant_correct_holm": true,
+          "wilcoxon_p_incorrect_holm": 1.0,
+          "significant_incorrect_holm": false
+        },
+        "LAG": {
+          "mean_delta_correct": -0.0576,
+          "wilcoxon_p_correct_raw": 0.0,
+          "mean_delta_incorrect": 0.0084,
+          "wilcoxon_p_incorrect_raw": 0.7003,
+          "wilcoxon_p_correct_holm": 0.0,
+          "significant_correct_holm": true,
+          "wilcoxon_p_incorrect_holm": 1.0,
+          "significant_incorrect_holm": false
+        }
+      }
+    },
+    "indic_sbert": {
+      "overall": {
+        "RAW": {
+          "mrr": 0.7921,
+          "ndcg@10": 0.8189,
+          "hit_rate@1": 0.724,
+          "recall@10": 0.9
+        },
+        "LQP_alone": {
+          "mrr": 0.7793,
+          "ndcg@10": 0.8087,
+          "hit_rate@1": 0.712,
+          "recall@10": 0.9
+        },
+        "CAEP_alone": {
+          "mrr": 0.7291,
+          "ndcg@10": 0.758,
+          "hit_rate@1": 0.668,
+          "recall@10": 0.848
+        },
+        "LAG_alone": {
+          "mrr": 0.741,
+          "ndcg@10": 0.7757,
+          "hit_rate@1": 0.666,
+          "recall@10": 0.884
+        }
+      },
+      "group_sizes": {
+        "RAW_already_correct": 362,
+        "percent_correct": 72.4,
+        "RAW_incorrect": 138,
+        "percent_incorrect": 27.6
+      },
+      "overcorrection": {
+        "LQP": {
+          "mean_delta_correct": -0.0182,
+          "wilcoxon_p_correct_raw": 0.0013,
+          "mean_delta_incorrect": 0.0011,
+          "wilcoxon_p_incorrect_raw": 0.2823,
+          "wilcoxon_p_correct_holm": 0.0145,
+          "significant_correct_holm": true,
+          "wilcoxon_p_incorrect_holm": 1.0,
+          "significant_incorrect_holm": false
+        },
+        "CAEP": {
+          "mean_delta_correct": -0.0874,
+          "wilcoxon_p_correct_raw": 0.0,
+          "mean_delta_incorrect": 0.0009,
+          "wilcoxon_p_incorrect_raw": 0.7404,
+          "wilcoxon_p_correct_holm": 0.0,
+          "significant_correct_holm": true,
+          "wilcoxon_p_incorrect_holm": 1.0,
+          "significant_incorrect_holm": false
+        },
+        "LAG": {
+          "mean_delta_correct": -0.0806,
+          "wilcoxon_p_correct_raw": 0.0,
+          "mean_delta_incorrect": 0.0262,
+          "wilcoxon_p_incorrect_raw": 0.7766,
+          "wilcoxon_p_correct_holm": 0.0,
+          "significant_correct_holm": true,
+          "wilcoxon_p_incorrect_holm": 1.0,
+          "significant_incorrect_holm": false
+        }
+      }
+    }
+  }
+}

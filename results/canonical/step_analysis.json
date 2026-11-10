@@ -1,0 +1,23 @@
+{
+    "definition": "One step = one executed non-STOP operator action.",
+    "v1": {
+        "mean": 3.0,
+        "median": 3.0,
+        "std": 0.0,
+        "iqr": 0.0,
+        "p95": 3.0
+    },
+    "v2": {
+        "mean": 1.372611464968153,
+        "median": 2.0,
+        "std": 0.8282520513137877,
+        "iqr": 1.0,
+        "p95": 2.0
+    },
+    "comparison": {
+        "mean_reduction_absolute": 1.627388535031847,
+        "mean_reduction_percentage": 54.24628450106157,
+        "wilcoxon_statistic": 0.0,
+        "wilcoxon_p": 2.2399658492653733e-56
+    }
+}

@@ -28,8 +28,9 @@ query_cmi = {q["query_id"]: cmi(q["text"]) for q in queries_v3}
 query_entropy = {q["query_id"]: lid_entropy(q["text"]) for q in queries_v3}
 entities = extract_entity_list(doc_texts)
 
+from scripts.compare_setu_v1_v2_scaled import build_grouped_folds
 n_splits = 5
-folds = np.array_split(query_ids, n_splits)
+folds = build_grouped_folds(queries_v3, n_splits=n_splits)
 
 all_predictions = []
 

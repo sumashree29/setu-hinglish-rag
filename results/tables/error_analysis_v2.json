@@ -1,14 +1,14 @@
 {
   "total_queries": 314,
-  "total_v2_failures_at_rank1": 74,
+  "total_v2_failures_at_rank1": 71,
   "outcome_by_termination_cause_crosstab": {
     "repeat_action_forced": {
-      "success": 231,
-      "failure": 71
+      "success": 175,
+      "failure": 63
     },
     "explicit_stop": {
-      "success": 9,
-      "failure": 3
+      "success": 68,
+      "failure": 8
     },
     "max_steps_reached": {
       "success": 0,
@@ -18,35 +18,36 @@
   "band_counts": {
     "low": 3,
     "medium": 4,
-    "high": 60,
-    "very_high": 7
+    "high": 59,
+    "very_high": 5
   },
   "category_breakdown_by_band": {
     "low": {
-      "lqp_noop": 2,
+      "lag_wrong_substrategy": 2,
       "base_retrieval_miss": 1
     },
     "medium": {
-      "lqp_noop": 1,
-      "lag_wrong_substrategy": 3
+      "lag_wrong_substrategy": 3,
+      "lqp_noop": 1
     },
     "high": {
-      "lqp_noop": 19,
-      "lag_wrong_substrategy": 39,
-      "base_retrieval_miss": 2
+      "lag_wrong_substrategy": 40,
+      "lqp_noop": 13,
+      "base_retrieval_miss": 6
     },
     "very_high": {
-      "lqp_noop": 1,
-      "lag_wrong_substrategy": 6
+      "lag_wrong_substrategy": 4,
+      "lqp_noop": 1
     }
   },
   "examples": {
-    "lqp_noop": [
+    "lag_wrong_substrategy": [
       {
         "query": "Kya main ek hi bank mein do BSBDA khaata khol sakta hoon ya sirf ek hi milega",
         "cmi": 0.235,
         "ops_applied": [
-          "LQP"
+          "LQP",
+          "LAG"
         ],
         "raw_failed": true
       },
@@ -54,7 +55,8 @@
         "query": "BSBDA khaate mein mahine bhar mein kitni baar paisa nikalna free hota hai",
         "cmi": 0.385,
         "ops_applied": [
-          "LQP"
+          "LQP",
+          "LAG"
         ],
         "raw_failed": true
       },
@@ -62,7 +64,8 @@
         "query": "Does checking my balance at an ATM count as one of the free withdrawals",
         "cmi": 0.143,
         "ops_applied": [
-          "LQP"
+          "LQP",
+          "LAG"
         ],
         "raw_failed": true
       },
@@ -70,13 +73,57 @@
         "query": "Is there any age or income restriction for opening a BSBDA account",
         "cmi": 0.083,
         "ops_applied": [
-          "LQP"
+          "LQP",
+          "LAG"
         ],
         "raw_failed": true
       },
       {
         "query": "BSBDA account kholne ke liye koi age ya income limit hai kya",
         "cmi": 0.5,
+        "ops_applied": [
+          "LQP",
+          "LAG"
+        ],
+        "raw_failed": true
+      }
+    ],
+    "lqp_noop": [
+      {
+        "query": "Kya mera purana savings account BSBDA mein badla ja sakta hai",
+        "cmi": 0.455,
+        "ops_applied": [
+          "LQP"
+        ],
+        "raw_failed": true
+      },
+      {
+        "query": "kya foreign exchange allow kiya jata hai ya koi khaas rukawat hai",
+        "cmi": 0.417,
+        "ops_applied": [
+          "LQP"
+        ],
+        "raw_failed": true
+      },
+      {
+        "query": "agar aggregator facilitator toh aise case mein kya niyam lagta hai",
+        "cmi": 0.455,
+        "ops_applied": [
+          "LQP"
+        ],
+        "raw_failed": true
+      },
+      {
+        "query": "RBI government banking role ka arth aur details kya hain",
+        "cmi": 0.5,
+        "ops_applied": [
+          "LQP"
+        ],
+        "raw_failed": true
+      },
+      {
+        "query": "the dicgc kis cheez ko insure karta hai",
+        "cmi": 0.375,
         "ops_applied": [
           "LQP"
         ],
@@ -91,106 +138,71 @@
         "raw_failed": true
       },
       {
-        "query": "asset remittance ka arth aur details kya hain",
+        "query": "security payment ka tareeqa aur step-by-step procedure kya hota hai",
         "cmi": 0.5,
         "ops_applied": [],
         "raw_failed": true
       },
       {
-        "query": "person resident ki pehchaan aur role kya hai",
+        "query": "securities issuance ka tareeqa aur step-by-step procedure kya hota hai",
         "cmi": 0.5,
         "ops_applied": [],
         "raw_failed": true
-      }
-    ],
-    "lag_wrong_substrategy": [
-      {
-        "query": "pmkisan payment aane ke liye aadhar link karwana mandatory hai kya",
-        "cmi": 0.455,
-        "ops_applied": [
-          "LQP",
-          "LAG"
-        ],
-        "raw_failed": true
       },
       {
-        "query": "EEFC account types ka arth aur details kya hain",
-        "cmi": 0.556,
-        "ops_applied": [
-          "LQP",
-          "LAG"
-        ],
-        "raw_failed": false
-      },
-      {
-        "query": "foreign exchange ki maximum seema aur charges kitne hote hain",
+        "query": "aggregator facilitator ka tareeqa aur step-by-step procedure kya hota hai",
         "cmi": 0.5,
-        "ops_applied": [
-          "LQP",
-          "LAG"
-        ],
+        "ops_applied": [],
         "raw_failed": true
       },
       {
-        "query": "kya foreign exchange allow kiya jata hai ya koi khaas rukawat hai",
-        "cmi": 0.417,
-        "ops_applied": [
-          "LQP",
-          "LAG"
-        ],
-        "raw_failed": true
-      },
-      {
-        "query": "kya eefc account allow kiya jata hai ya koi khaas rukawat hai",
-        "cmi": 0.417,
-        "ops_applied": [
-          "LQP",
-          "LAG"
-        ],
+        "query": "money changing facilities ka arth aur details kya hain",
+        "cmi": 0.444,
+        "ops_applied": [],
         "raw_failed": true
       }
     ]
   },
   "qualitative_examples_7_diverse": [
     {
-      "query": "pmkisan payment aane ke liye aadhar link karwana mandatory hai kya",
-      "pattern": "LQP -> LAG -> STOP",
-      "cmi": 0.455,
-      "category": "lag_wrong_substrategy",
-      "raw_failed": true
-    },
-    {
-      "query": "EEFC account types ka arth aur details kya hain",
-      "pattern": "LQP -> LAG -> STOP",
-      "cmi": 0.556,
-      "category": "lag_wrong_substrategy",
-      "raw_failed": false
-    },
-    {
-      "query": "foreign exchange ki maximum seema aur charges kitne hote hain",
-      "pattern": "LQP -> LAG -> STOP",
-      "cmi": 0.5,
-      "category": "lag_wrong_substrategy",
-      "raw_failed": true
-    },
-    {
       "query": "Kya main ek hi bank mein do BSBDA khaata khol sakta hoon ya sirf ek hi milega",
-      "pattern": "LQP -> STOP",
+      "pattern": "LQP -> LAG -> STOP",
       "cmi": 0.235,
-      "category": "lqp_noop",
+      "category": "lag_wrong_substrategy",
       "raw_failed": true
     },
     {
       "query": "BSBDA khaate mein mahine bhar mein kitni baar paisa nikalna free hota hai",
-      "pattern": "LQP -> STOP",
+      "pattern": "LQP -> LAG -> STOP",
       "cmi": 0.385,
-      "category": "lqp_noop",
+      "category": "lag_wrong_substrategy",
       "raw_failed": true
     },
     {
       "query": "Does checking my balance at an ATM count as one of the free withdrawals",
-      "pattern": "LQP -> STOP",
+      "pattern": "LQP -> LAG -> STOP",
       "cmi": 0.143,
+      "category": "lag_wrong_substrategy",
+      "raw_failed": true
+    },
+    {
+      "query": "Kya mera purana savings account BSBDA mein badla ja sakta hai",
+      "pattern": "LQP -> STOP",
+      "cmi": 0.455,
+      "category": "lqp_noop",
+      "raw_failed": true
+    },
+    {
+      "query": "kya foreign exchange allow kiya jata hai ya koi khaas rukawat hai",
+      "pattern": "LQP -> STOP",
+      "cmi": 0.417,
+      "category": "lqp_noop",
+      "raw_failed": true
+    },
+    {
+      "query": "agar aggregator facilitator toh aise case mein kya niyam lagta hai",
+      "pattern": "LQP -> STOP",
+      "cmi": 0.455,
       "category": "lqp_noop",
       "raw_failed": true
     },

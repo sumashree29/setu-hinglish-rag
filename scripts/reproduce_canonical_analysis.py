@@ -96,6 +96,23 @@ def generate_table_7():
     lat = read_json(ROOT / "results/canonical/latency.json")
     return lat
 
+
+def generate_table_8():
+    path = ROOT / "results/tables/selective_correction_strategies.json"
+    if path.exists():
+        print("Generating Table 8 (Selective Correction Strategies)...")
+        return read_json(path)
+    return {}
+
+
+def generate_table_9():
+    path = ROOT / "results/tables/external_dolly_validation.json"
+    if path.exists():
+        print("Generating Table 9 (External Dolly-Hinglish Validation)...")
+        return read_json(path)
+    return {}
+
+
 def main():
     tables = {
         "Table_1_Dataset": generate_table_1(),
@@ -104,8 +121,14 @@ def main():
         "Table_4_Hypotheses": generate_table_4(),
         "Table_5_Controller": generate_table_5(),
         "Table_6_Overcorrection": generate_table_6(),
-        "Table_7_Latency": generate_table_7()
+        "Table_7_Latency": generate_table_7(),
     }
+    t8 = generate_table_8()
+    if t8:
+        tables["Table_8_Selective_Strategies"] = t8
+    t9 = generate_table_9()
+    if t9:
+        tables["Table_9_External_Dolly"] = t9
     
     out_dir = ROOT / "results/tables"
     out_dir.mkdir(exist_ok=True, parents=True)

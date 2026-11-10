@@ -21,37 +21,29 @@ def get_conf_band(conf):
 def main():
     root = Path(__file__).resolve().parents[1]
     
-    # Read trajectories
-    trajectories = []
-    with open(root / "data" / "logs" / "trajectories_v3.jsonl", "r", encoding="utf-8") as f:
-        for line in f:
-            if line.strip():
-                trajectories.append(json.loads(line))
-                
-    # Read v2 results
+    # Read queries for CMI computation
+    import sys
+    sys.path.append(str(root))
+    from setu.diagnosis.cmi import cmi as compute_cmi
+    queries = json.load(open(root / "data" / "processed" / "queries_v3_final.json", "r", encoding="utf-8"))
+    cmi_map = {q["query_id"]: compute_cmi(q["text"]) for q in queries}
+
+    # Read inference-time v2 results (alpha=0.0)
     with open(root / "results" / "logs" / "setu_v2_per_query_v3.json", "r", encoding="utf-8") as f:
         v2_logs = json.load(f)
-        
-    # Process queries
+
     query_data = {}
-    for row in trajectories:
-        qid = row["query_id"]
-        if qid not in query_data:
-            query_data[qid] = {
-                "actions": [],
-                "cmi": float(row["state"]["cmi"]),
-                "conf_0": float(row["state"]["confidence"]),
-                "stop_reason": None,
-                "steps": 0
-            }
-        query_data[qid]["actions"].append(row["action"])
-        
     for row in v2_logs:
         qid = row["query_id"]
-        if qid in query_data:
-            query_data[qid]["stop_reason"] = row.get("stop_reason")
-            # Mean steps (excluding STOP) - derived from actions list
-            query_data[qid]["steps"] = len([a for a in query_data[qid]["actions"] if a != "STOP"])
+        actions = row.get("action_sequence", [])
+        conf_trace = row.get("confidence_trace", [0.0])
+        query_data[qid] = {
+            "actions": actions,
+            "cmi": float(cmi_map.get(qid, 0.0)),
+            "conf_0": float(conf_trace[0]) if conf_trace else 0.0,
+            "stop_reason": row.get("stop_reason"),
+            "steps": len([a for a in actions if a != "STOP"]),
+        }
 
     # 1. Unique action sequences
     sequences = ["->".join(d["actions"]) for d in query_data.values()]
@@ -116,9 +108,12 @@ def main():
         if sum(row) > 0:
             contingency.append(row)
             bands_with_data.append(b)
-            
-    if len(contingency) > 1:
-        chi2, p, dof, ex = chi2_contingency(contingency)
+
+    cont_arr = np.asarray(contingency, dtype=float)
+    if cont_arr.size > 0:
+        cont_arr = cont_arr[:, cont_arr.sum(axis=0) > 0]
+    if cont_arr.ndim == 2 and cont_arr.shape[0] > 1 and cont_arr.shape[1] > 1:
+        chi2, p, dof, ex = chi2_contingency(cont_arr)
     else:
         chi2, p = 0.0, 1.0
 

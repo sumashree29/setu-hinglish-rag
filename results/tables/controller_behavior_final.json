@@ -1,82 +1,76 @@
 {
     "n_queries": 314,
     "unique_sequences": {
-        "LQP->STOP": 89,
-        "CAEP->STOP": 83,
-        "LAG->STOP": 78,
-        "STOP": 61,
-        "LAG->CAEP->LQP->STOP": 1,
-        "LQP->LAG->CAEP->STOP": 1,
-        "CAEP->LAG->STOP": 1
+        "LQP->LAG->STOP": 188,
+        "STOP": 71,
+        "LQP->STOP": 55
     },
     "first_action_distribution": {
-        "LQP": 90,
-        "CAEP": 84,
-        "LAG": 79,
-        "STOP": 61
+        "LQP": 243,
+        "STOP": 71
     },
-    "explicit_stop_percentage": 4.45859872611465,
+    "explicit_stop_percentage": 24.203821656050955,
     "termination_by_cmi_band": {
         "low (<0.2)": {
-            "explicit_stop": 5,
-            "repeat_action_forced": 11,
+            "explicit_stop": 8,
+            "repeat_action_forced": 8,
             "max_steps_reached": 0
         },
         "high (0.4-0.6)": {
-            "explicit_stop": 9,
-            "repeat_action_forced": 197,
+            "explicit_stop": 44,
+            "repeat_action_forced": 162,
             "max_steps_reached": 0
         },
         "medium (0.2-0.4)": {
-            "explicit_stop": 0,
-            "repeat_action_forced": 80,
+            "explicit_stop": 17,
+            "repeat_action_forced": 63,
             "max_steps_reached": 0
         },
         "very high (>0.6)": {
-            "explicit_stop": 0,
-            "repeat_action_forced": 12,
+            "explicit_stop": 7,
+            "repeat_action_forced": 5,
             "max_steps_reached": 0
         }
     },
     "first_action_by_cmi_band": {
         "low (<0.2)": {
-            "LAG": 4,
-            "CAEP": 3,
-            "LQP": 5,
-            "STOP": 4
+            "LAG": 0,
+            "CAEP": 0,
+            "LQP": 8,
+            "STOP": 8
         },
         "medium (0.2-0.4)": {
-            "LAG": 15,
-            "CAEP": 22,
-            "LQP": 23,
-            "STOP": 20
+            "LAG": 0,
+            "CAEP": 0,
+            "LQP": 64,
+            "STOP": 16
         },
         "high (0.4-0.6)": {
-            "LAG": 59,
-            "CAEP": 55,
-            "LQP": 58,
-            "STOP": 34
+            "LAG": 0,
+            "CAEP": 0,
+            "LQP": 165,
+            "STOP": 41
         },
         "very high (>0.6)": {
-            "LAG": 1,
-            "CAEP": 4,
-            "LQP": 4,
-            "STOP": 3
+            "LAG": 0,
+            "CAEP": 0,
+            "LQP": 6,
+            "STOP": 6
         }
     },
     "mean_steps_by_cmi": {
-        "low (<0.2)": 0.875,
-        "medium (0.2-0.4)": 0.75,
-        "high (0.4-0.6)": 0.8495145631067961,
-        "very high (>0.6)": 0.75
+        "low (<0.2)": 0.9375,
+        "medium (0.2-0.4)": 1.4375,
+        "high (0.4-0.6)": 1.412621359223301,
+        "very high (>0.6)": 0.8333333333333334
     },
     "steps_by_confidence": {
         "low (<0.2)": {
-            "mean_steps": 0.8210862619808307,
+            "mean_steps": 1.376996805111821,
             "query_count": 313
         },
         "medium (0.2-0.4)": {
-            "mean_steps": 1.0,
+            "mean_steps": 0.0,
             "query_count": 1
         },
         "high (0.4-0.6)": {
@@ -93,8 +87,8 @@
         }
     },
     "chi_square_test": {
-        "chi2_statistic": 7.022868255104042,
-        "p_value": 0.634738384397038,
-        "significant_at_05": false
+        "chi2_statistic": 13.178444609886334,
+        "p_value": 0.004266178036481635,
+        "significant_at_05": true
     }
 }

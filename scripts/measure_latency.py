@@ -102,9 +102,10 @@ def main():
             if line.strip():
                 trajectories.append(json.loads(line))
     
+    from scripts.compare_setu_v1_v2_scaled import build_grouped_folds
     qids = [q["query_id"] for q in queries]
     q_by_id = {q["query_id"]: q for q in queries}
-    folds = np.array_split(qids, 5)
+    folds = build_grouped_folds(queries, n_splits=5)
     
     fold_controllers = {}
     fold_lag_models = {}
@@ -222,6 +223,10 @@ def main():
     out_path = root / "results" / "tables" / "latency_final.json"
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(output, f, indent=4)
+    canonical_lat = root / "results" / "canonical" / "latency.json"
+    canonical_lat.parent.mkdir(parents=True, exist_ok=True)
+    with open(canonical_lat, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=4)
         
     print(f"\nSaved latency report to {out_path}")

@@ -30,8 +30,15 @@ def main():
 
     print("Loading BGE-M3 and encoding corpus...")
     model = load_embedding_model("bge_m3")
+    embed_cache = {}
     def embed_fn(texts):
-        return embed(texts, model).astype("float32")
+        if len(texts) <= 4 and all(t in embed_cache for t in texts):
+            return np.stack([embed_cache[t] for t in texts])
+        vecs = embed(texts, model).astype("float32")
+        for t, v in zip(texts, vecs):
+            if len(embed_cache) < 5000:
+                embed_cache[t] = v
+        return vecs
         
     doc_emb = embed_fn(doc_texts)
     faiss.normalize_L2(doc_emb)

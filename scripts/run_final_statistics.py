@@ -4,6 +4,11 @@ from pathlib import Path
 from scipy.stats import spearmanr, wilcoxon
 from statsmodels.stats.multitest import multipletests
 
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+from setu.diagnosis.cmi import cmi as compute_cmi
+
 ROOT = Path(__file__).resolve().parents[1]
 
 def get_mrr(ranking, rel_docs):
@@ -15,7 +20,7 @@ def get_mrr(ranking, rel_docs):
 def main():
     queries = json.load(open(ROOT / "data" / "processed" / "queries_v3_final.json", "r", encoding="utf-8"))
     qrel_dict = {q["query_id"]: set(q["relevant_doc_ids"]) for q in queries}
-    cmi_dict = {q["query_id"]: q.get("cmi", 0.0) for q in queries}
+    cmi_dict = {q["query_id"]: compute_cmi(q["text"]) for q in queries}
 
     per_query = []
     with open(ROOT / "results" / "canonical" / "per_query_results.jsonl", "r", encoding="utf-8") as f:

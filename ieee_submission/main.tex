@@ -1,0 +1,370 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{url}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=blue
+}
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\begin{document}
+
+\title{The Overcorrection Hazard: When Should a Hinglish RAG System Fix the Query?\\
+\thanks{This work was supported by independent empirical research into multilingual representation systems. All code, canonical data, and evaluation protocols are made available for strict scientific reproducibility.}
+}
+
+\author{\IEEEauthorblockN{Anonymous Authors}
+\IEEEauthorblockA{\textit{Department of Computer Science} \\
+\textit{Institution Name}\\
+City, Country \\
+author@institution.edu}
+}
+
+\maketitle
+
+\begin{abstract}
+Retrieval-Augmented Generation (RAG) systems critically depend on candidate retrieval: if passage retrieval fails, subsequent language model generation is fundamentally corrupted. In South Asia, hundreds of millions of users formulate search queries in \textbf{Hinglish}---Hindi phonetically transcribed into Latin script and blended with English vocabulary. While code-mixed queries introduce extreme phonetic spelling variance, named-entity corruption, and cross-lingual syntax, current research has largely overlooked romanized Indic text, focusing instead on native-script corpora or Western language pairs. To mitigate retrieval failure, conventional architectures deploy explicit corrective pipelines---spanning transliteration, entity normalization, and latent projection. In this paper, we conduct a rigorous, leakage-free empirical audit of such pipelines against multilingual dense bi-encoders (BGE-M3, mE5-large, Indic-SBERT, mContriever) and BM25 across 314 banking/policy Hinglish queries and 500 out-of-domain Dolly-Hinglish queries. We demonstrate that web-scale dense models natively resolve 77.4--80.9\% of in-domain (and 83.2--88.6\% of external) Hinglish queries zero-shot without modification. Crucially, we uncover a systemic \textbf{``overcorrection hazard''}: unconditionally applying standalone corrective operators statistically degrades initially successful retrievals ($\Delta\text{MRR}$ between $-0.0310$ and $-0.0757$ in-domain, and $-0.0182$ to $-0.0874$ out-of-domain, Holm-corrected $p_{\text{corr}} \le 0.0220$) while failing to produce statistically robust improvement from standalone operators on baseline failures in-domain ($p_{\text{corr}} \ge 0.3300$). Under leak-free 5-fold GroupKFold evaluation, a learned LinUCB router (\texttt{SETU\_v2}) avoids overcorrection ($\Delta\text{MRR} = -0.0075$, $p_{\text{corr}} = 0.9225$) and recovers failed queries ($\Delta\text{MRR} = +0.0364$, $p_{\text{corr}} = 0.0494$) while reducing mean actions by 54.25\% (3.00 to 1.37) and latency by 59.1\% (1186.8 ms to 485.1 ms), despite partial policy collapse (\texttt{repeat\_action\_forced} on 75.8\% of episodes). Finally, we benchmark selective routing strategies against an empirical oracle ($\text{MRR} = 0.8842$, favoring raw execution on 89.5\% of queries) and verify that score-margin confidence strongly tracks retrieval success ($\rho = 0.5030$, $p_{\text{corr}} = 1.07 \times 10^{-20}$), establishing grounded design principles for code-mixed enterprise RAG.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Information Retrieval, Retrieval-Augmented Generation, Code-Mixing, Hinglish, Dense Retrieval, Query Rewriting, Overcorrection, Contextual Bandits.
+\end{IEEEkeywords}
+
+\section{Introduction}
+\label{sec:intro}
+
+Retrieval-Augmented Generation (RAG) has emerged as the standard paradigm for grounding Large Language Models (LLMs) in external, verifiable knowledge collections~\cite{gao2023precise}. By dynamically fetching relevant passages from a domain corpus, RAG models mitigate factual hallucination and overcome the parametric boundaries of neural generators. However, this architecture establishes an unyielding sequential dependency: \textbf{the generative fidelity of the LLM is strictly upper-bounded by the recall and precision of the retrieval stage}. If the retriever surfaces irrelevant, misleading, or noisy passages, the generator inevitably suffers from error propagation, resulting in ungrounded answers.
+
+In multilingual environments---most acutely across the Indian subcontinent---retrievers face an acute linguistic hurdle: \textbf{code-mixing}. Over 500 million bilingual speakers regularly converse and formulate search queries in \textbf{Hinglish}, blending Hindi grammatical structures and vocabulary with English, transcribed phonetically using the Latin alphabet (e.g., \textit{``mera SBI account band karna hai kaise''}). This interaction mode deviates sharply from the formal, monolingual corpora found in institutional and enterprise databases, where documents are authored almost exclusively in standard English. 
+
+Hinglish queries undermine information retrieval across three distinct dimensions:
+\begin{enumerate}
+    \item \textbf{Extreme Phonetic Orthography:} Lacking standardized spelling conventions, identical phonemes and lexical items manifest in widely divergent orthographic forms (e.g., \textit{``kaise''}, \textit{``kese''}, \textit{``kaisay''}).
+    \item \textbf{Named Entity Distortion:} Critical enterprise proper nouns, domain-specific acronyms, and institutional scheme names undergo phonetic corruption or agglutination (e.g., \textit{``adhaar''}, \textit{``p-may yojana''}), defeating rigid keyword matching.
+    \item \textbf{Cross-Lingual Syntactic Mixing:} Intra-sentential code-switching introduces bilingual syntactic structures that disrupt standard mono-script tokenizers and n-gram representations.
+\end{enumerate}
+
+Faced with these challenges, standard engineering intuitions propose complex, multi-stage ``repair'' pipelines. Such architectures attempt to normalize queries prior to retrieval through learned projection (LQP), phonetic and entity preservation (CAEP), and adaptive gating (LAG)~\cite{gupta2014query}, or deploy LLM-based query rewriting and transliteration engines like IndicXlit~\cite{madhani2023aksharantar}.
+
+However, this paper demonstrates that \textbf{unconditional query correction is fundamentally flawed}. Recent investigations in English information retrieval have warned that query rewriting frequently degrades retrieval when queries already share latent alignment with target documents~\cite{kotte2026not}. In code-mixed contexts, this vulnerability is amplified into what we define as the \textbf{Overcorrection Hazard}:
+\begin{quote}
+\textbf{The Overcorrection Hazard:} Multilingual dense encoders (such as BGE-M3~\cite{chen2024bge} and mE5~\cite{wang2024multilingual}) acquire substantial zero-shot tolerance for romanized Indic text via web-scale contrastive pre-training, resolving 77.4--80.9\% of in-domain (and 83.2--88.6\% of out-of-domain) Hinglish queries natively. When standalone corrective operators unconditionally perturb a query that the dense retriever would have resolved zero-shot, they inject semantic drift and embedding distortion, causing statistically significant performance drops ($p_{\text{corr}} \le 0.0220$). Simultaneously, on queries where the base retriever fails, standalone operators rarely deliver statistically significant recovery after multiple-testing correction ($p_{\text{corr}} \ge 0.3300$ on the primary corpus).
+\end{quote}
+
+Furthermore, our empirical audit reveals that dynamic contextual-bandit controllers (LinUCB) tasked with sequencing these operators exhibit partial policy collapse: without action masking, 75.8\% of episodes terminate via repeated-action safety guards rather than explicit stopping, though confidence-aware pruning still eliminates harmful operator chains and preserves working queries.
+
+These empirical realities highlight two foundational gaps in existing literature:
+\begin{enumerate}
+    \item \textbf{The Absence of Realistic Romanized Benchmarks:} Existing Indic benchmarks (such as Hindi-BEIR~\cite{acharya2024hindibeir} and IndicRAGSuite~\cite{prasanjith2025indicragsuite}) evaluate native Devanagari script queries over Devanagari documents. Conversely, cross-lingual benchmarks (CSR-L~\cite{zeng2026code}, MiLQ~\cite{kim2025milq}) explicitly exclude romanized Indic spelling variations and domain-specific distractor corpora.
+    \item \textbf{The Decision Dilemma:} The community lacks a principled, empirically validated understanding of \textbf{when} a code-mixed query genuinely demands intervention versus when it must be left untouched.
+\end{enumerate}
+
+\subsection{Research Questions and Contributions}
+This work addresses the central question: \textbf{When should a Hinglish RAG system intervene to correct a user's query, and when should it leave the query alone?}
+
+We make four primary contributions:
+\begin{itemize}
+    \item \textbf{A Diagnostic Empirical Audit Across Two Domains:} We conduct an extensive, leakage-free (5-fold GroupKFold) empirical audit across 314 banking/policy Hinglish queries and 500 external Dolly-Hinglish QA pairs across dense backbones (BGE-M3, mE5-large, Indic-SBERT), formalizing the \textit{Overcorrection Hazard} under strict Holm-Bonferroni correction.
+    \item \textbf{The Selective Correction Paradigm:} We formalize a comparison across reference routing strategies---\textit{Never Fix} ($\pi_{\text{never}}$), \textit{Always Fix} ($\pi_{\text{always}}$), score-margin confidence thresholding ($\pi_{\text{threshold}}$), contextual-bandit selective routing ($\pi_{\text{learned}}$), and an \textit{Empirical Oracle} ($\pi^*$)---showing that conservative routing avoids overcorrection ($\Delta\text{MRR}=-0.0075$, $p_{\text{corr}}=0.9225$) while significantly lifting failed queries ($+0.0364$, $p_{\text{corr}}=0.0494$).
+    \item \textbf{Linguistic and Controller Demystification:} We evaluate the construct validity of word-list code-mixing heuristics, demonstrating near-zero agreement ($\kappa = 0.0868$) with IndicLID~\cite{madhani2023indiclid}, validate score-margin confidence against MRR ($\rho = 0.5030$, $p_{\text{corr}} = 1.07 \times 10^{-20}$), and diagnose LinUCB repeated-action termination (238/314 episodes).
+    \item \textbf{Actionable Architectural Guidelines for Multilingual RAG:} We provide concrete design principles for enterprise RAG over code-mixed inputs, demonstrating that web-scale multilingual bi-encoders paired with conservative selective gating outperform blind rewrite pipelines in both reliability and latency.
+\end{itemize}
+
+\section{Related Work}
+\label{sec:related_work}
+
+\subsection{Dense Multilingual Retrieval and the Script Gap}
+Early investigations into Mixed-Script Information Retrieval (MSIR) demonstrated that lexical term-matching algorithms (e.g., BM25) degrade precipitously when queries undergo informal phonetic transliteration~\cite{gupta2014query, banerjee2016overview}. To bridge this lexical chasm, classical approaches relied on cross-script autoencoders~\cite{gupta2014query} or dictionary-based back-transliteration~\cite{banerjee2016overview}. 
+
+In modern neural information retrieval, dense bi-encoders pre-trained on massive multilingual corpora---such as BGE-M3~\cite{chen2024bge} and multilingual E5 (mE5)~\cite{wang2024multilingual}---exhibit substantial zero-shot resilience. Leveraging expansive subword vocabularies (e.g., the 250k SentencePiece vocabulary of XLM-RoBERTa~\cite{chen2024bge}) and weakly supervised web-scale contrastive pre-training, these models intrinsically encode phonetic and semantic subword roots. Nonetheless, recent studies establish that dense models remain sensitive to cross-lingual friction. Zeng et al.~\cite{zeng2026code} demonstrate that intra-sentential code-switching degrades dense multilingual retrievers by 2.4 to 6.9 nDCG points, while Chari et al.~\cite{chari2025lost} document an acute ``script gap'' in neural IR, where romanizing non-Latin scripts induces sharp retrieval drops. Crucially, whereas prior benchmarks focus on native-script code-mixing (e.g., Chinese-English or Japanese-English)~\cite{zeng2026code, kim2025milq} or evaluate native-script Indic corpora~\cite{acharya2024hindibeir, prasanjith2025indicragsuite}, the behavior of dense retrievers on informal, Romanized Hinglish queries over English domain corpora has remained largely unmapped.
+
+\subsection{Query Rewriting and the Overcorrection Phenomenon}
+To circumvent cross-lingual divergence, conventional RAG pipelines frequently deploy query-side transformation operators, spanning generative pseudo-document expansion (HyDE~\cite{gao2023precise}, Query2doc~\cite{wang2023query2doc}), rule-based phonetic normalization, and Roman-to-native transliteration engines such as IndicXlit~\cite{madhani2023aksharantar}. However, emerging evidence indicates that query rewriting introduces severe trade-offs. Kotte~\cite{kotte2026not} proved that LLM-driven query rewriting frequently degrades retrieval accuracy when original query terms already align with document semantics. In cross-lingual settings, Litschko et al.~\cite{litschko2023boosting} observed that machine-translating queries can introduce acoustic and semantic noise that harms monolingual retrieval.
+
+Most notably, Do et al.~\cite{do2024contrastivemix} uncovered the ``Code-Mixing Dilemma'': while code-mixed synthetic data can aid multilingual pre-training alignment, naively injecting code-mixed representations into dense retrieval objectives severely disrupts passage relevance matching. In code-switched RAG, Hira et al.~\cite{hira2026language} showed that retrievers exhibit a structural bias toward English evidence, and Zhu et al.~\cite{zhu2026when} established that when querying an English index, pure English representations strictly outperform code-mixed representations. Our work extends these insights by isolating and formalizing the \textit{overcorrection phenomenon} in Romanized Hinglish RAG, proving via Holm-Bonferroni corrected hypothesis testing that applying explicit operators to queries already resolved by dense baselines induces statistically significant degradation without yielding compensatory lift on failed queries.
+
+\subsection{Adaptive Gating and Query Performance Prediction}
+Recognizing the perils of unconditional query transformation, recent architectures incorporate adaptive gating mechanisms. Frameworks such as Adaptive-RAG~\cite{jeong2024adaptive} and Self-RAG~\cite{asai2024selfrag} successfully route queries based on multi-hop reasoning complexity or dynamically emit reflection tokens to govern retrieval. Concurrently, Zhu et al.~\cite{zhu2026when} demonstrated that static table-lookup routers can effectively select cross-lingual embedding combinations based on document language.
+
+In the domain of unsupervised Query Performance Prediction (QPP), score-based dispersion metrics (e.g., NQC, Max score) and dense coherence estimators~\cite{vlachou2024coherence} seek to quantify retriever confidence prior to generation, while pairwise neural consistency models~\cite{singh2023unsupervised} attempt to flag retrieval failure. Furthermore, linguistic metrics such as the Code-Mixing Index (CMI)~\cite{gamback2016comparing} and Romanized language identification models like IndicLID~\cite{madhani2023indiclid} provide fine-grained characterization of linguistic blending. However, whether contextual reinforcement learning controllers can dynamically sequence corrective operators based on CMI and lexical confidence has remained an open question. Our empirical findings demonstrate that when confronted with code-mixed operator selection, contextual bandits collapse into early-termination policies that yield execution efficiency but fail to achieve context-sensitive sequence adaptivity.
+
+\section{Problem Formulation \& Selective Correction}
+\label{sec:problem_formulation}
+
+\subsection{Formal Task Definition}
+Let $q = (w_1, w_2, \dots, w_n)$ denote an input query formulated in Romanized Hinglish, where each token $w_i \in \mathcal{V}_{\text{Latin}}$ belongs to either Hindi vocabulary ($\mathcal{L}_{\text{hi}}$), English vocabulary ($\mathcal{L}_{\text{en}}$), or language-independent symbols ($\mathcal{L}_{\text{other}}$). The target retrieval corpus is a set of $M$ passage chunks $\mathcal{D} = \{d_1, d_2, \dots, d_M\}$, authored entirely in standard English. 
+
+A dense retrieval model maps both query and passages into a shared $D$-dimensional metric space via bi-encoders:
+\begin{equation}
+e_q = \phi_Q(q) \in \mathbb{R}^D, \quad e_d = \phi_D(d) \in \mathbb{R}^D
+\end{equation}
+The retriever returns a permutation $\pi_q$ of document indices ranked by inner product similarity $s(q, d) = \langle e_q, e_d \rangle$. The retrieval goal is to maximize Mean Reciprocal Rank (MRR) and nDCG@10 against a set of ground-truth relevant passages $\mathcal{D}^*_q \subset \mathcal{D}$.
+
+\subsection{Corrective Operators}
+We evaluate three canonical classes of query-side transformation operators $T_k: \mathcal{Q} \to \mathcal{Q}$ or $T_k: \mathbb{R}^D \to \mathbb{R}^D$:
+\begin{enumerate}
+    \item \textbf{Context-Aware Entity Preservation (CAEP):} Identifies proper nouns and institutional entities (e.g., bank names, government schemes) via fuzzy matching and logistic regression gating, replacing corrupted tokens with standardized canonical entity forms.
+    \item \textbf{Linear Query-space Projection (LQP):} Learns a regularized cross-lingual mapping matrix $W \in \mathbb{R}^{D \times D}$ on parallel Hinglish--English sentence pairs (PHINC dataset), projecting query embeddings conditionally based on the Code-Mixing Index:
+    \begin{equation}
+    W_{\text{eff}}(q) = (1 - \alpha) I + \alpha W, \quad \alpha = \min\left(1, \frac{\text{CMI}(q)}{\text{CMI}_{\max}}\right)
+    \end{equation}
+    \begin{equation}
+    e_{q,\text{proj}} = \frac{e_q W_{\text{eff}}(q)}{\|e_q W_{\text{eff}}(q)\|_2}
+    \end{equation}
+    \item \textbf{Learned Adaptive Gating (LAG):} Predicts a transformation strategy based on query-level linguistic features, choosing between light normalization (lowercasing, whitespace cleanup), dual-variant expansion, or full rewrite.
+\end{enumerate}
+
+\subsection{The 4 Reference Strategies \& The Oracle Gap}
+To formally analyze when a query should be modified, we evaluate four reference decision strategies:
+\begin{enumerate}
+    \item $\pi_{\text{never}}$ \textbf{(Never Fix / Raw Baseline):} Executes direct retrieval using the unmodified query $q$ across the dense backbone: $\pi_{\text{never}}(q) = q$.
+    \item $\pi_{\text{always}}$ \textbf{(Always Fix / Fixed Pipeline):} Unconditionally routes every query through a fixed sequence of operators: $\pi_{\text{always}}(q) = T_{\text{LQP}}(T_{\text{CAEP}}(T_{\text{LAG}}(q)))$.
+    \item $\pi_{\text{threshold}}$ \textbf{(Confidence Cutoff):} Evaluates pre-retrieval confidence margin $C(q) = s(q, d_{(1)}) - s(q, d_{(2)})$. If $C(q) \ge \tau$, the query is executed natively; if $C(q) < \tau$, corrective operators are triggered.
+    \item $\pi^*$ \textbf{(The Empirical Oracle):} An omniscient per-query selector with privileged access to ground truth relevance labels, selecting whichever candidate execution achieves the highest reciprocal rank:
+    \begin{equation}
+    \pi^*(q) = \arg\max_{T \in \{\text{RAW}, T_1, T_2, \dots\}} \text{RR}(T(q), \mathcal{D}^*_q)
+    \end{equation}
+\end{enumerate}
+
+We define the \textbf{Oracle Headroom Gap} ($\Delta\mathcal{O}$) as:
+\begin{equation}
+\Delta\mathcal{O} = \text{MRR}(\pi^*) - \text{MRR}(\pi_{\text{never}})
+\end{equation}
+The Oracle Gap quantifies the theoretical ceiling of selective correction: if $\Delta\mathcal{O} \to 0$, no routing mechanism can meaningfully outperform the raw baseline.
+
+\section{Empirical Evaluation \& Overcorrection Analysis}
+\label{sec:experiments}
+
+\subsection{Experimental Setup}
+The primary evaluation corpus consists of 380 domain document chunks derived from official Reserve Bank of India (RBI) notifications and public policy documentation across 18 distinct categories (17 RBI/PM-KISAN FAQ categories plus the curated pilot subset). The primary query benchmark spans 314 Romanized Hinglish queries, comprising 75 pilot queries (15 each across English, low/medium/high code-mixing, and misspelled variants) and 239 structurally diverse paraphrased queries with linguistic annotations (CMI mean 0.4296, LID entropy mean 1.1585). To test out-of-domain external generalization, we additionally construct a non-overlapping benchmark of 500 passages and 500 Romanized Hinglish queries from \texttt{aaditya/databricks-dolly-15k-Hinglish-Codemix}.
+
+We evaluate five distinct retrieval backbones:
+\begin{enumerate}
+    \item \texttt{bge\_m3}: \texttt{BAAI/bge-m3} multilingual bi-encoder (250k XLM-RoBERTa vocabulary, 1024-dim).
+    \item \texttt{me5\_large}: \texttt{intfloat/multilingual-e5-large} bi-encoder (1024-dim).
+    \item \texttt{mcontriever}: \texttt{nthakur/mcontriever-base-msmarco} dense encoder (768-dim).
+    \item \texttt{indic\_sbert}: \texttt{l3cube-pune/indic-sentence-similarity-sbert} Indic-specialized dense encoder (768-dim).
+    \item \texttt{bm25}: Classical sparse lexical matching baseline.
+\end{enumerate}
+
+To prevent train-test leakage across duplicate query paraphrases or shared gold chunks, all learned components (LinUCB bandit controller weights and LAG LightGBM classifiers) are trained using 5-fold \texttt{GroupKFold} Out-Of-Fold (OOF) cross-validation grouped by connected components of normalized query text and relevant chunk IDs. LQP projection matrices are trained strictly out-of-domain on 500 parallel Hinglish--English pairs from \texttt{LingoIITGN/PHINC}. All stochastic processes use \texttt{seed=42}, latency is benchmarked over 3 uncached CPU repeats per query, and $p$-values undergo Holm-Bonferroni correction.
+
+\subsection{Baseline Retriever Performance}
+Table~\ref{tab:baselines} presents the zero-shot retrieval performance of the five base retrieval models on the full 314-query benchmark without any query modification.
+
+\begin{table}[t]
+\caption{Baseline Retriever Performance on 314 Hinglish Queries (380-Chunk Corpus)}
+\label{tab:baselines}
+\centering
+\begin{tabular}{lcccc}
+\toprule
+Model & MRR & NDCG@10 & Hit@1 & Recall@10 \\
+\midrule
+\textbf{bge\_m3} & 0.8526 & 0.8858 & 0.7739 & 0.9873 \\
+\textbf{me5\_large} & \textbf{0.8767} & \textbf{0.9039} & \textbf{0.8089} & \textbf{0.9873} \\
+\textbf{mcontriever} & 0.7285 & 0.7749 & 0.6242 & 0.9204 \\
+\textbf{indic\_sbert} & 0.5903 & 0.6476 & 0.4713 & 0.8280 \\
+\textbf{bm25} & 0.6490 & 0.6987 & 0.5382 & 0.8567 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Finding 1 (Dense Baseline Dominance):} Generic multilingual dense encoders (\texttt{bge\_m3} and \texttt{me5\_large}) achieve high zero-shot accuracy, retrieving the gold passage at rank 1 on \textbf{77.39\%} and \textbf{80.89\%} of queries, respectively. Generic web-scale multilingual encoders substantially outperform the Indic-specialized encoder (\texttt{indic\_sbert}, MRR 0.5903, $p_{\text{corr}} = 3.50 \times 10^{-17}$), refuting Hypothesis H2 that native Indic-tuned encoders degrade less under romanized code-mixing.
+
+\subsection{Standalone Operator Ablation}
+Table~\ref{tab:ablation} evaluates the impact of applying each corrective operator in isolation across the full 314-query benchmark under 5-fold grouped OOF CV for LAG.
+
+\begin{table}[t]
+\caption{Standalone Operator Ablation (MRR on Full 314 Queries)}
+\label{tab:ablation}
+\centering
+\begin{tabular}{lcccc}
+\toprule
+Embedding Model & RAW & +LQP & +CAEP & +LAG \\
+\midrule
+\textbf{bge\_m3} & \textbf{0.8526} & 0.8407 & 0.8386 & 0.8387 \\
+\textbf{indic\_sbert} & \textbf{0.5903} & 0.5868 & 0.5654 & 0.5695 \\
+\textbf{me5\_large} & \textbf{0.8767} & 0.8664 & 0.8441 & 0.8705 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Finding 2 (Systematic Ablation Drop):} Across all three embedding backbones, \textbf{every standalone corrective operator lowers overall MRR relative to the raw baseline}. For \texttt{bge\_m3}, LQP reduces MRR by $-0.0119$, CAEP by $-0.0140$, and LAG by $-0.0139$; for \texttt{me5\_large}, CAEP drops MRR by $-0.0326$ ($0.8767 \to 0.8441$).
+
+\subsection{Full Pipeline Comparison: Fixed vs. Learned Controller}
+Table~\ref{tab:full_setu} compares the full multi-operator pipelines against the raw baseline using the \texttt{bge\_m3} backbone (3 uncached CPU repeats for latency).
+
+\begin{table}[t]
+\caption{Full SETU Pipeline vs Baselines (BGE-M3 Backbone)}
+\label{tab:full_setu}
+\centering
+\begin{tabular}{lccccc}
+\toprule
+System & MRR & NDCG@10 & Recall@10 & Actions & Latency (ms) \\
+\midrule
+\textbf{RAW} & 0.8526 & 0.8858 & \textbf{0.9873} & - & \textbf{189.5} \\
+\textbf{SETU\_v1} & 0.8492 & 0.8810 & 0.9809 & 3.00 & 1186.8 \\
+\textbf{SETU\_v2} & \textbf{0.8550} & \textbf{0.8875} & \textbf{0.9873} & \textbf{1.37} & 485.1 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Finding 3 (Controller Adaptivity and Efficiency):}
+\begin{itemize}
+    \item On overall corpus MRR, no statistically significant difference is detected between \texttt{SETU\_v1} (0.8492), \texttt{SETU\_v2} (0.8550), and \texttt{RAW} (0.8526) (H6 $p = 0.2482$, $p_{\text{corr}} = 0.8334$).
+    \item However, \texttt{SETU\_v2} delivers substantial computational savings (H8 supported, $p_{\text{corr}} = 1.79 \times 10^{-55}$), cutting mean non-\texttt{STOP} operator actions by 54.25\% (3.000 to 1.373) and CPU latency by 59.1\% (1186.8 ms to 485.1 ms) while maintaining full 0.9873 Recall@10.
+\end{itemize}
+
+\subsection{The Overcorrection Hazard: Conditional Dissection}
+To isolate why unconditional operators underperform, we partition the 314 queries by baseline rank-1 success:
+\begin{itemize}
+    \item \textbf{Initially Correct:} \texttt{bge\_m3}: 243 (77.39\%); \texttt{indic\_sbert}: 148 (47.13\%); \texttt{me5\_large}: 254 (80.89\%).
+    \item \textbf{Initially Failed:} \texttt{bge\_m3}: 71 (22.61\%); \texttt{indic\_sbert}: 166 (52.87\%); \texttt{me5\_large}: 60 (19.11\%).
+\end{itemize}
+
+Table~\ref{tab:overcorrection} reports $\Delta\text{MRR}$ and Holm-Bonferroni corrected $p$-values across both partitions.
+
+\begin{table*}[t]
+\caption{Over-Correction Diagnosis across Initially Correct vs Failed Queries (Holm-Bonferroni Corrected, RBI 314 Queries)}
+\label{tab:overcorrection}
+\centering
+\begin{tabular}{llcccc}
+\toprule
+Model & Operator / System & $\Delta$MRR (Correct) & $p_{\text{corr}}$ & $\Delta$MRR (Failed) & $p_{\text{corr}}$ \\
+\midrule
+\texttt{bge\_m3} & LQP & -0.0195 & 0.0702 & +0.0143 & 1.0000 \\
+\texttt{bge\_m3} & CAEP & -0.0231 & 0.1056 & +0.0172 & 1.0000 \\
+\texttt{bge\_m3} & LAG & \textbf{-0.0310} & \textbf{0.0220} & +0.0446 & 0.3300 \\
+\texttt{bge\_m3} & SETU\_v1 & -0.0106 & 0.6560 & +0.0213 & 1.0000 \\
+\texttt{bge\_m3} & SETU\_v2 & -0.0075 & 0.9225 & \textbf{+0.0364} & \textbf{0.0494} \\
+\midrule
+\texttt{indic\_sbert} & LQP & -0.0203 & 0.2145 & +0.0114 & 1.0000 \\
+\texttt{indic\_sbert} & CAEP & \textbf{-0.0754} & \textbf{0.0046} & +0.0200 & 1.0000 \\
+\texttt{indic\_sbert} & LAG & \textbf{-0.0757} & \textbf{0.0046} & +0.0282 & 1.0000 \\
+\midrule
+\texttt{me5\_large} & LQP & -0.0118 & 0.2145 & -0.0038 & 1.0000 \\
+\texttt{me5\_large} & CAEP & \textbf{-0.0378} & \textbf{0.0063} & -0.0106 & 0.4609 \\
+\texttt{me5\_large} & LAG & -0.0098 & 0.3289 & +0.0094 & 1.0000 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\textbf{Finding 4 (Asymmetric Overcorrection vs. Selective Recovery):}
+\begin{enumerate}
+    \item \textbf{Significant Degradation from Unconditional Operators:} On queries already answered at rank 1, standalone operators inflict statistically significant harm: \texttt{bge\_m3+LAG} loses $-0.0310$ MRR ($p_{\text{corr}} = 0.0220$), \texttt{me5\_large+CAEP} loses $-0.0378$ ($p_{\text{corr}} = 0.0063$), and \texttt{indic\_sbert} loses $-0.0754$ (+CAEP) and $-0.0757$ (+LAG) ($p_{\text{corr}} = 0.0046$).
+    \item \textbf{Standalone Failure Recovery Does Not Hold; Selective Control Helps:} No standalone operator yields Holm-significant lift on initially failed queries ($p_{\text{corr}} \ge 0.3300$). In contrast, leak-free \texttt{SETU\_v2} is the only configuration that avoids significant damage on working queries ($\Delta\text{MRR} = -0.0075$, $p_{\text{corr}} = 0.9225$) while delivering significant recovery on initially failed queries ($\Delta\text{MRR} = +0.0364$, Cohen's $d = 0.307$, $p_{\text{raw}} = 0.0026$, $p_{\text{corr}} = 0.0494$).
+\end{enumerate}
+
+\subsection{Selective Correction Benchmarks and External Validation}
+Table~\ref{tab:selective} compares the reference routing policies on \texttt{bge\_m3}, and Table~\ref{tab:dolly} evaluates out-of-domain transfer on 500 unseen \texttt{Dolly-15k-Hinglish} QA pairs.
+
+\begin{table}[t]
+\caption{Selective Correction Reference Strategies (BGE-M3, N=314)}
+\label{tab:selective}
+\centering
+\begin{tabular}{lcccc}
+\toprule
+Strategy & Fallback / Rule & MRR & $\Delta$ vs RAW & $p_{\text{corr}}$ \\
+\midrule
+$\pi_{\text{never}}$ (RAW) & None (0 triggered) & 0.8526 & 0.0000 & -- \\
+$\pi_{\text{always}}$ (SETU\_v1) & Always 3 steps & 0.8492 & -0.0034 & 1.0000 \\
+$\pi_{\text{threshold}}$ & Margin $<0.05$ $\to$ LAG (175) & 0.8387 & -0.0139 & 0.8972 \\
+$\pi_{\text{threshold}}$ & Margin $<0.05$ $\to$ v2 (175) & 0.8550 & +0.0024 & 1.0000 \\
+$\pi_{\text{learned}}$ (SETU\_v2) & GroupKFold LinUCB (243 active) & 0.8550 & +0.0024 & 1.0000 \\
+$\pi^*$ (Oracle) & Per-query best (89.5\% RAW) & \textbf{0.8842} & \textbf{+0.0316} & \textbf{5e-06} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table*}[t]
+\caption{External Generalization on Unseen Dolly-15k Hinglish QA Benchmark (500 Passages, 500 Queries)}
+\label{tab:dolly}
+\centering
+\begin{tabular}{llccccc}
+\toprule
+Model & Variant & Overall MRR & NDCG@10 & $\Delta$MRR (Correct) & $p_{\text{corr}}$ & $\Delta$MRR (Failed) [$p_{\text{corr}}$] \\
+\midrule
+\texttt{bge\_m3} & RAW (88.6\% rank-1) & \textbf{0.9121} & \textbf{0.9233} & -- & -- & -- \\
+\texttt{bge\_m3} & +LQP (PHINC transfer) & 0.9040 & 0.9167 & -0.0080 & 0.2354 & -0.0087 [1.0000] \\
+\texttt{bge\_m3} & +CAEP & 0.8924 & 0.9069 & \textbf{-0.0240} & \textbf{0.0022} & +0.0146 [1.0000] \\
+\texttt{bge\_m3} & +LAG (5-fold OOF) & 0.8902 & 0.9038 & \textbf{-0.0259} & \textbf{0.0017} & +0.0093 [1.0000] \\
+\midrule
+\texttt{me5\_large} & RAW (83.2\% rank-1) & 0.8695 & 0.8868 & -- & -- & -- \\
+\texttt{me5\_large} & +LQP (PHINC transfer) & \textbf{0.8812} & \textbf{0.8956} & -0.0048 & 0.4095 & \textbf{+0.0934 [0.0008]} \\
+\texttt{me5\_large} & +CAEP & 0.8346 & 0.8577 & \textbf{-0.0469} & \textbf{0.0000} & +0.0242 [1.0000] \\
+\texttt{me5\_large} & +LAG (5-fold OOF) & 0.8231 & 0.8441 & \textbf{-0.0576} & \textbf{0.0000} & +0.0084 [1.0000] \\
+\midrule
+\texttt{indic\_sbert} & RAW (72.4\% rank-1) & \textbf{0.7921} & \textbf{0.8189} & -- & -- & -- \\
+\texttt{indic\_sbert} & +LQP (PHINC transfer) & 0.7793 & 0.8087 & \textbf{-0.0182} & \textbf{0.0145} & +0.0011 [1.0000] \\
+\texttt{indic\_sbert} & +CAEP & 0.7291 & 0.7580 & \textbf{-0.0874} & \textbf{0.0000} & +0.0009 [1.0000] \\
+\texttt{indic\_sbert} & +LAG (5-fold OOF) & 0.7410 & 0.7757 & \textbf{-0.0806} & \textbf{0.0000} & +0.0262 [1.0000] \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\textbf{Finding 5 (External Replication of Overcorrection \& Selective LQP Transfer):} On 500 unseen open-domain Dolly-Hinglish pairs, raw dense models again excel (\texttt{bge\_m3} 0.9121 MRR, 88.6\% rank-1). Standalone CAEP and LAG cause statistically significant overcorrection on initially correct queries across every backbone ($p_{\text{corr}} \le 0.0022$, down to $-0.0874$ MRR). Notably, zero-shot \texttt{PHINC}-trained LQP improves \texttt{me5\_large} overall ($0.8695 \to 0.8812$) via significant failed-query recovery ($+0.0934$, $p_{\text{corr}} = 0.0008$) with non-significant impact on working queries ($-0.0048$, $p_{\text{corr}} = 0.4095$), illustrating why selective rather than blanket rewriting is essential.
+
+\section{Discussion, Construct Limitations \& Failure Modes}
+\label{sec:discussion}
+
+\subsection{Demystifying Controller Collapse}
+An analysis of grouped OOF controller execution traces reveals both why \texttt{SETU\_v2} achieves selective recovery and where its action sequencing remains structurally limited:
+\begin{itemize}
+    \item \textbf{Trajectory & Termination Structure:} Only three sequences appear at inference time: \texttt{LQP$\to$LAG$\to$STOP} (188/314, 59.9\%), immediate zero-action \texttt{STOP} (71/314, 22.6\%, skipping operators entirely), and \texttt{LQP$\to$STOP} (55/314, 17.5\%). While explicit termination reaches 24.20\% (76/314), 238/314 episodes (75.80\%) still terminate when the controller repeats an already-executed action, triggering the safety guard (\texttt{repeat\_action\_forced}).
+    \item \textbf{Confidence Validity vs. Limited CMI Conditioning:} Score-margin confidence strongly correlates with retrieval MRR ($\rho = 0.5030$, $p = 1.53 \times 10^{-21}$, Holm $p_{\text{corr}} = 1.07 \times 10^{-20}$; Hypothesis H10 supported). A Chi-square test of first action vs. CMI band yields raw $\chi^2 = 13.18$, $p = 0.0043$ ($p_{\text{corr}} = 0.0731$ after 17-test Holm correction), while total steps remain orthogonal to CMI ($\rho = 0.0053$, $p = 0.9255$; H9).
+    \item \textbf{Root Causes:} Two structural constraints explain the 75.8\% repeated-action stops:
+    \begin{enumerate}
+        \item \textit{Action Space Formulation:} Because the LinUCB policy lacks action masking over previously applied operators and never tries CAEP on-policy during inference, positive reward updates $\mathbf{b}_a \leftarrow \mathbf{b}_a + r\mathbf{x}$ repeatedly select \texttt{LQP} or \texttt{LAG} until guarded.
+        \item \textit{Feature Distribution Compression:} On 313 of 314 queries (99.7\%), initial top-1 minus top-2 cosine margin lies below $0.20$ (variance $0.0019$), compressing score differentials unless normalized or tuned at finer cutoffs (e.g., 175/314 below $0.05$).
+    \end{enumerate}
+\end{itemize}
+
+\subsection{Construct Validity of the Code-Mixing Metric}
+A critical methodological vulnerability identified in our audit involves the measurement of the Code-Mixing Index itself:
+\begin{itemize}
+    \item In standard practice, CMI is computed as $\text{CMI} = 100 \times (1 - \frac{\max(w_i)}{n - u})$.
+    \item When comparing the heuristic 96-word regex tagger against a verified transformer-based language identification model (IndicLID~\cite{madhani2023indiclid}), the agreement reached a \textbf{Cohen's Kappa of only $\kappa = 0.0868$}.
+    \item \textbf{Methodological Implication:} The lack of statistically significant correlation between CMI and retrieval degradation (Hypothesis H1, $\rho = 0.0712$, $p_{\text{corr}} = 0.8334$) cannot be conclusively interpreted as code-mixing invariance; it is confounded by construct noise in the heuristic tagger. Future Indic IR benchmarks should integrate neural LID models directly into the diagnostic loop.
+\end{itemize}
+
+\subsection{The Oracle Headroom Gap}
+Evaluating the omniscient oracle $\pi^*$ yields an Oracle MRR of \textbf{0.8842} on \texttt{bge\_m3} (vs.\ 0.8526 for \texttt{RAW}), giving an \textbf{Oracle Headroom Gap of $\Delta\mathcal{O} = +0.0316$} (Holm $p_{\text{corr}} = 5 \times 10^{-6}$). Crucially, the oracle leaves queries untouched (\texttt{RAW}) on \textbf{281 of 314 queries (89.49\%)}, selectively intervening with \texttt{CAEP} (13), \texttt{LAG} (8), \texttt{LQP} (8), \texttt{SETU\_v1} (2), and \texttt{SETU\_v2} (2) on just 10.51\% of queries. Thus, ~89.5\% of Hinglish queries already attain peak ranking natively, confirming that selective gating is far more consequential than aggressive transformation.
+
+\subsection{Limitations}
+Several scope boundaries bound our findings: (i) Human expert review batches across the 75 pilot and 239 paraphrased RBI queries remain unannotated on disk, so query-relevance pairs rely on curated source-chunk alignments; (ii) lightweight lexical/projection operators (\texttt{LQP}, \texttt{CAEP}, \texttt{LAG}) are audited rather than frontier LLM query rewriters to stay within CPU-feasible enterprise latency budgets; (iii) evaluation measures first-stage dense/sparse retrieval rather than end-to-end generative answer fidelity (H3 deferred); and (iv) non-significant overall pipeline contrasts are reported without claiming statistical equivalence (no TOST equivalence margin tested).
+
+\section{Design Guidelines for Enterprise RAG \& Conclusion}
+\label{sec:conclusion}
+
+\subsection{Architectural Guidelines for Practitioners}
+Based on our empirical findings, we outline four actionable design principles for building RAG systems over code-mixed queries:
+\begin{enumerate}
+    \item \textbf{Prioritize Web-Scale Multilingual Embeddings Over Regional Models:} Deploy generic dense bi-encoders trained on massive multilingual web corpora (BGE-M3, mE5-large) rather than native-script Indic encoders or BM25. Large subword vocabularies natively absorb romanized phonetic variance across both banking and open-domain QA.
+    \item \textbf{Implement Conservative Selective Gating:} Never apply rule-based entity normalization or adaptive rewriting unconditionally. Instead, pair learned selective controllers or fine-grained score-margin confidence monitors ($C(q) = s_{(1)} - s_{(2)}$, $\rho = 0.5030$) so the ~77--89\% of queries resolved natively stay untouched.
+    \item \textbf{Avoid Intermediate Native Transliteration for English Corpora:} Transliterating Romanized Hinglish into Devanagari script widens the script gap when querying an English index, compounding error propagation.
+    \item \textbf{Mandate Multiple-Testing Correction and Grouped Splits:} Empirical RAG studies over code-mixed paraphrases must group cross-validation folds by shared query text and gold passages and apply Holm-Bonferroni correction to avoid mistaking uncorrected subgroup variance for generalizable algorithmic gain.
+\end{enumerate}
+
+\subsection{Conclusion}
+This paper conducted a leakage-free empirical audit of code-mixed Hinglish RAG across 314 banking/policy queries and 500 external Dolly-Hinglish QA pairs. We demonstrated that web-scale multilingual dense models natively resolve 77.4--88.6\% of romanized Hinglish queries zero-shot, while standalone corrective operators trigger an asymmetric \textit{Overcorrection Hazard}---statistically degrading initially correct queries in both domains without reliable standalone recovery on failures. Conversely, leak-free selective orchestration (\texttt{SETU\_v2}) prevents overcorrection, yields significant recovery on failed queries ($\Delta\text{MRR} = +0.0364$, $p_{\text{corr}} = 0.0494$), and cuts execution steps by 54.25\% and latency by 59.1\%, while oracle analysis proves 89.5\% of queries are best left unperturbed. Rather than unconditional query-repair pipelines, enterprise Hinglish RAG should combine web-scale multilingual encoders with conservative, confidence-aware selective intervention.
+
+\bibliographystyle{IEEEtran}
+\bibliography{references}
+
+\end{document}
+

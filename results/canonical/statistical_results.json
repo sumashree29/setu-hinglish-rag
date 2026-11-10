@@ -1,0 +1,45 @@
+{
+    "H1_CMI_vs_RAW_MRR": {
+        "raw_p": 0.42986233329595314,
+        "holm_p": 0.49635073519262796,
+        "significant": false
+    },
+    "H8_v1_vs_v2_steps": {
+        "raw_p": 2.2399658492653733e-56,
+        "holm_p": 1.343979509559224e-55,
+        "significant": true
+    },
+    "H10_Confidence_vs_MRR": {
+        "raw_p": 1.536051277239573e-21,
+        "holm_p": 7.680256386197864e-21,
+        "significant": true
+    },
+    "SETU_v1_vs_v2_MRR": {
+        "raw_p": 0.24817536759631398,
+        "holm_p": 0.49635073519262796,
+        "significant": false
+    },
+    "Overcorrection_Degradation_on_Correct": {
+        "raw_p": 0.10247043485974937,
+        "holm_p": 0.3074113045792481,
+        "significant": false
+    },
+    "Lift_on_Incorrect": {
+        "raw_p": 0.0026073020496655817,
+        "holm_p": 0.010429208198662327,
+        "significant": true
+    },
+    "Overcorrection_Context": {
+        "n_correct_queries": 243,
+        "mean_delta_mrr": -0.007544581618655693
+    },
+    "Lift_Context": {
+        "n_incorrect_queries": 71,
+        "mean_delta_mrr": 0.03637430644472898
+    },
+    "SETU_v1_vs_v2_Context": {
+        "v1_mean_mrr": 0.8492230080605876,
+        "v2_mean_mrr": 0.8549932905028447,
+        "mean_delta": 0.00577028244225708
+    }
+}

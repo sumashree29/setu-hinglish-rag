@@ -30,11 +30,17 @@ def main():
             
     print("Canonical Evidence PASSED.")
     
-    # 3. Check IEEE Tables exist
-    if not (ROOT / "results" / "tables" / "ieee_ready_tables.json").exists():
-        print("Missing IEEE Tables.")
-        print("IEEE_READY = FALSE")
-        sys.exit(1)
+    # 3. Check IEEE Tables and New Validation Tables exist
+    required_tables = [
+        "ieee_ready_tables.json",
+        "selective_correction_strategies.json",
+        "external_dolly_validation.json",
+    ]
+    for tab in required_tables:
+        if not (ROOT / "results" / "tables" / tab).exists():
+            print(f"Missing required table: {tab}")
+            print("IEEE_READY = FALSE")
+            sys.exit(1)
         
     print("Readiness checks completed.")
     print("\nIEEE_READY = TRUE")

@@ -44,7 +44,10 @@ def main():
     def embed_fn(texts):
         return model.encode(texts, convert_to_numpy=True)
         
-    doc_embeddings = np.load(root / "data/embeddings/doc_emb_bge_m3_v2.npy").astype("float32")
+    emb_path = root / "data/embeddings/doc_emb_bge_m3_v2.npy"
+    if not emb_path.exists():
+        emb_path = root / "results/logs/doc_emb_bge_m3_v2.npy"
+    doc_embeddings = np.load(emb_path).astype("float32")
     faiss.normalize_L2(doc_embeddings)
     index = faiss.IndexFlatIP(doc_embeddings.shape[1])
     index.add(doc_embeddings)

@@ -1,38 +1,38 @@
 {
     "hardware_environment": {
-        "os": "Windows-10-10.0.26200-SP0",
-        "cpu_processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
-        "cpu_cores_physical": 12,
-        "cpu_cores_logical": 14,
-        "ram_gb": 15.51,
+        "os": "Windows-10-10.0.26300-SP0",
+        "cpu_processor": "Intel64 Family 6 Model 186 Stepping 2, GenuineIntel",
+        "cpu_cores_physical": 10,
+        "cpu_cores_logical": 16,
+        "ram_gb": 15.64,
         "gpu": "None used (Local CPU run)",
         "python_version": "3.11.9",
         "packages": {
             "numpy": "2.2.0",
             "torch": "2.10.0+cpu",
-            "faiss": "1.14.3"
+            "faiss": "1.10.0"
         }
     },
     "n_queries": 314,
     "n_repeats": "3 (local CPU constraint)",
     "results": {
         "RAW": {
-            "mean_ms": 128.78201974307694,
-            "median_ms": 120.94524997519329,
-            "sd_ms": 35.42561689069832,
-            "p95_ms": 199.32122998870906
+            "mean_ms": 189.48102091175096,
+            "median_ms": 168.71260001789778,
+            "sd_ms": 62.523510542930225,
+            "p95_ms": 321.5484000160358
         },
         "SETU_v1": {
-            "mean_ms": 757.384030253309,
-            "median_ms": 707.4972999398597,
-            "sd_ms": 218.8311150604055,
-            "p95_ms": 1156.1150199791882
+            "mean_ms": 1186.7991591296545,
+            "median_ms": 1088.8437000103295,
+            "sd_ms": 406.4188479880892,
+            "p95_ms": 1953.9598199829925
         },
         "SETU_v2": {
-            "mean_ms": 383.8898818450535,
-            "median_ms": 385.9669999801554,
-            "sd_ms": 119.35432918199419,
-            "p95_ms": 585.4065400257236
+            "mean_ms": 485.09796199375455,
+            "median_ms": 495.2484999666922,
+            "sd_ms": 234.96014206253747,
+            "p95_ms": 945.1182699413039
         }
     }
 }

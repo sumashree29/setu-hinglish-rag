@@ -19,7 +19,7 @@ from ranx import Qrels, Run, evaluate
 
 sys.stdout.reconfigure(encoding='utf-8')
 
-ROOT = Path("c:/Users/sumas/Downloads/setu-hinglish-rag-skeleton/setu-hinglish-rag")
+ROOT = Path(__file__).resolve().parents[1]
 sys.path.append(str(ROOT))
 
 import setu.config as config
@@ -102,7 +102,11 @@ per_band_summary = {}
 
 for model_key in MODELS:
     doc_emb_file = DATA_DIR / "embeddings" / f"doc_emb_{model_key}_v2.npy"
+    if not doc_emb_file.exists():
+        doc_emb_file = LOG_DIR / f"doc_emb_{model_key}_v2.npy"
     query_emb_file = DATA_DIR / "embeddings" / f"query_emb_{model_key}_v3.npy"
+    if not query_emb_file.exists():
+        query_emb_file = LOG_DIR / f"query_emb_{model_key}_v3.npy"
     
     d_emb = np.load(doc_emb_file)
     q_emb = np.load(query_emb_file)

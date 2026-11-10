@@ -1,0 +1,41 @@
+{
+    "distributions": {
+        "initial_action": {
+            "LQP": 243,
+            "STOP": 71
+        },
+        "full_sequence": {
+            "('LQP', 'STOP')": 55,
+            "('STOP',)": 71,
+            "('LQP', 'LAG', 'STOP')": 188
+        },
+        "stop_reasons": {
+            "repeat_action_forced": 238,
+            "explicit_stop": 76
+        }
+    },
+    "metrics": {
+        "unique_sequence_count": 3,
+        "sequence_entropy": 1.368284653846772,
+        "explicit_stop_rate": 0.24203821656050956,
+        "forced_repeat_stop_rate": 0.7579617834394905
+    },
+    "chi_square_cmi_vs_initial_action": {
+        "contingency_table": {
+            "STOP": {
+                "low": 8,
+                "med": 16,
+                "high": 47
+            },
+            "LQP": {
+                "low": 8,
+                "med": 64,
+                "high": 171
+            }
+        },
+        "chi2_statistic": 7.308478621189135,
+        "p_value": 0.025881177534564006,
+        "dof": 2,
+        "interpretation": "Controller action correlates with CMI"
+    }
+}
